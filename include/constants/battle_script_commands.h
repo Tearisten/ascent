@@ -296,7 +296,8 @@
 #define MOVEEND_DANCER                            26
 #define MOVEEND_EMERGENCY_EXIT                    27
 #define MOVEEND_CLEAR_BITS                        28
-#define MOVEEND_COUNT                             29
+#define MOVEEND_PARENTAL_BOND                     29
+#define MOVEEND_COUNT                             30
 
 // switch cases
 #define B_SWITCH_NORMAL     0
