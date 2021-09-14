@@ -3239,6 +3239,7 @@ BattleScript_DoMultiHit::
 	goto BattleScript_MultiHitPrintStrings
 BattleScript_MultiHitNoMoreHits::
 	pause B_WAIT_TIME_SHORT
+
 BattleScript_MultiHitPrintStrings::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
@@ -3246,6 +3247,8 @@ BattleScript_MultiHitPrintStrings::
 	copyarray gBattleTextBuff1, sMULTIHIT_STRING, 6
 	printstring STRINGID_HITXTIMES
 	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_MultiHitEnd::
 	seteffectwithchance
 	tryfaintmon BS_TARGET
