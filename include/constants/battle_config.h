@@ -133,7 +133,7 @@
 #define B_UPROAR_TURNS              GEN_7 // In Gen5+, Uproar lasts for 3 turns instead of 2-5 turns.
 #define B_DISABLE_TURNS             GEN_7 // Disable's turns. See Cmd_disablelastusedattack.
 #define B_TAILWIND_TURNS            GEN_7 // In Gen5+, Tailwind lasts 4 turns instead of 3.
-#define B_BEAT_UP_DMG               GEN_7 // In Gen5+, Beat Up uses a different formula to calculate the damage of each hit.
+#define B_BEAT_UP_DMG               GEN_8 // In Gen5+, Beat Up uses a different formula to calculate the damage of each hit, and deals Dark-type damage.
 #define B_TAUNT_TURNS               GEN_7 // In Gen5+, Taunt lasts 3 turns if the user acts before the target, or 4 turns if the target acted before the user. In Gen3, taunt lasts 2 turns and in Gen 4, 3-5 turns.
 
 // Move data settings
