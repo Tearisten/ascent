@@ -216,7 +216,30 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_GULP_MISSILE,
 };
 
-bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
+static const u16 sTwoStrikeMoves[] =
+{
+    MOVE_BONEMERANG,
+    MOVE_DOUBLE_HIT,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DOUBLE_KICK,
+    MOVE_DRAGON_DARTS,
+    MOVE_DUAL_CHOP,
+    MOVE_DUAL_WINGBEAT,
+    MOVE_GEAR_GRIND,
+    MOVE_TWINEEDLE,
+    0xFFFF
+};
+
+bool32 IsAffectedByPowder(u8 battler, u16 ability, u16 holdEffect)
+{
+    if ((B_POWDER_GRASS >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GRASS))
+      || ability == ABILITY_OVERCOAT
+      || holdEffect == HOLD_EFFECT_SAFETY_GOOGLES)
+        return FALSE;
+    return TRUE;
+}
+
+bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide)
 {
     u32 ability = GetBattlerAbility(battlerAtk);
 
@@ -3634,7 +3657,7 @@ u8 AtkCanceller_UnableToUseMove(void)
 
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
             }
-            else if (gBattleMoves[gCurrentMove].effect == EFFECT_DOUBLE_HIT)
+            else if (IsTwoStrikesMove(gCurrentMove))
             {
                 gMultiHitCounter = 2;
 				PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
@@ -3643,7 +3666,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                     // TODO
                 }
             }
-            else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRIPLE_KICK)
+            else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRIPLE_KICK || gCurrentMove == MOVE_SURGING_STRIKES)
             {
                 gMultiHitCounter = 3;
 				PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
