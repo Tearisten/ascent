@@ -725,8 +725,11 @@ static void (*const sTextPrinterTasks[])(u8 taskId) =
 
 static const u8 sMemoNatureTextColor[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
 static const u8 sMemoMiscTextColor[] = _("{COLOR WHITE}{SHADOW DARK_GRAY}"); // This is also affected by palettes, apparently
-static const u8 sStatsLeftColumnLayout[] = _("{DYNAMIC 0}/{DYNAMIC 1}\n{DYNAMIC 2}\n{DYNAMIC 3}");
-static const u8 sStatsRightColumnLayout[] = _("{DYNAMIC 0}\n{DYNAMIC 1}\n{DYNAMIC 2}");
+static const u8 sNeutralNature[] = _("{COLOR 1}{SHADOW 2}"); //DEFAULT TEXT COLOR
+static const u8 sPositiveNature[] = _("{COLOR LIGHT_RED}{SHADOW DARK_GRAY}"); 
+static const u8 sNegativeNature[] = _("{COLOR BLUE}{SHADOW DARK_GRAY}"); 
+static const u8 sStatsLeftColumnLayout[] = _("{DYNAMIC 0}/{DYNAMIC 1}\n{DYNAMIC 2}{DYNAMIC 3}\n{DYNAMIC 4}{DYNAMIC 5}");
+static const u8 sStatsRightColumnLayout[] = _("{DYNAMIC 0}{DYNAMIC 1}\n{DYNAMIC 2}{DYNAMIC 3}\n{DYNAMIC 4}{DYNAMIC 5}");
 static const u8 sMovesPPLayout[] = _("{PP}{DYNAMIC 0}/{DYNAMIC 1}");
 
 #define TAG_MOVE_SELECTOR 30000
@@ -3446,6 +3449,26 @@ static void PrintRibbonCount(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
 }
 
+// stat = att, def , spd, satk, sdef
+bool8 natureBoostUp(u8 nature, u8 stat)
+{
+    if (gNatureStatTable[nature][stat] > 0)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+// stat = att, def , spd, satk, sdef,
+bool8 natureBoostDown(u8 nature, u8 stat)
+{
+    if (gNatureStatTable[nature][stat] < 0)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static void BufferLeftColumnStats(void)
 {
     u8 *currentHPString = Alloc(8);
@@ -3461,8 +3484,33 @@ static void BufferLeftColumnStats(void)
     DynamicPlaceholderTextUtil_Reset();
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, currentHPString);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, maxHPString);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, attackString);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, defenseString);
+
+    u8 nature = sMonSummaryScreen->summary.nature;
+
+    // attack
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sNeutralNature);
+    if (natureBoostUp(nature, 0))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sPositiveNature);
+    }
+    else if (natureBoostDown(nature, 0))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sNegativeNature);
+    }
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, attackString);
+    
+    // def
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sNeutralNature);
+    if (natureBoostUp(nature, 1))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sPositiveNature);
+    }
+    else if (natureBoostDown(nature, 1)) 
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sNegativeNature);
+    }
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(5, defenseString);
+
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
 
     Free(currentHPString);
@@ -3483,9 +3531,45 @@ static void BufferRightColumnStats(void)
     ConvertIntToDecimalStringN(gStringVar3, sMonSummaryScreen->summary.speed, STR_CONV_MODE_RIGHT_ALIGN, 3);
 
     DynamicPlaceholderTextUtil_Reset();
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar2);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, gStringVar3);
+
+    u8 nature = sMonSummaryScreen->summary.nature;
+
+    // satk
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sNeutralNature);
+    if (natureBoostUp(nature, 3))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sPositiveNature);
+    }
+    else if (natureBoostDown(nature, 3))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sNegativeNature);
+    }
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1);
+
+    // sdef
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sNeutralNature);
+    if (natureBoostUp(nature, 4))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sPositiveNature);
+    }
+    else if (natureBoostDown(nature, 4))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, sNegativeNature);
+    }
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gStringVar2);
+
+    // spd
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sNeutralNature);
+    if (natureBoostUp(nature, 2))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sPositiveNature);
+    }
+    else if (natureBoostDown(nature, 2))
+    {
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sNegativeNature);
+    }
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(5, gStringVar3);
+
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
 }
 
