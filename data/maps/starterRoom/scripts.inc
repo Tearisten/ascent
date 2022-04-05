@@ -1,5 +1,10 @@
 starterRoom_MapScripts::
+	goto_if_set FLAG_ALL_STARTERS, StarterRoom_OnTransition
 	.byte 0
+
+StarterRoom_OnTransition::
+	removeobject 5
+	end
 
 Gauntlet1_starterRoom_ProffessorBirch_event::
 	faceplayer
@@ -22,7 +27,7 @@ Gauntlet1_starterRoom_ProffessorBirch_text:
 	.string "currency to spend in a variety\p"
 	.string "of shops. Always check the shops\n"
 	.string "on a new floor.\p"
-	.string "This intended to be hard and\n"
+	.string "This intended to be hard and\n" 
 	.string "you may soft lock yourself\p"
 	.string "if you make poor team building\n"
 	.string "choices.\p"
@@ -34,6 +39,7 @@ Gauntlet1_starterRoom_Scientist_event::
 	goto_if_unset FLAG_FIRE_STARTER, Gauntlet1_starterRoom_Scientist_choosePlease
 	goto_if_unset FLAG_WATER_STARTER, Gauntlet1_starterRoom_Scientist_choosePlease
 	goto_if_unset FLAG_GRASS_STARTER, Gauntlet1_starterRoom_Scientist_choosePlease
+	setflag FLAG_ALL_STARTERS
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
 	end
 
