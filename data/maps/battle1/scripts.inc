@@ -1,6 +1,85 @@
+
 battle1_MapScripts::
 	.byte 0
 
-
-test::
+MoveRelearners_EventScript_MoveRelearner::
+	lockall
+	faceplayer
+	applymovement 2, Common_Movement_FacePlayer
+	waitmovement 0
+	goto MoveRelearners_EventScript_AskTeachMove
 	end
+
+MoveRelearners_EventScript_AskTeachMove::
+	checkitem ITEM_HEART_SCALE
+	goto_if_eq VAR_RESULT, FALSE, MoveRelearners_EventScript_ComeBackWithHeartScale
+	goto MoveRelearners_EventScript_ChooseMon
+	end
+
+MoveRelearners_EventScript_ChooseMon::
+	msgbox MoveRelearners_Text_TutorWhichMon, MSGBOX_DEFAULT
+	special ChooseMonForMoveRelearner
+	waitstate
+	call_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
+	goto MoveRelearners_EventScript_ChooseMove
+	end
+
+MoveRelearners_EventScript_ChooseMove::
+	special TeachMoveRelearnerMove
+	waitstate
+	call_if_eq VAR_0x8004, 0, MoveRelearners_EventScript_CantTeach
+	removeitem ITEM_HEART_SCALE
+	end
+
+MoveRelearners_EventScript_NoMoveToTeachMon::
+	msgbox MoveRelearners_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT
+	goto MoveRelearners_EventScript_ChooseMon
+	end
+ 
+MoveRelearners_EventScript_CantTeach::
+	releaseall
+	end
+
+MoveRelearners_EventScript_ComeBackWithHeartScale::
+	msgbox MoveRelearners_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
+	releaseall
+	end
+
+MoveRelearners_Text_ImTheMoveTutor:
+	.string "I'm the MOVE TUTOR.\p"
+	.string "I know all the moves that POKéMON\n"
+	.string "learn--every one of them--and I can\l"
+	.string "teach POKéMON those moves.\p"
+	.string "I can teach a move to a POKéMON\n"
+	.string "of yours if you'd like.\p"
+	.string "I'll do it for a HEART SCALE.\n"
+	.string "I'm collecting those now.$"
+
+MoveRelearners_Text_ThatsAHeartScaleWantMeToTeachMove:
+	.string "Oh! That's it! That's an honest to\n"
+
+
+MoveRelearners_Text_TutorWhichMon:
+	.string "Which POKéMON needs remembering?\n"
+	.string "1 HEART SCALE per move.$"
+
+MoveRelearners_Text_TeachWhichMove:
+	.string "Which move should I teach?$"
+
+MoveRelearners_Text_DontHaveMoveToTeachPokemon:
+	.string "Sorry…\p"
+	.string "It doesn't appear as if I have any move\n"
+	.string "I can teach that POKéMON.$"
+
+MoveRelearners_Text_HandedOverHeartScale:
+	.string "{PLAYER} handed over one HEART SCALE\n"
+	.string "in exchange.$"
+
+MoveRelearners_Text_ComeBackWithHeartScale:
+	.string "Move Relearner costs 1 HEART SCALE$"
+
+MoveRelearners_Text_CantTeachEgg:
+	.string "Hunh? There isn't a single move that\n"
+	.string "I can teach an EGG.$"
+
+

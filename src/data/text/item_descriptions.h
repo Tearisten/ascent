@@ -669,8 +669,8 @@ static const u8 sGreenShardDesc[] = _(
 
 static const u8 sHeartScaleDesc[] = _(
     "A lovely scale.\n"
-    "It is coveted by\n"
-    "collectors.");
+    "Reminds you of\n"
+    "the past.");
 
 static const u8 sHoneyDesc[] = _(
     "Sweet honey that\n"

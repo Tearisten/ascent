@@ -40,7 +40,12 @@ Gauntlet1_starterRoom_Scientist_event::
 	goto_if_unset FLAG_WATER_STARTER, Gauntlet1_starterRoom_Scientist_choosePlease
 	goto_if_unset FLAG_GRASS_STARTER, Gauntlet1_starterRoom_Scientist_choosePlease
 	setflag FLAG_ALL_STARTERS
+	msgbox Gauntlet1_starterRoom_Scientist_move_text, MSGBOX_DEFAULT
+	giveitem ITEM_HEART_SCALE, 5
+	waitmessage
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
+	waitmovement 5
+	release
 	end
 
 Gauntlet1_starterRoom_Scientist_move::
@@ -58,6 +63,12 @@ Gauntlet1_starterRoom_Scientist_choosePlease::
 Gauntlet1_starterRoom_Scientist_text:
 	.string "Please choose a starter of each\n"
 	.string "type to continue.$"
+
+Gauntlet1_starterRoom_Scientist_move_text:
+	.string "Goodluck! Have 5 heartscales\n"
+	.string "to access the move relearner.\p"
+	.string "Don't spend them too quickly,\n"
+	.string "you'll get more slowly.$"
 
 Gauntlet1_starterRoom_haveThisType_event::
 	msgbox Gauntlet1_starterRoom_haveThisType_text, MSGBOX_DEFAULT

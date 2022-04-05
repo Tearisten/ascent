@@ -4860,7 +4860,7 @@ static void DisplayLearnMoveMessage(const u8 *str)
 
 static void DisplayLearnMoveMessageAndClose(u8 taskId, const u8 *str)
 {
-    DisplayLearnMoveMessage(str);
+    //DisplayLearnMoveMessage(str);
     gTasks[taskId].func = Task_ClosePartyMenuAfterText;
 }
 
@@ -4915,7 +4915,7 @@ static void Task_LearnedMove(u8 taskId)
     GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, gMoveNames[move[0]]);
     StringExpandPlaceholders(gStringVar4, gText_PkmnLearnedMove3);
-    DisplayPartyMenuMessage(gStringVar4, TRUE);
+    //DisplayPartyMenuMessage(gStringVar4, TRUE);
     ScheduleBgCopyTilemapToVram(2);
     gTasks[taskId].func = Task_DoLearnedMoveFanfareAfterText;
 }
@@ -4924,7 +4924,7 @@ static void Task_DoLearnedMoveFanfareAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        PlayFanfare(MUS_LEVEL_UP);
+        //PlayFanfare(MUS_LEVEL_UP);
         gTasks[taskId].func = Task_LearnNextMoveOrClosePartyMenu;
     }
 }
@@ -5007,7 +5007,7 @@ static void DisplayPartyMenuForgotMoveMessage(u8 taskId)
 
     GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, gMoveNames[move]);
-    DisplayLearnMoveMessage(gText_12PoofForgotMove);
+    //DisplayLearnMoveMessage(gText_12PoofForgotMove);
     gTasks[taskId].func = Task_PartyMenuReplaceMove;
 }
 
@@ -5617,7 +5617,7 @@ static void TryTutorSelectedMon(u8 taskId)
             }
             break;
         }
-        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
+        //DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
         gTasks[taskId].func = Task_ReplaceMoveYesNo;
     }
 }
