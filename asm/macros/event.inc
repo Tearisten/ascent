@@ -1874,6 +1874,11 @@
 	goto_if_eq \dest
 	.endm
 
+	.macro compareGive condition:req, species:req
+	compare VAR_RESULT, \condition
+	givemon \species, 50, ITEM_NONE
+	.endm
+
 	@ Message box types
 	MSGBOX_NPC = 2
 	MSGBOX_SIGN = 3
@@ -1998,4 +2003,14 @@
 	.endm
 	.macro totemboost_evas2 battler:req
 	settotemboost \battler, 0, 0, 0, 0, 0, 0, 2
+	.endm
+
+	.macro scrollingmultichoice id:req, x:req, y:req, show:req, b:req
+	setvar VAR_0x8004, \id,
+	setvar VAR_0x8005, \x,
+	setvar VAR_0x8006, \y,
+	setvar VAR_0x8007, \show,
+	setvar VAR_0x8008, \b,
+	callnative ScriptMenu_ScrollingMultichoice
+	waitstate
 	.endm
