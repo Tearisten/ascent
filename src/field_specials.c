@@ -4470,12 +4470,6 @@ void ChangePokemonNature (void)
 {
     u8 newNature = 0;
     newNature = gSpecialVar_0x8005;
-    u8 personality;
-    do
-    {
-        personality = Random32();
-    }
-    while (newNature != GetNatureFromPersonality(personality) % NUM_NATURES);
-	SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, &personality);
+	SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NATURE, &newNature);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }

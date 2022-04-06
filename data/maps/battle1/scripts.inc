@@ -1,8 +1,4 @@
 battle1_MapScripts::
-	turnobject 2, DIR_EAST
-	turnobject 3, DIR_EAST
-	turnobject 4, DIR_EAST
-	turnobject 5, DIR_EAST
 	.byte 0
 
 MoveRelearners_EventScript_MoveRelearner::
