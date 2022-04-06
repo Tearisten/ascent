@@ -22,6 +22,7 @@
 
 #include "list_menu.h"
 #include "data.h"
+#include "data/text/nature_names.h"
 
 static EWRAM_DATA u8 sProcessInputDelay = 0;
 
@@ -842,6 +843,31 @@ static const struct ListMenuItem statIVNums[] =
     {sText_4, 4}
 };
 
+static const struct ListMenuItem natureList[] =
+{
+    {sAdamantNatureName,NATURE_ADAMANT},
+    {sModestNatureName,NATURE_MODEST},
+    {sJollyNatureName,NATURE_JOLLY},
+    {sTimidNatureName,NATURE_TIMID},
+    {sBoldNatureName,NATURE_BOLD},
+    {sImpishNatureName,NATURE_IMPISH},
+    {sCarefulNatureName,NATURE_CAREFUL},
+    {sCalmNatureName,NATURE_CALM},
+    {sBraveNatureName,NATURE_BRAVE},
+    {sQuietNatureName,NATURE_QUIET},
+    {sLonelyNatureName, NATURE_LONELY},
+    {sNaughtyNatureName,NATURE_NAUGHTY},
+    {sDocileNatureName,NATURE_RELAXED},
+    {sLaxNatureName,NATURE_LAX},
+    {sHastyNatureName,NATURE_HASTY},
+    {sNaiveNatureName,NATURE_NAIVE},
+    {sMildNatureName,NATURE_MILD},
+    {sRashNatureName,NATURE_RASH},
+    {sGentleNatureName,NATURE_GENTLE},
+    {sSassyNatureName,NATURE_SASSY},
+    {sSeriousNatureName,NATURE_SERIOUS}
+};
+
 // Table of your multichoice sets.
 struct
 {
@@ -853,7 +879,8 @@ struct
     {waterStarters, ARRAY_COUNT(waterStarters)},
     {grassStarters, ARRAY_COUNT(grassStarters)},
     {statIVList, ARRAY_COUNT(statIVList)},
-    {statIVNums, ARRAY_COUNT(statIVNums)}
+    {statIVNums, ARRAY_COUNT(statIVNums)},
+    {natureList, ARRAY_COUNT(natureList)}
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);

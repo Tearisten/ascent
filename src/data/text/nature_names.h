@@ -1,3 +1,5 @@
+#ifndef NATURE_NAMES
+#define NATURE_NAMES
 static const u8 sHardyNatureName[] = _("Hardy");
 static const u8 sLonelyNatureName[] = _("Lonely");
 static const u8 sBraveNatureName[] = _("Brave");
@@ -52,3 +54,4 @@ const u8 *const gNatureNamePointers[NUM_NATURES] =
     [NATURE_CAREFUL] = sCarefulNatureName,
     [NATURE_QUIRKY] = sQuirkyNatureName,
 };
+#endif

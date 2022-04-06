@@ -538,3 +538,4 @@ gSpecials::
 	def_special SetTotemBoost
 	def_special IncreaseChosenMonEVs
 	def_special ResetChosenMonEVs
+	def_special ChangePokemonNature

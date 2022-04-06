@@ -4462,3 +4462,20 @@ void ResetChosenMonEVs (void)
     }
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+// Changes the selected Pokemon's nature.
+// gSpecialVar_0x8004 must be set to the party slot of the Pokemon whose nature should be changed
+// Set gSpecialVar_0x8005 to the nature
+void ChangePokemonNature (void)
+{
+    u8 newNature = 0;
+    newNature = gSpecialVar_0x8005;
+    u8 personality;
+    do
+    {
+        personality = Random32();
+    }
+    while (newNature != GetNatureFromPersonality(personality) % NUM_NATURES);
+	SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, &personality);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}

@@ -2,6 +2,7 @@ battle1_MapScripts::
 	turnobject 2, DIR_EAST
 	turnobject 3, DIR_EAST
 	turnobject 4, DIR_EAST
+	turnobject 5, DIR_EAST
 	.byte 0
 
 MoveRelearners_EventScript_MoveRelearner::
@@ -88,7 +89,7 @@ EVspreader_event::
 	lock
 	faceplayer
 	msgbox EVspreader_text, MSGBOX_DEFAULT
-	special ChooseMonForMoveRelearner
+	special ChoosePartyMon
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8003, VAR_0x8004
@@ -100,7 +101,7 @@ EVspreader_event::
 	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8006, VAR_RESULT
 	setorcopyvar VAR_0x8004, VAR_0x8003
-	setorcopyVAR VAR_0x8005, VAR_0x8002
+	setorcopyvar VAR_0x8005, VAR_0x8002
 	special IncreaseChosenMonEVs
 	goto_if_eq VAR_RESULT, 0, EVspreader_aboveMax_func
 	releaseall
@@ -117,13 +118,13 @@ EVspreader_aboveMax_func::
 
 EVspreader_aboveMax_text:
 	.string "Increase failed because it\n"
-	.string "puts pokemon above 510 cap.$"
+	.string "puts POKéMON above 510 cap.$"
 
 EVreset_event::
 	lock
 	faceplayer
 	msgbox EVreset_text, MSGBOX_DEFAULT
-	special ChooseMonForMoveRelearner
+	special ChoosePartyMon
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	waitstate
 	special ResetChosenMonEVs
@@ -131,6 +132,26 @@ EVreset_event::
 	end
 
 EVreset_text:
-	.string "Reset a pokemon's EVs?\n"
+	.string "Reset a POKéMON's EVs?\n"
 	.string "This is free.$"
 
+
+NatureChange_event::
+	lock
+	faceplayer
+	msgbox NatureChange_text, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
+	waitstate
+	setorcopyvar VAR_0x8000, VAR_0x8004
+	scrollingmultichoice 5, 1, 1, 8, TRUE
+	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8004, VAR_0x8000
+	setorcopyvar VAR_0x8005, VAR_RESULT
+	special ChangePokemonNature
+	releaseall
+	end
+
+NatureChange_text::
+	.string "Would you like to change the\n"
+	.string "nature of a POKéMON? It's free!$"

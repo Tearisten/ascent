@@ -6,7 +6,10 @@
 extern u8 gLastViewedMonIndex;
 
 extern const u8 *const gMoveDescriptionPointers[];
+#ifndef NATURE_NAMES
+#define NATURE_NAMES
 extern const u8 *const gNatureNamePointers[];
+#endif
 
 void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void));
 void ShowSelectMovePokemonSummaryScreen(struct Pokemon *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void), u16 newMove);
