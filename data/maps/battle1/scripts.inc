@@ -1,4 +1,7 @@
 battle1_MapScripts::
+	turnobject 2, DIR_EAST
+	turnobject 3, DIR_EAST
+	turnobject 4, DIR_EAST
 	.byte 0
 
 MoveRelearners_EventScript_MoveRelearner::
@@ -100,7 +103,6 @@ EVspreader_event::
 	setorcopyVAR VAR_0x8005, VAR_0x8002
 	special IncreaseChosenMonEVs
 	goto_if_eq VAR_RESULT, 0, EVspreader_aboveMax_func
-	msgbox MoveRelearners_Text_CantTeachEgg, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -117,4 +119,18 @@ EVspreader_aboveMax_text:
 	.string "Increase failed because it\n"
 	.string "puts pokemon above 510 cap.$"
 
+EVreset_event::
+	lock
+	faceplayer
+	msgbox EVreset_text, MSGBOX_DEFAULT
+	special ChooseMonForMoveRelearner
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
+	waitstate
+	special ResetChosenMonEVs
+	releaseall
+	end
+
+EVreset_text:
+	.string "Reset a pokemon's EVs?\n"
+	.string "This is free.$"
 

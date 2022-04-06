@@ -4446,11 +4446,19 @@ void IncreaseChosenMonEVs (void)
         
         CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
     }
-    
-
-
-
 
     // Store new EV value in variable so it can be reported to the player
     gSpecialVar_0x8007 = newEV;
+}
+
+void ResetChosenMonEVs (void)
+{
+    u8 i;
+    u8 clearEVs = 0;
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], (MON_DATA_HP_EV + i), &clearEVs);
+    }
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
