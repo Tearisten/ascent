@@ -4372,3 +4372,85 @@ u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
 }
+
+// Adds EVs to one of the selected Pokemon's stats.
+// gSpecialVar_0x8004 must be set to the party slot of the Pokemon whose EVs should be increased
+// gSpecialVar_0x8005 must be set to the index of the EV to be changed (0 for HP, 1 for Attack, etc.)
+// gSpecialVar_0x8006 must be set to the number of EVs to add to that stat
+// Stores the new sum of the EVs in that stat in gSpecialVar_0x8007
+void IncreaseChosenMonEVs (void)
+{
+    u8 i = 0;
+    u8 increment = gSpecialVar_0x8006;
+    u16 sumEVs = 0;
+    u8 oldEV;
+    u8 newEV;
+    u8 statToChange = gSpecialVar_0x8005;
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        sumEVs = sumEVs + GetMonData(&gPlayerParty[gSpecialVar_0x8004], (MON_DATA_HP_EV + i), NULL);
+    }
+    
+
+    // Get the number of EVs currently in the chosen stat
+    switch (statToChange)
+    {
+    case MON_DATA_HP_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, NULL);
+        break;
+    case MON_DATA_ATK_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, NULL);
+       break;
+    case MON_DATA_DEF_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, NULL);
+       break;
+    case MON_DATA_SPEED_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, NULL);
+       break;
+    case MON_DATA_SPATK_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, NULL);
+       break;
+    case MON_DATA_SPDEF_EV: oldEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, NULL);
+       break;
+    }
+
+    // Should replace 252 here with symbol for max EVs in a stat
+    if ((sumEVs + increment) > 510)
+    {
+        newEV = 510 - sumEVs;
+    }
+    else
+    {
+        newEV = oldEV + increment;
+    }
+
+    if ((sumEVs + newEV) > 510 )
+    {
+        gSpecialVar_Result = 0;
+    }
+    else
+    {
+        gSpecialVar_Result = 1;
+            
+        switch (statToChange)
+        {
+        case MON_DATA_HP_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEV);
+        break;
+        case MON_DATA_ATK_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &newEV);
+        break;
+        case MON_DATA_DEF_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &newEV);
+        break;
+        case MON_DATA_SPEED_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &newEV);
+        break;
+        case MON_DATA_SPATK_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &newEV);
+        break;
+        case MON_DATA_SPDEF_EV: SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &newEV);
+        break;
+        }
+        
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    }
+    
+
+
+
+
+    // Store new EV value in variable so it can be reported to the player
+    gSpecialVar_0x8007 = newEV;
+}

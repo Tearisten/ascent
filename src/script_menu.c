@@ -806,7 +806,41 @@ static const struct ListMenuItem grassStarters[] =
     {gSpeciesNames[SPECIES_GROOKEY], SPECIES_GROOKEY}
 };
 
+static const u8 sText_HP[] = _("HP");
+static const u8 sText_Attack[] = _("Attack");
+static const u8 sText_Defence[] = _("Defence");
+static const u8 sText_SpAttack[] = _("Sp. Attack");
+static const u8 sText_SpDefence[] = _("Sp. Defence");
+static const u8 sText_Speed[] = _("Speed");
 
+static const struct ListMenuItem statIVList[] =
+{
+    {sText_HP, MON_DATA_HP_EV},
+    {sText_Attack, MON_DATA_ATK_EV},
+    {sText_Defence, MON_DATA_DEF_EV},
+    {sText_SpAttack, MON_DATA_SPATK_EV},
+    {sText_SpDefence, MON_DATA_SPDEF_EV},
+    {sText_Speed, MON_DATA_SPEED_EV}
+};
+
+static const u8 sText_252[] = _("252");
+static const u8 sText_128[] = _("128");
+static const u8 sText_64[] = _("64");
+static const u8 sText_32[] = _("32");
+static const u8 sText_16[] = _("16");
+static const u8 sText_8[] = _("8");
+static const u8 sText_4[] = _("4");
+
+static const struct ListMenuItem statIVNums[] =
+{
+    {sText_252, 252},
+    {sText_128, 128},
+    {sText_64, 64},
+    {sText_32, 32},
+    {sText_16, 16},
+    {sText_8, 8},
+    {sText_4, 4}
+};
 
 // Table of your multichoice sets.
 struct
@@ -818,6 +852,8 @@ struct
     {fireStarters, ARRAY_COUNT(fireStarters)},
     {waterStarters, ARRAY_COUNT(waterStarters)},
     {grassStarters, ARRAY_COUNT(grassStarters)},
+    {statIVList, ARRAY_COUNT(statIVList)},
+    {statIVNums, ARRAY_COUNT(statIVNums)}
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);
@@ -892,7 +928,7 @@ static void Task_ScrollingMultichoiceInput(u8 taskId)
             case LIST_CANCEL:
                 if (gTasks[taskId].data[1])
                 {
-                    gSpecialVar_Result = SPECIES_NONE;
+                    gSpecialVar_Result = 0;
                     done = TRUE;
                 }
                 break;

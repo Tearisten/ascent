@@ -1,4 +1,3 @@
-
 battle1_MapScripts::
 	.byte 0
 
@@ -20,14 +19,14 @@ MoveRelearners_EventScript_ChooseMon::
 	msgbox MoveRelearners_Text_TutorWhichMon, MSGBOX_DEFAULT
 	special ChooseMonForMoveRelearner
 	waitstate
-	call_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	goto MoveRelearners_EventScript_ChooseMove
 	end
 
 MoveRelearners_EventScript_ChooseMove::
 	special TeachMoveRelearnerMove
 	waitstate
-	call_if_eq VAR_0x8004, 0, MoveRelearners_EventScript_CantTeach
+	goto_if_eq VAR_0x8004, 0, MoveRelearners_EventScript_CantTeach
 	removeitem ITEM_HEART_SCALE
 	end
 
@@ -81,5 +80,41 @@ MoveRelearners_Text_ComeBackWithHeartScale:
 MoveRelearners_Text_CantTeachEgg:
 	.string "Hunh? There isn't a single move that\n"
 	.string "I can teach an EGG.$"
+
+EVspreader_event::
+	lock
+	faceplayer
+	msgbox EVspreader_text, MSGBOX_DEFAULT
+	special ChooseMonForMoveRelearner
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8003, VAR_0x8004
+	scrollingmultichoice 3, 1, 1, 6, TRUE
+	setorcopyvar VAR_0x8002, VAR_RESULT
+	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8005, VAR_RESULT
+	scrollingmultichoice 4, 1, 1, 7, TRUE
+	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8006, VAR_RESULT
+	setorcopyvar VAR_0x8004, VAR_0x8003
+	setorcopyVAR VAR_0x8005, VAR_0x8002
+	special IncreaseChosenMonEVs
+	goto_if_eq VAR_RESULT, 0, EVspreader_aboveMax_func
+	msgbox MoveRelearners_Text_CantTeachEgg, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EVspreader_text:
+	.string "Which POKéMON needs it's EVs\n"
+	.string "adjusted? This is free.$"
+
+EVspreader_aboveMax_func::
+	msgbox EVspreader_aboveMax_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EVspreader_aboveMax_text:
+	.string "Increase failed because it\n"
+	.string "puts pokemon above 510 cap.$"
 
 
