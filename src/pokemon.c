@@ -3281,7 +3281,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
 
     if (gBaseStats[species].abilities[1])
     {
-        value = personality & 1;
+        value = 0;
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
