@@ -1663,11 +1663,11 @@ static void ChangeSummaryState(s16 *taskData, u8 taskId)
             taskData[3] = 1;
             break;
         case 1:
-            taskData[3] = 2;
-            break;
-        case 2:
             taskData[3] = 0;
             break;
+        // case 2:
+        //     taskData[3] = 0;
+        //     break;
     }
     gTasks[taskId].func = Task_HandleInput;
 }
@@ -1691,7 +1691,7 @@ static void BufferIvOrEvStats(u8 mode)
         spD = sMonSummaryScreen->summary.spdef;
         spe = sMonSummaryScreen->summary.speed;
         break;
-    case 1: // iv mode
+    /* case 2: // iv mode
         hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
         atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
         def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
@@ -1699,8 +1699,8 @@ static void BufferIvOrEvStats(u8 mode)
         spA = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
         spD = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
         spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
-        break;
-    case 2: // ev mode
+        break; */
+    case 1: // ev mode
         hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_EV);
         atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV);
         def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_EV);
