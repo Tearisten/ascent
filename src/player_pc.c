@@ -174,7 +174,7 @@ static void ItemStorage_DrawItemIcon(u16 itemId);
 static void ItemStorage_PrintDescription(s32 id);
 static void ItemStorage_EraseMainMenu(u8 taskId);
 static void ItemStorage_MoveCursor(s32 id, bool8 b, struct ListMenu * thisMenu);
-static void ItemStorage_PrintMenuItem(u8 windowId, u32 id, u8 yOffset);
+static void ItemStorage_PrintMenuItem(u8 windowId, s32 id, u8 yOffset, u8 itempos);
 
 static EWRAM_DATA const u8 *sTopMenuOptionOrder = NULL;
 static EWRAM_DATA u8 sTopMenuNumOptions = 0;
@@ -1019,7 +1019,7 @@ static void ItemStorage_MoveCursor(s32 id, bool8 onInit, struct ListMenu *list)
     }
 }
 
-static void ItemStorage_PrintMenuItem(u8 windowId, u32 id, u8 yOffset)
+static void ItemStorage_PrintMenuItem(u8 windowId, s32 id, u8 yOffset, u8 itempos)
 {
     if (id != LIST_CANCEL)
     {

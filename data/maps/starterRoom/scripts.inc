@@ -45,6 +45,7 @@ Gauntlet1_starterRoom_Scientist_event::
 	waitmessage
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
 	waitmovement 5
+	setflag FLAG_ROOM_1_CLEAR
 	release
 	end
 

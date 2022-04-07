@@ -1488,35 +1488,7 @@ static void InterviewAfter_BravoTrainerBattleTowerProfile(void)
 
 void TryPutSmartShopperOnAir(void)
 {
-    TVShow *show;
-    u8 i;
-
-    if (!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_HILL_ENTRANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_HILL_ENTRANCE))
-     && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BATTLE_FRONTIER_MART) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BATTLE_FRONTIER_MART))
-     && !rbernoulli(1, 3))
-    {
-        sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
-        if (sCurTVShowSlot != -1 && IsRecordMixShowAlreadySpawned(TVSHOW_SMART_SHOPPER, FALSE) != TRUE)
-        {
-            SortPurchasesByQuantity();
-            if (gMartPurchaseHistory[0].quantity >= 20)
-            {
-                show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
-                show->smartshopperShow.kind = TVSHOW_SMART_SHOPPER;
-                show->smartshopperShow.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-                show->smartshopperShow.shopLocation = gMapHeader.regionMapSectionId;
-                for (i = 0; i < SMARTSHOPPER_NUM_ITEMS; i++)
-                {
-                    show->smartshopperShow.itemIds[i] = gMartPurchaseHistory[i].itemId;
-                    show->smartshopperShow.itemAmounts[i] = gMartPurchaseHistory[i].quantity;
-                }
-                show->smartshopperShow.priceReduced = IsPokeNewsActive(POKENEWS_SLATEPORT);
-                StringCopy(show->smartshopperShow.playerName, gSaveBlock2Ptr->playerName);
-                StorePlayerIdInRecordMixShow(show);
-                show->smartshopperShow.language = gGameLanguage;
-            }
-        }
-    }
+    return;
 }
 
 void PutNameRaterShowOnTheAir(void)
@@ -2825,23 +2797,7 @@ static bool8 IsRecordMixShowAlreadySpawned(u8 kind, bool8 delete)
 
 static void SortPurchasesByQuantity(void)
 {
-    u8 i, j;
-    
-    for (i = 0; i < SMARTSHOPPER_NUM_ITEMS - 1; i++)
-    {
-        for (j = i + 1; j < SMARTSHOPPER_NUM_ITEMS; j++)
-        {
-            if (gMartPurchaseHistory[i].quantity < gMartPurchaseHistory[j].quantity)
-            {
-                u16 tempItemId = gMartPurchaseHistory[i].itemId;
-                u16 tempQuantity = gMartPurchaseHistory[i].quantity;
-                gMartPurchaseHistory[i].itemId = gMartPurchaseHistory[j].itemId;
-                gMartPurchaseHistory[i].quantity = gMartPurchaseHistory[j].quantity;
-                gMartPurchaseHistory[j].itemId = tempItemId;
-                gMartPurchaseHistory[j].quantity = tempQuantity;
-            }
-        }
-    }
+    return;
 }
 
 static void TryReplaceOldTVShowOfKind(u8 kind)

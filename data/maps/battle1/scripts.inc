@@ -151,3 +151,10 @@ NatureChange_event::
 NatureChange_text::
 	.string "Would you like to change the\n"
 	.string "nature of a POKéMON? It's free!$"
+
+TMShop_event::
+	lockall
+	special CreateTMShopMenu
+	waitstate
+	releaseall
+	end
