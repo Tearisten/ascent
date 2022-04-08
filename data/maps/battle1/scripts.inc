@@ -165,3 +165,23 @@ ItemShop_event::
 	waitstate
 	releaseall
 	end
+
+PokeShop_event::
+	lock
+	faceplayer
+	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK
+	special ShowBattlePointsWindow
+	setvar VAR_0x8004, SCROLL_MULTI_POKESHOP
+	special ShowFrontierExchangeCornerItemIconWindow
+	msgbox NatureChange_text, MSGBOX_DEFAULT
+	special ShowScrollableMultichoice
+	waitstate
+	setorcopyvar VAR_0x8001, VAR_RESULT
+	special CloseFrontierExchangeCornerItemIconWindow
+	msgbox NatureChange_text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, MoveRelearners_EventScript_CantTeach
+	case YES, MoveRelearners_EventScript_CantTeach
+	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
+	special CloseBattlePointsWindow
+	end

@@ -65,6 +65,7 @@
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
 #include "palette.h"
+#include "trainer_pokemon_sprites.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -78,6 +79,7 @@ static EWRAM_DATA struct ListMenuItem *sScrollableMultichoice_ListMenuItem = NUL
 static EWRAM_DATA u16 sScrollableMultichoice_ScrollOffset = 0;
 static EWRAM_DATA u16 sFrontierExchangeCorner_NeverRead = 0;
 static EWRAM_DATA u8 sScrollableMultichoice_ItemSpriteId = 0;
+static EWRAM_DATA u16 sScrollableMultichoice_PokeSpriteId = 0;
 static EWRAM_DATA u8 sBattlePointsWindowId = 0;
 static EWRAM_DATA u8 sFrontierExchangeCorner_ItemIconWindowId = 0;
 static EWRAM_DATA u8 sPCBoxToSendMon = 0;
@@ -118,6 +120,7 @@ static void ScrollableMultichoice_RemoveScrollArrows(u8 taskId);
 static void Task_ScrollableMultichoice_WaitReturnToList(u8 taskId);
 static void Task_ScrollableMultichoice_ReturnToList(u8 taskId);
 static void ShowFrontierExchangeCornerItemIcon(u16 item);
+static void ShowFrontierExchangeCornerPokeIcon(u16 poke);
 static void Task_DeoxysRockInteraction(u8 taskId);
 static void ChangeDeoxysRockLevel(u8 a0);
 static void WaitForDeoxysRockMovement(u8 taskId);
@@ -2434,6 +2437,16 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
+        case SCROLL_MULTI_POKESHOP:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 1;
+            task->tLeft = 1;
+            task->tTop = 1;
+            task->tWidth = 8;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
         default:
             gSpecialVar_Result = MULTI_B_PRESSED;
             DestroyTask(taskId);
@@ -2518,6 +2531,10 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_FocusBand64BP,
         gText_ScopeLens64BP,
         gText_Exit
+    },
+    [SCROLL_MULTI_POKESHOP] =
+    {
+        gText_BP_Template
     },
     [SCROLL_MULTI_BERRY_POWDER_VENDOR] =
     {
@@ -2607,6 +2624,7 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     ScriptContext2_Enable();
     sScrollableMultichoice_ScrollOffset = 0;
     sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
+    sScrollableMultichoice_PokeSpriteId = MAX_SPRITES;
     FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, 0);
     ShowBattleFrontierTutorWindow(task->tScrollMultiId, 0);
     sScrollableMultichoice_ListMenuItem = AllocZeroed(task->tNumItems * 8);
@@ -2981,7 +2999,7 @@ void ShowBattlePointsWindow(void)
 {
     static const struct WindowTemplate sBattlePoints_WindowTemplate = {
         .bg = 0,
-        .tilemapLeft = 1,
+        .tilemapLeft = 19,
         .tilemapTop = 1,
         .width = 6,
         .height = 2,
@@ -2990,7 +3008,7 @@ void ShowBattlePointsWindow(void)
     };
 
     sBattlePointsWindowId = AddWindow(&sBattlePoints_WindowTemplate);
-    SetStandardWindowBorderStyle(sBattlePointsWindowId, 0);
+    SetStandardWindowBorderStyle(sBattlePointsWindowId, 1);
     UpdateBattlePointsWindow();
     CopyWindowToVram(sBattlePointsWindowId, COPYWIN_GFX);
 }
@@ -3026,10 +3044,10 @@ void ShowFrontierExchangeCornerItemIconWindow(void)
 {
     static const struct WindowTemplate sFrontierExchangeCorner_ItemIconWindowTemplate = {
         .bg = 0,
-        .tilemapLeft = 2,
-        .tilemapTop = 9,
-        .width = 4,
-        .height = 4,
+        .tilemapLeft = 18,
+        .tilemapTop = 5,
+        .width = 8,
+        .height = 8,
         .paletteNum = 15,
         .baseBlock = 20,
     };
@@ -3051,7 +3069,7 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
 {
     #include "data/battle_frontier/battle_frontier_exchange_corner.h"
 
-    if (menu >= SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_1 && menu <= SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR)
+    if ((menu >= SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_1 && menu <= SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR) || menu == SCROLL_MULTI_POKESHOP)
     {
         FillWindowPixelRect(0, PIXEL_FILL(1), 0, 0, 216, 32);
         switch (menu)
@@ -3090,6 +3108,10 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
                 AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
                 ShowFrontierExchangeCornerItemIcon(sFrontierExchangeCorner_HoldItems[selection]);
                 break;
+            case SCROLL_MULTI_POKESHOP:
+                AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
+                ShowFrontierExchangeCornerPokeIcon(sFrontierExchangeCorner_Pokemon[selection]);
+                break;
         }
     }
 }
@@ -3108,9 +3130,23 @@ static void ShowFrontierExchangeCornerItemIcon(u16 item)
     }
 }
 
+static void ShowFrontierExchangeCornerPokeIcon(u16 poke)
+{
+    FreeSpriteTilesByTag(TAG_NONE);
+    FreeSpritePaletteByTag(TAG_NONE);
+    sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(SPECIES_SNORLAX, 0, 0x8000, TRUE, 88, 32, 15, TAG_NONE);;
+
+    if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
+    {
+        gSprites[sScrollableMultichoice_PokeSpriteId].oam.priority = 0;
+        gSprites[sScrollableMultichoice_PokeSpriteId].x = 175;
+        gSprites[sScrollableMultichoice_PokeSpriteId].y = 70;
+    }
+}
+
 static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
 {
-    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES)
+    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES || menu == SCROLL_MULTI_POKESHOP)
     {
         switch (menu)
         {
@@ -3120,8 +3156,17 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
             case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
                 DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
                 break;
+            case SCROLL_MULTI_POKESHOP:
+                DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_PokeSpriteId]);
+                break;
         }
-        sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
+    }
+    else if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
+    {
+        switch (menu)
+        {
+
+        }
     }
 }
 

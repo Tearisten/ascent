@@ -593,7 +593,7 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
     {
         spriteId = CreateMonSprite_PicBox(species, x * 8 + 40, y * 8 + 40, 0);
         taskId = CreateTask(Task_PokemonPicWindow, 0x50);
-        gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
+        gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 10, 10);
         gTasks[taskId].tState = 0;
         gTasks[taskId].tMonSpecies = species;
         gTasks[taskId].tMonSpriteId = spriteId;
@@ -868,6 +868,11 @@ static const struct ListMenuItem natureList[] =
     {sSeriousNatureName,NATURE_SERIOUS}
 };
 
+static const struct ListMenuItem pokeShopList[] =
+{
+    {gSpeciesNames[SPECIES_CATERPIE], SPECIES_CATERPIE}
+};
+
 // Table of your multichoice sets.
 struct
 {
@@ -875,12 +880,13 @@ struct
     int count;
 } static const sScrollingSets[] =
 {
-    {fireStarters, ARRAY_COUNT(fireStarters)},
-    {waterStarters, ARRAY_COUNT(waterStarters)},
-    {grassStarters, ARRAY_COUNT(grassStarters)},
-    {statIVList, ARRAY_COUNT(statIVList)},
-    {statIVNums, ARRAY_COUNT(statIVNums)},
-    {natureList, ARRAY_COUNT(natureList)}
+    {fireStarters, ARRAY_COUNT(fireStarters)}, //0
+    {waterStarters, ARRAY_COUNT(waterStarters)},//1
+    {grassStarters, ARRAY_COUNT(grassStarters)},//2
+    {statIVList, ARRAY_COUNT(statIVList)},//3
+    {statIVNums, ARRAY_COUNT(statIVNums)},//4
+    {natureList, ARRAY_COUNT(natureList)},//5
+    {pokeShopList, ARRAY_COUNT(pokeShopList)},//6
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);
@@ -938,7 +944,7 @@ void ScriptMenu_ScrollingMultichoice(void)
 
 static void Task_ScrollingMultichoiceInput(u8 taskId)
 {
-    if (gTasks[taskId].data[3])
+    if (gTasks[taskId].data[3]) //delay a few ms
     {
         gTasks[taskId].data[3]--;
     }

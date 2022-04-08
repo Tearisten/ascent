@@ -97,3 +97,9 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
     BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc,
     gText_Exit
 };
+
+static const u16 sFrontierExchangeCorner_Pokemon[] =
+{
+    SPECIES_CATERPIE,
+    0xFFFF
+};

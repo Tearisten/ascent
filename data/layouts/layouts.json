@@ -4425,7 +4425,7 @@
       "id": "LAYOUT_BATTLE1",
       "name": "battle1_Layout",
       "width": 15,
-      "height": 23,
+      "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/battle1/border.bin",
