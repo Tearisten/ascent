@@ -540,3 +540,4 @@ gSpecials::
 	def_special ResetChosenMonEVs
 	def_special ChangePokemonNature
 	def_special CreateTMShopMenu
+	def_special CreatePokemartMenu

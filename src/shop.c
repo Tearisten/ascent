@@ -315,40 +315,55 @@ static void SetShopMenuCallback(void (* callback)(void))
     sMartInfo.callback = callback;
 }
 
-static void SetShopItemsForSale(const u16 *items)
+struct itemFlagMap
 {
-    u16 i = 0;
+    const u16 item;
+    const u16 flag;
+};
 
-    sMartInfo.itemList = items;
+static const struct itemFlagMap itemToFlag[] =
+{
+    {ITEM_ASSAULT_VEST, FLAG_ROOM_1_CLEAR},
+    {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
+    {ITEM_ABILITY_CAPSULE, FLAG_UNUSED_0x020},
+    {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
+};
+
+
+static void SetShopItemsForSale()
+{
     sMartInfo.itemCount = 0;
+    u16 shopItemList[BAG_TMHM_COUNT];
 
-    while (sMartInfo.itemList[i])
-    {
-        sMartInfo.itemCount++;
-        i++;
+    for (u8 i = 0; i < ARRAY_COUNT(itemToFlag) ; i++)
+    {   
+        if (FlagGet(itemToFlag[i].flag))
+        {
+            shopItemList[sMartInfo.itemCount] = itemToFlag[i].item;
+            sMartInfo.itemCount++;
+        }
     }
+    sMartInfo.itemList = shopItemList;
 }
 
-
-static const u16 TMflagMap[] =
+static const struct itemFlagMap tmToFlag[] =
 {
-    FLAG_ROOM_1_CLEAR, // 01
-    FLAG_ROOM_1_CLEAR,
-    FLAG_ROOM_2_CLEAR,
-    FLAG_ROOM_1_CLEAR
+    {ITEM_TM01, FLAG_ROOM_1_CLEAR},
+    {ITEM_TM02, FLAG_UNUSED_0x020},
+    {ITEM_TM05, FLAG_ALL_STARTERS},
+    {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
 };
 
 static void SetTMShopItemsForSale()
 {
-    u8 i = 0;
     sMartInfo.itemCount = 0;
     u16 shopTMslist[BAG_TMHM_COUNT];
 
-    for (u8 i = 0; i < ARRAY_COUNT(TMflagMap); ++i)
+    for (u8 i = 0; i < ARRAY_COUNT(tmToFlag); ++i)
     {
-        if (FlagGet(TMflagMap[i]))
+        if (FlagGet(tmToFlag[i].flag))
         {
-            shopTMslist[sMartInfo.itemCount] = i + ITEM_TM01;
+            shopTMslist[sMartInfo.itemCount] = tmToFlag[i].item;
             sMartInfo.itemCount++;
         }
     }
@@ -616,6 +631,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, s32 itemId, u8 y, u8 itemPos)
                 ItemId_GetPrice(itemId),
                 STR_CONV_MODE_LEFT_ALIGN,
                 5);
+            StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
         }
         else if (sMartInfo.martType == MART_TYPE_TM)
         {
@@ -1331,11 +1347,11 @@ static void RecordItemPurchase(u8 taskId)
 #undef tItemId
 #undef tListTaskId
 
-void CreatePokemartMenu(const u16 *itemsForSale)
+void CreatePokemartMenu()
 {
     CreateShopMenu(MART_TYPE_NORMAL);
-    SetShopItemsForSale(itemsForSale);
-    SetShopId(0);
+    SetShopItemsForSale();
+    SetShopId(1);
     ClearItemPurchases();
     SetShopMenuCallback(EnableBothScriptContexts);
 }

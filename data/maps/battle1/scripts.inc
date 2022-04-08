@@ -158,3 +158,10 @@ TMShop_event::
 	waitstate
 	releaseall
 	end
+
+ItemShop_event::
+	lockall
+	special CreatePokemartMenu
+	waitstate
+	releaseall
+	end

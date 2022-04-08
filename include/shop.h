@@ -45,7 +45,7 @@ struct ShopData
     /*0x2010*/ s16 viewportObjects[OBJECT_EVENTS_COUNT][5];
 };
 
-void CreatePokemartMenu(const u16 *);
+void CreatePokemartMenu();
 void CreateTMShopMenu();
 void CreateDecorationShop1Menu(const u16 *);
 void CreateDecorationShop2Menu(const u16 *);
