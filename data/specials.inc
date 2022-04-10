@@ -541,3 +541,5 @@ gSpecials::
 	def_special ChangePokemonNature
 	def_special CreateTMShopMenu
 	def_special CreatePokemartMenu
+	def_special GiveBattlePointsGauntlet
+

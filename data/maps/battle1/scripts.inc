@@ -172,16 +172,48 @@ PokeShop_event::
 	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK
 	special ShowBattlePointsWindow
 	setvar VAR_0x8004, SCROLL_MULTI_POKESHOP
-	special ShowFrontierExchangeCornerItemIconWindow
-	msgbox NatureChange_text, MSGBOX_DEFAULT
+	special ShowFrontierExchangeCornerItemIconWindow 
+	@msgbox NatureChange_text, MSGBOX_DEFAULT // for adding movedata to menu maybe?
 	special ShowScrollableMultichoice
 	waitstate
 	setorcopyvar VAR_0x8001, VAR_RESULT
-	special CloseFrontierExchangeCornerItemIconWindow
-	msgbox NatureChange_text, MSGBOX_YESNO
 	switch VAR_RESULT
-	case NO, MoveRelearners_EventScript_CantTeach
-	case YES, MoveRelearners_EventScript_CantTeach
-	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
-	special CloseBattlePointsWindow
+	case MULTI_B_PRESSED, PokeShop_Deny
+	special CloseFrontierExchangeCornerItemIconWindow
+	msgbox PokeShop_text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, PokeShop_Deny
+	case YES, PokeShop_TryPurchasePrize
+	case MULTI_B_PRESSED, PokeShop_Deny
 	end
+
+PokeShop_text:
+	.string "Are you sure you want {STR_VAR_1}?$"
+
+PokeShop_Deny::
+	special CloseBattlePointsWindow
+	special CloseFrontierExchangeCornerItemIconWindow
+	releaseall
+	end
+
+PokeShop_TryPurchasePrize::
+	specialvar VAR_TEMP_0, GetFrontierBattlePoints
+	goto_if_ge VAR_0x8004, VAR_TEMP_0, PokeShop_NotEnoughBP
+	givemon VAR_0x8001, 50, ITEM_NONE
+	special TakeFrontierBattlePoints @needs correct var set beforehand
+	special UpdateBattlePointsWindow
+	playse SE_SHOP
+	waitse
+	special CloseBattlePointsWindow
+	releaseall
+	end
+
+PokeShop_NotEnoughBP::
+	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
+	waitmessage
+	special CloseBattlePointsWindow
+	releaseall
+	end
+
+PokeShop_neBP_text:
+	.string "Sorry, you don't have enough BP$"

@@ -66,6 +66,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "trainer_pokemon_sprites.h"
+#include "dynamic_placeholder_text_util.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -2439,10 +2440,10 @@ void ShowScrollableMultichoice(void)
             break;
         case SCROLL_MULTI_POKESHOP:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-            task->tNumItems = 1;
+            task->tNumItems = 3;
             task->tLeft = 1;
             task->tTop = 1;
-            task->tWidth = 8;
+            task->tWidth = 14;
             task->tHeight = 12;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
@@ -2532,10 +2533,6 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_ScopeLens64BP,
         gText_Exit
     },
-    [SCROLL_MULTI_POKESHOP] =
-    {
-        gText_BP_Template
-    },
     [SCROLL_MULTI_BERRY_POWDER_VENDOR] =
     {
         gText_EnergyPowder50,
@@ -2614,12 +2611,32 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     }
 };
 
+struct pokeToFlagMap{
+    const u16 species;
+    const u8 costBP;
+    const u16 flag;
+};
+
+#define POKE_SHOP_SIZE 100
+#define POKE_SHOP_MAX_TEXT 20
+
+static const struct pokeToFlagMap scrollMultiPokeShop[] = 
+{
+    {SPECIES_SNORLAX, 1, FLAG_ROOM_2_CLEAR},
+    {SPECIES_MACHAMP, 3, FLAG_ALL_STARTERS},
+    {SPECIES_ZACIAN, 10, FLAG_ROOM_1_CLEAR}
+};
+
+
+static EWRAM_DATA u8 (*finalNames)[POKE_SHOP_SIZE] = {0};
 static void Task_ShowScrollableMultichoice(u8 taskId)
 {
     u32 width;
     u8 i, windowId;
     struct WindowTemplate template;
     struct Task *task = &gTasks[taskId];
+    static const u8 sPokeShopMenuStringTemplate[] = _("{DYNAMIC 0}{CLEAR_TO 0x46}{DYNAMIC 1}BP");
+    u8 count = 0;
 
     ScriptContext2_Enable();
     sScrollableMultichoice_ScrollOffset = 0;
@@ -2627,19 +2644,32 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     sScrollableMultichoice_PokeSpriteId = MAX_SPRITES;
     FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, 0);
     ShowBattleFrontierTutorWindow(task->tScrollMultiId, 0);
-    sScrollableMultichoice_ListMenuItem = AllocZeroed(task->tNumItems * 8);
+    sScrollableMultichoice_ListMenuItem = AllocZeroed(POKE_SHOP_SIZE * 8);
+    finalNames = Alloc(sizeof(*finalNames) * POKE_SHOP_MAX_TEXT);
+    
     sFrontierExchangeCorner_NeverRead = 0;
     InitScrollableMultichoice();
 
-    for (width = 0, i = 0; i < task->tNumItems; i++)
+    for (width = 0, i = 0; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
     {
-        const u8 *text = sScrollableMultichoiceOptions[gSpecialVar_0x8004][i];
-        sScrollableMultichoice_ListMenuItem[i].name = text;
-        sScrollableMultichoice_ListMenuItem[i].id = i;
-        width = DisplayTextAndGetWidth(text, width);
+        if (FlagGet(scrollMultiPokeShop[i].flag))
+        {
+            DynamicPlaceholderTextUtil_Reset();
+            StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[count].species]);
+            ConvertIntToDecimalStringN(gStringVar2, scrollMultiPokeShop[count].costBP, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar2);
+            DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sPokeShopMenuStringTemplate);
+            StringCopy(finalNames[count], gStringVar4);
+            sScrollableMultichoice_ListMenuItem[count].name = finalNames[count];
+            sScrollableMultichoice_ListMenuItem[count].id = scrollMultiPokeShop[count].species;
+            DisplayTextAndGetWidth(sScrollableMultichoice_ListMenuItem[count].name, width);
+            count++;
+        }
+
     }
 
-    task->tWidth = ConvertPixelWidthToTileWidth(width);
+    //task->tWidth = ConvertPixelWidthToTileWidth(width);
 
     if (task->tLeft + task->tWidth > MAX_MULTICHOICE_WIDTH + 1)
     {
@@ -2654,6 +2684,7 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
         }
     }
 
+    task->tNumItems = count;
     template = CreateWindowTemplate(0, task->tLeft, task->tTop, task->tWidth, task->tHeight, 0xF, 0x64);
     windowId = AddWindow(&template);
     task->tWindowId = windowId;
@@ -2705,7 +2736,7 @@ static void ScrollableMultichoice_MoveCursor(s32 itemIndex, bool8 onInit, struct
         ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
         HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, sFrontierExchangeCorner_NeverRead);
         FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, selection);
-        ShowBattleFrontierTutorMoveDescription(task->tScrollMultiId, selection);
+        ShowBattleFrontierTutorMoveDescription(task->tScrollMultiId, selection); //probably running out of memerry ater like 10
         sFrontierExchangeCorner_NeverRead = selection;
     }
 }
@@ -2751,10 +2782,15 @@ static void CloseScrollableMultichoice(u8 taskId)
     u16 selection;
     struct Task *task = &gTasks[taskId];
     ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
+    gSpecialVar_0x8004 = scrollMultiPokeShop[selection].costBP;
+    StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[selection].species]);
     HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, selection);
     ScrollableMultichoice_RemoveScrollArrows(taskId);
     DestroyListMenuTask(task->tListTaskId, NULL, NULL);
     Free(sScrollableMultichoice_ListMenuItem);
+
+    Free(finalNames);
+    
     ClearStdWindowAndFrameToTransparent(task->tWindowId, 1);
     FillWindowPixelBuffer(task->tWindowId, PIXEL_FILL(0));
     CopyWindowToVram(task->tWindowId, COPYWIN_GFX);
@@ -3008,7 +3044,7 @@ void ShowBattlePointsWindow(void)
     };
 
     sBattlePointsWindowId = AddWindow(&sBattlePoints_WindowTemplate);
-    SetStandardWindowBorderStyle(sBattlePointsWindowId, 1);
+    SetStandardWindowBorderStyle(sBattlePointsWindowId, 0);
     UpdateBattlePointsWindow();
     CopyWindowToVram(sBattlePointsWindowId, COPYWIN_GFX);
 }
@@ -3109,8 +3145,8 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
                 ShowFrontierExchangeCornerItemIcon(sFrontierExchangeCorner_HoldItems[selection]);
                 break;
             case SCROLL_MULTI_POKESHOP:
-                AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
-                ShowFrontierExchangeCornerPokeIcon(sFrontierExchangeCorner_Pokemon[selection]);
+                //AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
+                ShowFrontierExchangeCornerPokeIcon(scrollMultiPokeShop[selection].species);
                 break;
         }
     }
@@ -3132,9 +3168,9 @@ static void ShowFrontierExchangeCornerItemIcon(u16 item)
 
 static void ShowFrontierExchangeCornerPokeIcon(u16 poke)
 {
-    FreeSpriteTilesByTag(TAG_NONE);
+    FreeAndDestroyMonPicSprite(TAG_NONE);
     FreeSpritePaletteByTag(TAG_NONE);
-    sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(SPECIES_SNORLAX, 0, 0x8000, TRUE, 88, 32, 15, TAG_NONE);;
+    sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(poke, 0, 0x8000, TRUE, 88, 32, 15, TAG_NONE);;
 
     if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
     {
@@ -3146,7 +3182,7 @@ static void ShowFrontierExchangeCornerPokeIcon(u16 poke)
 
 static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
 {
-    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES || menu == SCROLL_MULTI_POKESHOP)
+    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES || menu == sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
     {
         switch (menu)
         {
@@ -3157,7 +3193,8 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
                 DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
                 break;
             case SCROLL_MULTI_POKESHOP:
-                DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_PokeSpriteId]);
+                FreeAndDestroyMonPicSprite(sScrollableMultichoice_PokeSpriteId);
+                //FreeSpritePaletteByTag(TAG_NONE); doesn't appear to be necessary
                 break;
         }
     }

@@ -1908,6 +1908,24 @@ static void GiveBattlePoints(void)
     gSaveBlock2Ptr->frontier.cardBattlePoints = points;
 }
 
+void GiveBattlePointsGauntlet()
+{
+    s32 facility = VarGet(VAR_FRONTIER_FACILITY);
+    s32 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
+    s32 points = gSpecialVar_0x8007;
+
+    gSaveBlock2Ptr->frontier.battlePoints += points;
+    ConvertIntToDecimalStringN(gStringVar1, points, STR_CONV_MODE_LEFT_ALIGN, 2);
+    if (gSaveBlock2Ptr->frontier.battlePoints > MAX_BATTLE_FRONTIER_POINTS)
+        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+
+
+    if (points > 0xFFFF)
+        points = 0xFFFF;
+    gSaveBlock2Ptr->frontier.cardBattlePoints = points;
+}
+
+
 static void GetFacilitySymbolCount(void)
 {
     s32 facility = VarGet(VAR_FRONTIER_FACILITY);
