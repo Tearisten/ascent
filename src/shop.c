@@ -329,11 +329,11 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
 };
 
-
+static EWRAM_DATA u16 *shopItemList = NULL;
 static void SetShopItemsForSale()
 {
+    shopItemList = Alloc(sizeof(u16) * ARRAY_COUNT(itemToFlag));
     sMartInfo.itemCount = 0;
-    u16 shopItemList[BAG_TMHM_COUNT];
 
     for (u8 i = 0; i < ARRAY_COUNT(itemToFlag) ; i++)
     {   
@@ -535,6 +535,7 @@ static void BuyMenuFreeMemory(void)
     Free(sListMenuItems);
     Free(sItemNames);
     Free(shopTMslist);
+    Free(shopItemList);
     FreeAllWindowBuffers();
 }
 
