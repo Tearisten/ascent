@@ -1675,13 +1675,14 @@ static void FieldTask_ReturnToPcMenu(void)
     u8 taskId;
     MainCallback vblankCb = gMain.vblankCallback;
 
-    SetVBlankCallback(NULL);
+    //SetVBlankCallback(NULL);
     taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = 0;
     gTasks[taskId].tSelectedOption = sPreviousBoxOption;
     Task_PCMainMenu(taskId);
     SetVBlankCallback(vblankCb);
     FadeInFromBlack();
+    
 }
 
 #undef tState
@@ -1706,8 +1707,8 @@ static void CreateMainMenu(u8 whichMenu, s16 *windowIdPtr)
 static void CB2_ExitPokeStorage(void)
 {
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
-    SetMainCallback2(CB2_ReturnToField);
+    //gFieldCallback = FieldTask_ReturnToPcMenu;
+    SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
 }
 
 // Unused
@@ -10101,3 +10102,8 @@ static void UnkUtil_DmaRun(struct UnkUtilData *data)
         data->dest += 64;
     }
 }
+
+void CB2_PokeStorageFromField(void)
+{
+    EnterPokeStorage(2);
+}   
