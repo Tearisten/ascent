@@ -47,6 +47,7 @@ struct ShopData
 
 void CreatePokemartMenu();
 void CreateTMShopMenu();
+void GiveBattlePointsGauntlet();
 void CreateDecorationShop1Menu(const u16 *);
 void CreateDecorationShop2Menu(const u16 *);
 void CB2_ExitSellMenu(void);
