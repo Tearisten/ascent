@@ -3296,9 +3296,16 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     CalculateMonStats(mon);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter, u8 otIdType)
 {
     u32 personality;
+    u8 genderRatio;
+
+    genderRatio = gBaseStats[species].genderRatio;
+
+// Infinite loop protection
+    if ((genderRatio == MON_MALE) || (genderRatio == MON_FEMALE) || (genderRatio == MON_GENDERLESS))
+       gender = genderRatio;
 
     if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
     {
