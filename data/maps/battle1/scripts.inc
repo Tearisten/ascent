@@ -176,11 +176,13 @@ PokeShop_event::
 	@msgbox NatureChange_text, MSGBOX_DEFAULT // for adding movedata to menu maybe?
 	special ShowScrollableMultichoice
 	waitstate
+	setorcopyvar VAR_0x8007, VAR_RESULT
+	setorcopyVar VAR_0x8008, 0
 	setorcopyvar VAR_0x8001, VAR_RESULT
 	switch VAR_RESULT
 	case MULTI_B_PRESSED, PokeShop_Deny
-	special CloseFrontierExchangeCornerItemIconWindow
-	msgbox PokeShop_text, MSGBOX_YESNO
+	msgbox PokeShop_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
 	switch VAR_RESULT
 	case NO, PokeShop_Deny
 	case YES, PokeShop_TryPurchasePrize
@@ -198,12 +200,13 @@ PokeShop_Deny::
 
 PokeShop_TryPurchasePrize::
 	specialvar VAR_TEMP_0, GetFrontierBattlePoints
-	goto_if_ge VAR_0x8004, VAR_TEMP_0, PokeShop_NotEnoughBP
+	goto_if_lt VAR_TEMP_0, VAR_0x8004, PokeShop_NotEnoughBP
 	givemon VAR_0x8001, 50, ITEM_NONE
 	special TakeFrontierBattlePoints @needs correct var set beforehand
 	special UpdateBattlePointsWindow
 	playse SE_SHOP
 	waitse
+	special CloseFrontierExchangeCornerItemIconWindow
 	special CloseBattlePointsWindow
 	releaseall
 	end
@@ -211,9 +214,7 @@ PokeShop_TryPurchasePrize::
 PokeShop_NotEnoughBP::
 	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
 	waitmessage
-	special CloseBattlePointsWindow
-	releaseall
-	end
+	goto PokeShop_Deny
 
 PokeShop_neBP_text:
 	.string "Sorry, you don't have enough BP.$"
@@ -227,6 +228,8 @@ MakeShiny_event::
 	special CloseBattlePointsWindow
 	special ChoosePartyMon
 	waitstate
+	specialvar VAR_TEMP_0, GetFrontierBattlePoints
+	goto_if_lt VAR_TEMP_0, 5, PokeShop_NotEnoughBP
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MakeShiny_Deny
 	special isShiny
 	goto_if_eq VAR_RESULT, PARTY_NOTHING_CHOSEN, MakeShinyAlready
@@ -240,8 +243,8 @@ MakeShiny_event::
 	msgbox MakeShinyConfirm_text, MSGBOX_DEFAULT
 	yesnobox 3, 8
 	switch VAR_RESULT
-	case NO, MakeShiny_Deny
-	case MULTI_B_PRESSED, MakeShiny_Deny
+	case NO, MakeShiny_exitmenu
+	case MULTI_B_PRESSED, MakeShiny_exitmenu
 	special MakeShiny
 	setorcopyvar VAR_0x8004, 5 @shiny cost
 	special TakeFrontierBattlePoints @needs correct var set beforehand
@@ -249,24 +252,21 @@ MakeShiny_event::
 	playse SE_PIN
 	waitse
 	hidemonpic
-	special CloseBattlePointsWindow
-	special CloseFrontierExchangeCornerItemIconWindow
+	goto MakeShiny_exitmenu
+
+
+MakeShiny_Deny::
 	releaseall
 	end
 
-MakeShiny_Deny::
+MakeShiny_exitmenu::
 	special CloseBattlePointsWindow
 	special CloseFrontierExchangeCornerItemIconWindow
-	hidemonpic
-	releaseall
-	end
+	goto MakeShiny_Deny
 
 MakeShinyAlready::
 	msgbox MakeShinyAlready_text, MSGBOX_DEFAULT
-	setorcopyvar VAR_0x8004, 1 @reset some vars in case you talk again
-	setorcopyvar VAR_RESULT, 1
-	releaseall
-	end
+	goto MakeShiny_Deny
 
 MakeShiny_text:
 	.string "Would you like to shiny a pokemon?\n"

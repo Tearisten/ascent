@@ -2785,7 +2785,7 @@ static void CloseScrollableMultichoice(u8 taskId)
     ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
     gSpecialVar_0x8004 = scrollMultiPokeShop[selection].costBP;
     StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[selection].species]);
-    HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, selection);
+    //HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, selection);
     ScrollableMultichoice_RemoveScrollArrows(taskId);
     DestroyListMenuTask(task->tListTaskId, NULL, NULL);
     Free(sScrollableMultichoice_ListMenuItem);
@@ -4583,6 +4583,7 @@ void MakeShiny(void)
 
 void isShiny(void)
 {   
+    gSpecialVar_Result = 1;
     if(gSpecialVar_0x8004 < 6 && gSpecialVar_0x8004 >= 0 &&
         GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHINY, 0))
     {
