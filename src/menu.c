@@ -468,6 +468,31 @@ void DisplayYesNoMenuDefaultYes(void)
     CreateYesNoMenu(&sYesNo_WindowTemplates, STD_WINDOW_BASE_TILE_NUM, STD_WINDOW_PALETTE_NUM, 0);
 }
 
+   static const struct WindowTemplate sYesNo_WindowTemplatesCoords ={
+    .bg = 0,
+    .tilemapLeft = 21,
+    .tilemapTop = 9,
+    .width = 5,
+    .height = 4,
+    .paletteNum = 15,
+    .baseBlock = 0x125
+};
+
+void DisplayYesNoMenuDefaultYesCoords(u8 left, u8 top)
+{
+    struct WindowTemplate yesNoCoords = sYesNo_WindowTemplatesCoords;
+
+    yesNoCoords.tilemapLeft = left;
+    yesNoCoords.tilemapTop = top;
+    
+    //sYesNo_WindowTemplatesCoords.tilemapLeft = &left;
+    //sYesNo_WindowTemplatesCoords.tilemapTop = top;
+    CreateYesNoMenu(&yesNoCoords, STD_WINDOW_BASE_TILE_NUM, STD_WINDOW_PALETTE_NUM, 0);
+
+    //CreateYesNoMenu(&sYesNo_WindowTemplates, STD_WINDOW_BASE_TILE_NUM, STD_WINDOW_PALETTE_NUM, 0);
+
+}
+
 void DisplayYesNoMenuWithDefault(u8 initialCursorPos)
 {
     CreateYesNoMenu(&sYesNo_WindowTemplates, STD_WINDOW_BASE_TILE_NUM, STD_WINDOW_PALETTE_NUM, initialCursorPos);

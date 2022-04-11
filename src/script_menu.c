@@ -211,7 +211,7 @@ bool8 ScriptMenu_YesNo(u8 left, u8 top)
     else
     {
         gSpecialVar_Result = 0xFF;
-        DisplayYesNoMenuDefaultYes();
+        DisplayYesNoMenuDefaultYesCoords(left, top);
         taskId = CreateTask(Task_HandleYesNoInput, 0x50);
         return TRUE;
     }
@@ -580,7 +580,7 @@ static void Task_PokemonPicWindow(u8 taskId)
     }
 }
 
-bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
+bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, u8 isShiny)
 {
     u8 taskId;
     u8 spriteId;

@@ -121,7 +121,7 @@ static void ScrollableMultichoice_RemoveScrollArrows(u8 taskId);
 static void Task_ScrollableMultichoice_WaitReturnToList(u8 taskId);
 static void Task_ScrollableMultichoice_ReturnToList(u8 taskId);
 static void ShowFrontierExchangeCornerItemIcon(u16 item);
-static void ShowFrontierExchangeCornerPokeIcon(u16 poke);
+static void ShowFrontierExchangeCornerPokeIcon(u16 poke, u8 isShiny);
 static void Task_DeoxysRockInteraction(u8 taskId);
 static void ChangeDeoxysRockLevel(u8 a0);
 static void WaitForDeoxysRockMovement(u8 taskId);
@@ -132,6 +132,7 @@ static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
 static u16 PlayerGainRandomTrainerFan(void);
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *linkRecords, u8 a, u8 b);
+static void EmptyFrontierPokeBlock();
 
 void Special_ShowDiploma(void)
 {
@@ -3097,11 +3098,12 @@ void CloseFrontierExchangeCornerItemIconWindow(void)
 {
     ClearStdWindowAndFrameToTransparent(sFrontierExchangeCorner_ItemIconWindowId, TRUE);
     RemoveWindow(sFrontierExchangeCorner_ItemIconWindowId);
+    EmptyFrontierPokeBlock();
 }
 
 #define TAG_ITEM_ICON 5500
 
-static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
+void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
 {
     #include "data/battle_frontier/battle_frontier_exchange_corner.h"
 
@@ -3146,7 +3148,7 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
                 break;
             case SCROLL_MULTI_POKESHOP:
                 //AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
-                ShowFrontierExchangeCornerPokeIcon(scrollMultiPokeShop[selection].species);
+                ShowFrontierExchangeCornerPokeIcon(scrollMultiPokeShop[selection].species, FALSE);
                 break;
         }
     }
@@ -3166,11 +3168,28 @@ static void ShowFrontierExchangeCornerItemIcon(u16 item)
     }
 }
 
-static void ShowFrontierExchangeCornerPokeIcon(u16 poke)
+void FillFrontierPokeBlock()
+{
+    #include "data/battle_frontier/battle_frontier_exchange_corner.h"
+    u8 species = gSpecialVar_0x8007;
+    u8 isShiny = gSpecialVar_0x8008;
+    ShowFrontierExchangeCornerPokeIcon(species, isShiny);
+}
+
+
+static void ShowFrontierExchangeCornerPokeIcon(u16 poke, u8 isShiny)
 {
     FreeAndDestroyMonPicSprite(TAG_NONE);
     FreeSpritePaletteByTag(TAG_NONE);
-    sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(poke, 0, 0x8000, TRUE, 88, 32, 15, TAG_NONE);;
+    if (!isShiny)
+    {
+        sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(poke, 0, 0x8000, TRUE, 88, 32, 15, TAG_NONE);
+    }
+    else
+    {
+        sScrollableMultichoice_PokeSpriteId = CreateMonPicSprite(poke, 0, 0, TRUE, 88, 32, 15, TAG_NONE);
+    }
+    
 
     if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
     {
@@ -3182,7 +3201,7 @@ static void ShowFrontierExchangeCornerPokeIcon(u16 poke)
 
 static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
 {
-    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES || menu == sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
+    if (sScrollableMultichoice_ItemSpriteId != MAX_SPRITES)
     {
         switch (menu)
         {
@@ -3192,18 +3211,18 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
             case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
                 DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
                 break;
-            case SCROLL_MULTI_POKESHOP:
-                FreeAndDestroyMonPicSprite(sScrollableMultichoice_PokeSpriteId);
-                //FreeSpritePaletteByTag(TAG_NONE); doesn't appear to be necessary
-                break;
         }
     }
-    else if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
+    if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
     {
-        switch (menu)
-        {
+        FreeAndDestroyMonPicSprite(sScrollableMultichoice_PokeSpriteId);
+    }
+}
 
-        }
+static void EmptyFrontierPokeBlock()
+{    if (sScrollableMultichoice_PokeSpriteId != MAX_SPRITES)
+    {
+        FreeAndDestroyMonPicSprite(sScrollableMultichoice_PokeSpriteId);
     }
 }
 
@@ -4554,4 +4573,19 @@ void ChangePokemonNature (void)
     newNature = gSpecialVar_0x8005;
 	SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NATURE, &newNature);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+void MakeShiny(void)
+{
+    u8 isShiny = 1;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHINY, &isShiny);
+}
+
+void isShiny(void)
+{   
+    if(gSpecialVar_0x8004 < 6 && gSpecialVar_0x8004 >= 0 &&
+        GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHINY, 0))
+    {
+        gSpecialVar_Result = PARTY_NOTHING_CHOSEN;
+    }
 }

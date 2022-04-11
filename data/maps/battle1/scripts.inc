@@ -216,4 +216,65 @@ PokeShop_NotEnoughBP::
 	end
 
 PokeShop_neBP_text:
-	.string "Sorry, you don't have enough BP$"
+	.string "Sorry, you don't have enough BP.$"
+
+MakeShiny_event::
+	lockall
+	faceplayer
+	special ShowBattlePointsWindow
+	msgbox MakeShiny_text, MSGBOX_DEFAULT
+	waitmessage
+	special CloseBattlePointsWindow
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MakeShiny_Deny
+	special isShiny
+	goto_if_eq VAR_RESULT, PARTY_NOTHING_CHOSEN, MakeShinyAlready
+	special ShowBattlePointsWindow
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_RESULT @setname for pic
+	setorcopyvar VAR_0x8008, 1 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox MakeShinyConfirm_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, MakeShiny_Deny
+	case MULTI_B_PRESSED, MakeShiny_Deny
+	special MakeShiny
+	setorcopyvar VAR_0x8004, 5 @shiny cost
+	special TakeFrontierBattlePoints @needs correct var set beforehand
+	special UpdateBattlePointsWindow
+	playse SE_PIN
+	waitse
+	hidemonpic
+	special CloseBattlePointsWindow
+	special CloseFrontierExchangeCornerItemIconWindow
+	releaseall
+	end
+
+MakeShiny_Deny::
+	special CloseBattlePointsWindow
+	special CloseFrontierExchangeCornerItemIconWindow
+	hidemonpic
+	releaseall
+	end
+
+MakeShinyAlready::
+	msgbox MakeShinyAlready_text, MSGBOX_DEFAULT
+	setorcopyvar VAR_0x8004, 1 @reset some vars in case you talk again
+	setorcopyvar VAR_RESULT, 1
+	releaseall
+	end
+
+MakeShiny_text:
+	.string "Would you like to shiny a pokemon?\n"
+	.string "for 5 BP? This is irreversable.$"
+
+MakeShinyConfirm_text:
+	.string "You want a shiny {STR_VAR_1}?\n"
+	.string "This will cost 5BP.$"
+
+MakeShinyAlready_text:
+	.string "That poke is already shiny.$"

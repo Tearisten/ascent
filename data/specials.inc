@@ -542,4 +542,8 @@ gSpecials::
 	def_special CreateTMShopMenu
 	def_special CreatePokemartMenu
 	def_special GiveBattlePointsGauntlet
+	def_special MakeShiny
+	def_special FillFrontierPokeBlock
+	def_special isShiny
+
 

@@ -4598,7 +4598,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = substruct3->worldRibbon;
         break;
     case MON_DATA_UNUSED_RIBBONS:
-        retVal = substruct3->unusedRibbons;
+        retVal = 0; //substruct3->unusedRibbons;
         break;
     case MON_DATA_EVENT_LEGAL:
         retVal = substruct3->eventLegal;
@@ -4618,6 +4618,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_NATURE:
         retVal = substruct3->nature;
+        break;
+    case MON_DATA_SHINY:
+        retVal = substruct3->shiny;
         break;
     case MON_DATA_KNOWN_MOVES:
         if (substruct0->species && !substruct3->isEgg)
@@ -4984,14 +4987,17 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_WORLD_RIBBON:
         SET8(substruct3->worldRibbon);
         break;
-    case MON_DATA_UNUSED_RIBBONS:
-        SET8(substruct3->unusedRibbons);
-        break;
+    //case MON_DATA_UNUSED_RIBBONS:
+        //SET8(substruct3->unusedRibbons);
+        //break;
     case MON_DATA_EVENT_LEGAL:
         SET8(substruct3->eventLegal);
         break;
     case MON_DATA_NATURE:
         SET8(substruct3->nature);
+        break;
+    case MON_DATA_SHINY:
+        SET8(substruct3->shiny);
         break;
     case MON_DATA_IVS:
     {
@@ -7343,10 +7349,12 @@ const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
-    return GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality);
+    u8 isShiny = GetMonData(mon, MON_DATA_SHINY, 0);
+
+    return GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality, isShiny);
 }
 
-const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 personality)
+const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 personality, u8 isShiny)
 {
     u32 shinyValue;
 
@@ -7354,7 +7362,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
         return gMonPaletteTable[SPECIES_NONE].data;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
-    if (shinyValue < SHINY_ODDS)
+    if (shinyValue < SHINY_ODDS || isShiny)
     {
         if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
             return gMonShinyPaletteTableFemale[species].data;
@@ -7375,15 +7383,17 @@ const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
-    return GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
+    u8 isShiny = GetMonData(mon, MON_DATA_SHINY, 0);
+
+    return GetMonSpritePalStructFromOtIdPersonality(species, otId, personality, isShiny);
 }
 
-const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u32 otId , u32 personality)
-{
+const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u32 otId , u32 personality, u8 isShiny)
+{    
     u32 shinyValue;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
-    if (shinyValue < SHINY_ODDS)
+    if (shinyValue < SHINY_ODDS || isShiny)
     {
         if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
             return &gMonShinyPaletteTableFemale[species];
@@ -7572,15 +7582,22 @@ bool8 IsMonShiny(struct Pokemon *mon)
 {
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
+    u32 isShiny = GetMonData(mon, MON_DATA_SHINY, 0);
+    if (isShiny)
+    {
+        return TRUE;
+    }
     return IsShinyOtIdPersonality(otId, personality);
 }
 
+// shiny npc or menu sprites use a personality of 0
 bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
-    u32 shinyValue = GET_SHINY_VALUE(otId, personality);
-    if (shinyValue < SHINY_ODDS)
+    if (!personality)
+    {
         retVal = TRUE;
+    }
     return retVal;
 }
 
