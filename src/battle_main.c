@@ -1898,10 +1898,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
             if (partyData[i].friendship > 0)
             {
-                if (partyData[i].friendship == TRAINER_MON_UNFRIENDLY)
-                    friendship = 0;
-                else if (partyData[i].friendship == TRAINER_MON_FRIENDLY)
-                    friendship = MAX_FRIENDSHIP;
+                friendship = MAX_FRIENDSHIP;
                 SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
             }
 
