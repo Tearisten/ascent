@@ -278,3 +278,8 @@ MakeShinyConfirm_text:
 
 MakeShinyAlready_text:
 	.string "That poke is already shiny.$"
+
+TestBattle_event::
+	trainerbattle_no_intro TRAINER_TEST, Route110_Text_MayDefeated
+	releaseall
+	end

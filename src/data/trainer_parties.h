@@ -1,8 +1,13 @@
-static const struct TrainerMon sParty_Sawyer1[] = {
+static const struct TrainerMon sParty_Tester[] = {
     {
-    .iv = 0,
-    .lvl = 21,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_PIDGEY,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_MASTER_BALL,
+    //.shiny = TRUE
     }
 };
 

@@ -1857,10 +1857,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         {
             const struct TrainerMon *partyData = gTrainers[trainerNum].party.TrainerMon;
 
-// Comment out the following line if you have changed .iv to go 0-31, instead of 0-255 as in vanilla.
-            fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+            fixedIV = partyData[i].iv;
 
-            fixedIV = fixedIV + TRAINER_IV_MODIFIER;
+            //fixedIV = fixedIV + TRAINER_IV_MODIFIER; //should be 0
 
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
@@ -1891,10 +1890,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 gender = MON_FEMALE;
 
             if (partyData[i].nature > 0)
-                CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
+                CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, 50, fixedIV, gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
             else
             {
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], partyData[i].species, 50, fixedIV, TRUE, personalityValue, partyData[i].shiny ? 0 : OT_ID_RANDOM_NO_SHINY, 0);
             }
 
             if (partyData[i].friendship > 0)
@@ -1938,15 +1937,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
             if (partyData[i].iv > 0)
             {
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
-                }
-            }
-            else if (partyData[i].iv == WORST_IVS)
-            {
-                fixedIV = 0;
-
                 for (j = 0; j < NUM_STATS; j++)
                 {
                     SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);

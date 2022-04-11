@@ -3201,6 +3201,10 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             shinyValue = GET_SHINY_VALUE(value, personality);
         } while (shinyValue < SHINY_ODDS);
     }
+    else if (otIdType == OT_ID_SHINY)
+    {
+        personality = 0;
+    }
     else if (otIdType == OT_ID_PRESET)
     {
         value = fixedOtId;
@@ -3328,7 +3332,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
         while (gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
 
-    CreateMon(mon, species, level, fixedIV, 1, personality, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, fixedIV, 1, personality, otIdType, 0);
     SetMonData(mon, MON_DATA_NATURE, &nature);
     CalculateMonStats(mon);
 }
