@@ -43,6 +43,8 @@ Gauntlet1_starterRoom_Scientist_event::
 	msgbox Gauntlet1_starterRoom_Scientist_move_text, MSGBOX_DEFAULT
 	giveitem ITEM_HEART_SCALE, 5
 	waitmessage
+	giveitem ITEM_ABILITY_CAPSULE, 2
+	waitmessage
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
 	waitmovement 5
 	setflag FLAG_ROOM_1_CLEAR
@@ -71,7 +73,12 @@ Gauntlet1_starterRoom_Scientist_move_text:
 	.string "Goodluck! Have 5 heartscales\n"
 	.string "to access the move relearner.\p"
 	.string "Don't spend them too quickly,\n"
-	.string "you'll get more slowly.$"
+	.string "you'll get more slowly.\p"
+	.string "Also, here are two Ability\n"
+	.string "Capsules to start you out.\p"
+	.string "They won't be in the shop till\n"
+	.string "the 3rd area. Goodluck$"
+
 
 Gauntlet1_starterRoom_haveThisType_event::
 	msgbox Gauntlet1_starterRoom_haveThisType_text, MSGBOX_DEFAULT

@@ -284,17 +284,6 @@ MakeShinyConfirm_text:
 MakeShinyAlready_text:
 	.string "That poke is already shiny.$"
 
-Battle_event_eastspot::
-	setorcopyvar VAR_0x8004, 0
-	goto Battle_event_ReadyOrNot
-
-Battle_event_southspot::
-	setorcopyvar VAR_0x8004, 1
-	goto Battle_event_ReadyOrNot
-
-Battle_event_westspot::
-	setorcopyvar VAR_0x8004, 2
-	goto Battle_event_ReadyOrNot
 
 .set ROOM_BATTLE_COUNT, 2
 .set ROOM_BATTLE_TYPE, 1
@@ -328,52 +317,19 @@ Battle_event_TryBattle::
 	case NO, MoveRelearners_EventScript_CantTeach
 	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
 	waitmessage
-	switch VAR_0x8004
-	case 0, Battle_event_walk_west
-	case 1, Battle_event_walk_south
-	case 2, Battle_event_walk_east
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_start
+	waitmovement 0
+	goto Battle_event_start_battles
 	end
 
-Battle_event_walk_west::
-	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_west_move
-	goto Battle_event_finish_walk
-
-Battle_event_walk_west_move::
+Battle_event_walk_start::
 	walk_down
-	step_end
-
-Battle_event_walk_south::
-	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_south_move
-	goto Battle_event_finish_walk
-
-Battle_event_walk_south_move::
-	walk_left
-	step_end
-
-Battle_event_walk_east::
-	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_east_move
-	goto Battle_event_finish_walk
-
-Battle_event_walk_east_move::
 	walk_down
 	walk_left
 	walk_left
+	face_up
 	step_end
-
-Battle_event_finish_walk::
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_finish_walk_move
-	waitmovement 0
-	releaseall
-	goto Battle_event_start_battles
-
-Battle_event_finish_walk_move::
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	step_end
-
 
 .set TRAINER1, 10
 .set TRAINER1ID, TRAINER_TEST
@@ -385,8 +341,11 @@ Battle_event_start_battles::
 
 .set FLOORMONEY, 500
 .set FLOORBP, 2
+.set FLOORFLAG, FLAG_ROOM_1_CLEAR
 Battle_event_end_battles::
 	lockall
+	setflag FLAG_ROOM_1_CLEAR
+	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
 	special CloseBattlePointsWindow @won't open quickly without this for some reason
 	special ShowBattlePointsWindow

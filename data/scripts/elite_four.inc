@@ -2,18 +2,8 @@ PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay32
 	waitmovement 0
 	playse SE_DOOR
-	setmetatile 6, 1, METATILE_EliteFour_OpenDoor_Frame, FALSE
-	setmetatile 6, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE
-	setmetatile 0, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
-	setmetatile 1, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
-	setmetatile 2, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
-	setmetatile 3, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
-	setmetatile 4, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
-	setmetatile 8, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
-	setmetatile 9, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
-	setmetatile 10, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
-	setmetatile 11, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
-	setmetatile 12, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 7, 1, METATILE_EliteFour_OpenDoor_Frame, FALSE
+	setmetatile 7, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE @warp spot
 	special DrawWholeMapView
 	return
 

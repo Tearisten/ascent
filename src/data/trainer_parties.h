@@ -1,6 +1,6 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
-    .species = SPECIES_GROUDON,
+    .species = SPECIES_KAKUNA,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_HIDDEN,
     .evs = EV_SPREAD_NONE,
