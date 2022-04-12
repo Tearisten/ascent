@@ -2624,8 +2624,9 @@ struct pokeToFlagMap{
 static const struct pokeToFlagMap scrollMultiPokeShop[] = 
 {
     {SPECIES_SNORLAX, 1, FLAG_ROOM_2_CLEAR},
-    {SPECIES_MACHAMP, 3, FLAG_ALL_STARTERS},
-    {SPECIES_ZACIAN, 10, FLAG_ROOM_1_CLEAR}
+    {SPECIES_MACHAMP, 2, FLAG_ALL_STARTERS},
+    {SPECIES_ZACIAN, 1, FLAG_ROOM_2_CLEAR},
+    {SPECIES_GENGAR, 1, FLAG_ALL_STARTERS}
 };
 
 
@@ -2643,7 +2644,7 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     sScrollableMultichoice_ScrollOffset = 0;
     sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
     sScrollableMultichoice_PokeSpriteId = MAX_SPRITES;
-    FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, 0);
+    
     ShowBattleFrontierTutorWindow(task->tScrollMultiId, 0);
     sScrollableMultichoice_ListMenuItem = AllocZeroed(POKE_SHOP_SIZE * 8);
     finalNames = Alloc(sizeof(*finalNames) * POKE_SHOP_MAX_TEXT);
@@ -2656,20 +2657,21 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
         if (FlagGet(scrollMultiPokeShop[i].flag))
         {
             DynamicPlaceholderTextUtil_Reset();
-            StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[count].species]);
-            ConvertIntToDecimalStringN(gStringVar2, scrollMultiPokeShop[count].costBP, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[i].species]);
+            ConvertIntToDecimalStringN(gStringVar2, scrollMultiPokeShop[i].costBP, STR_CONV_MODE_RIGHT_ALIGN, 3);
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar2);
             DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sPokeShopMenuStringTemplate);
             StringCopy(finalNames[count], gStringVar4);
             sScrollableMultichoice_ListMenuItem[count].name = finalNames[count];
-            sScrollableMultichoice_ListMenuItem[count].id = scrollMultiPokeShop[count].species;
+            sScrollableMultichoice_ListMenuItem[count].id = scrollMultiPokeShop[i].species;
             DisplayTextAndGetWidth(sScrollableMultichoice_ListMenuItem[count].name, width);
             count++;
         }
 
     }
-
+    
+    FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, 0);
     //task->tWidth = ConvertPixelWidthToTileWidth(width);
 
     if (task->tLeft + task->tWidth > MAX_MULTICHOICE_WIDTH + 1)
@@ -2737,7 +2739,7 @@ static void ScrollableMultichoice_MoveCursor(s32 itemIndex, bool8 onInit, struct
         ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
         HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, sFrontierExchangeCorner_NeverRead);
         FillFrontierExchangeCornerWindowAndItemIcon(task->tScrollMultiId, selection);
-        ShowBattleFrontierTutorMoveDescription(task->tScrollMultiId, selection); //probably running out of memerry ater like 10
+        ShowBattleFrontierTutorMoveDescription(task->tScrollMultiId, selection);
         sFrontierExchangeCorner_NeverRead = selection;
     }
 }
@@ -2783,8 +2785,13 @@ static void CloseScrollableMultichoice(u8 taskId)
     u16 selection;
     struct Task *task = &gTasks[taskId];
     ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
-    gSpecialVar_0x8004 = scrollMultiPokeShop[selection].costBP;
-    StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[selection].species]);
+    for (u8 i = 0; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
+    {
+        if (scrollMultiPokeShop[i].species == sScrollableMultichoice_ListMenuItem[selection].id)
+            gSpecialVar_0x8004 = scrollMultiPokeShop[i].costBP;
+    }
+    
+    StringCopy(gStringVar1, gSpeciesNames[sScrollableMultichoice_ListMenuItem[selection].id]);
     //HideFrontierExchangeCornerItemIcon(task->tScrollMultiId, selection);
     ScrollableMultichoice_RemoveScrollArrows(taskId);
     DestroyListMenuTask(task->tListTaskId, NULL, NULL);
@@ -3148,7 +3155,7 @@ void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
                 break;
             case SCROLL_MULTI_POKESHOP:
                 //AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions[selection], 0, NULL, 2, 1, 3);
-                ShowFrontierExchangeCornerPokeIcon(scrollMultiPokeShop[selection].species, FALSE);
+                ShowFrontierExchangeCornerPokeIcon(sScrollableMultichoice_ListMenuItem[selection].id, FALSE);
                 break;
         }
     }
