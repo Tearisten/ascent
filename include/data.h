@@ -42,7 +42,7 @@ struct TrainerMon
     u16 build:3;
     u16 shiny:1;
     u16 nature:5;
-    u16 unused:1;
+    u16 slot:3;
 };
 
 union TrainerMonPtr
@@ -63,6 +63,7 @@ struct Trainer
     /*0x1C*/ u32 aiFlags;
     /*0x20*/ u8 partySize;
     /*0x24*/ union TrainerMonPtr party;
+             u8 totalMonCountWithRotates;
 };
 
 #define TRAINER_ENCOUNTER_MUSIC(trainer)((gTrainers[trainer].encounterMusic_gender & 0x7F))

@@ -1,14 +1,92 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
-    .species = SPECIES_PIDGEY,
+    .species = SPECIES_KAKUNA,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_HIDDEN,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
+    .slot = 0
     //.shiny = TRUE
-    }
+    },
+    {
+    .species = SPECIES_WURMPLE,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_ULTRA_BALL,
+    .slot = 1
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_DOTTLER,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_LOVE_BALL,
+    .slot = 2
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_CATERPIE,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_MASTER_BALL,
+    .slot = 2
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_BEEDRILL,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_FAST_BALL,
+    .slot = 3
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_QUICK_BALL,
+    .slot = 4
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_METAPOD,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_LOVE_BALL,
+    .slot = 4
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_SQUIRTLE,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HIDDEN,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_LOVE_BALL,
+    .slot = 5
+    //.shiny = TRUE
+    },
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {

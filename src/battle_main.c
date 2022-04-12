@@ -561,6 +561,10 @@ static void CB2_InitBattleInternal(void)
         SetWildMonHeldItem();
     }
 
+    //test code to spy on enemy teams
+    //for (u8 i = 0; i < gTrainers[gTrainerBattleOpponent_A].partySize; i++)
+    //    gPlayerParty[i] = gEnemyParty[i];
+    
     gMain.inBattle = TRUE;
     gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
 
@@ -1853,9 +1857,28 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             monsCount = gTrainers[trainerNum].partySize;
         }
 
+        struct TrainerMon partyData[6] = {};
+        u8 slotFilled[6] = {};
+        u8 totalPokesWithRotates = gTrainers[trainerNum].totalMonCountWithRotates; //test not using the arrcount
         for (i = 0; i < monsCount; i++)
-        {
-            const struct TrainerMon *partyData = gTrainers[trainerNum].party.TrainerMon;
+        {   
+            u16 randomNumber;
+            u8 x = 0;
+            u8 randomPokeSlot = 0;
+            while (!x)
+            {
+                randomNumber = Random() % totalPokesWithRotates;
+                randomPokeSlot = gTrainers[trainerNum].party.TrainerMon[randomNumber].slot;
+                if (randomPokeSlot < monsCount && randomPokeSlot == i) //need to chekc if taken
+                {
+                    partyData[randomPokeSlot] = gTrainers[trainerNum].party.TrainerMon[randomNumber];
+                    slotFilled[randomPokeSlot] = TRUE;
+                    x = TRUE;
+                }
+            }
+            
+
+             //= gTrainers[trainerNum].party.TrainerMon;
 
             fixedIV = partyData[i].iv;
 
@@ -1880,8 +1903,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             }
             else
             {
-                 personalityValue = 0x88;
-                 gender = MON_FEMALE;
+                personalityValue = 0x88;
+                gender = MON_FEMALE;
             }
 
             if (partyData[i].gender == TRAINER_MON_MALE)
