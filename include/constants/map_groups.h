@@ -591,9 +591,9 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
-// gMapGroup_Gauntlet1
+// gMapGroup_Gauntlet
 #define MAP_STARTER_ROOM (0 | (34 << 8))
-#define MAP_BATTLE1      (1 | (34 << 8))
+#define MAP_BATTLE_TEST  (1 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

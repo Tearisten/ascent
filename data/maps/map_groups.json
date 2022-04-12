@@ -35,7 +35,7 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_Gauntlet1"
+    "gMapGroup_Gauntlet"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -623,8 +623,8 @@
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
   ],
-  "gMapGroup_Gauntlet1": [
+  "gMapGroup_Gauntlet": [
     "starterRoom",
-    "battle1"
+    "battleTest"
   ]
 }

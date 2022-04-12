@@ -1,5 +1,10 @@
-battle1_MapScripts::
+battleTest_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, BattleTest_OnTransition
 	.byte 0
+
+BattleTest_OnTransition:
+	setrespawn HEAL_LOCATION_FLOOR_TEST
+	end
 
 MoveRelearners_EventScript_MoveRelearner::
 	lockall
@@ -279,7 +284,182 @@ MakeShinyConfirm_text:
 MakeShinyAlready_text:
 	.string "That poke is already shiny.$"
 
-TestBattle_event::
-	trainerbattle_no_intro TRAINER_TEST, Route110_Text_MayDefeated
+Battle_event_eastspot::
+	setorcopyvar VAR_0x8004, 0
+	goto Battle_event_ReadyOrNot
+
+Battle_event_southspot::
+	setorcopyvar VAR_0x8004, 1
+	goto Battle_event_ReadyOrNot
+
+Battle_event_westspot::
+	setorcopyvar VAR_0x8004, 2
+	goto Battle_event_ReadyOrNot
+
+.set ROOM_BATTLE_COUNT, 2
+.set ROOM_BATTLE_TYPE, 1
+Battle_event_ReadyOrNot::
+	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
+	switch ROOM_BATTLE_TYPE
+	case 1, Battle_event_TextSingleBattles
+	case 2, Battle_event_TextDoubleBattles
+
+Battle_event_TextSingleBattles::
+	msgbox Battle_event_readyText1, MSGBOX_DEFAULT
+	waitmessage
+	goto Battle_event_TryBattle
+
+Battle_event_TextDoubleBattles::
+	msgbox Battle_event_readyText2, MSGBOX_DEFAULT
+	goto Battle_event_TryBattle
+
+Battle_event_readyText1:
+	.string "This floor features {STR_VAR_1} single battles.\n"
+	.string "Are you ready?$"
+
+Battle_event_readyText2:
+	.string "This floor features {STR_VAR_1} double battles.\n"
+	.string "Are you ready?$"
+
+Battle_event_TryBattle::
+	yesnobox 3, 8
+	releaseall
+	switch VAR_RESULT
+	case NO, MoveRelearners_EventScript_CantTeach
+	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
+	waitmessage
+	switch VAR_0x8004
+	case 0, Battle_event_walk_west
+	case 1, Battle_event_walk_south
+	case 2, Battle_event_walk_east
+	end
+
+Battle_event_walk_west::
+	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_west_move
+	goto Battle_event_finish_walk
+
+Battle_event_walk_west_move::
+	walk_down
+	step_end
+
+Battle_event_walk_south::
+	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_south_move
+	goto Battle_event_finish_walk
+
+Battle_event_walk_south_move::
+	walk_left
+	step_end
+
+Battle_event_walk_east::
+	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_walk_east_move
+	goto Battle_event_finish_walk
+
+Battle_event_walk_east_move::
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+Battle_event_finish_walk::
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Battle_event_finish_walk_move
+	waitmovement 0
+	releaseall
+	goto Battle_event_start_battles
+
+Battle_event_finish_walk_move::
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
+
+
+.set TRAINER1, 10
+.set TRAINER1ID, TRAINER_TEST
+Battle_event_start_battles::
+	call Battle_event_npc_walk1
+	delay 10
 	releaseall
 	end
+
+.set FLOORMONEY, 500
+.set FLOORBP, 2
+Battle_event_end_battles::
+	lockall
+	delay 20
+	special CloseBattlePointsWindow @won't open quickly without this for some reason
+	special ShowBattlePointsWindow
+	delay 50
+	setvar VAR_0x8007, FLOORBP
+	special GiveBattlePointsGauntlet
+	special UpdateBattlePointsWindow
+	playse SE_PIN
+	waitse
+	delay 30
+	showmoneybox 15, 0
+	delay 20
+	addmoney FLOORMONEY
+	updatemoneybox
+	playse SE_PIN
+	waitse
+	delay 20
+	hidemoneybox
+	special CloseBattlePointsWindow
+	delay 50
+	releaseall
+	end
+
+Battle_event_npc_walk1::
+	applymovement TRAINER1, Battle_event_npc_walk1_move
+	waitmovement 0
+	trainerbattle_single TRAINER1ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, Battle_event_npc_finish1
+
+Battle_event_npc_finish1::
+	applymovement TRAINER1, Battle_event_npc_walk1_move_back
+	waitmovement 0
+	goto Battle_event_end_battles
+
+Battle_event_npc_walk1_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+Battle_event_npc_walk1_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
+Battle_event_npc_walk2_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+Battle_event_npc_walk2_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end

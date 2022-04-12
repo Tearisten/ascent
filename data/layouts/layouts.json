@@ -4422,14 +4422,14 @@
       "blockdata_filepath": "data/layouts/starterRoom/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE1",
-      "name": "battle1_Layout",
+      "id": "LAYOUT_BATTLETEST",
+      "name": "battleTest_Layout",
       "width": 15,
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battle1/border.bin",
-      "blockdata_filepath": "data/layouts/battle1/map.bin"
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
     }
   ]
 }

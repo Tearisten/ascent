@@ -1060,4 +1060,4 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/starterRoom/scripts.inc"
 
-	.include "data/maps/battle1/scripts.inc"
+	.include "data/maps/battleTest/scripts.inc"
