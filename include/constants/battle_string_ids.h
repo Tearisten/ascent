@@ -609,8 +609,9 @@
 #define STRINGID_CANTESCAPEBECAUSEOFCURRENTMOVE       606
 #define STRINGID_NEUTRALIZINGGASENTERS                607
 #define STRINGID_NEUTRALIZINGGASOVER                  608
+#define STRINGID_PKMNMAKESDRAGONMISS                  609
 
-#define BATTLESTRINGS_COUNT                           609
+#define BATTLESTRINGS_COUNT                           610
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.
@@ -637,6 +638,7 @@
 #define B_MSG_AVOIDED_ATK  2
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
+#define B_MSG_DRAGON_MISS  5
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

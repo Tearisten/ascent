@@ -7,7 +7,8 @@ static const struct TrainerMon sParty_Tester[] = {
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
-    .slot = 0
+    .slot = 0,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {

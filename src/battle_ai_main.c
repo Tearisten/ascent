@@ -558,6 +558,15 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         {
             RETURN_SCORE_MINUS(20);
         }
+
+        // check dragon immunities
+        if (moveType == TYPE_DRAGON
+          && !IsBattlerGrounded(battlerDef)
+          && ((AI_DATA->defAbility == ABILITY_DRAGONBORN
+          && DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))))
+        {
+            RETURN_SCORE_MINUS(20);
+        }
         
         // check off screen
         if (IsSemiInvulnerable(battlerDef, move) && moveEffect != EFFECT_SEMI_INVULNERABLE && AI_WhoStrikesFirst(battlerAtk, battlerDef) == AI_IS_FASTER)

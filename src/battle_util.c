@@ -1002,6 +1002,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_ICE_SCALES] = 1,
     [ABILITY_ICE_FACE] = 1,
     [ABILITY_PASTEL_VEIL] = 1,
+    [ABILITY_DRAGONBORN] = 1
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
@@ -8954,6 +8955,15 @@ static u16 CalcTypeEffectivenessMultiplierInternal(u16 move, u8 moveType, u8 bat
     else if (B_SHEER_COLD_IMMUNITY >= GEN_7 && move == MOVE_SHEER_COLD && IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE))
     {
         modifier = UQ_4_12(0.0);
+    }
+    else if (moveType == TYPE_DRAGON && recordAbilities && GetBattlerAbility(battlerDef) == ABILITY_DRAGONBORN)
+    {
+        modifier = UQ_4_12(0.0);
+        gLastUsedAbility = ABILITY_DRAGONBORN;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[battlerDef] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_DRAGON_MISS;
+        RecordAbilityBattle(battlerDef, ABILITY_DRAGONBORN);
     }
 
     // Thousand Arrows ignores type modifiers for flying mons
