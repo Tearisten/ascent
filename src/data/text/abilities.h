@@ -264,7 +264,8 @@ static const u8 sSkepticDescription[] = _("Immune to Fairy attacks.");
 static const u8 sIntrepidWandDescription[] = _("Ups Sp. Atk on entry.");
 static const u8 sDauntlessCrownDescription[] = _("Ups Sp. Def on entry.");
 static const u8 sTwistedMindDescription[] = _("Trick Room on entry.");
-static const u8 sHazardCrewDescription[] = _("Remove hazards on entry.");
+static const u8 sHazardCrewDescription[] = _("Removes hazards on entry.");
+static const u8 sGiftOfWindDescription[] = _("Sets Tailwind on entry.");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -548,6 +549,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_DAUNTLESS_CROWN] = _("Daun. Crown"),
     [ABILITY_TWISTED_MIND] = _("Twisted Mind"),
     [ABILITY_HAZARD_CREW] = _("Hazard Crew"),
+    [ABILITY_GIFT_OF_WIND] = _("GiftOfWind"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -831,4 +833,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_DAUNTLESS_CROWN] = sDauntlessCrownDescription,
     [ABILITY_TWISTED_MIND] = sTwistedMindDescription,
     [ABILITY_HAZARD_CREW] = sHazardCrewDescription,
+    [ABILITY_GIFT_OF_WIND] = sGiftOfWindDescription,
 };

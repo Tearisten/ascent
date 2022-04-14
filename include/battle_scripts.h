@@ -421,6 +421,7 @@ extern const u8 BattleScript_OpressionActivatesEnd3[];
 extern const u8 BattleScript_OpressionActivates[];
 extern const u8 BattleScript_TwistedMindActives[];
 extern const u8 BattleScript_EffectHazardCrew[];
+extern const u8 BattleScript_GiftOfWind[];
 
 
 #endif // GUARD_BATTLE_SCRIPTS_H

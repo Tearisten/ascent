@@ -615,8 +615,9 @@
 #define STRINGID_PKMNMAKESFAIRYMISS                   612
 #define STRINGID_TWISTEDMIND                          613
 #define STRINGID_HAZARDCREW                           614
+#define STRINGID_GIFTOFWIND                           615
 
-#define BATTLESTRINGS_COUNT                           615
+#define BATTLESTRINGS_COUNT                           616
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.
@@ -857,6 +858,7 @@
 #define B_MSG_SWITCHIN_NEUTRALIZING_GAS 16
 #define B_MSG_SWITCHIN_ATTENTION_HOG    17
 #define B_MSG_SWITCHIN_HAZARD_CREW      18
+#define B_MSG_SWITCHIN_GIFT_OF_WIND     19
 
 // gMentalHerbCureStringIds
 #define B_MSG_MENTALHERBCURE_INFATUATION       0

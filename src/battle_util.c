@@ -4358,6 +4358,27 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_GIFT_OF_WIND:
+            u8 side = GetBattlerSide(battler);
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                u8 side = GetBattlerSide(battler);
+                if (gSideTimers[side].tailwindTimer == 0)
+                {
+                    gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
+                    gSideTimers[side].tailwindBattlerId = battler;
+                    gSideTimers[side].tailwindTimer = (B_TAILWIND_TURNS >= GEN_5) ? 4 : 3;
+                    BattleScriptPushCursorAndCallback(BattleScript_GiftOfWind);
+                }
+                else //don't report if it doesn't activate
+                {
+                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                    return effect++;
+                }                
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                effect++;
+            }
+            break;
         case ABILITY_DRIZZLE:
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_RAIN, TRUE))
             {

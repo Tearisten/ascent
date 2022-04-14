@@ -737,6 +737,8 @@ static const u8 sText_RedirectedMoveToPoke[] = _("{B_ATK_NAME_WITH_PREFIX} deman
 static const u8 sText_HolyAuraActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} breaths life\ninto the team!");
 static const u8 sText_TwistedMindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} twists\nthe dimensions!");
 static const u8 sText_HazardCrewActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} cleans up\nthe field!");
+static const u8 sText_GiftOfWindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} brings the\ngift of tailwind!");
+
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1342,6 +1344,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HOLYAURAHEALS - 12] = sText_HolyAuraActivateText,
     [STRINGID_TWISTEDMIND - 12] = sText_TwistedMindActivateText,
     [STRINGID_HAZARDCREW - 12] = sText_HazardCrewActivateText,
+    [STRINGID_GIFTOFWIND - 12] = sText_GiftOfWindActivateText,
 };
 
 const u16 gMentalHerbCureStringIds[] = 
@@ -1407,6 +1410,7 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
     [B_MSG_SWITCHIN_ATTENTION_HOG] = STRINGID_REDIRECT,
     [B_MSG_SWITCHIN_HAZARD_CREW] = STRINGID_HAZARDCREW,
+    [B_MSG_SWITCHIN_GIFT_OF_WIND] = STRINGID_GIFTOFWIND,
 };
 
 const u16 gMissStringIds[] =
