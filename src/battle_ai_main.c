@@ -2551,8 +2551,6 @@ static s16 AI_TryToFaint(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     return score;
 }
 
-#pragma GCC pop_options
-
 // double battle logic
 static s16 AI_DoubleBattle(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
 {

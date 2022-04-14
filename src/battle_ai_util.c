@@ -287,6 +287,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_OBSESSION] = 7,
     [ABILITY_OPRESSION] = 7,
     [ABILITY_SKEPTIC] = 4,
+    [ABILITY_INTREPID_WAND] = 3,
+    [ABILITY_DAUNTLESS_CROWN] = 3,
 };
 
 static const u16 sEncouragedEncoreEffects[] =

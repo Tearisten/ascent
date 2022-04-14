@@ -261,6 +261,10 @@ static const u8 sBullRushTacticsDescription[] = _("Ups Speed and locks move.");
 static const u8 sHolyAuraDescription[] = _("Heal team at end of turn.");
 static const u8 sOpressionDescription[] = _("Lowers the foe's Sp. Atk.");
 static const u8 sSkepticDescription[] = _("Immune to Fairy attacks.");
+static const u8 sIntrepidWandDescription[] = _("Ups Sp. Atk on entry.");
+static const u8 sDauntlessCrownDescription[] = _("Ups Sp. Def on entry.");
+
+
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -498,8 +502,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SHADOW_SHIELD] = _("ShadowShield"),
     [ABILITY_PRISM_ARMOR] = _("Prism Armor"),
     [ABILITY_NEUROFORCE] = _("Neuroforce"),
-    [ABILITY_INTREPID_SWORD] = _("IntrepidSwrd"),
-    [ABILITY_DAUNTLESS_SHIELD] = _("DauntlssShld"),
+    [ABILITY_INTREPID_SWORD] = _("Int. Sword"),
+    [ABILITY_DAUNTLESS_SHIELD] = _("Daun. Shield"),
     [ABILITY_LIBERO] = _("Libero"),
     [ABILITY_BALL_FETCH] = _("Ball Fetch"),
     [ABILITY_COTTON_DOWN] = _("Cotton Down"),
@@ -539,6 +543,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_HOLY_AURA] = _("Holy Aura"),
     [ABILITY_OPRESSION] = _("Opression"),
     [ABILITY_SKEPTIC] = _("Skeptic"),
+    [ABILITY_INTREPID_WAND] = _("Int. Wand"),
+    [ABILITY_DAUNTLESS_CROWN] = _("Daun. Crown"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -818,4 +824,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_HOLY_AURA] = sHolyAuraDescription,
     [ABILITY_OPRESSION] = sOpressionDescription,
     [ABILITY_SKEPTIC] = sSkepticDescription,
+    [ABILITY_INTREPID_WAND] = sIntrepidWandDescription,
+    [ABILITY_DAUNTLESS_CROWN] = sDauntlessCrownDescription,
 };
