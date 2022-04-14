@@ -255,6 +255,7 @@ static const u8 sGrimNeighDescription[] = _("KOs boost Sp. Atk stat.");
 static const u8 sAsOneIceRiderDescription[] = _("Unnerve and Chilling Neigh.");
 static const u8 sAsOneShadowRiderDescription[] = _("Unnerve and Grim Neigh.");
 static const u8 sDragonBornDescription[] = _("Immune to Dragon attacks.");
+static const u8 sEnchantingDescription[] = _("Always target of attacks.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -527,6 +528,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_AS_ONE_ICE_RIDER] = _("As One"),
     [ABILITY_AS_ONE_SHADOW_RIDER] = _("As One"),
     [ABILITY_DRAGONBORN] = _("Dragonborn"),
+    [ABILITY_ENCHANTING] = _("Enchanting")
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -800,4 +802,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AS_ONE_ICE_RIDER] = sAsOneIceRiderDescription,
     [ABILITY_AS_ONE_SHADOW_RIDER] = sAsOneShadowRiderDescription,
     [ABILITY_DRAGONBORN] = sDragonBornDescription,
+    [ABILITY_ENCHANTING] = sEnchantingDescription,
 };

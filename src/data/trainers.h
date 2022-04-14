@@ -19,9 +19,9 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("Tester"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .partySize = 1,
+        .partySize = 2,
         .party = {.TrainerMon = sParty_Tester},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_Tester)
     },

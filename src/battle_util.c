@@ -307,6 +307,14 @@ void HandleAction_UseMove(void)
 
     // choose target
     side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+
+    // Determine if Enchanting redirects attacker every turn while in battle
+    if (IsAbilityOnOpposingSide(gBattlerAttacker, ABILITY_ENCHANTING))
+    {
+        gSideTimers[side].followmeTimer = 1;
+        gSideTimers[side].followmePowder = TestMoveFlags(gCurrentMove, FLAG_POWDER);
+    }
+
     if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove)
         && gBattleMoves[gCurrentMove].target == MOVE_TARGET_SELECTED
         && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gSideTimers[side].followmeTarget))
@@ -4477,6 +4485,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        
+        case ABILITY_ENCHANTING:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAbility = gBattlerTarget;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_ATTENTION_HOG;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+                gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerAttacker;
+            }
         }
         break;
     case ABILITYEFFECT_ENDTURN: // 1

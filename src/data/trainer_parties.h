@@ -1,8 +1,8 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
-    .species = SPECIES_KAKUNA,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
+    .species = SPECIES_CHARMANDER,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_SLOT_1,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
@@ -13,13 +13,14 @@ static const struct TrainerMon sParty_Tester[] = {
     },
     {
     .species = SPECIES_WURMPLE,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_NONE,
     .ability = ABILITY_HIDDEN,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_ULTRA_BALL,
-    .slot = 1
+    .slot = 1,
+    .moves = {MOVE_THUNDER_WAVE, MOVE_TACKLE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {

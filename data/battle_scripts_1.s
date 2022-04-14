@@ -7655,6 +7655,11 @@ BattleScript_SpeedBoostActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_EnchantingActivates::
+	pause B_WAIT_TIME_LONG
+	call BattleScript_AbilityPopUp
+	return
+
 @ Can't compare directly to a value, have to compare to value at pointer
 sZero:
 .byte 0

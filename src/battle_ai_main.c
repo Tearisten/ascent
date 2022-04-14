@@ -747,6 +747,9 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                     if (atkPriority > 0)
                         RETURN_SCORE_MINUS(10);
                     break;
+                case ABILITY_ENCHANTING:
+                    if (!IsMoveRedirectionPrevented(move, AI_DATA->atkAbility))
+                        RETURN_SCORE_MINUS(20);
                 }
             } // def partner ability checks
         } // ignore def ability check
