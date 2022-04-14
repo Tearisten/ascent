@@ -736,6 +736,7 @@ static const u8 sText_NeutralizingGasOver[] = _("The effects of Neutralizing\nGa
 static const u8 sText_RedirectedMoveToPoke[] = _("{B_ATK_NAME_WITH_PREFIX} demands attention\nfrom the enemy pokemon!");
 static const u8 sText_HolyAuraActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} breaths life\ninto the team!");
 static const u8 sText_TwistedMindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} twists\nthe dimensions!");
+static const u8 sText_HazardCrewActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} cleans up\nthe field!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1339,7 +1340,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_CANTESCAPEBECAUSEOFCURRENTMOVE - 12] = sText_CantEscapeBecauseOfCurrentMove,
     [STRINGID_REDIRECT - 12] = sText_RedirectedMoveToPoke,
     [STRINGID_HOLYAURAHEALS - 12] = sText_HolyAuraActivateText,
-    [STRINGID_TWISTEDMIND -12] = sText_TwistedMindActivateText,
+    [STRINGID_TWISTEDMIND - 12] = sText_TwistedMindActivateText,
+    [STRINGID_HAZARDCREW - 12] = sText_HazardCrewActivateText,
 };
 
 const u16 gMentalHerbCureStringIds[] = 
@@ -1403,7 +1405,8 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_CURIOUS_MEDICINE] = STRINGID_CURIOUSMEDICINEENTERS,
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
-    [B_MSG_SWITCHIN_ATTENTION_HOG] = STRINGID_REDIRECT
+    [B_MSG_SWITCHIN_ATTENTION_HOG] = STRINGID_REDIRECT,
+    [B_MSG_SWITCHIN_HAZARD_CREW] = STRINGID_HAZARDCREW,
 };
 
 const u16 gMissStringIds[] =

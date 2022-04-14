@@ -4324,6 +4324,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_HAZARD_CREW:
+            if (!gSpecialStatuses[battler].switchInAbilityDone && CanClearHazards(battler))
+            {
+                //gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_HAZARD_CREW;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_EffectHazardCrew);
+                effect++;
+            }
+            return effect; // Note: It returns effect as to not record the ability if ABILITY_HAZARD_CREW does not activate.
+            break;
         case ABILITY_TWISTED_MIND:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
@@ -9195,6 +9205,42 @@ s32 GetStealthHazardDamage(u8 hazardType, u8 battlerId)
     }
 
     return dmg;
+}
+
+
+#define HAZARD_CLEAR(status, structField, battlescript, move, canClear)     \
+{                                                                           \
+    if (*sideStatuses & status)                                             \
+    {                                                                       \
+        canClear = TRUE;                                                    \
+    }                                                                       \
+}                                                                           \
+
+bool8 CanClearHazards(u8 battlerAtk)
+{
+    s32 i;
+    bool8 canClear = FALSE;
+    for (i = 0; i < 2; i++)
+    {
+        struct SideTimer *sideTimer = &gSideTimers[i];
+        u32 *sideStatuses = &gSideStatuses[i];
+
+        gBattlerAttacker = i;
+        if (GetBattlerSide(battlerAtk) != i)
+        {
+            HAZARD_CLEAR(SIDE_STATUS_REFLECT, reflectTimer, BattleScript_SideStatusWoreOffReturn, MOVE_REFLECT, canClear);
+            HAZARD_CLEAR(SIDE_STATUS_LIGHTSCREEN, lightscreenTimer, BattleScript_SideStatusWoreOffReturn, MOVE_LIGHT_SCREEN, canClear);
+            HAZARD_CLEAR(SIDE_STATUS_MIST, mistTimer, BattleScript_SideStatusWoreOffReturn, MOVE_MIST, canClear);
+            HAZARD_CLEAR(SIDE_STATUS_AURORA_VEIL, auroraVeilTimer, BattleScript_SideStatusWoreOffReturn, MOVE_AURORA_VEIL, canClear);
+            HAZARD_CLEAR(SIDE_STATUS_SAFEGUARD, safeguardTimer, BattleScript_SideStatusWoreOffReturn, MOVE_SAFEGUARD, canClear);
+        }
+        HAZARD_CLEAR(SIDE_STATUS_SPIKES, spikesAmount, BattleScript_SpikesFree, 0, canClear);
+        HAZARD_CLEAR(SIDE_STATUS_STEALTH_ROCK, stealthRockAmount, BattleScript_StealthRockFree, 0, canClear);
+        HAZARD_CLEAR(SIDE_STATUS_TOXIC_SPIKES, toxicSpikesAmount, BattleScript_ToxicSpikesFree, 0, canClear);
+        HAZARD_CLEAR(SIDE_STATUS_STICKY_WEB, stickyWebAmount, BattleScript_StickyWebFree, 0, canClear);
+    }
+
+    return canClear;
 }
 
 bool32 IsPartnerMonFromSameTrainer(u8 battlerId)

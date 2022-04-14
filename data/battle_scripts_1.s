@@ -1575,6 +1575,19 @@ BattleScript_DefogTryHazardsWithAnim:
 	waitanimation
 	goto BattleScript_DefogTryHazards
 
+BattleScript_EffectHazardCrew::
+	defogclear BS_ATTACKER, FALSE, BattleScript_NoHazards
+BattleScript_HCWorks:
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_HAZARDCREW
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HCTryHazards::
+	copybyte gEffectBattler, gBattlerAttacker
+	defogclear BS_ATTACKER, TRUE, NULL
+	copybyte gBattlerAttacker, gEffectBattler
+BattleScript_NoHazards::
+	end3
+
 BattleScript_EffectCopycat:
 	attackcanceler
 	attackstring
@@ -9332,3 +9345,5 @@ BattleScript_NeutralizingGasExitsLoop:
 	jumpifbytenotequal gBattlerTarget, sByteFour, BattleScript_NeutralizingGasExitsLoop	@ SOMEHOW, comparing to gBattlersCount is problematic.
 	restoretarget
 	return
+
+

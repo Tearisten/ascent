@@ -290,6 +290,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_INTREPID_WAND] = 3,
     [ABILITY_DAUNTLESS_CROWN] = 3,
     [ABILITY_TWISTED_MIND] = 2,
+    [ABILITY_HAZARD_CREW] = 1,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
