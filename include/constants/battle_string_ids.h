@@ -612,8 +612,9 @@
 #define STRINGID_PKMNMAKESDRAGONMISS                  609
 #define STRINGID_REDIRECT                             610
 #define STRINGID_HOLYAURAHEALS                        611
+#define STRINGID_PKMNMAKESFAIRYMISS                   612
 
-#define BATTLESTRINGS_COUNT                           612
+#define BATTLESTRINGS_COUNT                           613
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.
@@ -641,6 +642,7 @@
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
 #define B_MSG_DRAGON_MISS  5
+#define B_MSG_FAIRY_MISS   6
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

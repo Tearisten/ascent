@@ -286,6 +286,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_BULL_RUSH] = 7,
     [ABILITY_OBSESSION] = 7,
     [ABILITY_OPRESSION] = 7,
+    [ABILITY_SKEPTIC] = 4,
 };
 
 static const u16 sEncouragedEncoreEffects[] =

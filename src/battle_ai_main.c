@@ -551,7 +551,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         if (moveType == TYPE_GROUND
           && !IsBattlerGrounded(battlerDef)
           && ((AI_DATA->defAbility == ABILITY_LEVITATE
-          && DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))
+          && !DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))
           || AI_DATA->defHoldEffect == HOLD_EFFECT_AIR_BALLOON
           || (gStatuses3[battlerDef] & (STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS)))
           && move != MOVE_THOUSAND_ARROWS)
@@ -561,13 +561,18 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
 
         // check dragon immunities
         if (moveType == TYPE_DRAGON
-          && !IsBattlerGrounded(battlerDef)
           && ((AI_DATA->defAbility == ABILITY_DRAGONBORN
-          && DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))))
+          && !DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))))
         {
             RETURN_SCORE_MINUS(20);
         }
-        
+
+        // check dragon immunities
+        if (moveType == TYPE_FAIRY && AI_DATA->defAbility == ABILITY_SKEPTIC && !DoesBattlerIgnoreAbilityChecks(AI_DATA->atkAbility, move))
+        {
+            RETURN_SCORE_MINUS(20);
+        }
+
         // check off screen
         if (IsSemiInvulnerable(battlerDef, move) && moveEffect != EFFECT_SEMI_INVULNERABLE && AI_WhoStrikesFirst(battlerAtk, battlerDef) == AI_IS_FASTER)
             RETURN_SCORE_MINUS(20);    // if target off screen and we go first, don't use move
@@ -750,6 +755,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 case ABILITY_ENCHANTING:
                     if (!IsMoveRedirectionPrevented(move, AI_DATA->atkAbility))
                         RETURN_SCORE_MINUS(20);
+                    break;
                 }
             } // def partner ability checks
         } // ignore def ability check
@@ -2544,6 +2550,8 @@ static s16 AI_TryToFaint(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     
     return score;
 }
+
+#pragma GCC pop_options
 
 // double battle logic
 static s16 AI_DoubleBattle(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
