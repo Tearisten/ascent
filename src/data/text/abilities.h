@@ -268,6 +268,7 @@ static const u8 sHazardCrewDescription[] = _("Removes hazards on entry.");
 static const u8 sGiftOfWindDescription[] = _("Sets Tailwind on entry.");
 static const u8 sKillingSpreeDescription[] = _("Ignores recharge on KO.");
 static const u8 sSplitDescription[] = _("Attacks hit twice for half dmg");
+static const u8 sInversityDescription[] = _("Inverse damage when hit.");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -554,6 +555,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_GIFT_OF_WIND] = _("GiftOfWind"),
     [ABILITY_KILLING_SPREE] = _("KillngSpree"),
     [ABILITY_SPLIT] = _("Split"),
+    [ABILITY_INVERSITY] = _("Inversity"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -840,4 +842,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_GIFT_OF_WIND] = sGiftOfWindDescription,
     [ABILITY_KILLING_SPREE] = sKillingSpreeDescription,
     [ABILITY_SPLIT] = sSplitDescription,
+    [ABILITY_INVERSITY] = sInversityDescription,
 };

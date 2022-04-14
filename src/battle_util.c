@@ -9199,6 +9199,32 @@ static void MulByTypeEffectiveness(u16 *modifier, u16 move, u8 moveType, u8 batt
             mod = UQ_4_12(1.0);
     }
 
+    if (GetBattlerAbility(battlerDef) == ABILITY_INVERSITY && mod != UQ_4_12(0.0) && mod != 0)
+    {
+        bool8 recordAbility = FALSE;
+        switch (mod)
+        {
+            case UQ_4_12(2.0):
+                mod = UQ_4_12(.5);
+                recordAbility = TRUE;
+                break;
+            case UQ_4_12(4.0):
+                mod = UQ_4_12(.25);
+                recordAbility = TRUE;
+                break;
+            case UQ_4_12(.5):
+                mod = UQ_4_12(2.0);
+                recordAbility = TRUE;
+                break;
+            case UQ_4_12(.25):
+                mod = UQ_4_12(4.0);
+                recordAbility = TRUE;
+                break;
+        }
+        if (recordAbilities && recordAbility)
+            RecordAbilityBattle(battlerDef, ABILITY_INVERSITY);
+    }
+
     MulModifier(modifier, mod);
 }
 
@@ -9351,37 +9377,70 @@ s32 GetStealthHazardDamage(u8 hazardType, u8 battlerId)
     if (type2 != type1)
         MulModifier(&modifier, GetTypeModifier(hazardType, type2));
 
-    switch (modifier)
-    {
-    case UQ_4_12(0.0):
-        dmg = 0;
-        break;
-    case UQ_4_12(0.25):
-        dmg = maxHp / 32;
-        if (dmg == 0)
-            dmg = 1;
-        break;
-    case UQ_4_12(0.5):
-        dmg = maxHp / 16;
-        if (dmg == 0)
-            dmg = 1;
-        break;
-    case UQ_4_12(1.0):
-        dmg = maxHp / 8;
-        if (dmg == 0)
-            dmg = 1;
-        break;
-    case UQ_4_12(2.0):
-        dmg = maxHp / 4;
-        if (dmg == 0)
-            dmg = 1;
-        break;
-    case UQ_4_12(4.0):
-        dmg = maxHp / 2;
-        if (dmg == 0)
-            dmg = 1;
-        break;
-    }
+    if (gBattleMons[battlerId].ability == ABILITY_INVERSITY)
+        switch (modifier)
+        {
+        case UQ_4_12(0.0):
+            dmg = 0;
+            break;
+        case UQ_4_12(0.25):
+            dmg = maxHp / 2;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(0.5):
+            dmg = maxHp / 4;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(1.0):
+            dmg = maxHp / 8;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(2.0):
+            dmg = maxHp / 16;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(4.0):
+            dmg = maxHp / 32;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        }
+    else
+        switch (modifier)
+        {
+        case UQ_4_12(0.0):
+            dmg = 0;
+            break;
+        case UQ_4_12(0.25):
+            dmg = maxHp / 32;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(0.5):
+            dmg = maxHp / 16;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(1.0):
+            dmg = maxHp / 8;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(2.0):
+            dmg = maxHp / 4;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        case UQ_4_12(4.0):
+            dmg = maxHp / 2;
+            if (dmg == 0)
+                dmg = 1;
+            break;
+        }
 
     return dmg;
 }

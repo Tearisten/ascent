@@ -995,7 +995,7 @@ u8 AI_GetMoveEffectiveness(u16 move, u8 battlerAtk, u8 battlerDef)
         damageVar = AI_EFFECTIVENESS_x4;
         break;
     }
-
+    
     return damageVar;
 }
 
