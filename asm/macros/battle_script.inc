@@ -1674,6 +1674,11 @@
 	.4byte \ptr
 	.endm
 
+	.macro checkholyauraheal  battler:req, ptr:req
+	various \battler, VARIOUS_CHECK_IF_HOLY_AURA_HEALS
+	.4byte \ptr
+	.endm
+
 	.macro jumpifnotberry battler:req, ptr:req
 	various \battler, VARIOUS_JUMP_IF_NOT_BERRY
 	.4byte \ptr

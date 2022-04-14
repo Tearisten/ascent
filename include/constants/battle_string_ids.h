@@ -611,8 +611,9 @@
 #define STRINGID_NEUTRALIZINGGASOVER                  608
 #define STRINGID_PKMNMAKESDRAGONMISS                  609
 #define STRINGID_REDIRECT                             610
+#define STRINGID_HOLYAURAHEALS                        611
 
-#define BATTLESTRINGS_COUNT                           611
+#define BATTLESTRINGS_COUNT                           612
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.

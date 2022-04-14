@@ -4700,6 +4700,14 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     effect++;
                 }
                 break;
+            case ABILITY_HOLY_AURA:
+                if (!BATTLER_MAX_HP(gActiveBattler) || !BATTLER_MAX_HP(BATTLE_PARTNER(gActiveBattler)))
+                {
+                    gBattleScripting.battler = BATTLE_PARTNER(battler);
+                    BattleScriptPushCursorAndCallback(BattleScript_HolyAuraActivates);
+                    effect++;
+                }
+                break;
             }
         }
         break;

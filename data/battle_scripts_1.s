@@ -7785,6 +7785,25 @@ BattleScript_HealerActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_HolyAuraActivates::
+	call BattleScript_AbilityPopUp
+	recordability BS_ATTACKER
+	checkholyauraheal BS_ATTACKER, BattleScript_HolyAuraPartner
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+BattleScript_HolyAuraPartner::
+	checkholyauraheal BS_SCRIPTING, BattleScript_HolyAuraLoopEnd
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+BattleScript_HolyAuraLoopEnd::
+	@bicword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+BattleScript_HolyAuraHealEnd:
+	printstring STRINGID_HOLYAURAHEALS
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_SandstreamActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
