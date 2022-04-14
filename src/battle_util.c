@@ -4324,6 +4324,30 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_TWISTED_MIND:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                u32 statusFlag = STATUS_FIELD_TRICK_ROOM;
+                u8 *timer = &gFieldTimers.trickRoomTimer;
+                u8 stringId = 0;
+
+                if (gFieldStatuses & statusFlag)
+                {
+                    gFieldStatuses &= ~statusFlag;
+                    *timer = 0;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = stringId + 1;
+                }
+                else
+                {
+                    gFieldStatuses |= statusFlag;
+                    *timer = 5;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = stringId;
+                }
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_TwistedMindActives);
+                effect++;
+            }
+            break;
         case ABILITY_DRIZZLE:
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_RAIN, TRUE))
             {

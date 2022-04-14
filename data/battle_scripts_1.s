@@ -2456,6 +2456,13 @@ BattleScript_RoomServiceLoop_NextBattler:
 	restoretarget
 	goto BattleScript_MoveEnd
 
+BattleScript_TwistedMindActives::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TWISTEDMIND
+	waitstate
+	end3
+
 BattleScript_EffectWonderRoom:
 BattleScript_EffectMagicRoom:
 	attackcanceler

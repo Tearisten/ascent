@@ -25,7 +25,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_DAUNTLESS_CROWN, ABILITY_BULL_RUSH, ABILITY_CHLOROPHYLL},
+        .abilities = {ABILITY_TWISTED_MIND, ABILITY_BULL_RUSH, ABILITY_CHLOROPHYLL},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
@@ -100,7 +100,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_BULL_RUSH, ABILITY_NONE, ABILITY_SOLAR_POWER},
+            .abilities = {ABILITY_ELECTRIC_SURGE, ABILITY_NONE, ABILITY_SOLAR_POWER},
         #else
             .abilities = {ABILITY_BLAZE, ABILITY_NONE},
         #endif

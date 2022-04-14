@@ -419,5 +419,6 @@ extern const u8 BattleScript_EnchantingActivates[];
 extern const u8 BattleScript_HolyAuraActivates[];
 extern const u8 BattleScript_OpressionActivatesEnd3[];
 extern const u8 BattleScript_OpressionActivates[];
+extern const u8 BattleScript_TwistedMindActives[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

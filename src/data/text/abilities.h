@@ -263,7 +263,7 @@ static const u8 sOpressionDescription[] = _("Lowers the foe's Sp. Atk.");
 static const u8 sSkepticDescription[] = _("Immune to Fairy attacks.");
 static const u8 sIntrepidWandDescription[] = _("Ups Sp. Atk on entry.");
 static const u8 sDauntlessCrownDescription[] = _("Ups Sp. Def on entry.");
-
+static const u8 sTwistedMindDescription[] = _("Trick Room on entry.");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -545,6 +545,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SKEPTIC] = _("Skeptic"),
     [ABILITY_INTREPID_WAND] = _("Int. Wand"),
     [ABILITY_DAUNTLESS_CROWN] = _("Daun. Crown"),
+    [ABILITY_TWISTED_MIND] = _("Twisted Mind")
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -826,4 +827,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SKEPTIC] = sSkepticDescription,
     [ABILITY_INTREPID_WAND] = sIntrepidWandDescription,
     [ABILITY_DAUNTLESS_CROWN] = sDauntlessCrownDescription,
+    [ABILITY_TWISTED_MIND] = sTwistedMindDescription,
 };
