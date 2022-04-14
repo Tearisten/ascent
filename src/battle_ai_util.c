@@ -282,6 +282,9 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_WANDERING_SPIRIT] = 2,
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_ENCHANTING] = 5,
+    [ABILITY_DRAGONBORN] = 3,
+    [ABILITY_BULL_RUSH] = 7,
+    [ABILITY_OBSESSION] = 7
 };
 
 static const u16 sEncouragedEncoreEffects[] =
