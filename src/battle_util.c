@@ -252,12 +252,12 @@ bool32 IsAffectedByPowder(u8 battler, u16 ability, u16 holdEffect)
 {
     if ((B_POWDER_GRASS >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GRASS))
       || ability == ABILITY_OVERCOAT
-      || holdEffect == HOLD_EFFECT_SAFETY_GOOGLES)
+      || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES)
         return FALSE;
     return TRUE;
 }
 
-bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide)
+bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
 {
     u32 ability = GetBattlerAbility(battlerAtk);
 
@@ -3312,7 +3312,6 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_FLAGS: // flags clear
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_DESTINY_BOND;
             gStatuses3[gBattlerAttacker] &= ~STATUS3_GRUDGE;
-            gBattleScripting.tripleKickPower = 0;
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_ASLEEP: // check being asleep
@@ -3676,15 +3675,15 @@ u8 AtkCanceller_UnableToUseMove(void)
 
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
             }
-            else if (IsTwoStrikesMove(gCurrentMove))
-            {
-                gMultiHitCounter = 2;
-				PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
-                if (gCurrentMove == MOVE_DRAGON_DARTS)
-                {
-                    // TODO
-                }
-            }
+            // else if (IsTwoStrikesMove(gCurrentMove))
+            // {
+            //     gMultiHitCounter = 2;
+			// 	PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            //     if (gCurrentMove == MOVE_DRAGON_DARTS)
+            //     {
+            //         // TODO
+            //     }
+            // }
             else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRIPLE_KICK || gCurrentMove == MOVE_SURGING_STRIKES)
             {
                 gMultiHitCounter = 3;

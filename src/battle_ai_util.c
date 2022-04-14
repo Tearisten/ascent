@@ -655,16 +655,6 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
     return FALSE;
 }
 
-// move checks
-bool32 IsAffectedByPowder(u8 battler, u16 ability, u16 holdEffect)
-{
-    if ((B_POWDER_GRASS >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GRASS))
-      || ability == ABILITY_OVERCOAT
-      || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES)
-        return FALSE;
-    return TRUE;
-}
-
 // This function checks if all physical/special moves are either unusable or unreasonable to use.
 // Consider a pokemon boosting their attack against a ghost pokemon having only normal-type physical attacks.
 bool32 MovesWithSplitUnusable(u32 attacker, u32 target, u32 split)

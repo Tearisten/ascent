@@ -4204,11 +4204,11 @@ BattleScript_EffectTripleKick::
 	attackstring
 	ppreduce
 	jumpifmove MOVE_TRIPLE_AXEL BS_TripleAxel
-	addbyte sTRIPLE_KICK_POWER 10
+	addbyte sTRIPLE_KICK_POWER, 10
 	goto BattleScript_HitFromAtkString
 
 BS_TripleAxel:
-	addbyte sTRIPLE_KICK_POWER 20
+	addbyte sTRIPLE_KICK_POWER, 20
 	goto BattleScript_HitFromAtkString
 
 BattleScript_EffectThief::
