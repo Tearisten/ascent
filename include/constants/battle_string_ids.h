@@ -616,8 +616,9 @@
 #define STRINGID_TWISTEDMIND                          613
 #define STRINGID_HAZARDCREW                           614
 #define STRINGID_GIFTOFWIND                           615
+#define STRINGID_KILLINGSPREE                         616
 
-#define BATTLESTRINGS_COUNT                           616
+#define BATTLESTRINGS_COUNT                           617
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.

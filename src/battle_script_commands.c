@@ -7983,6 +7983,18 @@ static void Cmd_various(void)
             return;
         }
         break;
+    case VARIOUS_TRY_ACTIVATE_KILLING_SPREE:
+        if (GetBattlerAbility(gActiveBattler == ABILITY_KILLING_SPREE)
+            && HasAttackerFaintedTarget()
+            && !NoAliveMonsForEitherParty()
+            && gDisableStructs[gActiveBattler].rechargeTimer > 0)
+        {
+            --gDisableStructs[gActiveBattler].rechargeTimer;
+            gLastUsedAbility = GetBattlerAbility(gActiveBattler);
+            gBattleScripting.abilityPopupOverwrite = gLastUsedAbility;
+            gBattlescriptCurrInstr = BattleScript_KillingSpreeActivates;
+            return;
+        }
     case VARIOUS_TRY_ACTIVATE_GRIM_NEIGH:   // and as one shadow rider
         if ((GetBattlerAbility(gActiveBattler) == ABILITY_GRIM_NEIGH
          || GetBattlerAbility(gActiveBattler) == ABILITY_AS_ONE_SHADOW_RIDER)

@@ -291,7 +291,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_DAUNTLESS_CROWN] = 3,
     [ABILITY_TWISTED_MIND] = 2,
     [ABILITY_HAZARD_CREW] = 1,
-    [ABILITY_GIFT_OF_WIND] = 8
+    [ABILITY_GIFT_OF_WIND] = 8,
+    [ABILITY_KILLING_SPREE] = 5
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -839,6 +840,12 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
             return 0;
     }
     // Check recharge
+    if (gBattleMoves[move1].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE 
+        && GetBattlerAbility(sBattler_AI) == ABILITY_KILLING_SPREE)
+        return 0;
+    if (gBattleMoves[move2].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE 
+        && GetBattlerAbility(sBattler_AI) == ABILITY_KILLING_SPREE)
+        return 0;
     if (gBattleMoves[move1].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE)
         return 1;
     if (gBattleMoves[move2].effect == EFFECT_RECHARGE && gBattleMoves[move1].effect != EFFECT_RECHARGE)

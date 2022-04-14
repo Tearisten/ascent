@@ -5814,6 +5814,7 @@ BattleScript_FaintTarget::
 	tryactivatebeastboost BS_ATTACKER
 	tryactivategrimneigh BS_ATTACKER    @ and as one shadow rider
 	tryactivatebattlebond BS_ATTACKER
+	tryactivatekillingspree BS_ATTACKER
 	trytrainerslidefirstdownmsg BS_TARGET
 	return
 
@@ -8435,6 +8436,12 @@ BattleScript_WeakArmorSpeedAnim:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_WeakArmorActivatesEnd:
 	return
+
+BattleScript_KillingSpreeActivates::
+		copybyte gBattlerAbility, gBattlerAttacker
+		call BattleScript_AbilityPopUp
+		waitmessage B_WAIT_TIME_LONG
+		return
 
 BattleScript_RaiseStatOnFaintingTarget::
 	copybyte gBattlerAbility, gBattlerAttacker

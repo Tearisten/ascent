@@ -266,6 +266,7 @@ static const u8 sDauntlessCrownDescription[] = _("Ups Sp. Def on entry.");
 static const u8 sTwistedMindDescription[] = _("Trick Room on entry.");
 static const u8 sHazardCrewDescription[] = _("Removes hazards on entry.");
 static const u8 sGiftOfWindDescription[] = _("Sets Tailwind on entry.");
+static const u8 sKillingSpreeDescription[] = _("Ignores recharge on KO.");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -550,6 +551,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TWISTED_MIND] = _("Twisted Mind"),
     [ABILITY_HAZARD_CREW] = _("Hazard Crew"),
     [ABILITY_GIFT_OF_WIND] = _("GiftOfWind"),
+    [ABILITY_KILLING_SPREE] = _("KillngSpree"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -834,4 +836,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TWISTED_MIND] = sTwistedMindDescription,
     [ABILITY_HAZARD_CREW] = sHazardCrewDescription,
     [ABILITY_GIFT_OF_WIND] = sGiftOfWindDescription,
+    [ABILITY_KILLING_SPREE] = sKillingSpreeDescription,
 };

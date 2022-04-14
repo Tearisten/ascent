@@ -1735,7 +1735,8 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score -= 6;
             break;
         case EFFECT_RECHARGE:
-            if (AI_DATA->defAbility == ABILITY_WONDER_GUARD && effectiveness < AI_EFFECTIVENESS_x2)
+            if ((AI_DATA->defAbility == ABILITY_WONDER_GUARD && effectiveness < AI_EFFECTIVENESS_x2) 
+                || (CanTargetFaintAi(battlerDef, battlerAtk) && AI_DATA->atkAbility != ABILITY_KILLING_SPREE))
                 score -= 10;
             else if (AI_DATA->atkAbility != ABILITY_TRUANT
               && !CanIndexMoveFaintTarget(battlerAtk, battlerDef, AI_THINKING_STRUCT->movesetIndex, 0))
