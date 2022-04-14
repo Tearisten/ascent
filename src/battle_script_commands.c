@@ -1456,15 +1456,26 @@ static void Cmd_attackcanceler(void)
     if (AtkCanceller_UnableToUseMove())
         return;
     if (!gSpecialStatuses[gBattlerAttacker].parentalBondOn
-    && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
-    && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
-    && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget]))
+        && (GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
+        || GetBattlerAbility(gBattlerAttacker) == ABILITY_SPLIT)
+        && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
+        && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget]))
     {
         gSpecialStatuses[gBattlerAttacker].parentalBondOn = 2;
         gMultiHitCounter = 2;
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
         return;
     }
+    else if (!gSpecialStatuses[gBattlerAttacker].parentalBondOn
+            && GetBattlerAbility(gBattlerAttacker) == ABILITY_SPLIT
+            && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
+            && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget]))
+        {
+            gSpecialStatuses[gBattlerAttacker].parentalBondOn = 2;
+            gMultiHitCounter = 2;
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            return;
+        }
 
     // Check Protean activation.
     if ((GetBattlerAbility(gBattlerAttacker) == ABILITY_PROTEAN || GetBattlerAbility(gBattlerAttacker) == ABILITY_LIBERO)

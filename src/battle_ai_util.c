@@ -292,7 +292,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_TWISTED_MIND] = 2,
     [ABILITY_HAZARD_CREW] = 1,
     [ABILITY_GIFT_OF_WIND] = 8,
-    [ABILITY_KILLING_SPREE] = 5
+    [ABILITY_KILLING_SPREE] = 5,
+    [ABILITY_SPLIT] = 3
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -745,13 +746,16 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     {
     case EFFECT_LEVEL_DAMAGE:
     case EFFECT_PSYWAVE:
-        dmg = gBattleMons[battlerAtk].level * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND ? 2 : 1);
+        dmg = gBattleMons[battlerAtk].level * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND 
+                                                || AI_DATA->atkAbility == ABILITY_SPLIT? 2 : 1);
         break;
     case EFFECT_DRAGON_RAGE:
-        dmg = 40 * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND ? 2 : 1);
+        dmg = 40 * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND
+                    || AI_DATA->atkAbility == ABILITY_SPLIT ? 2 : 1);
         break;
     case EFFECT_SONICBOOM:
-        dmg = 20 * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND ? 2 : 1);
+        dmg = 20 * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND 
+                    || AI_DATA->atkAbility == ABILITY_SPLIT ? 2 : 1);
         break;
     case EFFECT_MULTI_HIT:
         dmg *= (AI_DATA->atkAbility == ABILITY_SKILL_LINK ? 5 : 3);
@@ -764,7 +768,8 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
         dmg = max(0, gBattleMons[battlerDef].hp - gBattleMons[battlerAtk].hp);
         break;
     case EFFECT_SUPER_FANG:
-        dmg = (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND
+        dmg = (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND 
+            || AI_DATA->atkAbility == ABILITY_SPLIT
             ? max(2, gBattleMons[battlerDef].hp * 3 / 4)
             : max(1, gBattleMons[battlerDef].hp / 2));
         break;
