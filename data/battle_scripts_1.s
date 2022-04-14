@@ -7910,6 +7910,49 @@ BattleScript_IntimidatePrevented:
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_IntimidateActivatesLoopIncrement
 
+BattleScript_OpressionActivatesEnd3::
+	call BattleScript_PauseOpressionActivates
+	end3
+
+BattleScript_PauseOpressionActivates:
+	pause B_WAIT_TIME_SHORT
+BattleScript_OpressionActivates::
+	setbyte gBattlerTarget, 0
+	call BattleScript_AbilityPopUp
+BattleScript_OpressionActivatesLoop:
+	setstatchanger STAT_SPATK, 1, TRUE
+	trygetintimidatetarget BattleScript_OpressionActivatesReturn
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_OpressionActivatesLoopIncrement
+	jumpifability BS_TARGET, ABILITY_CLEAR_BODY, BattleScript_OpressionPrevented
+	jumpifability BS_TARGET, ABILITY_WHITE_SMOKE, BattleScript_OpressionPrevented
+.if B_UPDATED_INTIMIDATE >= GEN_8
+	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_OpressionPrevented
+	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_OpressionPrevented
+	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OpressionPrevented
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_OpressionPrevented
+.endif
+	statbuffchange STAT_BUFF_NOT_PROTECT_AFFECTED | STAT_BUFF_ALLOW_PTR, BattleScript_OpressionActivatesLoopIncrement
+	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, 1, BattleScript_OpressionActivatesLoopIncrement
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNCUTSATTACKWITH
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryAdrenalineOrb
+BattleScript_OpressionActivatesLoopIncrement:
+	addbyte gBattlerTarget, 1
+	goto BattleScript_OpressionActivatesLoop
+BattleScript_OpressionActivatesReturn:
+	return
+BattleScript_OpressionPrevented:
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	setbyte gBattleCommunication STAT_SPATK
+	stattextbuffer BS_ATTACKER
+	printstring STRINGID_STATWASNOTLOWERED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryAdrenalineOrb
+	goto BattleScript_OpressionActivatesLoopIncrement
+
 BattleScript_DroughtActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp

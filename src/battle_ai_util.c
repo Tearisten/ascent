@@ -284,7 +284,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_ENCHANTING] = 5,
     [ABILITY_DRAGONBORN] = 3,
     [ABILITY_BULL_RUSH] = 7,
-    [ABILITY_OBSESSION] = 7
+    [ABILITY_OBSESSION] = 7,
+    [ABILITY_OPRESSION] = 7,
 };
 
 static const u16 sEncouragedEncoreEffects[] =

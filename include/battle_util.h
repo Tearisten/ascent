@@ -25,6 +25,8 @@
 #define ABILITYEFFECT_TRACE2                     13
 #define ABILITYEFFECT_MOVE_END_OTHER             14
 #define ABILITYEFFECT_NEUTRALIZINGGAS            15
+#define ABILITYEFFECT_OPRESSION1                 16
+#define ABILITYEFFECT_OPRESSION2                 17
 #define ABILITYEFFECT_SWITCH_IN_TERRAIN          254
 #define ABILITYEFFECT_SWITCH_IN_WEATHER          255
 

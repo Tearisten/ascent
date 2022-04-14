@@ -4404,6 +4404,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
             }
             break;
         case ABILITY_INTIMIDATE:
+        case ABILITY_OPRESSION:
             if (!(gSpecialStatuses[battler].intimidatedMon))
             {
                 gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_INTIMIDATED;
@@ -5580,6 +5581,29 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 {
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_IntimidateActivates;
+                }
+                battler = gBattlerAbility = gBattleStruct->intimidateBattler = i;
+                effect++;
+                break;
+            }
+        }
+        break;
+    case ABILITYEFFECT_OPRESSION1:
+    case ABILITYEFFECT_OPRESSION2:
+        for (i = 0; i < gBattlersCount; i++)
+        {
+            if (GetBattlerAbility(i) == ABILITY_OPRESSION && gBattleResources->flags->flags[i] & RESOURCE_FLAG_INTIMIDATED)
+            {
+                gLastUsedAbility = ABILITY_OPRESSION;
+                gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_INTIMIDATED;
+                if (caseID == ABILITYEFFECT_OPRESSION1)
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_OpressionActivatesEnd3);
+                }
+                else
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_OpressionActivates;
                 }
                 battler = gBattlerAbility = gBattleStruct->intimidateBattler = i;
                 effect++;

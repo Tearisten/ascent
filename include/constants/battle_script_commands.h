@@ -226,6 +226,7 @@
 #define VARIOUS_CUT_1_3_HP_RAISE_STATS          136
 #define VARIOUS_TRY_END_NEUTRALIZING_GAS        137
 #define VARIOUS_CHECK_IF_HOLY_AURA_HEALS        138
+#define VARIOUS_RESET_OPRESSSION_TRACE_BITS     139
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

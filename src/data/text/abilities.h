@@ -259,6 +259,8 @@ static const u8 sEnchantingDescription[] = _("Always target of attacks.");
 static const u8 sObsessionTacticsDescription[] = _("Ups Sp. Atk and locks move.");
 static const u8 sBullRushTacticsDescription[] = _("Ups Speed and locks move.");
 static const u8 sHolyAuraDescription[] = _("Heal team at end of turn.");
+static const u8 sOpressionDescription[] = _("Lowers the foe's Sp. Atk.");
+
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -535,6 +537,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BULL_RUSH] = _("Bull Rush"),
     [ABILITY_OBSESSION] = _("Obsession"),
     [ABILITY_HOLY_AURA] = _("Holy Aura"),
+    [ABILITY_OPRESSION] = _("Opression"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -811,5 +814,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_ENCHANTING] = sEnchantingDescription,
     [ABILITY_OBSESSION] = sObsessionTacticsDescription,
     [ABILITY_BULL_RUSH] = sBullRushTacticsDescription,
-    [ABILITY_HOLY_AURA] = sHolyAuraDescription
+    [ABILITY_HOLY_AURA] = sHolyAuraDescription,
+    [ABILITY_OPRESSION] = sOpressionDescription,
 };

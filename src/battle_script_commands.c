@@ -6281,6 +6281,7 @@ static void Cmd_switchineffects(void)
         if (AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gActiveBattler, 0, 0, 0)
             || ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE)
             || AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE2, 0, 0, 0, 0)
+            || AbilityBattleEffects(ABILITYEFFECT_OPRESSION2, 0, 0, 0, 0)
             || AbilityBattleEffects(ABILITYEFFECT_TRACE2, 0, 0, 0, 0)
             || AbilityBattleEffects(ABILITYEFFECT_FORECAST, 0, 0, 0, 0))
             return;
@@ -7931,6 +7932,7 @@ static void Cmd_various(void)
         AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, gActiveBattler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gActiveBattler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE2, gActiveBattler, 0, 0, 0);
+        AbilityBattleEffects(ABILITYEFFECT_OPRESSION2, gActiveBattler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_TRACE2, gActiveBattler, 0, 0, 0);
         return;
     case VARIOUS_SAVE_TARGET:
