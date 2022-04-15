@@ -293,7 +293,9 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_HAZARD_CREW] = 1,
     [ABILITY_GIFT_OF_WIND] = 8,
     [ABILITY_KILLING_SPREE] = 5,
-    [ABILITY_SPLIT] = 3
+    [ABILITY_SPLIT] = 3,
+    [ABILITY_INVERSITY] = 4,
+    [ABILITY_CLUTCH] = 5,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
