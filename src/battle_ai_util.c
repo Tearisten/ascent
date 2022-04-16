@@ -1411,9 +1411,9 @@ u32 AI_GetMoveAccuracy(u8 battlerAtk, u8 battlerDef, u16 atkAbility, u16 defAbil
     if (atkAbility == ABILITY_COMPOUND_EYES)
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
     else if (atkAbility == ABILITY_VICTORY_STAR)
-        calc = (calc * 110) / 100; // 1.1 victory star boost
+        calc = (calc * 120) / 100; // 1.2 victory star boost
     if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_VICTORY_STAR)
-        calc = (calc * 110) / 100; // 1.1 ally's victory star boost
+        calc = (calc * 120) / 100; // 1.2 ally's victory star boost
 
     if (defAbility == ABILITY_SAND_VEIL && WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SANDSTORM)
         calc = (calc * 80) / 100; // 1.2 sand veil loss
