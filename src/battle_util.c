@@ -5998,7 +5998,7 @@ u32 IsAbilityPreventingEscape(u32 battlerId)
         return id;
     if ((id = IsAbilityOnOpposingSide(battlerId, ABILITY_ARENA_TRAP)) && IsBattlerGrounded(battlerId))
         return id;
-    if ((id = IsAbilityOnOpposingSide(battlerId, ABILITY_MAGNET_PULL)) && IS_BATTLER_OF_TYPE(battlerId, TYPE_STEEL))
+    if ((id = IsAbilityOnOpposingSide(battlerId, ABILITY_MAGNET_PULL)) && !IS_BATTLER_OF_TYPE(battlerId, TYPE_ELECTRIC))
         return id;
 
     return 0;
