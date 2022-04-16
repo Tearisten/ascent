@@ -119,7 +119,7 @@ static const u8 sHoneyGatherDescription[] = _("May gather Honey.");
 static const u8 sFriskDescription[] = _("Checks a foe's item.");
 static const u8 sRecklessDescription[] = _("Boosts moves with recoil.");
 static const u8 sMultitypeDescription[] = _("Changes type to its Plate.");
-static const u8 sFlowerGiftDescription[] = _("Transforms in sunshine.");
+static const u8 sFlowerGiftDescription[] = _("Party def/sdef up in sun.");
 static const u8 sBadDreamsDescription[] = _("Damages sleeping Pokémon.");
 static const u8 sPickpocketDescription[] = _("Steals the foe's held item.");
 static const u8 sSheerForceDescription[] = _("Trades effects for power.");
@@ -271,6 +271,7 @@ static const u8 sSplitDescription[] = _("Attacks hit twice for half dmg");
 static const u8 sInversityDescription[] = _("Inverse damage when hit.");
 static const u8 sClutchDescription[] = _("Damage up 1.5x when low.");
 static const u8 sBrilliantDescription[] = _("Prevents Sp. Atk reduction.");
+static const u8 sWaterLillyDescription[] = _("Party def/sdef up in rain.");
 
 
 
@@ -561,6 +562,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_INVERSITY] = _("Inversity"),
     [ABILITY_CLUTCH] = _("Clutch"),
     [ABILITY_BRILLIANT] = _("Brilliant"),
+    [ABILITY_WATER_LILLY] = _("Water Lilly"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -850,4 +852,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_INVERSITY] = sInversityDescription,
     [ABILITY_CLUTCH] = sClutchDescription,
     [ABILITY_BRILLIANT] = sBrilliantDescription,
+    [ABILITY_WATER_LILLY] = sWaterLillyDescription,
 };

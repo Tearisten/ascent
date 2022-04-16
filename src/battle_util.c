@@ -1054,6 +1054,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_DRAGONBORN] = 1,
     [ABILITY_SKEPTIC] = 1,
     [ABILITY_BRILLIANT] = 1,
+    [ABILITY_WATER_LILLY] = 1,
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
@@ -1063,7 +1064,6 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_BATTLE_BOND] = 1,
     [ABILITY_COMATOSE] = 1,
     [ABILITY_DISGUISE] = 1,
-    [ABILITY_FLOWER_GIFT] = 1,
     [ABILITY_FORECAST] = 1,
     [ABILITY_GULP_MISSILE] = 1,
     [ABILITY_HUNGER_SWITCH] = 1,
@@ -8909,7 +8909,11 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
         }
         break;
     case ABILITY_FLOWER_GIFT:
-        if (gBattleMons[battlerDef].species == SPECIES_CHERRIM && IsBattlerWeatherAffected(battlerDef, B_WEATHER_SUN))
+        if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_SUN))
+            MulModifier(&modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_WATER_LILLY:
+        if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_RAIN))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PUNK_ROCK:
@@ -8924,7 +8928,11 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
         switch (GetBattlerAbility(BATTLE_PARTNER(battlerDef)))
         {
         case ABILITY_FLOWER_GIFT:
-            if (gBattleMons[BATTLE_PARTNER(battlerDef)].species == SPECIES_CHERRIM && IsBattlerWeatherAffected(BATTLE_PARTNER(battlerDef), B_WEATHER_SUN))
+            if (IsBattlerWeatherAffected(BATTLE_PARTNER(battlerDef), B_WEATHER_SUN))
+                MulModifier(&modifier, UQ_4_12(1.5));
+            break;
+        case ABILITY_WATER_LILLY:
+            if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_RAIN))
                 MulModifier(&modifier, UQ_4_12(1.5));
             break;
         }
