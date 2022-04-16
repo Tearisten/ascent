@@ -5492,12 +5492,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 if (!(gStatuses3[battler] & STATUS3_PERISH_SONG))
                 {
                     gStatuses3[battler] |= STATUS3_PERISH_SONG;
-                    gDisableStructs[battler].perishSongTimer = 3;
-                    gDisableStructs[battler].perishSongTimerStartValue = 3;
+                    gDisableStructs[battler].perishSongTimer = 2;
+                    gDisableStructs[battler].perishSongTimerStartValue = 2;
                 }
                 gStatuses3[gBattlerAttacker] |= STATUS3_PERISH_SONG;
-                gDisableStructs[gBattlerAttacker].perishSongTimer = 3;
-                gDisableStructs[gBattlerAttacker].perishSongTimerStartValue = 3;
+                gDisableStructs[gBattlerAttacker].perishSongTimer = 2;
+                gDisableStructs[gBattlerAttacker].perishSongTimerStartValue = 2;
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_PerishBodyActivates;
                 effect++;
