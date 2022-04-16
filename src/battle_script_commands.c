@@ -1676,7 +1676,8 @@ static bool32 AccuracyCalcHelper(u16 move)
         JumpIfMoveFailed(7, move);
         return TRUE;
     }
-    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD)
+    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD
+            || (GetBattlerAbility(gBattlerAttacker) == ABILITY_COMPOUND_EYES && IS_MOVE_STATUS(move)))
     {
         if (!JumpIfMoveFailed(7, move))
             RecordAbilityBattle(gBattlerAttacker, ABILITY_NO_GUARD);
@@ -1760,9 +1761,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move)
     calc = gAccuracyStageRatios[buff].dividend * moveAcc;
     calc /= gAccuracyStageRatios[buff].divisor;
 
-    if (atkAbility == ABILITY_COMPOUND_EYES)
-        calc = (calc * 130) / 100; // 1.3 compound eyes boost
-    else if (atkAbility == ABILITY_VICTORY_STAR)
+    if (atkAbility == ABILITY_VICTORY_STAR)
         calc = (calc * 110) / 100; // 1.1 victory star boost
     if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_VICTORY_STAR)
         calc = (calc * 110) / 100; // 1.1 ally's victory star boost
