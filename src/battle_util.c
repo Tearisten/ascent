@@ -5168,8 +5168,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
              && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
              && IsBattlerAlive(gBattlerAttacker)
              && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
-             && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
-             && (Random() % 3) == 0)
+             && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0)
             {
                 gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                 gDisableStructs[gBattlerAttacker].disableTimer = 4;
