@@ -1793,16 +1793,19 @@ u8 TrySetCantSelectMoveBattleScript(void)
     gPotentialItemEffectBattler = gActiveBattler;
     if (HOLD_EFFECT_CHOICE(holdEffect) && *choicedMove != MOVE_NONE && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        gCurrentMove = *choicedMove;
-        gLastUsedItem = gBattleMons[gActiveBattler].item;
-        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+        if (IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
         {
-            gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
-        }
-        else
-        {
-            gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveChoiceItem;
-            limitations++;
+            gCurrentMove = *choicedMove;
+            gLastUsedItem = gBattleMons[gActiveBattler].item;
+            if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+            {
+                gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
+            }
+            else
+            {
+                gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveChoiceItem;
+                limitations++;
+            }
         }
     }
     else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && gBattleMoves[move].power == 0 && move != MOVE_ME_FIRST)
@@ -1823,16 +1826,19 @@ u8 TrySetCantSelectMoveBattleScript(void)
             && *choicedMove != MOVE_NONE
             && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        gCurrentMove = *choicedMove;
-        gLastUsedItem = gBattleMons[gActiveBattler].item;
-        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+        if (IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
         {
-            gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
-        }
-        else
-        {
-            gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveGorillaTactics;
-            limitations++;
+            gCurrentMove = *choicedMove;
+            gLastUsedItem = gBattleMons[gActiveBattler].item;
+            if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+            {
+                gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
+            }
+            else
+            {
+                gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveGorillaTactics;
+                limitations++;
+            }
         }
     }
 
@@ -1906,7 +1912,7 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         // Gorilla Tactics
         else if (GetBattlerAbility(battlerId) == ABILITY_GORILLA_TACTICS && *choicedMove != MOVE_NONE && *choicedMove != 0xFFFF && *choicedMove != gBattleMons[battlerId].moves[i])
-            unusableMoves |= gBitTable[i];
+                unusableMoves |= gBitTable[i];
         //Bull Rush
         else if (GetBattlerAbility(battlerId) == ABILITY_BULL_RUSH && *choicedMove != MOVE_NONE && *choicedMove != 0xFFFF && *choicedMove != gBattleMons[battlerId].moves[i])
             unusableMoves |= gBitTable[i];
@@ -8794,6 +8800,12 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             MulModifier(&modifier, UQ_4_12(0.5));
             if (updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_IMMUNITY);
+        }
+        break;
+    case ABILITY_WATER_COMPACTION:
+        if (moveType == TYPE_WATER)
+        {
+            MulModifier(&modifier, UQ_4_12(0.75));
         }
         break;
     
