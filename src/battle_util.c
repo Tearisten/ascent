@@ -4740,7 +4740,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                  && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
-                    gBattleMoveDamage = gBattleMons[battler].maxHP / 5 //rain dish heals 1/5th;
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 5; //rain dish heals 1/5th;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;
@@ -4755,7 +4755,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 }
                 break;
             case ABILITY_SHED_SKIN:
-                if ((gBattleMons[battler].status1 & STATUS1_ANY)
+                if (gBattleMons[battler].status1 & STATUS1_ANY)
                 {
                 ABILITY_HEAL_MON_STATUS:
                     if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
@@ -8743,6 +8743,32 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             if (updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_ILLUMINATE);
         }
+        break;
+    case ABILITY_WATER_VEIL:
+        if (moveType == TYPE_FIGHTING)
+        {
+            MulModifier(&modifier, UQ_4_12(0.5));
+            if (updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_WATER_VEIL);
+        }
+        break;
+    case ABILITY_LIMBER:
+        if (moveType == TYPE_FLYING)
+        {
+            MulModifier(&modifier, UQ_4_12(0.5));
+            if (updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_LIMBER);
+        }
+        break;
+    case ABILITY_IMMUNITY:
+        if (moveType == TYPE_POISON)
+        {
+            MulModifier(&modifier, UQ_4_12(0.5));
+            if (updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_IMMUNITY);
+        }
+        break;
+    
     case ABILITY_ICE_SCALES:
         if (IS_MOVE_SPECIAL(move))
             MulModifier(&modifier, UQ_4_12(0.5));
