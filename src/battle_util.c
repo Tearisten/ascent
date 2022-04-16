@@ -4755,7 +4755,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 }
                 break;
             case ABILITY_SHED_SKIN:
-                if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 3) == 0)
+                if ((gBattleMons[battler].status1 & STATUS1_ANY)
                 {
                 ABILITY_HEAL_MON_STATUS:
                     if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
