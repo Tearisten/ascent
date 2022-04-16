@@ -811,4 +811,5 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_FIELD_ARROW] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 
     [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_TRIFORCE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
 };

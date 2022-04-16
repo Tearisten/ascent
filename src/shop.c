@@ -326,6 +326,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_ASSAULT_VEST, FLAG_ROOM_1_CLEAR},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
     {ITEM_WEIGHTED_BOOTS, FLAG_ALL_STARTERS},
+    {ITEM_TRIFORCE, FLAG_ALL_STARTERS},
     {ITEM_ABILITY_CAPSULE, FLAG_UNUSED_0x020},
     {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
 };

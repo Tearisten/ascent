@@ -932,8 +932,9 @@
 
 // custom items
 #define ITEM_WEIGHTED_BOOTS 760
+#define ITEM_TRIFORCE 761
 
-#define ITEMS_COUNT 761
+#define ITEMS_COUNT 762
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

@@ -3513,3 +3513,8 @@ static const u8 sWeightedBootsDesc[] = _(
     "Big boots for\n"
     "training, remove\n"
     "for boost.");
+
+static const u8 sTriforceDesc[] = _(
+    "Eminiates power.\n"
+    "boosts all stats\n"
+    "in battle.");

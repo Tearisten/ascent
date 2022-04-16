@@ -9380,4 +9380,16 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_TRIFORCE] =
+    {
+        .name = _("Triforce"), // recolor a power bracelet?
+        .itemId = ITEM_TRIFORCE,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_TRIFORCE,
+        .description = sTriforceDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

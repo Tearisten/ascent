@@ -8886,6 +8886,10 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             MulModifier(&modifier, UQ_4_12(2.0));
         else
             MulModifier(&modifier, UQ_4_12(.5));
+        break;
+    case HOLD_EFFECT_TRIFORCE:
+        MulModifier(&modifier, UQ_4_12(1.1));
+        break;
     }
 
     // The offensive stats of a Player's Pokémon are boosted by x1.1 (+10%) if they have the 1st badge and 7th badges.
@@ -9044,6 +9048,9 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
 #endif
+    case HOLD_EFFECT_TRIFORCE:
+        MulModifier(&modifier, UQ_4_12(1.1));
+    break;
     }
 
     // sandstorm sp.def boost for rock types

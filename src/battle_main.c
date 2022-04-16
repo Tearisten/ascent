@@ -4443,6 +4443,8 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
         speed = (speed * 150) / 100;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battlerId].species == SPECIES_DITTO && !(gBattleMons[battlerId].status2 & STATUS2_TRANSFORMED))
         speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_TRIFORCE)
+        speed = (speed * 110) / 100;
 
     // various effects
     if (gSideStatuses[GET_BATTLER_SIDE(battlerId)] & SIDE_STATUS_TAILWIND)
