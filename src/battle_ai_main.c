@@ -4127,8 +4127,17 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             score++;
         break;
     case EFFECT_SUPERPOWER:
+        if (AI_DATA->atkAbility == ABILITY_CONTRARY)
+            score += 10;
+        else if (AI_DATA->atkAbility == ABILITY_HYPER_CUTTER)
+            score += 10;
+        else if (AI_DATA->atkAbility == ABILITY_BIG_PECKS)
+            score += 10;
+        break;
     case EFFECT_OVERHEAT:
         if (AI_DATA->atkAbility == ABILITY_CONTRARY)
+            score += 10;
+        else if (AI_DATA->atkAbility == ABILITY_BRILLIANT)
             score += 10;
         break;
     case EFFECT_MAGIC_COAT:

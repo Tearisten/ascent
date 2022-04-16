@@ -10141,11 +10141,10 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (!certain
-                && ((GetBattlerAbility(gActiveBattler) == ABILITY_KEEN_EYE && statId == STAT_ACC)
+        else if ((GetBattlerAbility(gActiveBattler) == ABILITY_KEEN_EYE && statId == STAT_ACC)
                 || (GetBattlerAbility(gActiveBattler) == ABILITY_HYPER_CUTTER && statId == STAT_ATK)
                 || (GetBattlerAbility(gActiveBattler) == ABILITY_BIG_PECKS && statId == STAT_DEF)
-                || (GetBattlerAbility(gActiveBattler) == ABILITY_BRILLIANT && statId == STAT_SPATK)))
+                || (GetBattlerAbility(gActiveBattler) == ABILITY_BRILLIANT && statId == STAT_SPATK))
         {
             if (flags == STAT_BUFF_ALLOW_PTR)
             {
