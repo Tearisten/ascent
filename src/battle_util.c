@@ -8744,10 +8744,11 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
         }
         break;
     case ABILITY_HUSTLE:
-            MulModifier(&modifier, UQ_4_12(1.2));
+        MulModifier(&modifier, UQ_4_12(1.2));
         break;
     case ABILITY_QUICK_DRAW:
         MulModifier(&modifier, UQ_4_12(.8));
+        break;
     case ABILITY_STAKEOUT:
         if (gDisableStructs[battlerDef].isFirstTurn == 2) // just switched in
             MulModifier(&modifier, UQ_4_12(2.0));
@@ -8755,6 +8756,10 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
     case ABILITY_GUTS:
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
             MulModifier(&modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_UNSEEN_FIST:
+        if (IsMoveMakingContact(move, gBattlerAttacker))
+            MulModifier(&modifier, UQ_4_12(1.2));
         break;
     }
 
