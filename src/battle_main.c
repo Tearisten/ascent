@@ -4419,6 +4419,8 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_HUSTLE)
         speed = (speed * 120) / 100;
+    else if (ability == ABILITY_MUMMY)
+        speed /= 4;
 
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][0];
