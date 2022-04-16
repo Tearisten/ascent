@@ -8460,7 +8460,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         {
         case ABILITY_BATTERY:
             if (IS_MOVE_SPECIAL(move))
-                MulModifier(&modifier, UQ_4_12(1.3));
+                MulModifier(&modifier, UQ_4_12(1.3)); 
             break;
         case ABILITY_POWER_SPOT:
             if (IS_MOVE_PHYSICAL(move))
@@ -8746,6 +8746,8 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
     case ABILITY_HUSTLE:
             MulModifier(&modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_QUICK_DRAW:
+        MulModifier(&modifier, UQ_4_12(.8));
     case ABILITY_STAKEOUT:
         if (gDisableStructs[battlerDef].isFirstTurn == 2) // just switched in
             MulModifier(&modifier, UQ_4_12(2.0));
