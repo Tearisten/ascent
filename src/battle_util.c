@@ -8881,6 +8881,11 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
         if (IS_MOVE_SPECIAL(move))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
+    case HOLD_EFFECT_WEIGHTED_BOOTS:
+        if (gBattleMons[battlerAtk].hp <= gBattleMons[battlerAtk].maxHP / 3)
+            MulModifier(&modifier, UQ_4_12(2.0));
+        else
+            MulModifier(&modifier, UQ_4_12(.5));
     }
 
     // The offensive stats of a Player's Pokémon are boosted by x1.1 (+10%) if they have the 1st badge and 7th badges.

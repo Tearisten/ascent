@@ -3154,6 +3154,8 @@ static const u16 sItemsByType[ITEMS_COUNT] =
         [ITEM_PLUME_FOSSIL] = ITEM_TYPE_FOSSIL,
         [ITEM_JAW_FOSSIL] = ITEM_TYPE_FOSSIL,
         [ITEM_SAIL_FOSSIL] = ITEM_TYPE_FOSSIL,
+
+        [ITEM_WEIGHTED_BOOTS] = ITEM_TYPE_HELD_ITEM,
     #endif
 };
 

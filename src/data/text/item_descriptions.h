@@ -3508,3 +3508,8 @@ static const u8 sSapphireDesc[] = _(
     "A brilliant blue gem\n"
     "that symbolizes\n"
     "honesty.");
+
+static const u8 sWeightedBootsDesc[] = _(
+    "Big boots for\n"
+    "training, remove\n"
+    "for boost.");

@@ -809,4 +809,6 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_SAPPHIRE] = {gItemIcon_Gem, gItemIconPalette_Sapphire},
     // Return to field arrow
     [ITEM_FIELD_ARROW] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
+
+    [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
 };

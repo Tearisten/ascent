@@ -930,7 +930,10 @@
 #define ITEM_RUBY 758
 #define ITEM_SAPPHIRE 759
 
-#define ITEMS_COUNT 760
+// custom items
+#define ITEM_WEIGHTED_BOOTS 760
+
+#define ITEMS_COUNT 761
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

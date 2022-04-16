@@ -9368,4 +9368,16 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_WEIGHTED_BOOTS] =
+    {
+        .name = _("Heavy bands"), // recolor a power bracelet?
+        .itemId = ITEM_WEIGHTED_BOOTS,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_WEIGHTED_BOOTS,
+        .description = sWeightedBootsDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };
