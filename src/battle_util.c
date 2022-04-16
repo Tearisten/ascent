@@ -4730,14 +4730,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     effect++;
                 }
                 break;
-            // Dry Skin works similarly to Rain Dish in Rain
+            // Dry Skin works similarly to Rain Dish in Rain and sun, so it's weaker
+            // Also, it can absorb water attacks still
             case ABILITY_DRY_SKIN:
-            if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
+            if ((IsBattlerWeatherAffected(battler, B_WEATHER_RAIN) || IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
                  && !BATTLER_MAX_HP(battler)
                  && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
-                    gBattleMoveDamage = gBattleMons[battler].maxHP / 10; //dry skin heals 1/5th;
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8; //dry skin heals 1/8th;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;
