@@ -5294,7 +5294,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
              && IsMoveMakingContact(move, gBattlerAttacker))
             {
                 #if B_ROUGH_SKIN_DMG >= GEN_4
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 5;
                 #else
                     gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
                 #endif
