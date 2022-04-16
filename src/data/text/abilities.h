@@ -270,6 +270,7 @@ static const u8 sKillingSpreeDescription[] = _("Ignores recharge on KO.");
 static const u8 sSplitDescription[] = _("Attacks hit twice for half dmg");
 static const u8 sInversityDescription[] = _("Inverse damage when hit.");
 static const u8 sClutchDescription[] = _("Damage up 1.5x when low.");
+static const u8 sBrilliantDescription[] = _("Prevents Sp. Atk reduction.");
 
 
 
@@ -559,6 +560,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SPLIT] = _("Split"),
     [ABILITY_INVERSITY] = _("Inversity"),
     [ABILITY_CLUTCH] = _("Clutch"),
+    [ABILITY_BRILLIANT] = _("Brilliant"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -847,4 +849,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SPLIT] = sSplitDescription,
     [ABILITY_INVERSITY] = sInversityDescription,
     [ABILITY_CLUTCH] = sClutchDescription,
+    [ABILITY_BRILLIANT] = sBrilliantDescription,
 };

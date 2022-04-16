@@ -296,6 +296,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_SPLIT] = 3,
     [ABILITY_INVERSITY] = 4,
     [ABILITY_CLUTCH] = 5,
+    [ABILITY_BRILLIANT] = 3,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -1780,7 +1781,8 @@ bool32 ShouldLowerSpAtk(u8 battlerAtk, u8 battlerDef, u16 defAbility)
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_FULL_METAL_BODY
-      && defAbility != ABILITY_WHITE_SMOKE)
+      && defAbility != ABILITY_WHITE_SMOKE
+      && defAbility != ABILITY_BRILLIANT)
         return TRUE;
     return FALSE;
 }

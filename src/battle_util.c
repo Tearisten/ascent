@@ -1053,6 +1053,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_PASTEL_VEIL] = 1,
     [ABILITY_DRAGONBORN] = 1,
     [ABILITY_SKEPTIC] = 1,
+    [ABILITY_BRILLIANT] = 1,
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =

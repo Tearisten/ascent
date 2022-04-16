@@ -685,6 +685,9 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                   && move != MOVE_PLAY_NICE && move != MOVE_NOBLE_ROAR && move != MOVE_TEARFUL_LOOK && move != MOVE_VENOM_DRENCH)
                     RETURN_SCORE_MINUS(10);
                 break;
+            case ABILITY_BRILLIANT:
+                if (moveEffect == EFFECT_SPECIAL_ATTACK_DOWN ||  moveEffect == EFFECT_SPECIAL_ATTACK_DOWN_2)
+                    RETURN_SCORE_MINUS(10);
             case ABILITY_KEEN_EYE:
                 if (moveEffect == EFFECT_ACCURACY_DOWN || moveEffect == EFFECT_ACCURACY_DOWN_2)
                     RETURN_SCORE_MINUS(10);
@@ -1098,6 +1101,8 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         case EFFECT_SPECIAL_ATTACK_DOWN:
         case EFFECT_SPECIAL_ATTACK_DOWN_2:
             if (!ShouldLowerStat(battlerDef, AI_DATA->defAbility, STAT_SPATK)) //|| !HasMoveWithSplit(battlerDef, SPLIT_SPECIAL))
+                score -= 10;
+            else if (AI_DATA->defAbility == ABILITY_BRILLIANT)
                 score -= 10;
             break;
         case EFFECT_SPECIAL_DEFENSE_DOWN:

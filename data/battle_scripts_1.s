@@ -7916,6 +7916,7 @@ BattleScript_OpressionActivatesLoop:
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_OpressionActivatesLoopIncrement
 	jumpifability BS_TARGET, ABILITY_CLEAR_BODY, BattleScript_OpressionPrevented
 	jumpifability BS_TARGET, ABILITY_WHITE_SMOKE, BattleScript_OpressionPrevented
+	jumpifability BS_TARGET, ABILITY_BRILLIANT, BattleScript_OpressionPrevented
 .if B_UPDATED_INTIMIDATE >= GEN_8
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_OpressionPrevented
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_OpressionPrevented
