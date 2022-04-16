@@ -275,6 +275,7 @@ static const u8 sWaterLillyDescription[] = _("Party def/sdef up in rain.");
 static const u8 sStaticShockDescription[] = _("Pz using contact atks.");
 static const u8 sBrandDescription[] = _("Bn using contact atks.");
 static const u8 sPoisonTouchDescription[] = _("Psn using contact atks.");
+static const u8 sVampireDescription[] = _("Biting moves heal user.");
 
 
 
@@ -569,6 +570,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATER_LILLY] = _("Water Lilly"),
     [ABILITY_STATIC_SHOCK] = _("Static Shock"),
     [ABILITY_BRAND] = _("Brand"),
+    [ABILITY_VAMPIRE] = _("Vampire"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
