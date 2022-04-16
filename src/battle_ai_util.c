@@ -298,6 +298,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_CLUTCH] = 5,
     [ABILITY_BRILLIANT] = 3,
     [ABILITY_WATER_LILLY] = 4,
+    [ABILITY_STATIC_SHOCK] = 4,
+    [ABILITY_BRAND] = 4,
 };
 
 static const u16 sEncouragedEncoreEffects[] =

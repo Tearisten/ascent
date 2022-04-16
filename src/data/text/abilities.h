@@ -272,6 +272,10 @@ static const u8 sInversityDescription[] = _("Inverse damage when hit.");
 static const u8 sClutchDescription[] = _("Damage up 1.5x when low.");
 static const u8 sBrilliantDescription[] = _("Prevents Sp. Atk reduction.");
 static const u8 sWaterLillyDescription[] = _("Party def/sdef up in rain.");
+static const u8 sStaticShockDescription[] = _("Pz using contact atks.");
+static const u8 sBrandDescription[] = _("Bn using contact atks.");
+static const u8 sPoisonTouchDescription[] = _("Psn using contact atks.");
+
 
 
 
@@ -563,6 +567,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_CLUTCH] = _("Clutch"),
     [ABILITY_BRILLIANT] = _("Brilliant"),
     [ABILITY_WATER_LILLY] = _("Water Lilly"),
+    [ABILITY_STATIC_SHOCK] = _("Static Shock"),
+    [ABILITY_BRAND] = _("Brand"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -710,7 +716,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TELEPATHY] = sTelepathyDescription,
     [ABILITY_MOODY] = sMoodyDescription,
     [ABILITY_OVERCOAT] = sOvercoatDescription,
-    [ABILITY_POISON_TOUCH] = sPoisonPointDescription,
+    [ABILITY_POISON_TOUCH] = sPoisonTouchDescription,
     [ABILITY_REGENERATOR] = sNaturalCureDescription,
     [ABILITY_BIG_PECKS] = sBigPecksDescription,
     [ABILITY_SAND_RUSH] = sSandRushDescription,
@@ -853,4 +859,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_CLUTCH] = sClutchDescription,
     [ABILITY_BRILLIANT] = sBrilliantDescription,
     [ABILITY_WATER_LILLY] = sWaterLillyDescription,
+    [ABILITY_STATIC_SHOCK] = sStaticShockDescription,
+    [ABILITY_BRAND] = sBrandDescription,
 };
