@@ -4730,10 +4730,20 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     effect++;
                 }
                 break;
-            case ABILITY_DRY_SKIN:
-                if (IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
-                    goto SOLAR_POWER_HP_DROP;
             // Dry Skin works similarly to Rain Dish in Rain
+            case ABILITY_DRY_SKIN:
+            if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
+                 && !BATTLER_MAX_HP(battler)
+                 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 10; //dry skin heals 1/5th;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    effect++;
+                }
+                break;
             case ABILITY_RAIN_DISH:
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
                  && !BATTLER_MAX_HP(battler)
@@ -4838,17 +4848,6 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     || GetBattlerAbility(BATTLE_OPPOSITE(battler)) == ABILITY_COMATOSE)
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
-                    effect++;
-                }
-                break;
-            SOLAR_POWER_HP_DROP:
-            case ABILITY_SOLAR_POWER:
-                if (IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
-                {
-                    BattleScriptPushCursorAndCallback(BattleScript_SolarPowerActivates);
-                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
-                    if (gBattleMoveDamage == 0)
-                        gBattleMoveDamage = 1;
                     effect++;
                 }
                 break;
