@@ -9444,4 +9444,17 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_HOURGLASS] =
+    {
+        .name = _("Hourglass"),
+        .itemId = ITEM_HOURGLASS,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_HOURGLASS,
+        .holdEffectParam = 50,
+        .description = sHourglassDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

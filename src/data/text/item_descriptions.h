@@ -3538,3 +3538,8 @@ static const u8 sWindChimesDesc[] = _(
     "Tailwind lasts\n"
     "for an extra\n"
     "turn.");
+
+static const u8 sHourglassDesc[] = _(
+    "Flips the damage\n"
+    "spectrum when\n"
+    "attacking.");

@@ -2043,6 +2043,7 @@ static const u8 sText_HoldEffectTriforce[] = _("Triforce");
 static const u8 sText_HoldEffectFeast[] = _("Feast");
 static const u8 sText_HoldEffectGravityWell[] = _("Gravity Well");
 static const u8 sText_HoldEffectWindChimes[] = _("Wind Chimes");
+static const u8 sText_HoldEffectHourglass[] = _("Hourglass");
 
 static const u8 *const sHoldEffectNames[] = 
 {
@@ -2190,6 +2191,7 @@ static const u8 *const sHoldEffectNames[] =
     [HOLD_EFFECT_TRIFORCE] = sText_HoldEffectTriforce,
     [HOLD_EFFECT_GRAVITY_WELL] = sText_HoldEffectGravityWell,
     [HOLD_EFFECT_WIND_CHIMES] = sText_HoldEffectWindChimes,
+    [HOLD_EFFECT_HOURGLASS] = sText_HoldEffectHourglass,
 };
 static const u8 *GetHoldEffectName(u16 holdEffect)
 {

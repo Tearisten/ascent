@@ -817,4 +817,5 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_FEAST] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_GRAVITY_WELL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_WIND_CHIMES] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_HOURGLASS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
 };

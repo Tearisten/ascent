@@ -8964,6 +8964,16 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
         defStat = spDef;
         defStage = gBattleMons[battlerDef].statStages[STAT_SPDEF];
         usesDefStat = FALSE;
+        
+    }
+
+    if (GetBattlerHoldEffect(battlerAtk, TRUE) == HOLD_EFFECT_HOURGLASS)
+    {
+        if (usesDefStat) //invert it
+            defStat = spDef;
+        else
+            defStat = def;
+        usesDefStat = !usesDefStat;
     }
 
     // critical hits ignore positive stat changes
