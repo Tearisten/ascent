@@ -6844,7 +6844,19 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             LEFTOVERS:
                 if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
                 {
-                    gBattleMoveDamage = gBattleMons[battlerId].maxHP / 16;
+                    gBattleMoveDamage = gBattleMons[battlerId].maxHP / 12;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_ItemHealHP_End2);
+                    effect = ITEM_HP_CHANGE;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_FEAST:
+                if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
+                {
+                    gBattleMoveDamage = gBattleMons[battlerId].maxHP / 6;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;

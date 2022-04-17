@@ -812,4 +812,6 @@ const u32 *const gItemIconTable[][2] =
 
     [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_TRIFORCE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_PLATE_MAIL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_FEAST] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
 };

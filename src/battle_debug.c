@@ -2039,6 +2039,8 @@ static const u8 sText_HoldEffectHeavyDutyBoots[] = _("Heavy Duty Boots");
 static const u8 sText_HoldEffectThroatSpray[] = _("Throat Spray");
 static const u8 sText_HoldEffectWeightedBoots[] = _("Weighted Boots");
 static const u8 sText_HoldEffectPlateMail[] = _("Plate Mail");
+static const u8 sText_HoldEffectTriforce[] = _("Triforce");
+static const u8 sText_HoldEffectFeast[] = _("Feast");
 static const u8 *const sHoldEffectNames[] = 
 {
     [HOLD_EFFECT_NONE] = sText_HoldEffectNone,
@@ -2181,6 +2183,8 @@ static const u8 *const sHoldEffectNames[] =
     [HOLD_EFFECT_THROAT_SPRAY] = sText_HoldEffectThroatSpray,
     [HOLD_EFFECT_WEIGHTED_BOOTS] = sText_HoldEffectWeightedBoots,
     [HOLD_EFFECT_PLATE_MAIL] = sText_HoldEffectPlateMail,
+    [HOLD_EFFECT_FEAST] = sText_HoldEffectFeast,
+    [HOLD_EFFECT_TRIFORCE] = sText_HoldEffectTriforce,
 };
 static const u8 *GetHoldEffectName(u16 holdEffect)
 {

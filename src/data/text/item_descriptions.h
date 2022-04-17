@@ -3523,3 +3523,8 @@ static const u8 sPlateMailDesc[] = _(
     "Raises Def but\n"
     "lowers speed by\n"
     "half.");
+
+static const u8 sFeastDesc[] = _(
+    "Restores massive\n"
+    "HP in battle\n"
+    "every turn.");

@@ -9405,4 +9405,17 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_FEAST] =
+    {
+        .name = _("FEAST"),
+        .itemId = ITEM_FEAST,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FEAST,
+        .holdEffectParam = 20,
+        .description = sFeastDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };
