@@ -5852,9 +5852,9 @@ const struct Item gItems[] =
     {
         .name = _("King's Rock"),
         .itemId = ITEM_KINGS_ROCK,
-        .price = 5000,
+        .price = 1000,
         .holdEffect = HOLD_EFFECT_FLINCH,
-        .holdEffectParam = 10,
+        .holdEffectParam = 30,
         .description = sKingsRockDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
