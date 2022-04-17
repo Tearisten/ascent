@@ -14,8 +14,8 @@ const struct BaseStats gBaseStats[] =
         .baseSpeed     = 45,
         .baseSpAttack  = 65,
         .baseSpDefense = 65,
-        .type1 = TYPE_GROUND,
-        .type2 = TYPE_STEEL,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_POISON,
         .catchRate = 45,
         .expYield = 64,
         .evYield_SpAttack  = 1,
@@ -25,7 +25,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_INTIMIDATE, ABILITY_BULL_RUSH, ABILITY_CHLOROPHYLL},
+        .abilities = {ABILITY_GIFT_OF_WIND, ABILITY_BULL_RUSH, ABILITY_CHLOROPHYLL},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
@@ -100,7 +100,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_BRAND, ABILITY_NONE, ABILITY_SOLAR_POWER},
+            .abilities = {ABILITY_BULL_RUSH, ABILITY_NONE, ABILITY_SOLAR_POWER},
         #else
             .abilities = {ABILITY_BLAZE, ABILITY_NONE},
         #endif
@@ -184,7 +184,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_WATER_1,
-        .abilities = {ABILITY_INTREPID_WAND, ABILITY_NONE, ABILITY_RAIN_DISH},
+        .abilities = {ABILITY_TWISTED_MIND, ABILITY_NONE, ABILITY_RAIN_DISH},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },

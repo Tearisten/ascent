@@ -3528,3 +3528,13 @@ static const u8 sFeastDesc[] = _(
     "Restores massive\n"
     "HP in battle\n"
     "every turn.");
+
+static const u8 sGravityWellDesc[] = _(
+    "Trick Room\n"
+    "lasts for an\n"
+    "extra turn.");
+
+static const u8 sWindChimesDesc[] = _(
+    "Tailwind lasts\n"
+    "for an extra\n"
+    "turn.");

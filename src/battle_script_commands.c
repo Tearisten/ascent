@@ -11450,7 +11450,10 @@ static void Cmd_settailwind(void)
     {
         gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
         gSideTimers[side].tailwindBattlerId = gBattlerAttacker;
-        gSideTimers[side].tailwindTimer = (B_TAILWIND_TURNS >= GEN_5) ? 4 : 3;
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_WIND_CHIMES)
+            gSideTimers[side].tailwindTimer = 5;
+        else
+            gSideTimers[side].tailwindTimer = (B_TAILWIND_TURNS >= GEN_5) ? 4 : 3;
         gBattlescriptCurrInstr += 5;
     }
     else
@@ -12593,8 +12596,12 @@ static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
     }
     else
     {
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRAVITY_WELL 
+        && statusFlag == STATUS_FIELD_TRICK_ROOM)
+            *timer = 5; 
+        else
+            *timer = 4;
         gFieldStatuses |= statusFlag;
-        *timer = 5;
         gBattleCommunication[MULTISTRING_CHOOSER] = stringId;
     }
 }

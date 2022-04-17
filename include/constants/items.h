@@ -935,8 +935,10 @@
 #define ITEM_TRIFORCE 761
 #define ITEM_PLATE_MAIL 762
 #define ITEM_FEAST 763
+#define ITEM_GRAVITY_WELL 764
+#define ITEM_WIND_CHIMES 765
 
-#define ITEMS_COUNT 764
+#define ITEMS_COUNT 766
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

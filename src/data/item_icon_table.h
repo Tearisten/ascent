@@ -810,8 +810,11 @@ const u32 *const gItemIconTable[][2] =
     // Return to field arrow
     [ITEM_FIELD_ARROW] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 
+    // Custom items
     [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_TRIFORCE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_PLATE_MAIL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_FEAST] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_GRAVITY_WELL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_WIND_CHIMES] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
 };

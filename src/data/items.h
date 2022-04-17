@@ -9408,12 +9408,38 @@ const struct Item gItems[] =
 
     [ITEM_FEAST] =
     {
-        .name = _("FEAST"),
+        .name = _("Feast"),
         .itemId = ITEM_FEAST,
         .price = 100,
         .holdEffect = HOLD_EFFECT_FEAST,
         .holdEffectParam = 20,
         .description = sFeastDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_GRAVITY_WELL] =
+    {
+        .name = _("Gravity Well"),
+        .itemId = ITEM_GRAVITY_WELL,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_GRAVITY_WELL,
+        .holdEffectParam = 1,
+        .description = sGravityWellDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_WIND_CHIMES] = 
+    {
+        .name = _("Wind Chimes"),
+        .itemId = ITEM_WIND_CHIMES,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_WIND_CHIMES,
+        .holdEffectParam = 1,
+        .description = sWindChimesDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

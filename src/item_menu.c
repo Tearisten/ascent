@@ -3158,6 +3158,10 @@ static const u16 sItemsByType[ITEMS_COUNT] =
         // custom items
         [ITEM_WEIGHTED_BOOTS] = ITEM_TYPE_HELD_ITEM,
         [ITEM_TRIFORCE] = ITEM_TYPE_HELD_ITEM,
+        [ITEM_PLATE_MAIL] = ITEM_TYPE_HELD_ITEM,
+        [ITEM_FEAST] = ITEM_TYPE_HELD_ITEM,
+        [ITEM_GRAVITY_WELL] = ITEM_TYPE_HELD_ITEM,
+        [ITEM_WIND_CHIMES] = ITEM_TYPE_HELD_ITEM,
     #endif
 };
 

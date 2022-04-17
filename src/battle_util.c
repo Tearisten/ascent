@@ -4490,7 +4490,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 else
                 {
                     gFieldStatuses |= statusFlag;
-                    *timer = 5;
+                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_GRAVITY_WELL)
+                        *timer = 5;
+                    else
+                        *timer = 4;
                     gBattleCommunication[MULTISTRING_CHOOSER] = stringId;
                 }
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
@@ -4507,7 +4510,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 {
                     gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
                     gSideTimers[side].tailwindBattlerId = battler;
-                    gSideTimers[side].tailwindTimer = (B_TAILWIND_TURNS >= GEN_5) ? 4 : 3;
+                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_WIND_CHIMES)
+                        gSideTimers[side].tailwindTimer = 5;
+                    else
+                        gSideTimers[side].tailwindTimer = (B_TAILWIND_TURNS >= GEN_5) ? 4 : 3;
                     BattleScriptPushCursorAndCallback(BattleScript_GiftOfWind);
                 }
                 else //don't report if it doesn't activate
