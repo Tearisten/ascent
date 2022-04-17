@@ -1364,7 +1364,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THUNDER_WAVE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_7
-            .accuracy = 90,
+            .accuracy = 95,
         #else
             .accuracy = 100,
         #endif
@@ -1460,7 +1460,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_TOXIC] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .accuracy = 90,
+            .accuracy = 75,
         #else
             .accuracy = 85,
         #endif
@@ -4171,7 +4171,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WILL_O_WISP] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 85,
+            .accuracy = 95,
         #else
             .accuracy = 75,
         #endif
