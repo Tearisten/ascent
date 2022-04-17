@@ -70,7 +70,10 @@
 #define NATURE_SASSY    22
 #define NATURE_CAREFUL  23
 #define NATURE_QUIRKY   24
-#define NUM_NATURES     25
+#define NATURE_RAGER    25
+#define NATURE_PACIFIST 26
+#define NATURE_DEMON    27
+#define NUM_NATURES     28
 
 // Pokemon Stats
 #define STAT_HP      0

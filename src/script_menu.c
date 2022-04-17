@@ -849,6 +849,9 @@ static const struct ListMenuItem natureList[] =
     {sModestNatureName,NATURE_MODEST},
     {sJollyNatureName,NATURE_JOLLY},
     {sTimidNatureName,NATURE_TIMID},
+    {sPacifistNatureName, NATURE_PACIFIST},
+    {sDemonNatureName, NATURE_DEMON},
+    {sRagerNatureName,NATURE_RAGER},
     {sBoldNatureName,NATURE_BOLD},
     {sImpishNatureName,NATURE_IMPISH},
     {sCarefulNatureName,NATURE_CAREFUL},
@@ -865,7 +868,7 @@ static const struct ListMenuItem natureList[] =
     {sRashNatureName,NATURE_RASH},
     {sGentleNatureName,NATURE_GENTLE},
     {sSassyNatureName,NATURE_SASSY},
-    {sSeriousNatureName,NATURE_SERIOUS}
+    {sSeriousNatureName,NATURE_SERIOUS},
 };
 
 static const struct ListMenuItem pokeShopList[] =
