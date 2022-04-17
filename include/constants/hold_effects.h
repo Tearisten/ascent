@@ -155,6 +155,7 @@
 // Custom hold effects
 #define HOLD_EFFECT_WEIGHTED_BOOTS      175
 #define HOLD_EFFECT_TRIFORCE            176
+#define HOLD_EFFECT_PLATE_MAIL        177
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

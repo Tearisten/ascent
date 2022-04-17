@@ -9051,6 +9051,10 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
     case HOLD_EFFECT_TRIFORCE:
         MulModifier(&modifier, UQ_4_12(1.1));
     break;
+    case HOLD_EFFECT_PLATE_MAIL:
+        if (usesDefStat)
+            MulModifier(&modifier, UQ_4_12(1.5));
+    break;
     }
 
     // sandstorm sp.def boost for rock types

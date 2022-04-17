@@ -9392,4 +9392,17 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_PLATE_MAIL] =
+    {
+        .name = _("Plate Mail"),
+        .itemId = ITEM_PLATE_MAIL,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_PLATE_MAIL,
+        .holdEffectParam = 50,
+        .description = sPlateMailDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

@@ -4445,6 +4445,8 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
         speed *= 2;
     else if (holdEffect == HOLD_EFFECT_TRIFORCE)
         speed = (speed * 110) / 100;
+    else if (holdEffect == HOLD_EFFECT_PLATE_MAIL)
+        speed = (speed * 50) / 100;
 
     // various effects
     if (gSideStatuses[GET_BATTLER_SIDE(battlerId)] & SIDE_STATUS_TAILWIND)

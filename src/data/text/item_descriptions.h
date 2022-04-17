@@ -3518,3 +3518,8 @@ static const u8 sTriforceDesc[] = _(
     "Eminiates power.\n"
     "boosts all stats\n"
     "in battle.");
+
+static const u8 sPlateMailDesc[] = _(
+    "Raises Def but\n"
+    "lowers speed by\n"
+    "half.");
