@@ -3770,7 +3770,6 @@ BattleScript_PowerHerbActivation:
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_POWERHERB
 	waitmessage B_WAIT_TIME_LONG
-	removeitem BS_ATTACKER
 	return
 
 BattleScript_EffectTwoTurnsAttack::
