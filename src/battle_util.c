@@ -9131,7 +9131,8 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
     else if ((gBattleMons[battlerAtk].status1 & STATUS1_POISON || gBattleMons[battlerAtk].status1 & STATUS1_TOXIC_POISON) 
             && IS_MOVE_SPECIAL(move)
-            && gBattleMoves[move].effect != EFFECT_FACADE)
+            && gBattleMoves[move].effect != EFFECT_FACADE
+            && abilityAtk != ABILITY_POISON_HEAL)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
 
     // check sunny/rain weather
