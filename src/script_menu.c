@@ -930,8 +930,10 @@ void ScriptMenu_ScrollingMultichoice(void)
     left = ScriptMenu_AdjustLeftCoordFromWidth(left, width);
     windowId = CreateWindowFromRect(left, top, width, maxShowed * 2);
     SetStandardWindowBorderStyle(windowId, 0);
+    LoadMessageBoxAndBorderGfx();
     CopyWindowToVram(windowId, 3);
 
+    
     gMultiuseListMenuTemplate = sMultichoiceListTemplate;
     gMultiuseListMenuTemplate.windowId = windowId;
     gMultiuseListMenuTemplate.items = sScrollingSets[setId].set;
