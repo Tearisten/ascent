@@ -5767,7 +5767,7 @@ BattleScript_FaintTarget::
 	playfaintcry BS_TARGET
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_TARGET
-	printstring STRINGID_TARGETFAINTED
+	@printstring STRINGID_TARGETFAINTED
 	cleareffectsonfaint BS_TARGET
 	tryactivatefellstinger BS_ATTACKER
 	tryactivatesoulheart
@@ -5896,7 +5896,7 @@ BattleScript_LinkHandleFaintedMonMultipleEnd::
 
 BattleScript_LocalTrainerBattleWon::
 	jumpifbattletype BATTLE_TYPE_TWO_OPPONENTS, BattleScript_LocalTwoTrainersDefeated
-	printstring STRINGID_PLAYERDEFEATEDTRAINER1
+	@printstring STRINGID_PLAYERDEFEATEDTRAINER1
 	goto BattleScript_LocalBattleWonLoseTexts
 BattleScript_LocalTwoTrainersDefeated::
 	printstring STRINGID_TWOENEMIESDEFEATED
@@ -5912,8 +5912,8 @@ BattleScript_LocalBattleWonLoseTexts::
 	printstring STRINGID_TRAINER2LOSETEXT
 BattleScript_LocalBattleWonReward::
 BattleScript_PayDayMoneyAndPickUpItems::
-	givepaydaymoney
-	pickup
+	@givepaydaymoney
+	@pickup
 	end2
 
 BattleScript_LocalBattleLost::
