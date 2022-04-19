@@ -73,10 +73,10 @@ Gauntlet1_starterRoom_Scientist_move_text:
 	.string "to access the move relearner.\p"
 	.string "Don't spend them too quickly,\n"
 	.string "you'll get more slowly.\p"
-	.string "Also, here are two Ability\n"
+	.string "Also, here are three Ability\n"
 	.string "Capsules to start you out.\p"
 	.string "They won't be in the shop till\n"
-	.string "the 3rd area. Goodluck$"
+	.string "the 3rd area.$"
 
 
 Gauntlet1_starterRoom_haveThisType_event::

@@ -5952,7 +5952,7 @@ const struct Item gItems[] =
     {
         .name = _("Shell Bell"),
         .itemId = ITEM_SHELL_BELL,
-        .price = 4000,
+        .price = 1000,
         .holdEffect = HOLD_EFFECT_SHELL_BELL,
         .holdEffectParam = 3,
         .description = sShellBellDesc,
@@ -5978,7 +5978,7 @@ const struct Item gItems[] =
     {
         .name = _("Muscle Band"),
         .itemId = ITEM_MUSCLE_BAND,
-        .price = 4000,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_MUSCLE_BAND,
         .holdEffectParam = 10,
         .description = sMuscleBandDesc,
@@ -5991,7 +5991,7 @@ const struct Item gItems[] =
     {
         .name = _("Wise Glasses"),
         .itemId = ITEM_WISE_GLASSES,
-        .price = 4000,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_WISE_GLASSES,
         .holdEffectParam = 10,
         .description = sWiseGlassesDesc,
@@ -6004,7 +6004,7 @@ const struct Item gItems[] =
     {
         .name = _("Expert Belt"),
         .itemId = ITEM_EXPERT_BELT,
-        .price = 4000,
+        .price = 1200,
         .holdEffect = HOLD_EFFECT_EXPERT_BELT,
         .holdEffectParam = 20,
         .description = sExpertBeltDesc,

@@ -25,6 +25,8 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Tester},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_Tester)
     },
+
+    // Little Cup 1
     [TRAINER_LC_1_INTRO] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -51,5 +53,33 @@ const struct Trainer gTrainers[] = {
         .partySize = 3,
         .party = {.TrainerMon = sParty_LC_1_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_1_Elite)
+    },
+
+    // Little Cup 2
+    [TRAINER_LC_2_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_LASS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_LASS,
+        .trainerName = _("Robby"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 4,
+        .party = {.TrainerMon = sParty_LC_2_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_2_Intro)
+    },
+    [TRAINER_LC_2_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RICH_BOY,
+        .trainerName = _("Brandon"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
+        .partySize = 4,
+        .party = {.TrainerMon = sParty_LC_2_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_2_Elite)
     },
 };

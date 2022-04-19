@@ -8,15 +8,15 @@ LittleCup1_OnTransition:
 
 
 @ this floors specific battle data
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 2 
+.set ROOM_BATTLE_COUNT, 1
+.set ROOM_BATTLE_TYPE, 1 
 .set FLOORMONEY, 1000
 .set FLOORBP, 1 
 .set FLOORHS, 2 
 .set FLOORFLAG, FLAG_ROOM_1_CLEAR
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_1_INTRO
+.set TRAINER1ID, TRAINER_TEST
 .set TRAINER2ID, TRAINER_LC_1_ELITE
 
 @ this floors trainer npc ids
@@ -84,6 +84,7 @@ LittleCup1_end_battles::
 	setflag FLOORFLAG
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
+	giveitem ITEM_HEART_SCALE, FLOORHS
 	special CloseBattlePointsWindow @won't open quickly without this for some reason
 	special ShowBattlePointsWindow
 	delay 50

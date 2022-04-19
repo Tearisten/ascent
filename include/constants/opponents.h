@@ -5,8 +5,8 @@
 #define TRAINER_TEST                          1
 #define TRAINER_LC_1_INTRO                    2
 #define TRAINER_LC_1_ELITE                    3
-#define TRAINER_GRUNT_AQUA_HIDEOUT_3          4
-#define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
+#define TRAINER_LC_2_INTRO                    4
+#define TRAINER_LC_2_ELITE                    5
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8

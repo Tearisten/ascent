@@ -2674,7 +2674,7 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     ScriptContext2_Enable();
     sScrollableMultichoice_ScrollOffset = 0;
     sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
-    sScrollableMultichoice_PokeSpriteId = MAX_SPRITES
+    sScrollableMultichoice_PokeSpriteId = MAX_SPRITES;
     
     LoadMessageBoxAndBorderGfx();
     ShowBattleFrontierTutorWindow(task->tScrollMultiId, 0);
