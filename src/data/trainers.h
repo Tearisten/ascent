@@ -25,4 +25,17 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Tester},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_Tester)
     },
+    [TRAINER_ROXANNE_1] =
+    {
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
+        .trainerName = _("Roxanne"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = 1,
+        .party = {.TrainerMon = sParty_Roxanne1},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_Roxanne1)
+    },
 };

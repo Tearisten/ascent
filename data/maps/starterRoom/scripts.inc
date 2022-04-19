@@ -43,11 +43,10 @@ Gauntlet1_starterRoom_Scientist_event::
 	msgbox Gauntlet1_starterRoom_Scientist_move_text, MSGBOX_DEFAULT
 	giveitem ITEM_HEART_SCALE, 5
 	waitmessage
-	giveitem ITEM_ABILITY_CAPSULE, 2
+	giveitem ITEM_ABILITY_CAPSULE, 3
 	waitmessage
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
 	waitmovement 5
-	setflag FLAG_ROOM_1_CLEAR
 	setvar VAR_0x8007, 10
 	special GiveBattlePointsGauntlet @ test code for giving bp
 	release

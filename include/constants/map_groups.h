@@ -595,6 +595,13 @@
 #define MAP_STARTER_ROOM (0 | (34 << 8))
 #define MAP_BATTLE_TEST  (1 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// gMapGroup_LittleCup
+#define MAP_LITTLE_CUP1 (0 | (35 << 8))
+#define MAP_LITTLE_CUP2 (1 | (35 << 8))
+#define MAP_LITTLE_CUP3 (2 | (35 << 8))
+#define MAP_LITTLE_CUP4 (3 | (35 << 8))
+#define MAP_LITTLE_CUP5 (4 | (35 << 8))
+
+#define MAP_GROUPS_COUNT 36
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

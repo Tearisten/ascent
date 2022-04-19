@@ -285,8 +285,6 @@ MakeShinyAlready_text:
 	.string "That poke is already shiny.$"
 
 
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 1
 Battle_event_ReadyOrNot::
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
 	switch ROOM_BATTLE_TYPE
