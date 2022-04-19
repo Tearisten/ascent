@@ -10,22 +10,29 @@ LittleCup1_OnTransition:
 @ this floors specific battle data
 .set ROOM_BATTLE_COUNT, 2
 .set ROOM_BATTLE_TYPE, 2 
-.set FLOORMONEY, 499
-.set FLOORBP, 69 
+.set FLOORMONEY, 1000
+.set FLOORBP, 1 
 .set FLOORHS, 2 
-.set FLOORFLAG, FLAG_ROOM_1_CLEAR 
+.set FLOORFLAG, FLAG_ROOM_1_CLEAR
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_ROXANNE_1
-.set TRAINER2ID, TRAINER_TEST
+.set TRAINER1ID, TRAINER_LC_1_INTRO
+.set TRAINER2ID, TRAINER_LC_1_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
+LittleCup1_Trainer1_text:
+	.string "Ready to face my normal type pokemon?$\n"
+
 .set TRAINER2, 11
+LittleCup1_Trainer2_text:
+	.string "Barboach is my favorite pokemon of\n"
+	.string "all time.$"
 
 @ copy from here down for new maps
 @ script to buffer this floor
 LittleCup1_ReadyOrNot::
+	goto_if_set FLOORFLAG, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
 	switch ROOM_BATTLE_TYPE
 	case 1, LittleCup1_TextSingleBattles
@@ -105,6 +112,7 @@ LittleCup1_npc_walk1::
 	trainerbattle_single TRAINER1ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, LittleCup1_npc_finish1
 
 LittleCup1_npc_finish1::
+	special HealPlayerParty
 	applymovement TRAINER1, LittleCup1_npc_walk1_move_back
 	waitmovement 0
 	waitmessage
@@ -118,6 +126,7 @@ LittleCup1_npc_walk2::
 	trainerbattle_single TRAINER2ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, LittleCup1_npc_finish2
 
 LittleCup1_npc_finish2::
+	special HealPlayerParty
 	applymovement TRAINER2, LittleCup1_npc_walk2_move_back
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
@@ -171,3 +180,17 @@ LittleCup1_npc_walk2_move_back::
 	walk_up
 	face_down
 	step_end
+
+LittleCup1_Trainer1_event::
+	faceplayer
+	lockall
+	msgbox LittleCup1_Trainer1_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LittleCup1_Trainer2_event::
+	faceplayer
+	lockall
+	msgbox LittleCup1_Trainer2_text, MSGBOX_DEFAULT
+	releaseall
+	end

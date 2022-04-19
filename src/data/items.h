@@ -6571,7 +6571,7 @@ const struct Item gItems[] =
     {
         .name = _("Lum Berry"),
         .itemId = ITEM_LUM_BERRY,
-        .price = 20,
+        .price = 300,
         .holdEffect = HOLD_EFFECT_CURE_STATUS,
         .description = sLumBerryDesc,
         .pocket = POCKET_BERRIES,
@@ -6585,7 +6585,7 @@ const struct Item gItems[] =
     {
         .name = _("Sitrus Berry"),
         .itemId = ITEM_SITRUS_BERRY,
-        .price = 20,
+        .price = 400,
         #if defined(BATTLE_ENGINE) && I_SITRUS_BERRY_HEAL >= GEN_4
             .holdEffect = HOLD_EFFECT_RESTORE_PCT_HP,
             .holdEffectParam = 25,
@@ -7491,7 +7491,7 @@ const struct Item gItems[] =
     {
         .name = _("TM17"),
         .itemId = ITEM_TM17_PROTECT,
-        .price = 3000,
+        .price = 1000,
         .description = sTM17Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,

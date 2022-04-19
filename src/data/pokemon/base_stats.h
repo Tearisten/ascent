@@ -8294,7 +8294,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SOUNDPROOF, ABILITY_NONE, ABILITY_RATTLED},
+            .abilities = {ABILITY_QUICK_FEET, ABILITY_RATTLED, ABILITY_SCRAPPY},
         #else
             .abilities = {ABILITY_SOUNDPROOF, ABILITY_NONE},
         #endif
@@ -8354,7 +8354,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SOUNDPROOF, ABILITY_NONE, ABILITY_SCRAPPY},
+            .abilities = {ABILITY_AFTERMATH, ABILITY_NONE, ABILITY_SCRAPPY}, // scrappy amazing with my buff
         #else
             .abilities = {ABILITY_SOUNDPROOF, ABILITY_NONE},
         #endif
@@ -9613,7 +9613,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_2,
         .eggGroup2 = EGG_GROUP_WATER_2,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION, ABILITY_HYDRATION},
+            .abilities = {ABILITY_WATER_COMPACTION, ABILITY_ANTICIPATION, ABILITY_HYDRATION},
         #else
             .abilities = {ABILITY_OBLIVIOUS, ABILITY_NONE},
         #endif
@@ -9641,7 +9641,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_2,
         .eggGroup2 = EGG_GROUP_WATER_2,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION, ABILITY_HYDRATION},
+            .abilities = {ABILITY_WATER_VEIL, ABILITY_ANTICIPATION, ABILITY_HYDRATION},
         #else
             .abilities = {ABILITY_OBLIVIOUS, ABILITY_NONE},
         #endif
@@ -11334,7 +11334,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_SHED_SKIN, ABILITY_NONE, ABILITY_RUN_AWAY},
+        .abilities = {ABILITY_SHED_SKIN, ABILITY_SWARM, ABILITY_TECHNICIAN},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },

@@ -2625,6 +2625,9 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
 {
     // Little cup 1
     // empty because starters only
+    
+    //test
+    {SPECIES_ZACIAN, 1, FLAG_ALL_STARTERS},
 
     // Little cup 2
     {SPECIES_POOCHYENA, 1, FLAG_ROOM_1_CLEAR},
@@ -2671,8 +2674,9 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     ScriptContext2_Enable();
     sScrollableMultichoice_ScrollOffset = 0;
     sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
-    sScrollableMultichoice_PokeSpriteId = MAX_SPRITES;
+    sScrollableMultichoice_PokeSpriteId = MAX_SPRITES
     
+    LoadMessageBoxAndBorderGfx();
     ShowBattleFrontierTutorWindow(task->tScrollMultiId, 0);
     sScrollableMultichoice_ListMenuItem = AllocZeroed(POKE_SHOP_SIZE * 8);
     finalNames = Alloc(sizeof(*finalNames) * POKE_SHOP_MAX_TEXT);

@@ -10,84 +10,132 @@ static const struct TrainerMon sParty_Tester[] = {
     .slot = 0,
     .moves = {MOVE_STEALTH_ROCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
+    }
+};
+
+static const struct TrainerMon sParty_LC_1_Intro[] = {
+    {
+        .species = SPECIES_RATTATA,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_2, // guts
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_POKE_BALL,
+        .slot = 0,
+        .moves = {MOVE_QUICK_ATTACK, MOVE_BITE, MOVE_PURSUIT, MOVE_TAIL_WHIP},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_WURMPLE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_ULTRA_BALL,
-    .slot = 1,
-    .moves = {MOVE_THUNDER_WAVE, MOVE_TACKLE, MOVE_NONE, MOVE_NONE},
-    //.shiny = TRUE
+        .species = SPECIES_BIDOOF,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_1, // simple
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_POKE_BALL,
+        .slot = 0,
+        .moves = {MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_HEADBUTT, MOVE_YAWN},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_DOTTLER,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_LOVE_BALL,
-    .slot = 2
-    //.shiny = TRUE
+        .species = SPECIES_GLAMEOW,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_1, // limber
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 1,
+        .moves = {MOVE_FAKE_OUT, MOVE_THUNDER_WAVE, MOVE_CHARM, MOVE_FURY_SWIPES},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_CATERPIE,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_MASTER_BALL,
-    .slot = 2
-    //.shiny = TRUE
+        .species = SPECIES_MEOWTH,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_2, // technician
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 1,
+        .moves = {MOVE_FURY_SWIPES, MOVE_TAUNT, MOVE_SCREECH, MOVE_SCRATCH},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_BEEDRILL,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_FAST_BALL,
-    .slot = 3
-    //.shiny = TRUE
+        .species = SPECIES_WHISMUR,
+        .heldItem = ITEM_CHESTO_BERRY,
+        .ability = ABILITY_SLOT_1, // quick feet
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_ULTRA_BALL,
+        .slot = 2,
+        .moves = {MOVE_ECHOED_VOICE, MOVE_SNORE, MOVE_REST, MOVE_SLEEP_TALK},
+        //.shiny = TRUE
+    },
+};
+
+static const struct TrainerMon sParty_LC_1_Elite[] = {
+    {
+        .species = SPECIES_TAILLOW,
+        .heldItem = ITEM_FLAME_ORB,
+        .ability = ABILITY_SLOT_1, // guts
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NEST_BALL,
+        .slot = 0,
+        .moves = {MOVE_QUICK_ATTACK, MOVE_PECK, MOVE_PURSUIT, MOVE_FOCUS_ENERGY},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_BUTTERFREE,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_QUICK_BALL,
-    .slot = 4
-    //.shiny = TRUE
+        .species = SPECIES_ROOKIDEE,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_2, // unnerve
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NEST_BALL,
+        .slot = 0,
+        .moves = {MOVE_POWER_TRIP, MOVE_HONE_CLAWS, MOVE_SCARY_FACE, MOVE_PECK},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_METAPOD,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_LOVE_BALL,
-    .slot = 4
-    //.shiny = TRUE
+        .species = SPECIES_KRICKETOT,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_2, // swarm
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_SASSY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NET_BALL,
+        .slot = 1,
+        .moves = {MOVE_FURY_CUTTER, MOVE_BIDE, MOVE_SCREECH, MOVE_STRUGGLE_BUG},
+        //.shiny = TRUE
     },
     {
-    .species = SPECIES_SQUIRTLE,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_HIDDEN,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_LOVE_BALL,
-    .slot = 5
-    //.shiny = TRUE
+        .species = SPECIES_MAREEP,
+        .heldItem = ITEM_ORAN_BERRY,
+        .ability = ABILITY_SLOT_1, // static
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LUXURY_BALL,
+        .slot = 1,
+        .moves = {MOVE_CONFUSE_RAY, MOVE_COTTON_SPORE, MOVE_POWER_GEM, MOVE_SHOCK_WAVE},
+        //.shiny = TRUE
+    },
+    {
+        .species = SPECIES_BARBOACH,
+        .heldItem = ITEM_LUM_BERRY,
+        .ability = ABILITY_SLOT_1, // water compact
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_ULTRA_BALL,
+        .slot = 2,
+        .moves = {MOVE_BULLDOZE, MOVE_AQUA_JET, MOVE_ROCK_TOMB, MOVE_AMNESIA},
+        //.shiny = TRUE
     },
 };
 

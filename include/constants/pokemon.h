@@ -93,7 +93,13 @@
 #define MAX_STAT_STAGE    12
 //                                      hp  atk  def  spe  spa, spd
 #define EV_SPREAD_NONE                {  0,   0,   0,   0,   0,   0}
-#define EV_SPREAD_FAST_ATTACKER       {  0, 252,   0, 252,   0,   0}
+#define EV_SPREAD_FAST_ATTACK         {  0, 252,   0, 252,   0,   0}
+#define EV_SPREAD_FAST_SPATTACk       {  0,   0,   0, 252, 252,   0}
+#define EV_SPREAD_TANKY_ATTACK        {252, 252,   0,   0,   0,   0}
+#define EV_SPREAD_TANKY_SPATTACK      {252,   0,   0,   0, 252,   0}
+#define EV_SPREAD_TANKY_DEF           {252,   0, 252,   0,   0,   0}
+#define EV_SPREAD_TANKY_SPDEF         {252,   0,   0,   0,   0, 252}
+
 
 #define WORST_IVS                1
 

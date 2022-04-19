@@ -323,15 +323,10 @@ struct itemFlagMap
 
 static const struct itemFlagMap itemToFlag[] =
 {
-    {ITEM_ASSAULT_VEST, FLAG_ROOM_1_CLEAR},
+    // Room 1
+    {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
-    {ITEM_WEIGHTED_BOOTS, FLAG_ALL_STARTERS},
-    {ITEM_TRIFORCE, FLAG_ALL_STARTERS},
-    {ITEM_GRAVITY_WELL, FLAG_ALL_STARTERS},
-    {ITEM_WIND_CHIMES, FLAG_ALL_STARTERS},
-    {ITEM_HOURGLASS, FLAG_ALL_STARTERS},
-    {ITEM_ABILITY_CAPSULE, FLAG_UNUSED_0x020},
-    {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
+
 };
 
 static EWRAM_DATA u16 *shopItemList = NULL;
@@ -353,9 +348,11 @@ static void SetShopItemsForSale()
 
 static const struct itemFlagMap tmToFlag[] =
 {
-    {ITEM_TM01, FLAG_ROOM_1_CLEAR},
-    {ITEM_TM02, FLAG_UNUSED_0x020},
-    {ITEM_TM05, FLAG_ALL_STARTERS},
+    // Room 1
+    {ITEM_TM17_PROTECT, FLAG_ALL_STARTERS},
+
+
+
     {ITEM_NONE, FLAG_UNUSED_0x020} // required empty end for some reason
 };
 
