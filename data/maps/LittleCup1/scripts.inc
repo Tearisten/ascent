@@ -16,7 +16,7 @@ LittleCup1_OnTransition:
 .set FLOORFLAG, FLAG_ROOM_1_CLEAR
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_TEST
+.set TRAINER1ID, TRAINER_LC_1_INTRO
 .set TRAINER2ID, TRAINER_LC_1_ELITE
 
 @ this floors trainer npc ids

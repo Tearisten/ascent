@@ -5952,7 +5952,7 @@ const struct Item gItems[] =
     {
         .name = _("Shell Bell"),
         .itemId = ITEM_SHELL_BELL,
-        .price = 15\00,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_SHELL_BELL,
         .holdEffectParam = 3,
         .description = sShellBellDesc,

@@ -204,6 +204,7 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    FlagSet(MedDifficulty);
 }
 
 static void ResetMiniGamesRecords(void)

@@ -562,8 +562,8 @@ static void CB2_InitBattleInternal(void)
     }
 
     //test code to spy on enemy teams
-    //for (u8 i = 0; i < gTrainers[gTrainerBattleOpponent_A].partySize; i++)
-    //    gPlayerParty[i] = gEnemyParty[i];
+    for (u8 i = 0; i < gTrainers[gTrainerBattleOpponent_A].partySize; i++)
+        gPlayerParty[i] = gEnemyParty[i];
     
     gMain.inBattle = TRUE;
     gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
@@ -1835,6 +1835,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     u8 ability, gender, friendship;
 
+    u8 difficulty; // 1 = easy, 2 = med, 3 = hard
+
+    if (FlagGet(EasyDifficulty))
+        difficulty = 1;
+    else if (FlagGet(MedDifficulty)) 
+        difficulty = 2;
+    else if (FlagGet(HardDifficulty))
+        difficulty = 3;
+
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
 
@@ -1880,7 +1889,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
              //= gTrainers[trainerNum].party.TrainerMon;
 
-            fixedIV = partyData[i].iv;
+            //fixedIV = partyData[i].iv;
 
             //fixedIV = fixedIV + TRAINER_IV_MODIFIER; //should be 0
 
@@ -1955,25 +1964,38 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
             }
 
-            if (partyData[i].iv > 0)
-            {
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
-                }
-            }
-            else
-            {
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].ivs[j]);
-                }
-            }
 
             for (j = 0; j < NUM_STATS; j++)
             {
-                SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+                switch (difficulty)
+                {
+                    case 1: // easy
+                        fixedIV = 0;
+                        partyData[i].evs[j] /= 3;
+                        SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
+                        SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+                        break;
+                    case 2: // normal
+                        fixedIV = 15;
+                        partyData[i].evs[j] /= 2;
+                        SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
+                        SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+                        break;
+                    case 3: // hard
+                        fixedIV = 31;
+                        SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
+                        SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+                        break;
+
+                }
+                //SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].ivs[j]);
             }
+
+
+            // for (j = 0; j < NUM_STATS; j++)
+            // {
+            //     SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+            // }
 
             StringCopy(trainerName, gTrainers[trainerNum].trainerName);
             SetMonData(&party[i], MON_DATA_OT_NAME, trainerName);

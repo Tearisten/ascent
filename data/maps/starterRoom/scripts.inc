@@ -121,3 +121,35 @@ Gauntlet1_starterRoom_GrassCush_event::
 	givemon VAR_RESULT, 50, ITEM_NONE
 	release
 	end
+
+Gauntlet1_starterRoom_Difficulty_event::
+	msgbox Gauntlet1_starterRoom_WhatDifficultyText, MSGBOX_DEFAULT
+	scrollingmultichoice 6, 1, 1, 3, TRUE
+	waitmessage
+	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	goto_if_eq VAR_RESULT, 1, Gauntlet1_starterRoom_Difficulty_easy
+	goto_if_eq VAR_RESULT, 2, Gauntlet1_starterRoom_Difficulty_medium
+	goto_if_eq VAR_RESULT, 3, Gauntlet1_starterRoom_Difficulty_hard
+
+
+Gauntlet1_starterRoom_Difficulty_easy::
+	setflag EasyDifficulty
+	clearflag MedDifficulty
+	clearflag  HardDifficulty
+	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_Difficulty_medium::
+	clearflag EasyDifficulty
+	setflag MedDifficulty
+	clearflag  HardDifficulty
+	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_Difficulty_hard::
+	clearflag EasyDifficulty
+	clearflag MedDifficulty
+	setflag  HardDifficulty
+	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_WhatDifficultyText:
+	.string "What difficulty would you like?\n"
+	.string "This cannot be changed later.$"

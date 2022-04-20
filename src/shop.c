@@ -365,7 +365,7 @@ static const struct itemFlagMap tmToFlag[] =
 
     // Room 3
     {ITEM_TM12_TAUNT, FLAG_ROOM_2_CLEAR},
-    {ITEM_TM41_TORMENT, FLAG_ROOM_2_CLEAR}
+    {ITEM_TM41_TORMENT, FLAG_ROOM_2_CLEAR},
 
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };

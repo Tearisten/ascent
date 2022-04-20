@@ -871,9 +871,14 @@ static const struct ListMenuItem natureList[] =
     {sSeriousNatureName,NATURE_SERIOUS},
 };
 
-static const struct ListMenuItem pokeShopList[] =
+static const u8 sText_Easy[] = _("Easy");
+static const u8 sText_Normal[] = _("Normal");
+static const u8 sText_Hard[] = _("Hard");
+static const struct ListMenuItem DifficultyList[] =
 {
-    {gSpeciesNames[SPECIES_CATERPIE], SPECIES_CATERPIE}
+    {sText_Easy, 1},
+    {sText_Normal, 2},
+    {sText_Hard, 3},
 };
 
 // Table of your multichoice sets.
@@ -889,7 +894,7 @@ struct
     {statIVList, ARRAY_COUNT(statIVList)},//3
     {statIVNums, ARRAY_COUNT(statIVNums)},//4
     {natureList, ARRAY_COUNT(natureList)},//5
-    {pokeShopList, ARRAY_COUNT(pokeShopList)},//6
+    {DifficultyList, ARRAY_COUNT(DifficultyList)}//6
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);
