@@ -4720,7 +4720,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SWARM, ABILITY_INSOMNIA, ABILITY_SNIPER},
+            .abilities = {ABILITY_SWARM, ABILITY_SNIPER, ABILITY_VAMPIRE},
         #else
             .abilities = {ABILITY_SWARM, ABILITY_INSOMNIA},
         #endif
@@ -4752,7 +4752,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SWARM, ABILITY_INSOMNIA, ABILITY_SNIPER},
+            .abilities = {ABILITY_SWARM, ABILITY_SNIPER, ABILITY_VAMPIRE},
         #else
             .abilities = {ABILITY_SWARM, ABILITY_INSOMNIA},
         #endif
@@ -19553,7 +19553,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_WATER_3,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_MEGA_LAUNCHER, ABILITY_NONE},
+            .abilities = {ABILITY_TORRENT, ABILITY_MEGA_LAUNCHER, ABILITY_NONE},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -19581,7 +19581,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_WATER_3,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_MEGA_LAUNCHER, ABILITY_NONE},
+            .abilities = {ABILITY_TORRENT, ABILITY_MEGA_LAUNCHER, ABILITY_NONE},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -21546,7 +21546,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_GRASS,
         .eggGroup2 = EGG_GROUP_GRASS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_LEAF_GUARD, ABILITY_OBLIVIOUS, ABILITY_SWEET_VEIL},
+            .abilities = {ABILITY_LEAF_GUARD, ABILITY_QUEENLY_MAJESTY, ABILITY_SWEET_VEIL},
         #else
             .abilities = {ABILITY_NONE, ABILITY_OBLIVIOUS},
         #endif

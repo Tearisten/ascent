@@ -7,8 +7,8 @@
 #define TRAINER_LC_1_ELITE                    3
 #define TRAINER_LC_2_INTRO                    4
 #define TRAINER_LC_2_ELITE                    5
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
+#define TRAINER_LC_3_INTRO                    6
+#define TRAINER_LC_3_ELITE                    7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
 #define TRAINER_GABRIELLE_1                   9
 #define TRAINER_GRUNT_PETALBURG_WOODS        10

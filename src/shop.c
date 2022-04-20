@@ -328,9 +328,13 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
 
     // Room 2
-    {ITEM_EXPERT_BELT, FLAG_ROOM_1_CLEAR},
     {ITEM_MUSCLE_BAND, FLAG_ROOM_1_CLEAR},
     {ITEM_WISE_GLASSES, FLAG_ROOM_1_CLEAR},
+
+    // Room 3
+    {ITEM_SHELL_BELL, FLAG_ROOM_2_CLEAR},
+    {ITEM_EXPERT_BELT, FLAG_ROOM_2_CLEAR},
+
 
 };
 
@@ -358,6 +362,10 @@ static const struct itemFlagMap tmToFlag[] =
 
     // Room 2
     {ITEM_TM05_ROAR, FLAG_ROOM_1_CLEAR},
+
+    // Room 3
+    {ITEM_TM12_TAUNT, FLAG_ROOM_2_CLEAR},
+    {ITEM_TM41_TORMENT, FLAG_ROOM_2_CLEAR}
 
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };
