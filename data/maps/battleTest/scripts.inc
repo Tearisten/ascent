@@ -420,3 +420,24 @@ Battle_event_npc_walk2_move_back::
 	walk_up
 	face_down
 	step_end
+
+Gauntlet1_Already_clear_event::
+	msgbox Gauntlet1_Already_clear_text, MSGBOX_DEFAULT
+	waitmessage
+	release
+	end
+
+Gauntlet1_Already_clear_text:
+	.string "You have already cleared this\n"
+	.string "floor. Please move on.$"
+
+
+Gauntlet1_nuzlocke_lost::
+	msgbox Gauntlet1_nuzlocke_lost_text, MSGBOX_DEFAULT
+	waitmessage
+	release
+	end
+
+Gauntlet1_nuzlocke_lost_text:
+	.string "Your nuzlocke is over.\n"
+	.string "Better luck next time.$"

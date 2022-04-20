@@ -1,15 +1,7 @@
-LittleCup1_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup1_OnTransition
-	.byte 0
-
-LittleCup1_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_1
-	end
-
-
 @ this floors specific battle data
+@ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 1
-.set ROOM_BATTLE_TYPE, 1 
+.set ROOM_BATTLE_TYPE, 1
 .set FLOORMONEY, 1000
 .set FLOORBP, 1 
 .set FLOORHS, 2 
@@ -29,12 +21,26 @@ LittleCup1_Trainer2_text:
 	.string "Barboach is my favorite pokemon of\n"
 	.string "all time.$"
 
-@ copy from here down for new maps
-@ script to buffer this floor
+LittleCup1_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup1_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, LittleCup1_OnLoad
+	.byte 0
+
+LittleCup1_OnTransition:
+	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_1
+	end
+
+LittleCup1_OnLoad:
+	call_if_set FLOORFLAG, PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	end
+
 LittleCup1_ReadyOrNot::
-	goto_if_set FLOORFLAG, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	faceplayer
+	goto_if_set FLOORFLAG, Gauntlet1_Already_clear_event
+	goto_if_set FLAG_NUZ_LOSE, Gauntlet1_nuzlocke_lost
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
-	switch ROOM_BATTLE_TYPE
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_TYPE
+	switch VAR_TEMP_A
 	case 1, LittleCup1_TextSingleBattles
 	case 2, LittleCup1_TextDoubleBattles
 
@@ -85,7 +91,8 @@ LittleCup1_end_battles::
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
 	giveitem ITEM_HEART_SCALE, FLOORHS
-	special CloseBattlePointsWindow @won't open quickly without this for some reason
+	releaseall
+	delay 10
 	special ShowBattlePointsWindow
 	delay 50
 	setvar VAR_0x8007, FLOORBP
@@ -94,6 +101,8 @@ LittleCup1_end_battles::
 	playse SE_PIN
 	waitse
 	delay 30
+	special CloseBattlePointsWindow
+	delay 10
 	showmoneybox 15, 0
 	delay 20
 	addmoney FLOORMONEY
@@ -102,8 +111,6 @@ LittleCup1_end_battles::
 	waitse
 	delay 20
 	hidemoneybox
-	special CloseBattlePointsWindow
-	delay 50
 	releaseall
 	end
 

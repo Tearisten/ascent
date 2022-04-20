@@ -3086,7 +3086,7 @@ void ShowBattlePointsWindow(void)
     sBattlePointsWindowId = AddWindow(&sBattlePoints_WindowTemplate);
     SetStandardWindowBorderStyle(sBattlePointsWindowId, 0);
     UpdateBattlePointsWindow();
-    CopyWindowToVram(sBattlePointsWindowId, COPYWIN_GFX);
+    CopyWindowToVram(sBattlePointsWindowId, COPYWIN_FULL);
 }
 
 void CloseBattlePointsWindow(void)

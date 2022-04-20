@@ -562,8 +562,8 @@ static void CB2_InitBattleInternal(void)
     }
 
     //test code to spy on enemy teams
-    for (u8 i = 0; i < gTrainers[gTrainerBattleOpponent_A].partySize; i++)
-        gPlayerParty[i] = gEnemyParty[i];
+    //for (u8 i = 0; i < gTrainers[gTrainerBattleOpponent_A].partySize; i++)
+    //    gPlayerParty[i] = gEnemyParty[i];
     
     gMain.inBattle = TRUE;
     gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
@@ -4985,6 +4985,20 @@ static void HandleEndTurn_BattleWon(void)
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
+        if (FlagGet(Nuzlocke_Mode))
+        {
+            //u8 gBattlerTemp = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+            for (u8 i = 0; i < PARTY_SIZE; i++)
+            {
+                if (!gPlayerParty[i].hp)
+                    {
+                        ZeroMonData(&gPlayerParty[i]);
+                    };
+            }
+            CompactPartySlots();
+            CalculatePlayerPartyCount();
+        }
+
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_ELITE_FOUR:
@@ -5018,6 +5032,9 @@ static void HandleEndTurn_BattleWon(void)
 static void HandleEndTurn_BattleLost(void)
 {
     gCurrentActionFuncId = 0;
+    
+    if (FlagGet(Nuzlocke_Mode))
+        FlagSet(FLAG_NUZ_LOSE);
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {

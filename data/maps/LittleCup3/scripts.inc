@@ -1,12 +1,5 @@
-LittleCup3_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup3_OnTransition
-	.byte 0
-
-LittleCup3_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_3
-	end
-
 @ this floors specific battle data
+@ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 2
 .set ROOM_BATTLE_TYPE, 1
 .set FLOORMONEY, 1800
@@ -29,12 +22,26 @@ LittleCup3_Trainer2_text:
 	.string "I love bugs. They are so cool.\n"
 	.string "The only thing cooler is crabs.$"
 
-@ copy from here down for new maps
-@ script to buffer this floor
+LittleCup3_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup3_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, LittleCup3_OnLoad
+	.byte 0
+
+LittleCup3_OnTransition:
+	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_3
+	end
+
+LittleCup3_OnLoad:
+	call_if_set FLOORFLAG, PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	end
+
 LittleCup3_ReadyOrNot::
-	goto_if_set FLOORFLAG, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	faceplayer
+	goto_if_set FLOORFLAG, Gauntlet1_Already_clear_event
+	goto_if_set FLAG_NUZ_LOSE, Gauntlet1_nuzlocke_lost
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
-	switch ROOM_BATTLE_TYPE
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_TYPE
+	switch VAR_TEMP_A
 	case 1, LittleCup3_TextSingleBattles
 	case 2, LittleCup3_TextDoubleBattles
 

@@ -123,6 +123,7 @@ Gauntlet1_starterRoom_GrassCush_event::
 	end
 
 Gauntlet1_starterRoom_Difficulty_event::
+	faceplayer
 	msgbox Gauntlet1_starterRoom_WhatDifficultyText, MSGBOX_DEFAULT
 	scrollingmultichoice 6, 1, 1, 3, TRUE
 	waitmessage
@@ -152,4 +153,27 @@ Gauntlet1_starterRoom_Difficulty_hard::
 
 Gauntlet1_starterRoom_WhatDifficultyText:
 	.string "What difficulty would you like?\n"
+	.string "This cannot be changed later.$"
+
+Gauntlet1_starterRoom_Nuzlocke_event::
+	faceplayer
+	msgbox Gauntlet1_starterRoom_NuzlockeText, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, Gauntlet1_starterRoom_Nuzlocke_no
+	case YES, Gauntlet1_starterRoom_Nuzlocke_yes
+	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_Nuzlocke_yes::
+	setflag Nuzlocke_Mode
+	release
+	end
+
+Gauntlet1_starterRoom_Nuzlocke_no::
+	clearflag Nuzlocke_Mode
+	release
+	end
+
+Gauntlet1_starterRoom_NuzlockeText:
+	.string "Would you like to play in nuzlocke mode?\n"
 	.string "This cannot be changed later.$"

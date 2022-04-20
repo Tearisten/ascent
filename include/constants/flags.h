@@ -44,8 +44,8 @@
 #define EasyDifficulty       0x20 // Unused Flag
 #define MedDifficulty        0x21 // Unused Flag
 #define HardDifficulty       0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define Nuzlocke_Mode        0x23 // Unused Flag
+#define FLAG_NUZ_LOSE        0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag

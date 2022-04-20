@@ -1,6 +1,4 @@
 PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles::
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay32
-	waitmovement 0
 	playse SE_DOOR
 	setmetatile 7, 1, METATILE_EliteFour_OpenDoor_Frame, FALSE
 	setmetatile 7, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE @warp spot
