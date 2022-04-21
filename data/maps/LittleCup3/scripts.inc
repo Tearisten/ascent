@@ -6,6 +6,8 @@
 .set FLOORBP, 2
 .set FLOORHS, 3
 .set FLOORFLAG, FLAG_ROOM_3_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_2_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_2
 
 @ this floors trainer ids
 .set TRAINER1ID, TRAINER_LC_3_INTRO
@@ -33,6 +35,37 @@ LittleCup3_OnTransition:
 
 LittleCup3_OnLoad:
 	call_if_set FLOORFLAG, PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	end
+
+LittleCup3_PokeShop_event::
+	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_NUZ_GIFT, LittleCup3_Nuzlocke_gift
+	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
+	waitmessage
+	releaseall
+	end
+
+LittleCup3_Nuzlocke_gift:
+	msgbox Nuzlocke_gift_text_confirm, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, MoveRelearners_EventScript_CantTeach
+	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8004, FLOORFLAG_PREV @ previous floor clear flag
+	special NuzlockeGift
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	waitbuttonpress
+	givemon VAR_0x8004, 50, ITEM_NONE
+	hidemonpic
+	special CloseFrontierExchangeCornerItemIconWindow
+	setflag FLAG_NUZ_GIFT
+	releaseall
 	end
 
 LittleCup3_ReadyOrNot::

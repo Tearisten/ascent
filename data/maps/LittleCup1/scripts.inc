@@ -1,11 +1,12 @@
 @ this floors specific battle data
 @ copy from here down for new maps
-.set ROOM_BATTLE_COUNT, 1
+.set ROOM_BATTLE_COUNT, 2
 .set ROOM_BATTLE_TYPE, 1
 .set FLOORMONEY, 1000
 .set FLOORBP, 1 
 .set FLOORHS, 2 
 .set FLOORFLAG, FLAG_ROOM_1_CLEAR
+.set FLOORFLAG_PREV, FLAG_ALL_STARTERS
 
 @ this floors trainer ids
 .set TRAINER1ID, TRAINER_LC_1_INTRO
@@ -32,6 +33,27 @@ LittleCup1_OnTransition:
 
 LittleCup1_OnLoad:
 	call_if_set FLOORFLAG, PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	end
+
+LittleCup1_PokeShop_event::
+	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	@goto_if_unset xxx, LittleCup1_Nuzlocke_gift no shop on 1f
+	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
+	waitmessage
+	releaseall
+	end
+
+@ unused since no gifts on this floor
+LittleCup1_Nuzlocke_gift: 
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	setorcopyvar VAR_0x8004, FLOORFLAG_PREV @ previous floor clear flag
+	special NuzlockeGift
+	showmonpic VAR_RESULT, 5, 5
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	waitmessage
+	hidemonpic
+	releaseall
 	end
 
 LittleCup1_ReadyOrNot::

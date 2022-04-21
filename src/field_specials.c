@@ -3210,7 +3210,7 @@ static void ShowFrontierExchangeCornerItemIcon(u16 item)
 void FillFrontierPokeBlock()
 {
     #include "data/battle_frontier/battle_frontier_exchange_corner.h"
-    u8 species = gSpecialVar_0x8007;
+    u16 species = gSpecialVar_0x8007;
     u8 isShiny = gSpecialVar_0x8008;
     ShowFrontierExchangeCornerPokeIcon(species, isShiny);
 }
@@ -4628,4 +4628,23 @@ void isShiny(void)
     {
         gSpecialVar_Result = PARTY_NOTHING_CHOSEN;
     }
+}
+
+void NuzlockeGift()
+{
+    u32 floorFlag = gSpecialVar_0x8004;
+    u8 i = 0;
+    u32 randomPokesThisFloor[10] = {0};
+    u8 totalFloorCount = 0;
+    
+    for (i; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
+    {
+        if (scrollMultiPokeShop[i].flag == floorFlag)
+        {
+            randomPokesThisFloor[totalFloorCount] = scrollMultiPokeShop[i].species;
+            totalFloorCount++;
+        }
+    }
+
+    gSpecialVar_Result = randomPokesThisFloor[Random() % totalFloorCount];
 }

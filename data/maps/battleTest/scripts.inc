@@ -441,3 +441,15 @@ Gauntlet1_nuzlocke_lost::
 Gauntlet1_nuzlocke_lost_text:
 	.string "Your nuzlocke is over.\n"
 	.string "Better luck next time.$"
+
+Nuzlocke_no_gifts_left_text:
+	.string "Sorry, there are no gifts left.\n"
+	.string "Try again on the next floor.$"
+
+Nuzlocke_gift_text:
+	.string "You received {STR_VAR_1}\n"
+	.string "Best of luck gamer.$"
+
+Nuzlocke_gift_text_confirm:
+	.string "Are you ready to receive your\n"
+	.string "nuzlocke pokemon?$"
