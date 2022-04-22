@@ -97,9 +97,18 @@ Gauntlet1_starterRoom_FireCush_event::
 	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_FireCush_nz_event
 	scrollingmultichoice 0, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	givemon VAR_RESULT, 50, ITEM_NONE
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_FIRE_STARTER
-	givemon VAR_RESULT, 50, ITEM_NONE
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	special CloseFrontierExchangeCornerItemIconWindow
 	release
 	end
 
@@ -126,9 +135,18 @@ Gauntlet1_starterRoom_WaterCush_event::
 	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_WaterCush_nz_event
 	scrollingmultichoice 1, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	givemon VAR_RESULT, 50, ITEM_NONE
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_WATER_STARTER
-	givemon VAR_RESULT, 50, ITEM_NONE
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	special CloseFrontierExchangeCornerItemIconWindow
 	release
 	end
 
@@ -155,9 +173,18 @@ Gauntlet1_starterRoom_GrassCush_event::
 	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_GrassCush_nz_event
 	scrollingmultichoice 2, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	givemon VAR_RESULT, 50, ITEM_NONE
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_GRASS_STARTER
-	givemon VAR_RESULT, 50, ITEM_NONE
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	special CloseFrontierExchangeCornerItemIconWindow
 	release
 	end
 
