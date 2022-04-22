@@ -36,7 +36,8 @@ LittleCup1_OnLoad:
 	end
 
 LittleCup1_PokeShop_event::
-	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	faceplayer
+	@goto_if_unset Nuzlocke_Mode, PokeShop_event
 	@goto_if_unset xxx, LittleCup1_Nuzlocke_gift no shop on 1f
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage

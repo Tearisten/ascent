@@ -1510,7 +1510,8 @@ void PrepareStringBattle(u16 stringId, u8 battler)
         stringId = STRINGID_STATSWONTDECREASE2;
 
     // Check Defiant and Competitive stat raise whenever a stat is lowered.
-    else if ((stringId == STRINGID_DEFENDERSSTATFELL || stringId == STRINGID_PKMNCUTSATTACKWITH)
+    else if ((stringId == STRINGID_DEFENDERSSTATFELL || stringId == STRINGID_PKMNCUTSATTACKWITH
+                || stringId == STRINGID_PKMNCUTSSPATTACKWITH)
               && ((GetBattlerAbility(gBattlerTarget) == ABILITY_DEFIANT && CompareStat(gBattlerTarget, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN))
                  || (GetBattlerAbility(gBattlerTarget) == ABILITY_COMPETITIVE && CompareStat(gBattlerTarget, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN)))
               && gSpecialStatuses[gBattlerTarget].changedStatsBattlerId != BATTLE_PARTNER(gBattlerTarget)
@@ -3682,15 +3683,15 @@ u8 AtkCanceller_UnableToUseMove(void)
 
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
             }
-            // else if (IsTwoStrikesMove(gCurrentMove))
-            // {
-            //     gMultiHitCounter = 2;
-			// 	PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
-            //     if (gCurrentMove == MOVE_DRAGON_DARTS)
-            //     {
-            //         // TODO
-            //     }
-            // }
+            else if (IsTwoStrikesMove(gCurrentMove))
+            {
+                gMultiHitCounter = 2;
+				PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+                if (gCurrentMove == MOVE_DRAGON_DARTS)
+                {
+                    // TODO
+                }
+            }
             else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRIPLE_KICK || gCurrentMove == MOVE_SURGING_STRIKES)
             {
                 gMultiHitCounter = 3;
@@ -3735,6 +3736,19 @@ u8 AtkCanceller_UnableToUseMove(void)
         MarkBattlerForControllerExec(gActiveBattler);
     }
     return effect;
+}
+
+// Move Checks
+bool8 IsTwoStrikesMove(u16 move)
+{
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sTwoStrikeMoves); i++)
+    {
+        if (move == sTwoStrikeMoves[i])
+            return TRUE;
+    }
+    return FALSE;
 }
 
 // After Protean Activation.

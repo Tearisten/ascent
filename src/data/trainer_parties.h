@@ -722,7 +722,7 @@ static const struct TrainerMon sParty_LC_5_Boss[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DREAM_BALL,
         .slot = 0,
-        .moves = {MOVE_SPIKES, MOVE_TOXIC_SPIKES, MOVE_VENOSHOCK, MOVE_RECOVER},
+        .moves = {MOVE_SPIKES, MOVE_TOXIC_SPIKES, MOVE_VENOSHOCK, MOVE_TOXIC},
     },
     {
         .species = SPECIES_PINECO,

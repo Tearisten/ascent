@@ -38,6 +38,7 @@ LittleCup3_OnLoad:
 	end
 
 LittleCup3_PokeShop_event::
+	faceplayer
 	goto_if_unset Nuzlocke_Mode, PokeShop_event
 	goto_if_unset FLAG_NUZ_GIFT, LittleCup3_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT

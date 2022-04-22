@@ -1970,14 +1970,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 switch (difficulty)
                 {
                     case 1: // easy
-                        fixedIV = 0;
-                        partyData[i].evs[j] /= 3;
+                        fixedIV = 10;
+                        partyData[i].evs[j] /= 2;
                         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
                         SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
                         break;
                     case 2: // normal
-                        fixedIV = 15;
-                        partyData[i].evs[j] /= 2;
+                        fixedIV = 20;
+                        partyData[i].evs[j] /= 1.5; // 66%  ivs
                         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
                         SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
                         break;

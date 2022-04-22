@@ -739,7 +739,7 @@ static const u8 sText_TwistedMindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} tw
 static const u8 sText_HazardCrewActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} cleans up\nthe field!");
 static const u8 sText_GiftOfWindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} brings the\ngift of tailwind!");
 static const u8 sText_KillingSpreeText[] = _("{B_ATK_NAME_WITH_PREFIX} is unstoppable!\n They won't need to recharge.");
-
+static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s Sp. ATTACK!");
 
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1348,6 +1348,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HAZARDCREW - 12] = sText_HazardCrewActivateText,
     [STRINGID_GIFTOFWIND - 12] = sText_GiftOfWindActivateText,
     [STRINGID_KILLINGSPREE - 12] = sText_KillingSpreeText,
+    [STRINGID_PKMNCUTSSPATTACKWITH - 12] = sText_PkmnCutsSpAttackWith,
 };
 
 const u16 gMentalHerbCureStringIds[] = 
