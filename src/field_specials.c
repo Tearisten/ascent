@@ -4648,3 +4648,57 @@ void NuzlockeGift()
 
     gSpecialVar_Result = randomPokesThisFloor[Random() % totalFloorCount];
 }
+
+// could be grabbed from elsewhere but was feeling lazy
+static const u16 fireStart[] =
+{
+    SPECIES_CHARMANDER,
+    SPECIES_CYNDAQUIL,
+    SPECIES_TORCHIC,
+    SPECIES_CHIMCHAR,
+    SPECIES_TEPIG,
+    SPECIES_FENNEKIN,
+    SPECIES_LITTEN,
+    SPECIES_SCORBUNNY
+};
+
+static const u16 waterStart[] =
+{
+    SPECIES_SQUIRTLE,
+    SPECIES_TOTODILE,
+    SPECIES_MUDKIP,
+    SPECIES_PIPLUP,
+    SPECIES_OSHAWOTT,
+    SPECIES_FROAKIE,
+    SPECIES_POPPLIO,
+    SPECIES_SOBBLE
+};
+
+static const u16 grassStart[] =
+{
+    SPECIES_BULBASAUR,
+    SPECIES_CHIKORITA,
+    SPECIES_TREECKO,
+    SPECIES_TURTWIG,
+    SPECIES_SNIVY,
+    SPECIES_CHESPIN,
+    SPECIES_ROWLET,
+    SPECIES_GROOKEY
+};
+
+void GiveNzStarter()
+{
+    u8 cushionType = gSpecialVar_0x8004;
+    if (cushionType == 1) // fire
+    {
+        gSpecialVar_Result = fireStart[Random() % 8];
+    }
+    else if (cushionType == 2) // water
+    {
+        gSpecialVar_Result = waterStart[Random() % 8];
+    }
+    else if (cushionType == 3) // grass
+    {
+        gSpecialVar_Result = grassStart[Random() % 8];
+    }
+}

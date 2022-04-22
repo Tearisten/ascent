@@ -545,5 +545,5 @@ gSpecials::
 	def_special MakeShiny
 	def_special FillFrontierPokeBlock
 	def_special isShiny
-
-
+	def_special NuzlockeGift
+	def_special GiveNzStarter

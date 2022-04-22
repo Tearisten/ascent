@@ -85,7 +85,7 @@ Gauntlet1_starterRoom_haveThisType_event::
 	end
 
 Gauntlet1_starterRoom_haveThisType_text:
-	.string "You already chose a starter\n"
+	.string "You already have a starter\n"
 	.string "of this type.$"
 
 Gauntlet1_Gauntlet1_starterRoom_noChoice::
@@ -93,7 +93,8 @@ Gauntlet1_Gauntlet1_starterRoom_noChoice::
 	end
 	
 Gauntlet1_starterRoom_FireCush_event::
-	goto_if_set FLAG_FIRE_STARTER, Gauntlet1_starterRoom_haveThisType_event 
+	goto_if_set FLAG_FIRE_STARTER, Gauntlet1_starterRoom_haveThisType_event
+	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_FireCush_nz_event
 	scrollingmultichoice 0, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setflag FLAG_SYS_POKEMON_GET
@@ -102,8 +103,27 @@ Gauntlet1_starterRoom_FireCush_event::
 	release
 	end
 
+Gauntlet1_starterRoom_FireCush_nz_event::
+	setorcopyvar VAR_0x8004, 1
+	special GiveNzStarter
+	setflag FLAG_SYS_POKEMON_GET	
+	setflag FLAG_FIRE_STARTER
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	givemon VAR_RESULT, 50, ITEM_NONE
+	special CloseFrontierExchangeCornerItemIconWindow
+	release
+	end
+
 Gauntlet1_starterRoom_WaterCush_event::
-	goto_if_set FLAG_WATER_STARTER, Gauntlet1_starterRoom_haveThisType_event 
+	goto_if_set FLAG_WATER_STARTER, Gauntlet1_starterRoom_haveThisType_event
+	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_WaterCush_nz_event
 	scrollingmultichoice 1, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setflag FLAG_SYS_POKEMON_GET
@@ -112,13 +132,50 @@ Gauntlet1_starterRoom_WaterCush_event::
 	release
 	end
 
+Gauntlet1_starterRoom_WaterCush_nz_event::
+	setorcopyvar VAR_0x8004, 2
+	special GiveNzStarter
+	setflag FLAG_SYS_POKEMON_GET	
+	setflag FLAG_WATER_STARTER
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	givemon VAR_RESULT, 50, ITEM_NONE
+	special CloseFrontierExchangeCornerItemIconWindow
+	release
+	end
+
 Gauntlet1_starterRoom_GrassCush_event::
 	goto_if_set FLAG_GRASS_STARTER, Gauntlet1_starterRoom_haveThisType_event 
+	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_GrassCush_nz_event
 	scrollingmultichoice 2, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_GRASS_STARTER
 	givemon VAR_RESULT, 50, ITEM_NONE
+	release
+	end
+
+Gauntlet1_starterRoom_GrassCush_nz_event::
+	setorcopyvar VAR_0x8004, 3
+	special GiveNzStarter
+	setflag FLAG_SYS_POKEMON_GET	
+	setflag FLAG_GRASS_STARTER
+	setorcopyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
+	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	hidemonpic
+	givemon VAR_RESULT, 50, ITEM_NONE
+	special CloseFrontierExchangeCornerItemIconWindow
 	release
 	end
 
@@ -157,6 +214,10 @@ Gauntlet1_starterRoom_WhatDifficultyText:
 
 Gauntlet1_starterRoom_Nuzlocke_event::
 	faceplayer
+	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_nuzlocke_already_active
+	goto_if_set FLAG_FIRE_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
+	goto_if_set FLAG_GRASS_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
+	goto_if_set FLAG_WATER_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
 	msgbox Gauntlet1_starterRoom_NuzlockeText, MSGBOX_DEFAULT
 	yesnobox 3, 8
 	switch VAR_RESULT
@@ -177,3 +238,20 @@ Gauntlet1_starterRoom_Nuzlocke_no::
 Gauntlet1_starterRoom_NuzlockeText:
 	.string "Would you like to play in nuzlocke mode?\n"
 	.string "This cannot be changed later.$"
+
+Gauntlet1_starterRoom_nuzlocke_too_late::
+	msgbox Gauntlet1_starterRoom_nuzlocke_too_late_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Gauntlet1_starterRoom_nuzlocke_too_late_text:
+	.string "You may not enable nuzlocke mode\n"
+	.string "after selecting any starters.$"
+
+Gauntlet1_starterRoom_nuzlocke_already_active::
+	msgbox Gauntlet1_starterRoom_nuzlocke_already_active_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Gauntlet1_starterRoom_nuzlocke_already_active_text:
+	.string "You have already enabled nuzlocke mode.$"
