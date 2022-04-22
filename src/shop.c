@@ -346,7 +346,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_FOCUS_SASH, FLAG_ROOM_4_CLEAR}, // too op for this floor, here for testing
     {ITEM_ROCKY_HELMET, FLAG_ROOM_4_CLEAR},
     {ITEM_TRIFORCE, FLAG_ROOM_4_CLEAR},
-
+    {ITEM_BLACK_SLUDGE, FLAG_ROOM_4_CLEAR},
 };
 
 static EWRAM_DATA u16 *shopItemList = NULL;
@@ -381,6 +381,12 @@ static const struct itemFlagMap tmToFlag[] =
     // Room 4
     {ITEM_TM16_LIGHT_SCREEN, FLAG_ROOM_3_CLEAR},
     {ITEM_TM33_REFLECT, FLAG_ROOM_3_CLEAR},
+    {ITEM_TM20_SAFEGUARD, FLAG_ROOM_3_CLEAR},
+
+    // Room 5
+    {ITEM_TM34_SHOCK_WAVE, FLAG_ROOM_4_CLEAR},
+    {ITEM_TM09_BULLET_SEED, FLAG_ROOM_4_CLEAR},
+    {ITEM_TM39_ROCK_TOMB, FLAG_ROOM_4_CLEAR},
 
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };

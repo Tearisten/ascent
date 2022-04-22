@@ -93,7 +93,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
-        .partySize = 4,
+        .partySize = 5,
         .party = {.TrainerMon = sParty_LC_3_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Intro)
     },
@@ -106,7 +106,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
-        .partySize = 4,
+        .partySize = 5,
         .party = {.TrainerMon = sParty_LC_3_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Elite)
     },
@@ -119,7 +119,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
-        .partySize = 4,
+        .partySize = 6,
         .party = {.TrainerMon = sParty_LC_4_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Intro)
     },
@@ -132,8 +132,21 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
-        .partySize = 4,
+        .partySize = 6,
         .party = {.TrainerMon = sParty_LC_4_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Elite)
+    },
+    [TRAINER_LC_5_BOSS] =
+    {
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_SIDNEY,
+        .trainerName = _("Josh"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_LC_5_Boss},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_5_Boss)
     },
 };

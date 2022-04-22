@@ -701,6 +701,153 @@ static const struct TrainerMon sParty_LC_4_Elite[] = { // trick room doubles tea
     },
 };
 
+static const struct TrainerMon sParty_LC_5_Boss[] = {
+    {
+        .species = SPECIES_CHIMCHAR,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_SLOT_1, // limber
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_POKE_BALL,
+        .slot = 0,
+        .moves = {MOVE_STEALTH_ROCK, MOVE_FAKE_OUT, MOVE_MACH_PUNCH, MOVE_FLAME_WHEEL},
+    },
+    {
+        .species = SPECIES_MAREANIE,
+        .heldItem = ITEM_BLACK_SLUDGE,
+        .ability = ABILITY_SLOT_1, // merciless
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DREAM_BALL,
+        .slot = 0,
+        .moves = {MOVE_SPIKES, MOVE_TOXIC_SPIKES, MOVE_VENOSHOCK, MOVE_RECOVER},
+    },
+    {
+        .species = SPECIES_PINECO,
+        .heldItem = ITEM_ROCKY_HELMET,
+        .ability = ABILITY_HIDDEN, // filter
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_SAFARI_BALL,
+        .slot = 0,
+        .moves = {MOVE_STICKY_WEB, MOVE_RAPID_SPIN, MOVE_SELF_DESTRUCT, MOVE_BUG_BITE},
+    },
+    {
+        .species = SPECIES_FROAKIE,
+        .heldItem = ITEM_TRIFORCE,
+        .ability = ABILITY_HIDDEN, // protean
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LURE_BALL,
+        .slot = 1,
+        .moves = {MOVE_SILVER_WIND, MOVE_SUBSTITUTE, MOVE_BUBBLE_BEAM, MOVE_ROCK_TOMB},
+    },    
+    {
+        .species = SPECIES_GROOKEY,
+        .heldItem = ITEM_TOXIC_ORB,
+        .ability = ABILITY_SLOT_1, // guts
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FRIEND_BALL,
+        .slot = 1,
+        .moves = {MOVE_FAKE_OUT, MOVE_GRASSY_GLIDE, MOVE_GRASSY_TERRAIN, MOVE_U_TURN},
+    },
+    {
+        .species = SPECIES_ABRA,
+        .heldItem = ITEM_WISE_GLASSES,
+        .ability = ABILITY_SLOT_2, // magic guard
+        .evs = EV_SPREAD_FAST_SPATTACK,
+        .nature = NATURE_TIMID,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_HEAL_BALL,
+        .slot = 2,
+        .moves = {MOVE_CONFUSION, MOVE_CALM_MIND, MOVE_SHOCK_WAVE, MOVE_AURORA_BEAM},
+    },
+
+    {
+        .species = SPECIES_SHELLOS,
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = ABILITY_SLOT_2, // storm drain
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_SAFARI_BALL,
+        .slot = 2,
+        .moves = {MOVE_MUD_BOMB, MOVE_BODY_SLAM, MOVE_RECOVER, MOVE_WATER_PULSE},
+    },
+    {
+        .species = SPECIES_ANORITH,
+        .heldItem = ITEM_SHELL_BELL,
+        .ability = ABILITY_SLOT_2, // poison touch
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_SAFARI_BALL,
+        .slot = 3,
+        .moves = {MOVE_BUG_BITE, MOVE_ROCK_TOMB, MOVE_FURY_CUTTER, MOVE_HONE_CLAWS},
+    },
+    {
+        .species = SPECIES_PHANPY,
+        .heldItem = ITEM_ROCKY_HELMET,
+        .ability = ABILITY_SLOT_2, // defiant
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_MOON_BALL,
+        .slot = 3,
+        .moves = {MOVE_STICKY_WEB, MOVE_RAPID_SPIN, MOVE_SELF_DESTRUCT, MOVE_BUG_BITE},
+    },
+    {
+        .species = SPECIES_PANSAGE,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_1, // gluttony
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 4,
+        .moves = {MOVE_RAZOR_LEAF, MOVE_TAUNT, MOVE_RECYCLE, MOVE_SLASH},
+    },
+        {
+        .species = SPECIES_PANSEAR,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_1, // gluttony
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 4,
+        .moves = {MOVE_INCINERATE, MOVE_TAUNT, MOVE_RECYCLE, MOVE_SLASH},
+    },
+        {
+        .species = SPECIES_PANPOUR,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_1, // gluttony
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 4,
+        .moves = {MOVE_WATER_PULSE, MOVE_TAUNT, MOVE_RECYCLE, MOVE_SLASH},
+    },    
+    {
+        .species = SPECIES_PIKACHU,
+        .heldItem = ITEM_ZAP_PLATE,
+        .ability = ABILITY_SLOT_2, // static shock
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_PARK_BALL,
+        .slot = 5,
+        .moves = {MOVE_ZIPPY_ZAP, MOVE_VOLT_SWITCH, MOVE_EXTREME_SPEED, MOVE_AQUA_JET},
+    },
+};
+
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {
     {
     .iv = 0,

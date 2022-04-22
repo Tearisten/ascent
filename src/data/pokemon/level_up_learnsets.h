@@ -16341,6 +16341,7 @@ static const struct LevelUpMove sGrookeyLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_BRANCH_POKE),
     LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
     LEVEL_UP_MOVE(1, MOVE_GRASS_WHISTLE),
+    LEVEL_UP_MOVE(1, MOVE_U_TURN),
     LEVEL_UP_END
 };
 

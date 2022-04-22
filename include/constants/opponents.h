@@ -11,7 +11,7 @@
 #define TRAINER_LC_3_ELITE                    7
 #define TRAINER_LC_4_INTRO                    8
 #define TRAINER_LC_4_ELITE                    9
-#define TRAINER_GRUNT_PETALBURG_WOODS        10
+#define TRAINER_LC_5_BOSS                    10
 #define TRAINER_MARCEL                       11
 #define TRAINER_ALBERTO                      12
 #define TRAINER_ED                           13

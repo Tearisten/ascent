@@ -6127,7 +6127,7 @@ const struct Item gItems[] =
     {
         .name = _("Black Sludge"),
         .itemId = ITEM_BLACK_SLUDGE,
-        .price = 4000,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_BLACK_SLUDGE,
         .description = sBlackSludgeDesc,
         .pocket = POCKET_ITEMS,

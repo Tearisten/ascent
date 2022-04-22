@@ -27,7 +27,7 @@ Gauntlet1_starterRoom_ProffessorBirch_text:
 	.string "currency to spend in a variety\p"
 	.string "of shops. Always check the shops\n"
 	.string "on a new floor.\p"
-	.string "This intended to be hard and\n" 
+	.string "This may be hard for you and\n" 
 	.string "you may soft lock yourself\p"
 	.string "if you make poor team building\n"
 	.string "choices.\p"
