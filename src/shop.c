@@ -334,7 +334,18 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 3
     {ITEM_SHELL_BELL, FLAG_ROOM_2_CLEAR},
     {ITEM_EXPERT_BELT, FLAG_ROOM_2_CLEAR},
+    {ITEM_ZOOM_LENS, FLAG_ROOM_2_CLEAR},
 
+    // Room 4
+    {ITEM_HOURGLASS, FLAG_ROOM_3_CLEAR}, //
+    {ITEM_WEIGHTED_BOOTS, FLAG_ROOM_3_CLEAR},
+    {ITEM_BIG_ROOT, FLAG_ROOM_3_CLEAR},
+    {ITEM_KINGS_ROCK, FLAG_ROOM_3_CLEAR},
+
+    // Room 5
+    {ITEM_FOCUS_SASH, FLAG_ROOM_4_CLEAR}, // too op for this floor, here for testing
+    {ITEM_ROCKY_HELMET, FLAG_ROOM_4_CLEAR},
+    {ITEM_TRIFORCE, FLAG_ROOM_4_CLEAR},
 
 };
 
@@ -366,6 +377,10 @@ static const struct itemFlagMap tmToFlag[] =
     // Room 3
     {ITEM_TM12_TAUNT, FLAG_ROOM_2_CLEAR},
     {ITEM_TM41_TORMENT, FLAG_ROOM_2_CLEAR},
+
+    // Room 4
+    {ITEM_TM16_LIGHT_SCREEN, FLAG_ROOM_3_CLEAR},
+    {ITEM_TM33_REFLECT, FLAG_ROOM_3_CLEAR},
 
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };

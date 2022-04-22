@@ -5852,7 +5852,7 @@ const struct Item gItems[] =
     {
         .name = _("King's Rock"),
         .itemId = ITEM_KINGS_ROCK,
-        .price = 1000,
+        .price = 1800,
         .holdEffect = HOLD_EFFECT_FLINCH,
         .holdEffectParam = 30,
         .description = sKingsRockDesc,
@@ -6053,7 +6053,7 @@ const struct Item gItems[] =
     {
         .name = _("Focus Sash"),
         .itemId = ITEM_FOCUS_SASH,
-        .price = 4000,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_FOCUS_SASH,
         .description = sFocusSashDesc,
         .pocket = POCKET_ITEMS,
@@ -6065,7 +6065,7 @@ const struct Item gItems[] =
     {
         .name = _("Zoom Lens"),
         .itemId = ITEM_ZOOM_LENS,
-        .price = 4000,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_ZOOM_LENS,
         .holdEffectParam = 20,
         .description = sZoomLensDesc,
@@ -6175,7 +6175,7 @@ const struct Item gItems[] =
     {
         .name = _("Big Root"),
         .itemId = ITEM_BIG_ROOT,
-        .price = 4000,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_BIG_ROOT,
         .holdEffectParam = 30,
         .description = sBigRootDesc,
@@ -6238,7 +6238,7 @@ const struct Item gItems[] =
     {
         .name = _("Rocky Helmet"),
         .itemId = ITEM_ROCKY_HELMET,
-        .price = 4000,
+        .price = 1700,
         .holdEffect = HOLD_EFFECT_ROCKY_HELMET,
         .holdEffectParam = 0,
         .description = sRockyHelmetDesc,
@@ -9385,7 +9385,7 @@ const struct Item gItems[] =
     {
         .name = _("Triforce"), // recolor a power bracelet?
         .itemId = ITEM_TRIFORCE,
-        .price = 100,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_TRIFORCE,
         .description = sTriforceDesc,
         .pocket = POCKET_ITEMS,
@@ -9449,7 +9449,7 @@ const struct Item gItems[] =
     {
         .name = _("Hourglass"),
         .itemId = ITEM_HOURGLASS,
-        .price = 1000,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_HOURGLASS,
         .holdEffectParam = 50,
         .description = sHourglassDesc,

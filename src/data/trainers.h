@@ -89,25 +89,51 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_POKEMANIAC,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
+        .trainerName = _("Ben"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 4,
+        .party = {.TrainerMon = sParty_LC_3_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Intro)
+    },
+    [TRAINER_LC_3_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_BUG_MANIAC,
+        .trainerName = _("Andy"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 4,
+        .party = {.TrainerMon = sParty_LC_3_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Elite)
+    },
+    [TRAINER_LC_4_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_AQUA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
         .trainerName = _("Devon"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 4,
-        .party = {.TrainerMon = sParty_LC_3_Elite},
-        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Intro)
+        .party = {.TrainerMon = sParty_LC_4_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Intro)
     },
-    [TRAINER_LC_3_ELITE] =
+    [TRAINER_LC_4_ELITE] =
     {
-        .trainerClass = TRAINER_PIC_BUG_CATCHER,
+        .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_BUG_MANIAC,
-        .trainerName = _("Andy"),
+        .trainerPic = TRAINER_PIC_BLACK_BELT,
+        .trainerName = _("Ian"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
         .partySize = 4,
-        .party = {.TrainerMon = sParty_LC_3_Elite},
-        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Elite)
+        .party = {.TrainerMon = sParty_LC_4_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Elite)
     },
 };
