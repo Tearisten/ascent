@@ -4954,7 +4954,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_NATURAL_CURE, ABILITY_OPRESSION, ABILITY_SERENE_GRACE},
+            .abilities = {ABILITY_NATURAL_CURE, ABILITY_OPPRESSION, ABILITY_SERENE_GRACE},
         #else
             .abilities = {ABILITY_HUSTLE, ABILITY_SERENE_GRACE},
         #endif
@@ -10516,7 +10516,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_DRAGON,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_INTIMIDATE, ABILITY_OPRESSION, ABILITY_MOXIE},
+            .abilities = {ABILITY_INTIMIDATE, ABILITY_OPPRESSION, ABILITY_MOXIE},
         #else
             .abilities = {ABILITY_ROCK_HEAD, ABILITY_NONE},
         #endif
@@ -11104,7 +11104,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_WATER_VEIL, ABILITY_OPRESSION, ABILITY_FRIEND_GUARD},
+            .abilities = {ABILITY_WATER_VEIL, ABILITY_OPPRESSION, ABILITY_FRIEND_GUARD},
         #else
             .abilities = {ABILITY_TORRENT, ABILITY_NONE},
         #endif
@@ -20567,7 +20567,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_ANALYTIC, ABILITY_ENCHANTING, ABILITY_WATER_LILLY},
+            .abilities = {ABILITY_ANALYTIC, ABILITY_ENCHANTING, ABILITY_WATER_LILY},
         #else
             .abilities = {ABILITY_TORRENT, ABILITY_NONE},
         #endif

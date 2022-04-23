@@ -4068,7 +4068,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                     break;
                 case ABILITY_CHLOROPHYLL:
                 case ABILITY_FLOWER_GIFT:
-                case ABILITY_WATER_LILLY:
+                case ABILITY_WATER_LILY:
                     if (gBattleWeather & B_WEATHER_SUN)
                         score += 3; // Slow 'em down
                     break;

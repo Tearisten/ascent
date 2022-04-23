@@ -1054,7 +1054,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_DRAGONBORN] = 1,
     [ABILITY_SKEPTIC] = 1,
     [ABILITY_BRILLIANT] = 1,
-    [ABILITY_WATER_LILLY] = 1,
+    [ABILITY_WATER_LILY] = 1,
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
@@ -4620,7 +4620,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
             }
             break;
         case ABILITY_INTIMIDATE:
-        case ABILITY_OPRESSION:
+        case ABILITY_OPPRESSION:
             if (!(gSpecialStatuses[battler].intimidatedMon))
             {
                 gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_INTIMIDATED;
@@ -5862,9 +5862,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
     case ABILITYEFFECT_OPRESSION2:
         for (i = 0; i < gBattlersCount; i++)
         {
-            if (GetBattlerAbility(i) == ABILITY_OPRESSION && gBattleResources->flags->flags[i] & RESOURCE_FLAG_INTIMIDATED)
+            if (GetBattlerAbility(i) == ABILITY_OPPRESSION && gBattleResources->flags->flags[i] & RESOURCE_FLAG_INTIMIDATED)
             {
-                gLastUsedAbility = ABILITY_OPRESSION;
+                gLastUsedAbility = ABILITY_OPPRESSION;
                 gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_INTIMIDATED;
                 if (caseID == ABILITYEFFECT_OPRESSION1)
                 {
@@ -9037,7 +9037,7 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
         if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_SUN))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
-    case ABILITY_WATER_LILLY:
+    case ABILITY_WATER_LILY:
         if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_RAIN))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
@@ -9056,7 +9056,7 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
             if (IsBattlerWeatherAffected(BATTLE_PARTNER(battlerDef), B_WEATHER_SUN))
                 MulModifier(&modifier, UQ_4_12(1.5));
             break;
-        case ABILITY_WATER_LILLY:
+        case ABILITY_WATER_LILY:
             if (IsBattlerWeatherAffected(battlerDef, B_WEATHER_RAIN))
                 MulModifier(&modifier, UQ_4_12(1.5));
             break;

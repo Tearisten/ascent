@@ -285,7 +285,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_DRAGONBORN] = 3,
     [ABILITY_BULL_RUSH] = 7,
     [ABILITY_OBSESSION] = 7,
-    [ABILITY_OPRESSION] = 7,
+    [ABILITY_OPPRESSION] = 7,
     [ABILITY_SKEPTIC] = 4,
     [ABILITY_INTREPID_WAND] = 3,
     [ABILITY_DAUNTLESS_CROWN] = 3,
@@ -297,7 +297,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_INVERSITY] = 4,
     [ABILITY_CLUTCH] = 5,
     [ABILITY_BRILLIANT] = 3,
-    [ABILITY_WATER_LILLY] = 4,
+    [ABILITY_WATER_LILY] = 4,
     [ABILITY_STATIC_SHOCK] = 4,
     [ABILITY_BRAND] = 4,
 };
@@ -1574,7 +1574,7 @@ bool32 ShouldSetRain(u8 battlerAtk, u16 atkAbility, u16 holdEffect)
       || atkAbility == ABILITY_HYDRATION
       || atkAbility == ABILITY_RAIN_DISH
       || atkAbility == ABILITY_DRY_SKIN
-      || atkAbility == ABILITY_WATER_LILLY
+      || atkAbility == ABILITY_WATER_LILY
       || HasMoveEffect(battlerAtk, EFFECT_THUNDER)
       || HasMoveEffect(battlerAtk, EFFECT_HURRICANE)
       || HasMoveEffect(battlerAtk, EFFECT_WEATHER_BALL)
