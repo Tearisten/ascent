@@ -2457,7 +2457,7 @@ static const u8 sLumBerryDesc[] = _(
 
 static const u8 sSitrusBerryDesc[] = _(
     "Restores 25\n"
-    "percent hp"
+    "percent hp\n"
     "in battle.");
 
 static const u8 sFigyBerryDesc[] = _(
