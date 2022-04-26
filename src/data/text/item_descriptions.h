@@ -3515,8 +3515,8 @@ static const u8 sWeightedBootsDesc[] = _(
     "for boost.");
 
 static const u8 sTriforceDesc[] = _(
-    "Eminiates power.\n"
-    "boosts all stats\n"
+    "Eminates power.\n"
+    "Boosts all stats\n"
     "in battle.");
 
 static const u8 sPlateMailDesc[] = _(

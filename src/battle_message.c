@@ -270,6 +270,7 @@ static const u8 sText_PkmnRaisedSpeed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {
 static const u8 sText_PkmnProtectedBy[] = _("{B_DEF_NAME_WITH_PREFIX} was protected\nby {B_DEF_ABILITY}!");
 static const u8 sText_PkmnPreventsUsage[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nprevents {B_ATK_NAME_WITH_PREFIX}\lfrom using {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnRestoredHPUsing[] = _("{B_DEF_NAME_WITH_PREFIX} restored HP\nusing its {B_DEF_ABILITY}!");
+static const u8 sText_PkmnRestoredHPUsingVampire[] = _("{B_DEF_NAME_WITH_PREFIX} restored HP\nusing its {B_ATK_ABILITY}!");
 static const u8 sText_PkmnsXMadeYUseless[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nmade {B_CURRENT_MOVE} useless!");
 static const u8 sText_PkmnChangedTypeWith[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nmade it the {B_BUFF1} type!");
 static const u8 sText_PkmnPreventsParalysisWith[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nprevents paralysis!");
@@ -1349,6 +1350,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GIFTOFWIND - 12] = sText_GiftOfWindActivateText,
     [STRINGID_KILLINGSPREE - 12] = sText_KillingSpreeText,
     [STRINGID_PKMNCUTSSPATTACKWITH - 12] = sText_PkmnCutsSpAttackWith,
+    [STRING_ID_HEALSWITHVAMPIRE - 12] = sText_PkmnRestoredHPUsingVampire,
 };
 
 const u16 gMentalHerbCureStringIds[] = 

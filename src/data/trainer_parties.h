@@ -442,7 +442,7 @@ static const struct TrainerMon sParty_LC_3_Elite[] = {
     },
     {
         .species = SPECIES_SEWADDLE,
-        .heldItem = ITEM_SHELL_BELL,
+        .heldItem = ITEM_MUSCLE_BAND,
         .ability = ABILITY_SLOT_1, // swarm
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_IMPISH,
@@ -453,7 +453,7 @@ static const struct TrainerMon sParty_LC_3_Elite[] = {
     },
     {
         .species = SPECIES_CLAUNCHER,
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_SHELL_BELL,
         .ability = ABILITY_SLOT_1, // torrent
         .evs = EV_SPREAD_TANKY_SPDEF,
         .nature = NATURE_SERIOUS,
@@ -464,7 +464,7 @@ static const struct TrainerMon sParty_LC_3_Elite[] = {
     },    
     {
         .species = SPECIES_DWEBBLE,
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_SHELL_BELL,
         .ability = ABILITY_SLOT_1, // sturdy
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_IMPISH,
@@ -507,7 +507,7 @@ static const struct TrainerMon sParty_LC_4_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAVY_BALL,
         .slot = 1,
-        .moves = {MOVE_BULLDOZE, MOVE_FLAME_CHARGE, MOVE_FLAIL, MOVE_ROOST},
+        .moves = {MOVE_BULLDOZE, MOVE_FLAME_CHARGE, MOVE_FLAIL, MOVE_ACCELEROCK},
     },
     {
         .species = SPECIES_SHIELDON,

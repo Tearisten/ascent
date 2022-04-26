@@ -863,4 +863,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WATER_LILY] = sWaterLilyDescription,
     [ABILITY_STATIC_SHOCK] = sStaticShockDescription,
     [ABILITY_BRAND] = sBrandDescription,
+    [ABILITY_VAMPIRE] = sVampireDescription,
 };
