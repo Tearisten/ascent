@@ -5594,7 +5594,7 @@ const struct Item gItems[] =
     {
         .name = _("Flame Orb"),
         .itemId = ITEM_FLAME_ORB,
-        .price = 4000,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_FLAME_ORB,
         .description = sFlameOrbDesc,
         .pocket = POCKET_ITEMS,
@@ -5606,7 +5606,7 @@ const struct Item gItems[] =
     {
         .name = _("Toxic Orb"),
         .itemId = ITEM_TOXIC_ORB,
-        .price = 4000,
+        .price = 1500,
         .holdEffect = HOLD_EFFECT_TOXIC_ORB,
         .description = sToxicOrbDesc,
         .pocket = POCKET_ITEMS,
