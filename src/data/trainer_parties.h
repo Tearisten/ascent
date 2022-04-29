@@ -249,7 +249,7 @@ static const struct TrainerMon sParty_LC_2_Elite[] = {
     {
         .species = SPECIES_FLABEBE,
         .heldItem = ITEM_WISE_GLASSES,
-        .ability = ABILITY_SLOT_2, // queenly majesty
+        .ability = ABILITY_SLOT_1, // queenly majesty
         .evs = EV_SPREAD_TANKY_SPATTACK,
         .nature = NATURE_CALM,
         .iv = MAX_PER_STAT_IVS,
