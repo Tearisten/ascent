@@ -326,8 +326,6 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
-    {ITEM_MID_EVO_STONE, FLAG_ALL_STARTERS},
-    {ITEM_FIRE_STONE, FLAG_ALL_STARTERS},
 
     // Room 2
     {ITEM_MUSCLE_BAND, FLAG_ROOM_1_CLEAR},
@@ -349,6 +347,10 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_ROCKY_HELMET, FLAG_ROOM_4_CLEAR},
     {ITEM_TRIFORCE, FLAG_ROOM_4_CLEAR},
     {ITEM_BLACK_SLUDGE, FLAG_ROOM_4_CLEAR},
+
+    // Room 6
+    {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR},
+
 };
 
 static EWRAM_DATA u16 *shopItemList = NULL; 
