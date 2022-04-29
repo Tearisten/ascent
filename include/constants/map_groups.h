@@ -602,6 +602,13 @@
 #define MAP_LITTLE_CUP4 (3 | (35 << 8))
 #define MAP_LITTLE_CUP5 (4 | (35 << 8))
 
-#define MAP_GROUPS_COUNT 36
+// gMapGroup_GrowingPains
+#define MAP_GROWING_PAINS1 (0 | (36 << 8))
+#define MAP_GROWING_PAINS2 (1 | (36 << 8))
+#define MAP_GROWING_PAINS3 (2 | (36 << 8))
+#define MAP_GROWING_PAINS4 (3 | (36 << 8))
+#define MAP_GROWING_PAINS5 (4 | (36 << 8))
+
+#define MAP_GROUPS_COUNT 37
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

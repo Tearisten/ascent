@@ -4480,6 +4480,56 @@
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/battleTest/border.bin",
       "blockdata_filepath": "data/layouts/battleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GROWING_PAINS1",
+      "name": "growingPains1_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GROWING_PAINS2",
+      "name": "growingPains2_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GROWING_PAINS3",
+      "name": "growingPains3_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GROWING_PAINS4",
+      "name": "growingPains4_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GROWING_PAINS5",
+      "name": "growingPains5_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest/map.bin"
     }
   ]
 }

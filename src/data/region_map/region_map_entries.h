@@ -199,6 +199,7 @@ static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
 static const u8 sMapName_LittleCup[] = _("LITTLE CUP");
+static const u8 sMapName_GrowingPains[] = _("GROWING PAINS");
 
 
 const struct RegionMapLocation gRegionMapEntries[] = {
@@ -416,6 +417,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_NAVEL_ROCK]                 = { 0,  0, 1, 1, sMapName_NavelRock},
     [MAPSEC_TRAINER_HILL]               = { 8,  4, 1, 1, sMapName_TrainerHill},
     [MAPSEC_LITTLE_CUP]                 = { 0,  0, 1, 1, sMapName_LittleCup},
+    [MAPSEC_GROWING_PAINS]              = { 0,  0, 1, 1, sMapName_GrowingPains},
 };
 
 #endif //GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H

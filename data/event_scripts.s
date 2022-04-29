@@ -1066,3 +1066,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LittleCup3/scripts.inc"
 	.include "data/maps/LittleCup4/scripts.inc"
 	.include "data/maps/LittleCup5/scripts.inc"
+
+	.include "data/maps/GrowingPains1/scripts.inc"
+	.include "data/maps/GrowingPains2/scripts.inc"
+	.include "data/maps/GrowingPains3/scripts.inc"
+	.include "data/maps/GrowingPains4/scripts.inc"
+	.include "data/maps/GrowingPains5/scripts.inc"
