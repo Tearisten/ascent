@@ -3160,6 +3160,10 @@ static const u16 sItemsByType[ITEMS_COUNT] =
         [ITEM_FEAST] = ITEM_TYPE_HELD_ITEM,
         [ITEM_GRAVITY_WELL] = ITEM_TYPE_HELD_ITEM,
         [ITEM_WIND_CHIMES] = ITEM_TYPE_HELD_ITEM,
+        [ITEM_HOURGLASS] = ITEM_TYPE_HELD_ITEM,
+
+        // custom evo stones
+        [ITEM_MID_EVO_STONE] = ITEM_TYPE_EVOLUTION_STONE,
     #endif
 };
 

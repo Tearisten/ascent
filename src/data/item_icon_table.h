@@ -818,4 +818,8 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_GRAVITY_WELL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_WIND_CHIMES] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_HOURGLASS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    
+    // Custom evo stones
+    [ITEM_MID_EVO_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone}, // Todo, shiny stone for now
+
 };

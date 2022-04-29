@@ -326,6 +326,8 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
+    {ITEM_MID_EVO_STONE, FLAG_ALL_STARTERS},
+    {ITEM_FIRE_STONE, FLAG_ALL_STARTERS},
 
     // Room 2
     {ITEM_MUSCLE_BAND, FLAG_ROOM_1_CLEAR},
@@ -349,7 +351,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_BLACK_SLUDGE, FLAG_ROOM_4_CLEAR},
 };
 
-static EWRAM_DATA u16 *shopItemList = NULL;
+static EWRAM_DATA u16 *shopItemList = NULL; 
 static void SetShopItemsForSale()
 {
     shopItemList = Alloc(sizeof(u16) * ARRAY_COUNT(itemToFlag));

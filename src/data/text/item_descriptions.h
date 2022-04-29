@@ -3643,3 +3643,8 @@ static const u8 sHourglassDesc[] = _(
     "Flips the damage\n"
     "spectrum when\n"
     "attacking.");
+
+static const u8 sMidEvoStoneDesc[] = _(
+    "Evolves Pokémon\n"
+    "into their mid\n"
+    "stage.");

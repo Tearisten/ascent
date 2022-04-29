@@ -989,8 +989,9 @@
 #define ITEM_GRAVITY_WELL 764
 #define ITEM_WIND_CHIMES 765
 #define ITEM_HOURGLASS 766
+#define ITEM_MID_EVO_STONE 767
 
-#define ITEMS_COUNT 767
+#define ITEMS_COUNT 768
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS
@@ -1047,6 +1048,6 @@
 #define ITEM_B_USE_OTHER    2
 
 // Check if the item is one that can be used on a Pokemon.
-#define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= LAST_BERRY_INDEX)
+#define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= ITEMS_COUNT)
 
 #endif  // GUARD_CONSTANTS_ITEMS_H
