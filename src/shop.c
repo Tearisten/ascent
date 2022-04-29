@@ -323,6 +323,9 @@ struct itemFlagMap
 
 static const struct itemFlagMap itemToFlag[] =
 {
+    // Out of order items that are important
+    {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
+
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
@@ -332,24 +335,47 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_WISE_GLASSES, FLAG_ROOM_1_CLEAR},
 
     // Room 3
-    {ITEM_SHELL_BELL, FLAG_ROOM_2_CLEAR},
-    {ITEM_EXPERT_BELT, FLAG_ROOM_2_CLEAR},
+    {ITEM_HOURGLASS, FLAG_ROOM_2_CLEAR}, 
     {ITEM_ZOOM_LENS, FLAG_ROOM_2_CLEAR},
 
     // Room 4
-    {ITEM_HOURGLASS, FLAG_ROOM_3_CLEAR}, //
-    {ITEM_WEIGHTED_BOOTS, FLAG_ROOM_3_CLEAR},
     {ITEM_BIG_ROOT, FLAG_ROOM_3_CLEAR},
     {ITEM_KINGS_ROCK, FLAG_ROOM_3_CLEAR},
 
     // Room 5
-    {ITEM_FOCUS_SASH, FLAG_ROOM_4_CLEAR}, // too op for this floor, here for testing
-    {ITEM_ROCKY_HELMET, FLAG_ROOM_4_CLEAR},
-    {ITEM_TRIFORCE, FLAG_ROOM_4_CLEAR},
-    {ITEM_BLACK_SLUDGE, FLAG_ROOM_4_CLEAR},
+    {ITEM_SHELL_BELL, FLAG_ROOM_4_CLEAR},
+    {ITEM_EXPERT_BELT, FLAG_ROOM_4_CLEAR},
 
     // Room 6
-    {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR},
+    {ITEM_PROTECTIVE_PADS, FLAG_ROOM_5_CLEAR},
+    {ITEM_AIR_BALLOON, FLAG_ROOM_5_CLEAR},
+
+    // Room 7
+    {ITEM_METRONOME, FLAG_ROOM_6_CLEAR},
+    {ITEM_BLACK_SLUDGE, FLAG_ROOM_6_CLEAR},
+
+    // Room 8
+    {ITEM_HEAT_ROCK, FLAG_ROOM_7_CLEAR},
+    {ITEM_ICY_ROCK, FLAG_ROOM_7_CLEAR},
+    {ITEM_SMOOTH_ROCK, FLAG_ROOM_7_CLEAR},
+    {ITEM_DAMP_ROCK, FLAG_ROOM_7_CLEAR},
+
+    // Room 9
+    {ITEM_FOCUS_SASH, FLAG_ROOM_8_CLEAR},
+    {ITEM_ROCKY_HELMET, FLAG_ROOM_8_CLEAR},
+
+    // Room 10
+    {ITEM_TRIFORCE, FLAG_ROOM_9_CLEAR},
+    {ITEM_WEIGHTED_BOOTS, FLAG_ROOM_9_CLEAR},
+
+
+
+    // Room 11
+    // ability capsule
+    // mid stage evo stone
+
+    // {ITEM_YACHE_BERRY, FLAG_ROOM_6_CLEAR},
+    // {ITEM_RINDO_BERRY, FLAG_ROOM_6_CLEAR},
 
 };
 
