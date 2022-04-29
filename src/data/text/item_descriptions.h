@@ -3155,9 +3155,9 @@ static const u8 sTM81Desc[] = _(
     "claws, etc.");
 
 static const u8 sTM82Desc[] = _(
-    "Knocks the foe\n"
-    "away to end the\n"
-    "battle.");
+    "Swings its tail at\n"
+    "the foe, lowering\n"
+    "its Atk.");
 
 static const u8 sTM83Desc[] = _(
     "Attacks in a cloak\n"
