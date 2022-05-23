@@ -2005,14 +2005,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CLAMP] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
         #else
             .accuracy = 75,
             .pp = 10,
         #endif
-        .effect = EFFECT_TRAP,
-        .power = 35,
+        .effect = EFFECT_MULTI_HIT,
+        .power = 25,
         .type = TYPE_WATER,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -3012,7 +3012,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ACCURACY_DOWN_HIT,
         .power = 65,
         .type = TYPE_WATER,
-        .accuracy = 85,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
@@ -10470,7 +10470,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ZIPPY_ZAP] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 80,
+            .power = 60,
             .effect = EFFECT_EVASION_UP_HIT,
             .pp = 10,
             .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
@@ -10516,7 +10516,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_FLINCH_HIT,
         .power = 90,
         .type = TYPE_FLYING,
-        .accuracy = 95,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
@@ -10545,10 +10545,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BOUNCY_BUBBLE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
+            .power = 75,
             .pp = 20,
             .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-            .argument = 100, // restores 100% HP instead of 50% HP
+            .argument = 50, 
         #else
             .power = 90,
             .pp = 15,
@@ -10606,8 +10606,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GLITZY_GLOW] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 80,
-            .accuracy = 95,
+            .power = 60,
+            .accuracy = 100,
             .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         #else
             .power = 90,
@@ -10688,9 +10688,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SPARKLY_SWIRL] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 120,
-            .accuracy = 85,
-            .pp = 5,
+            .power = 60,
+            .accuracy = 100,
+            .pp = 10,
             .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         #else
             .power = 90,

@@ -135,7 +135,7 @@ static const struct TrainerMon sParty_LC_2_Intro[] = {
     {
         .species = SPECIES_ZIGZAGOON_GALARIAN,
         .heldItem = ITEM_NONE,
-        .ability = ABILITY_SLOT_1, // pickpocket
+        .ability = ABILITY_SLOT_1, // filter
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_IMPISH,
         .iv = MAX_PER_STAT_IVS,
