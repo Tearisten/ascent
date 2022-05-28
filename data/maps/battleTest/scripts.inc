@@ -219,7 +219,8 @@ PokeShop_TryPurchasePrize::
 PokeShop_NotEnoughBP::
 	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
 	waitmessage
-	goto PokeShop_Deny
+	releaseall
+	end
 
 PokeShop_neBP_text:
 	.string "Sorry, you don't have enough BP.$"

@@ -149,4 +149,30 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_LC_5_Boss},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_5_Boss)
     },
+    [TRAINER_GP_1_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_POKEFAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_LASS,
+        .trainerName = _("Katie"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_GP_1_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_1_Intro)
+    },
+    [TRAINER_GP_1_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_POKEFAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_POKEFAN_F,
+        .trainerName = _("Barbra"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_GP_1_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_1_Elite)
+    },
 };

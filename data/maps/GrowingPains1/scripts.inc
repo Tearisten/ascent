@@ -1,26 +1,28 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 1
-.set FLOORMONEY, 1000
-.set FLOORBP, 1 
-.set FLOORHS, 2 
-.set FLOORFLAG, FLAG_ROOM_1_CLEAR
-.set FLOORFLAG_PREV, FLAG_ALL_STARTERS
+.set ROOM_BATTLE_TYPE, 2
+.set FLOORMONEY, 3200
+.set FLOORBP, 2 
+.set FLOORHS, 3 
+.set FLOORFLAG, FLAG_ROOM_6_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_5_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_5
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_1_INTRO
-.set TRAINER2ID, TRAINER_LC_1_ELITE
+.set TRAINER1ID, TRAINER_GP_1_INTRO
+.set TRAINER2ID, TRAINER_GP_1_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains1_Trainer1_text:
-	.string "Ready to face my normal type pokemon?$\n"
+	.string "My Chinchou smells of cheese.\n"
+	.string "Cheddar to be precise.$"
 
 .set TRAINER2, 11
 GrowingPains1_Trainer2_text:
-	.string "Barboach is my favorite pokemon of\n"
-	.string "all time.$"
+	.string "I'll never let my pokemon.\n"
+	.string "grow up.$"
 
 GrowingPains1_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains1_OnTransition
@@ -28,7 +30,7 @@ GrowingPains1_MapScripts::
 	.byte 0
 
 GrowingPains1_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_1
+	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_1
 	end
 
 GrowingPains1_OnLoad:

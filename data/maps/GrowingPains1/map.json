@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittleCup1_ReadyOrNot",
+      "script": "GrowingPains1_ReadyOrNot",
       "flag": "0"
     },
     {
@@ -132,7 +132,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 1,
       "y": 8,
       "elevation": 3,
@@ -141,11 +141,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittleCup1_Trainer1_event",
+      "script": "GrowingPains1_Trainer1_event",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 2,
       "y": 8,
       "elevation": 3,
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittleCup1_Trainer2_event",
+      "script": "GrowingPains1_Trainer2_event",
       "flag": "0"
     }
   ],
@@ -170,7 +170,7 @@
       "x": 7,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_LITTLE_CUP2",
+      "dest_map": "MAP_GROWING_PAINS2",
       "dest_warp_id": 0
     }
   ],

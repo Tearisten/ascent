@@ -368,6 +368,7 @@ static const struct itemFlagMap itemToFlag[] =
 
     // Room 10
     {ITEM_TRIFORCE, FLAG_ROOM_9_CLEAR},
+    {ITEM_EVIOLITE, FLAG_ROOM_9_CLEAR},
     {ITEM_WEIGHTED_BOOTS, FLAG_ROOM_9_CLEAR},
 
 
