@@ -1021,17 +1021,6 @@ static const struct TrainerMon sParty_GP_1_Elite[] = {
         .moves = {MOVE_PAIN_SPLIT, MOVE_FOLLOW_ME, MOVE_HEX, MOVE_WILL_O_WISP},
     },
     {
-        .species = SPECIES_MURKROW,
-        .heldItem = ITEM_FOCUS_SASH,
-        .ability = ABILITY_SLOT_2, // super luck
-        .evs = EV_SPREAD_TANKY_ATTACK,
-        .nature = NATURE_ADAMANT,
-        .iv = MAX_PER_STAT_IVS,
-        .ball = ITEM_DUSK_BALL,
-        .slot = 3,
-        .moves = {MOVE_FOCUS_ENERGY, MOVE_DUAL_WINGBEAT, MOVE_SUBSTITUTE, MOVE_SUCKER_PUNCH},
-    },
-    {
         .species = SPECIES_KADABRA,
         .heldItem = ITEM_HOURGLASS,
         .ability = ABILITY_SLOT_1, // syncrhonize
@@ -1044,14 +1033,14 @@ static const struct TrainerMon sParty_GP_1_Elite[] = {
     },
     {
         .species = SPECIES_GURDURR,
-        .heldItem = ITEM_BIG_ROOT,
+        .heldItem = ITEM_HOURGLASS,
         .ability = ABILITY_HIDDEN, // iron fist
         .evs = EV_SPREAD_TANKY_ATTACK,
         .nature = NATURE_ADAMANT,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_REPEAT_BALL,
-        .slot = 4,
-        .moves = {MOVE_DRAIN_PUNCH, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE, MOVE_FIRE_PUNCH},
+        .slot = 3,
+        .moves = {MOVE_DRAIN_PUNCH, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE, MOVE_THUNDER_PUNCH},
     },
     {
         .species = SPECIES_MINCCINO,
@@ -1064,7 +1053,18 @@ static const struct TrainerMon sParty_GP_1_Elite[] = {
         .slot = 4,
         .moves = {MOVE_SPIKE_CANNON, MOVE_ROCK_BLAST, MOVE_BULLET_SEED, MOVE_ARM_THRUST},
     },
-    // two growtlithe sets
+    {
+        .species = SPECIES_MURKROW,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_SLOT_2, // super luck
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DUSK_BALL,
+        .slot = 4,
+        .moves = {MOVE_FOCUS_ENERGY, MOVE_DUAL_WINGBEAT, MOVE_SUBSTITUTE, MOVE_SUCKER_PUNCH},
+    },
+    // two similar growtlithe sets
     {
         .species = SPECIES_GROWLITHE,
         .heldItem = ITEM_EVIOLITE,

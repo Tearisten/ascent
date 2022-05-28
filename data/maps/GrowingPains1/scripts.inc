@@ -17,7 +17,7 @@
 .set TRAINER1, 10
 GrowingPains1_Trainer1_text:
 	.string "My Chinchou smells of cheese.\n"
-	.string "Cheddar to be precise.$"
+	.string "Want a whiff?$"
 
 .set TRAINER2, 11
 GrowingPains1_Trainer2_text:

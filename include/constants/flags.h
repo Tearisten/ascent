@@ -656,10 +656,10 @@
 #define FLAG_NZ_GIFT_3     0x266 // Unused Flag
 #define FLAG_NZ_GIFT_4     0x267 // Unused Flag
 #define FLAG_NZ_GIFT_5     0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_NZ_GIFT_6     0x269 // Unused Flag
+#define FLAG_NZ_GIFT_7     0x26A // Unused Flag
+#define FLAG_NZ_GIFT_8     0x26B // Unused Flag
+#define FLAG_NZ_GIFT_9     0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
