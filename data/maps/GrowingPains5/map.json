@@ -15,19 +15,6 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
-      "x": 10,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittleCup5_ReadyOrNot",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
       "x": 5,
       "y": 19,
@@ -142,6 +129,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LittleCup5_Trainer1_event",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
+      "x": 10,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GrowingPains5_ReadyOrNot",
       "flag": "0"
     }
   ],

@@ -14,9 +14,9 @@
 #define TRAINER_LC_5_BOSS                    10
 #define TRAINER_GP_1_INTRO                   11
 #define TRAINER_GP_1_ELITE                   12
-#define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
-#define TRAINER_DECLAN                       15
+#define TRAINER_GP_2_INTRO                   13
+#define TRAINER_GP_2_MID                     14
+#define TRAINER_GP_2_ELITE                   15
 #define TRAINER_GRUNT_RUSTURF_TUNNEL         16
 #define TRAINER_GRUNT_WEATHER_INST_1         17
 #define TRAINER_GRUNT_WEATHER_INST_2         18

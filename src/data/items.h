@@ -6163,7 +6163,7 @@ const struct Item gItems[] =
     {
         .name = _("Shed Shell"),
         .itemId = ITEM_SHED_SHELL,
-        .price = 4000,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_SHED_SHELL,
         .description = sShedShellDesc,
         .pocket = POCKET_ITEMS,

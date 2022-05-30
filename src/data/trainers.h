@@ -175,4 +175,43 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_GP_1_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_1_Elite)
     },
+    [TRAINER_GP_2_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_SAILOR,
+        .trainerName = _("Troy"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_GP_2_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Intro)
+    },
+    [TRAINER_GP_2_MID] =
+    {
+        .trainerClass = TRAINER_CLASS_BUG_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerName = _("Chris"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_GP_2_Mid},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Mid)
+    },
+    [TRAINER_GP_2_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
+        .trainerName = _("Cameron"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_GP_2_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Elite)
+    },
 };

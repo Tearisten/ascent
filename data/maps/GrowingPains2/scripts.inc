@@ -1,26 +1,32 @@
 @ this floors specific battle data
 @ copy from here down for new maps
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 1500
-.set FLOORBP, 1
-.set FLOORHS, 2
-.set FLOORFLAG, FLAG_ROOM_2_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_1_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_1
+.set ROOM_BATTLE_COUNT, 3
+.set ROOM_BATTLE_TYPE, 1
+.set FLOORMONEY, 3300
+.set FLOORBP, 2
+.set FLOORHS, 3
+.set FLOORFLAG, FLAG_ROOM_7_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_6_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_6
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_2_INTRO
-.set TRAINER2ID, TRAINER_LC_2_ELITE
+.set TRAINER1ID, TRAINER_GP_2_INTRO
+.set TRAINER2ID, TRAINER_GP_2_MID
+.set TRAINER3ID, TRAINER_GP_2_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains2_Trainer1_text:
-	.string "Watch out for my crazy supportive\n"
-	.string "pokemon. They'll distract you.$\n"
+	.string "I like pokemon that switch\n"
+	.string "form based on gender.$"
 
 .set TRAINER2, 11
 GrowingPains2_Trainer2_text:
+	.string "Bugs are so cool. They \n"
+	.string "are great for battles.$"
+
+.set TRAINER3, 12
+GrowingPains2_Trainer3_text:
 	.string "Try to keep your stats up. Don't\n"
 	.string "let me get ahead in boosts.$"
 
@@ -30,7 +36,7 @@ GrowingPains2_MapScripts::
 	.byte 0
 
 GrowingPains2_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_2
+	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_2
 	end
 
 GrowingPains2_OnLoad:
@@ -177,7 +183,20 @@ GrowingPains2_npc_finish2::
 	goto_if_eq VAR_TEMP_A, 2, GrowingPains2_end_battles
 	goto GrowingPains2_npc_walk3
 
-GrowingPains2_npc_walk3:
+GrowingPains2_npc_walk3::
+	applymovement TRAINER3, GrowingPains2_npc_walk3_move
+	waitmovement 0
+	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, GrowingPains2_npc_finish3
+
+GrowingPains2_npc_finish3::
+	special HealPlayerParty
+	applymovement TRAINER3, GrowingPains2_npc_walk3_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 2, GrowingPains2_end_battles
+	goto GrowingPains2_npc_walk3
+
+GrowingPains2_npc_walk4:
 	releaseall
 	end
 
@@ -225,6 +244,25 @@ GrowingPains2_npc_walk2_move_back::
 	face_down
 	step_end
 
+GrowingPains2_npc_walk3_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+GrowingPains2_npc_walk3_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 GrowingPains2_Trainer1_event::
 	faceplayer
 	lockall
@@ -236,5 +274,12 @@ GrowingPains2_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains2_Trainer2_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GrowingPains2_Trainer3_event::
+	faceplayer
+	lockall
+	msgbox GrowingPains2_Trainer3_text, MSGBOX_DEFAULT
 	releaseall
 	end
