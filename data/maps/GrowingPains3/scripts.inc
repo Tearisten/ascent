@@ -1,28 +1,34 @@
 @ this floors specific battle data
 @ copy from here down for new maps
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 1
-.set FLOORMONEY, 1800
+.set ROOM_BATTLE_COUNT, 3
+.set ROOM_BATTLE_TYPE, 2
+.set FLOORMONEY, 3500
 .set FLOORBP, 2
 .set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_3_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_2_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_2
+.set FLOORFLAG, FLAG_ROOM_8_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_7_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_7
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_3_INTRO
-.set TRAINER2ID, TRAINER_LC_3_ELITE
+.set TRAINER1ID, TRAINER_GP_3_INTRO
+.set TRAINER2ID, TRAINER_GP_3_MID
+.set TRAINER3ID, TRAINER_GP_3_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains3_Trainer1_text:
-	.string "If you ask me, a strong defense\n"
-	.string "is the best strategy.$\n"
+	.string "Rodents are so cute.\n"
+	.string "Want to hold mine?$"
 
 .set TRAINER2, 11
 GrowingPains3_Trainer2_text:
-	.string "I love bugs. They are so cool.\n"
-	.string "The only thing cooler is crabs.$"
+	.string "Indimidate is just the\n"
+	.string "best ability in the game.$"
+
+.set TRAINER3, 12
+GrowingPains3_Trainer3_text:
+	.string "I scammed some noobs for\n"
+	.string "their starter pokemon.$"
 
 GrowingPains3_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains3_OnTransition
@@ -30,7 +36,7 @@ GrowingPains3_MapScripts::
 	.byte 0
 
 GrowingPains3_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_3
+	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_3
 	end
 
 GrowingPains3_OnLoad:
@@ -176,7 +182,20 @@ GrowingPains3_npc_finish2::
 	goto_if_eq VAR_TEMP_A, 2, GrowingPains3_end_battles
 	goto GrowingPains3_npc_walk3
 
-GrowingPains3_npc_walk3:
+GrowingPains3_npc_walk3::
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move
+	waitmovement 0
+	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, GrowingPains3_npc_finish3
+
+GrowingPains3_npc_finish3::
+	special HealPlayerParty
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 2, GrowingPains3_end_battles
+	goto GrowingPains3_npc_walk3
+
+GrowingPains3_npc_walk4:
 	releaseall
 	end
 
@@ -224,6 +243,25 @@ GrowingPains3_npc_walk2_move_back::
 	face_down
 	step_end
 
+GrowingPains3_npc_walk3_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+GrowingPains3_npc_walk3_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 GrowingPains3_Trainer1_event::
 	faceplayer
 	lockall
@@ -238,3 +276,9 @@ GrowingPains3_Trainer2_event::
 	releaseall
 	end
 
+GrowingPains3_Trainer3_event::
+	faceplayer
+	lockall
+	msgbox GrowingPains3_Trainer3_text, MSGBOX_DEFAULT
+	releaseall
+	end

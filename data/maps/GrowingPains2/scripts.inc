@@ -17,8 +17,8 @@
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains2_Trainer1_text:
-	.string "I like pokemon that switch\n"
-	.string "form based on gender.$"
+	.string "I like pokemon with\n"
+	.string "multiple forms.$"
 
 .set TRAINER2, 11
 GrowingPains2_Trainer2_text:
@@ -27,8 +27,8 @@ GrowingPains2_Trainer2_text:
 
 .set TRAINER3, 12
 GrowingPains2_Trainer3_text:
-	.string "Try to keep your stats up. Don't\n"
-	.string "let me get ahead in boosts.$"
+	.string "Ready to get wet?\n"
+	.string "Splash splash loser.$"
 
 GrowingPains2_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains2_OnTransition

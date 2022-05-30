@@ -81,7 +81,7 @@ static const struct LevelUpMove sCharmeleonLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FIRE_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_SUNNY_DAY),
     LEVEL_UP_MOVE( 1, MOVE_DRAGON_PULSE),
-    LEVEL_UP_MOVE( 1, MOVE_DRAGON_DANCE),
+    LEVEL_UP_MOVE( 1, MOVE_BREAKING_SWIPE),
 
     // charmander
     LEVEL_UP_MOVE(1, MOVE_GROWL),
@@ -2934,7 +2934,7 @@ static const struct LevelUpMove sCyndaquilLevelUpLearnset[] = {
 static const struct LevelUpMove sQuilavaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FIRE_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_SCORCHING_SANDS),
-    LEVEL_UP_MOVE( 1, MOVE_BREAKING_SWIPE),
+    LEVEL_UP_MOVE( 1, MOVE_SNARL),
     //LEVEL_UP_MOVE( 1, MOVE_SIZZLY_SLIDE),
     LEVEL_UP_MOVE( 1, MOVE_EXTRASENSORY),
     //cynda
@@ -5117,6 +5117,7 @@ static const struct LevelUpMove sMarshtompLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_ROCK_SLIDE),
     LEVEL_UP_MOVE( 1, MOVE_WATER_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_BULLDOZE),
+    LEVEL_UP_MOVE( 1, MOVE_STOMPING_TANTRUM),
     LEVEL_UP_MOVE( 1, MOVE_WATERFALL),
     LEVEL_UP_MOVE( 1, MOVE_AVALANCHE),
 
