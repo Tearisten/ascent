@@ -1,13 +1,13 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 2300
+.set ROOM_BATTLE_TYPE, 1
+.set FLOORMONEY, 3800
 .set FLOORBP, 2
 .set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_4_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_3_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_3
+.set FLOORFLAG, FLAG_ROOM_9_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_8_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_8
 
 @ this floors trainer ids
 .set TRAINER1ID, TRAINER_LC_4_INTRO

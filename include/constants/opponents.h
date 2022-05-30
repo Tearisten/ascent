@@ -20,8 +20,8 @@
 #define TRAINER_GP_3_INTRO                   16
 #define TRAINER_GP_3_MID                     17
 #define TRAINER_GP_3_ELITE                   18
-#define TRAINER_GRUNT_WEATHER_INST_3         19
-#define TRAINER_GRUNT_MUSEUM_1               20
+#define TRAINER_GP_4_INTRO                   19
+#define TRAINER_GP_4_ELITE                   20
 #define TRAINER_GRUNT_MUSEUM_2               21
 #define TRAINER_GRUNT_SPACE_CENTER_1         22
 #define TRAINER_GRUNT_MT_PYRE_1              23
