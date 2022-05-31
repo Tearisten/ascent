@@ -16,13 +16,13 @@
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains4_Trainer1_text:
-	.string "It's effecient to hit both\n"
-	.string "enemies. Spread the love.$"
+	.string "Flexibility is the key to\n"
+	.string "victory. Stretch daily.$"
 
 .set TRAINER2, 11
 GrowingPains4_Trainer2_text:
-	.string "Slow and steady wins a race.\n"
-	.string "You'll regret being too fast.$"
+	.string "Sableye can be a defensive or\n"
+	.string "special defensive wall.$"
 
 GrowingPains4_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains4_OnTransition

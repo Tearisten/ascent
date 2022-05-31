@@ -1,22 +1,22 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 1
-.set ROOM_BATTLE_TYPE, 1
-.set FLOORMONEY, 2600
-.set FLOORBP, 2
-.set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_5_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_4_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_4
+.set ROOM_BATTLE_TYPE, 2
+.set FLOORMONEY, 4000
+.set FLOORBP, 3
+.set FLOORHS, 4
+.set FLOORFLAG, FLAG_ROOM_10_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_9_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_9
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_5_BOSS
+.set TRAINER1ID, TRAINER_GP_5_BOSS
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 GrowingPains5_Trainer1_text:
-	.string "I love switching up my team\n"
-	.string "between every battle.$"
+	.string "My hot new strategy is\n"
+	.string "called quickdisquake.$"
 
 GrowingPains5_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains5_OnTransition

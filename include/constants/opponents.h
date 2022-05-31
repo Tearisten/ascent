@@ -22,7 +22,7 @@
 #define TRAINER_GP_3_ELITE                   18
 #define TRAINER_GP_4_INTRO                   19
 #define TRAINER_GP_4_ELITE                   20
-#define TRAINER_GRUNT_MUSEUM_2               21
+#define TRAINER_GP_5_BOSS                    21
 #define TRAINER_GRUNT_SPACE_CENTER_1         22
 #define TRAINER_GRUNT_MT_PYRE_1              23
 #define TRAINER_GRUNT_MT_PYRE_2              24

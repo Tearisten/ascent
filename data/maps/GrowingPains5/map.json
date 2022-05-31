@@ -119,7 +119,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SIDNEY",
+      "graphics_id": "OBJ_EVENT_GFX_PHOEBE",
       "x": 1,
       "y": 8,
       "elevation": 3,
@@ -128,7 +128,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittleCup5_Trainer1_event",
+      "script": "GrowingPains5_Trainer1_event",
       "flag": "0"
     },
     {
