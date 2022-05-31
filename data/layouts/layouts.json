@@ -4488,8 +4488,8 @@
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battleTest/border.bin",
-      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+      "border_filepath": "data/layouts/battleTest2/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest2/map.bin"
     },
     {
       "id": "LAYOUT_GROWING_PAINS2",
@@ -4498,8 +4498,8 @@
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battleTest/border.bin",
-      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+      "border_filepath": "data/layouts/battleTest2/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest2/map.bin"
     },
     {
       "id": "LAYOUT_GROWING_PAINS3",
@@ -4508,8 +4508,8 @@
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battleTest/border.bin",
-      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+      "border_filepath": "data/layouts/battleTest2/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest2/map.bin"
     },
     {
       "id": "LAYOUT_GROWING_PAINS4",
@@ -4518,8 +4518,8 @@
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battleTest/border.bin",
-      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+      "border_filepath": "data/layouts/battleTest2/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest2/map.bin"
     },
     {
       "id": "LAYOUT_GROWING_PAINS5",
@@ -4528,8 +4528,8 @@
       "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
-      "border_filepath": "data/layouts/battleTest/border.bin",
-      "blockdata_filepath": "data/layouts/battleTest/map.bin"
+      "border_filepath": "data/layouts/battleTest2/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest2/map.bin"
     }
   ]
 }
