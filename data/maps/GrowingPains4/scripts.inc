@@ -10,8 +10,8 @@
 .set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_8
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_4_INTRO
-.set TRAINER2ID, TRAINER_LC_4_ELITE
+.set TRAINER1ID, TRAINER_GP_4_INTRO
+.set TRAINER2ID, TRAINER_GP_4_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
@@ -21,6 +21,11 @@ GrowingPains4_Trainer1_text:
 
 .set TRAINER2, 11
 GrowingPains4_Trainer2_text:
+	.string "Sableye can be a defensive or\n"
+	.string "special defensive wall.$"
+
+.set TRAINER2, 12
+GrowingPains4_Trainer3_text:
 	.string "Sableye can be a defensive or\n"
 	.string "special defensive wall.$"
 
@@ -127,7 +132,8 @@ GrowingPains4_end_battles::
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
 	giveitem ITEM_HEART_SCALE, FLOORHS
-	special CloseBattlePointsWindow @won't open quickly without this for some reason
+	releaseall
+	delay 10
 	special ShowBattlePointsWindow
 	delay 50
 	setvar VAR_0x8007, FLOORBP
@@ -136,6 +142,8 @@ GrowingPains4_end_battles::
 	playse SE_PIN
 	waitse
 	delay 30
+	special CloseBattlePointsWindow
+	delay 10
 	showmoneybox 15, 0
 	delay 20
 	addmoney FLOORMONEY
@@ -144,9 +152,6 @@ GrowingPains4_end_battles::
 	waitse
 	delay 20
 	hidemoneybox
-	special CloseBattlePointsWindow
-	waitse
-	delay 50
 	releaseall
 	end
 
@@ -177,7 +182,20 @@ GrowingPains4_npc_finish2::
 	goto_if_eq VAR_TEMP_A, 2, GrowingPains4_end_battles
 	goto GrowingPains4_npc_walk3
 
-GrowingPains4_npc_walk3:
+GrowingPains4_npc_walk3::
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move
+	waitmovement 0
+	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, GrowingPains3_npc_finish3
+
+GrowingPains4_npc_finish3::
+	special HealPlayerParty
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 3, GrowingPains3_end_battles
+	goto GrowingPains3_npc_walk4
+
+GrowingPains4_npc_walk4:
 	releaseall
 	end
 
@@ -225,6 +243,25 @@ GrowingPains4_npc_walk2_move_back::
 	face_down
 	step_end
 
+GrowingPains4_npc_walk3_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+GrowingPains4_npc_walk3_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 GrowingPains4_Trainer1_event::
 	faceplayer
 	lockall
@@ -236,5 +273,13 @@ GrowingPains4_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains4_Trainer2_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+
+GrowingPains4_Trainer3_event::
+	faceplayer
+	lockall
+	msgbox GrowingPains4_Trainer3_text, MSGBOX_DEFAULT
 	releaseall
 	end

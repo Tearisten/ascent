@@ -39,8 +39,8 @@ GrowingPains1_OnLoad:
 
 GrowingPains1_PokeShop_event::
 	faceplayer
-	@goto_if_unset Nuzlocke_Mode, PokeShop_event
-	@goto_if_unset xxx, GrowingPains1_Nuzlocke_gift no shop on 1f
+	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_NUZ_GIFT, GrowingPains1_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage
 	releaseall

@@ -132,7 +132,8 @@ GrowingPains3_end_battles::
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
 	giveitem ITEM_HEART_SCALE, FLOORHS
-	special CloseBattlePointsWindow @won't open quickly without this for some reason
+	releaseall
+	delay 10
 	special ShowBattlePointsWindow
 	delay 50
 	setvar VAR_0x8007, FLOORBP
@@ -141,6 +142,8 @@ GrowingPains3_end_battles::
 	playse SE_PIN
 	waitse
 	delay 30
+	special CloseBattlePointsWindow
+	delay 10
 	showmoneybox 15, 0
 	delay 20
 	addmoney FLOORMONEY
@@ -149,11 +152,9 @@ GrowingPains3_end_battles::
 	waitse
 	delay 20
 	hidemoneybox
-	special CloseBattlePointsWindow
-	waitse
-	delay 50
 	releaseall
 	end
+
 
 GrowingPains3_npc_walk1::
 	applymovement TRAINER1, GrowingPains3_npc_walk1_move
@@ -192,8 +193,8 @@ GrowingPains3_npc_finish3::
 	applymovement TRAINER3, GrowingPains3_npc_walk3_move_back
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
-	goto_if_eq VAR_TEMP_A, 2, GrowingPains3_end_battles
-	goto GrowingPains3_npc_walk3
+	goto_if_eq VAR_TEMP_A, 3, GrowingPains3_end_battles
+	goto GrowingPains3_npc_walk4
 
 GrowingPains3_npc_walk4:
 	releaseall

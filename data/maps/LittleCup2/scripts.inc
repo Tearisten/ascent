@@ -127,7 +127,8 @@ LittleCup2_end_battles::
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	delay 20
 	giveitem ITEM_HEART_SCALE, FLOORHS
-	special CloseBattlePointsWindow @won't open quickly without this for some reason
+	releaseall
+	delay 10
 	special ShowBattlePointsWindow
 	delay 50
 	setvar VAR_0x8007, FLOORBP
@@ -136,6 +137,8 @@ LittleCup2_end_battles::
 	playse SE_PIN
 	waitse
 	delay 30
+	special CloseBattlePointsWindow
+	delay 10
 	showmoneybox 15, 0
 	delay 20
 	addmoney FLOORMONEY
@@ -144,9 +147,6 @@ LittleCup2_end_battles::
 	waitse
 	delay 20
 	hidemoneybox
-	special CloseBattlePointsWindow
-	waitse
-	delay 50
 	releaseall
 	end
 

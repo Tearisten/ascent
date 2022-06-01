@@ -2619,7 +2619,7 @@ struct pokeToFlagMap{
 };
 
 #define POKE_SHOP_SIZE 100
-#define POKE_SHOP_MAX_TEXT 20
+#define POKE_SHOP_MAX_TEXT 100
 
 static const struct pokeToFlagMap scrollMultiPokeShop[] = 
 {
@@ -2628,7 +2628,7 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     // perhaps give more pokemon ally switch?
     
     //test
-    {SPECIES_ZACIAN, 1, FLAG_ALL_STARTERS},
+    //{SPECIES_ZAPDOS, 1, FLAG_ALL_STARTERS},
 
     // Little cup 2
     {SPECIES_POOCHYENA, 1, FLAG_ROOM_1_CLEAR},
@@ -2644,17 +2644,17 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     // Little cup 3
     {SPECIES_DIGLETT, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_SHINX, 1, FLAG_ROOM_2_CLEAR},
-    {SPECIES_MAREEP, 1, FLAG_ROOM_1_CLEAR},
+    {SPECIES_MAREEP, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_EKANS, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_STARLY, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_TOGEPI, 1, FLAG_ROOM_2_CLEAR},
-    {SPECIES_HOUNDOUR, 1, FLAG_ROOM_2_CLEAR}, 
+    {SPECIES_HOUNDOUR, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_VANILLITE, 1, FLAG_ROOM_2_CLEAR},
     {SPECIES_YAMASK, 1, FLAG_ROOM_2_CLEAR},
     
 
     // Little cup 4
-    {SPECIES_JIGGLYPUFF, 1, FLAG_ROOM_1_CLEAR},
+    {SPECIES_JIGGLYPUFF, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_MANKEY, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_FOONGUS, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_CROAGUNK, 1, FLAG_ROOM_3_CLEAR},
