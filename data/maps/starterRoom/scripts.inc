@@ -48,8 +48,8 @@ Gauntlet1_starterRoom_Scientist_event::
 	applymovement 5, Gauntlet1_starterRoom_Scientist_move
 	waitmovement 5
 	setflag FLAG_DISABLE_BAG
-	setvar VAR_0x8007, 10
-	special GiveBattlePointsGauntlet @ test code for giving bp
+	@setvar VAR_0x8007, 10
+	@special GiveBattlePointsGauntlet @ test code for giving bp
 	release
 	end
 
