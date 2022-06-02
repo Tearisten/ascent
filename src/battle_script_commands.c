@@ -1809,7 +1809,7 @@ static void Cmd_accuracycheck(void)
             gBattlescriptCurrInstr += 7;
         else if (gStatuses3[gBattlerTarget] & (STATUS3_SEMI_INVULNERABLE))
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-        else if (!JumpIfMoveAffectedByProtect(0))
+        else if (!JumpIfMoveAffectedByProtect(gCurrentMove))
             gBattlescriptCurrInstr += 7;
     }
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondOn == 1
