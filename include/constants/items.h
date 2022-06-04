@@ -990,8 +990,9 @@
 #define ITEM_WIND_CHIMES 765
 #define ITEM_HOURGLASS 766
 #define ITEM_MID_EVO_STONE 767
+#define ITEM_2SF_EVO_STONE 768
 
-#define ITEMS_COUNT 768
+#define ITEMS_COUNT 769
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

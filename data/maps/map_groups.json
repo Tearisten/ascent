@@ -37,7 +37,8 @@
     "gMapGroup_IndoorRoute124",
     "gMapGroup_Gauntlet",
     "gMapGroup_LittleCup",
-    "gMapGroup_GrowingPains"
+    "gMapGroup_GrowingPains",
+    "gMapGroup_TeenageDaydream"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -642,5 +643,12 @@
     "GrowingPains3",
     "GrowingPains4",
     "GrowingPains5"
+  ],
+  "gMapGroup_TeenageDaydream": [
+    "TeenageDaydream1",
+    "TeenageDaydream2",
+    "TeenageDaydream3",
+    "TeenageDaydream4",
+    "TeenageDaydream5"
   ]
 }

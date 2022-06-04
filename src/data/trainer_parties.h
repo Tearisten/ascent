@@ -546,7 +546,7 @@ static const struct TrainerMon sParty_LC_4_Intro[] = {
     {
         .species = SPECIES_FRILLISH,
         .heldItem = ITEM_LUM_BERRY,
-        .ability = ABILITY_SLOT_2, // battery
+        .ability = ABILITY_SLOT_1, // battery
         .evs = EV_SPREAD_TANKY_SPATTACK,
         .nature = NATURE_MODEST,
         .iv = MAX_PER_STAT_IVS,

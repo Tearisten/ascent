@@ -325,6 +325,8 @@ static const struct itemFlagMap itemToFlag[] =
 {
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
+    {ITEM_2SF_EVO_STONE, FLAG_ROOM_10_CLEAR}, // start of area 3
+    {ITEM_ABILITY_CAPSULE, FLAG_ROOM_10_CLEAR}, // start of area 3
 
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
@@ -373,13 +375,28 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_WEIGHTED_BOOTS, FLAG_ROOM_9_CLEAR},
 
 
-
     // Room 11
-    // ability capsule
-    // mid stage evo stone
+    {ITEM_BRIGHT_POWDER, FLAG_ROOM_10_CLEAR},
+    {ITEM_QUICK_CLAW, FLAG_ROOM_10_CLEAR},
+    
+    // Room 12
+    {ITEM_TERRAIN_EXTENDER, FLAG_ROOM_11_CLEAR},
+    {ITEM_LIGHT_CLAY, FLAG_ROOM_11_CLEAR},
 
-    // {ITEM_YACHE_BERRY, FLAG_ROOM_6_CLEAR},
-    // {ITEM_RINDO_BERRY, FLAG_ROOM_6_CLEAR},
+    // Room 13
+    {ITEM_SAFETY_GOGGLES, FLAG_ROOM_12_CLEAR},
+    {ITEM_POWER_HERB, FLAG_ROOM_14_CLEAR},
+    {ITEM_WHITE_HERB, FLAG_ROOM_12_CLEAR},
+
+    // Room 14
+    {ITEM_ASSAULT_VEST, FLAG_ROOM_13_CLEAR},
+    {ITEM_PLATE_MAIL, FLAG_ROOM_13_CLEAR},
+
+    // Room 15
+    {ITEM_LEFTOVERS, FLAG_ROOM_14_CLEAR},
+    {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
+
+    //life orb, choice items, heavy dty boots, utility umbrella
 
 };
 
@@ -453,6 +470,31 @@ static const struct itemFlagMap tmToFlag[] =
     {ITEM_TM56_LEECH_LIFE, FLAG_ROOM_9_CLEAR},
     {ITEM_TM19_GIGA_DRAIN, FLAG_ROOM_9_CLEAR},
     {ITEM_TM54_PSYSHOCK, FLAG_ROOM_9_CLEAR},
+
+    // Room 11
+    {ITEM_TM55_SCALD, FLAG_ROOM_10_CLEAR},
+    {ITEM_TM31_BRICK_BREAK, FLAG_ROOM_10_CLEAR},
+    {ITEM_TM63_ROCK_SLIDE, FLAG_ROOM_10_CLEAR},
+
+    // Room 12
+    {ITEM_TM04_CALM_MIND, FLAG_ROOM_11_CLEAR},
+    {ITEM_TM08_BULK_UP, FLAG_ROOM_11_CLEAR},
+    {ITEM_TM62_ACROBATICS, FLAG_ROOM_11_CLEAR},
+
+    // Room 13
+    {ITEM_TM60_DRAIN_PUNCH, FLAG_ROOM_12_CLEAR},
+    {ITEM_TM51_ROOST, FLAG_ROOM_12_CLEAR},
+    {ITEM_TM79_FREEZE_DRY, FLAG_ROOM_12_CLEAR},
+
+    // Room 14
+    {ITEM_TM91_FLASH_CANNON, FLAG_ROOM_13_CLEAR},
+    {ITEM_TM30_SHADOW_BALL, FLAG_ROOM_13_CLEAR},
+    {ITEM_TM97_DARK_PULSE, ITEM_NONE, FLAG_ROOM_13_CLEAR},
+
+    // Room 15
+    {ITEM_TM24_THUNDERBOLT, FLAG_ROOM_14_CLEAR},
+    {ITEM_TM35_FLAMETHROWER, FLAG_ROOM_14_CLEAR},
+    {ITEM_TM13_ICE_BEAM, FLAG_ROOM_14_CLEAR},
 
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };

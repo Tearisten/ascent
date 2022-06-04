@@ -609,6 +609,13 @@
 #define MAP_GROWING_PAINS4 (3 | (36 << 8))
 #define MAP_GROWING_PAINS5 (4 | (36 << 8))
 
-#define MAP_GROUPS_COUNT 37
+// gMapGroup_TeenageDaydream
+#define MAP_TEENAGE_DAYDREAM1 (0 | (37 << 8))
+#define MAP_TEENAGE_DAYDREAM2 (1 | (37 << 8))
+#define MAP_TEENAGE_DAYDREAM3 (2 | (37 << 8))
+#define MAP_TEENAGE_DAYDREAM4 (3 | (37 << 8))
+#define MAP_TEENAGE_DAYDREAM5 (4 | (37 << 8))
+
+#define MAP_GROUPS_COUNT 38
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

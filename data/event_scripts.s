@@ -1072,3 +1072,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/GrowingPains3/scripts.inc"
 	.include "data/maps/GrowingPains4/scripts.inc"
 	.include "data/maps/GrowingPains5/scripts.inc"
+
+	.include "data/maps/TeenageDaydream1/scripts.inc"
+	.include "data/maps/TeenageDaydream2/scripts.inc"
+	.include "data/maps/TeenageDaydream3/scripts.inc"
+	.include "data/maps/TeenageDaydream4/scripts.inc"
+	.include "data/maps/TeenageDaydream5/scripts.inc"

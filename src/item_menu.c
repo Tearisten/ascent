@@ -3164,6 +3164,7 @@ static const u16 sItemsByType[ITEMS_COUNT] =
 
         // custom evo stones
         [ITEM_MID_EVO_STONE] = ITEM_TYPE_EVOLUTION_STONE,
+        [ITEM_2SF_EVO_STONE] = ITEM_TYPE_EVOLUTION_STONE,
     #endif
 };
 

@@ -2659,10 +2659,10 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     {SPECIES_FOONGUS, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_CROAGUNK, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_ABRA, 1, FLAG_ROOM_3_CLEAR},
-    {SPECIES_DRIFLOON, 1, FLAG_ROOM_3_CLEAR}, 
+    {SPECIES_DRIFLOON, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_VOLTORB, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_FRILLISH, 1, FLAG_ROOM_3_CLEAR},
-    {SPECIES_SLOWPOKE, 1, FLAG_ROOM_3_CLEAR},
+    //{SPECIES_SLOWPOKE, 1, FLAG_ROOM_3_CLEAR}, two evos woops
     
 
     // Little cup 5
@@ -2675,7 +2675,6 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     {SPECIES_STUNKY, 1, FLAG_ROOM_4_CLEAR},
     
 
-    
     // Growing Pains 1 
     // guaranteed to get a weather setter with only 2nd stage evo
     {SPECIES_BALTOY, 1, FLAG_ROOM_5_CLEAR},

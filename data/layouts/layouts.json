@@ -4530,6 +4530,56 @@
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/battleTest2/border.bin",
       "blockdata_filepath": "data/layouts/battleTest2/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEENAGE_DAYDREAM1",
+      "name": "teenageDaydream1_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest3/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEENAGE_DAYDREAM2",
+      "name": "teenageDaydream2_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest3/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEENAGE_DAYDREAM3",
+      "name": "teenageDaydream3_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest3/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEENAGE_DAYDREAM4",
+      "name": "teenageDaydream4_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest3/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEENAGE_DAYDREAM5",
+      "name": "teenageDaydream5_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest3/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest3/map.bin"
     }
   ]
 }
