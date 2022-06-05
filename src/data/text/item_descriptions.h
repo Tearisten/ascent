@@ -378,8 +378,10 @@ static const u8 sAbilityCapsuleDesc[] = _(
     "Switches a Poké-\n"
     "mon's ability.");
 
-static const u8 sAbilityPatchDesc[] = _( // Todo
-    "?????");
+static const u8 sAbilityPatchDesc[] = _(
+    "Switches to and\n"
+    "from a Pokémon's\n"
+    "hidden ability.");
 
 // Mints
 static const u8 sLonelyMintDesc[] = _( // Todo

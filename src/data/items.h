@@ -1023,15 +1023,15 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_AbilityCapsule,
     },
 
-    [ITEM_ABILITY_PATCH] = // Todo
+    [ITEM_ABILITY_PATCH] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("AbilityPatch"),
+        .itemId = ITEM_ABILITY_PATCH,
+        .price = 5000,
+        .description = sAbilityPatchDesc,
         .pocket = POCKET_POKE_BALLS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_AbilityPatch,
     },
 
 // Mints
@@ -1872,7 +1872,7 @@ const struct Item gItems[] =
         .itemId = ITEM_HEART_SCALE,
         .price = 100,
         .description = sHeartScaleDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },

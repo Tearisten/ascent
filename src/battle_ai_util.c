@@ -300,6 +300,9 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_WATER_LILY] = 4,
     [ABILITY_STATIC_SHOCK] = 4,
     [ABILITY_BRAND] = 4,
+    [ABILITY_VAMPIRE] = 6,
+    [ABILITY_HOLY_AURA] = 7,
+    [ABILITY_SILVER_SPOON] = 5,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
