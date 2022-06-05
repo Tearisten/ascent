@@ -6391,6 +6391,7 @@ const struct Item gItems[] =
         .itemId = ITEM_NONE,
         .price = 0,
         .description = sDummyDesc,
+        .holdEffect = HOLD_EFFECT_THROAT_SPRAY,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

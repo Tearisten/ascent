@@ -9269,6 +9269,12 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
     case HOLD_EFFECT_LIFE_ORB:
         MulModifier(&finalModifier, UQ_4_12(1.3));
         break;
+    case HOLD_EFFECT_THROAT_SPRAY:
+        if (gBattleMoves[move].flags & FLAG_SOUND)
+        {
+            MulModifier(&finalModifier, UQ_4_12(1.3));
+        }
+        break;
     }
 
     // target's hold effect
