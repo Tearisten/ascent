@@ -860,7 +860,7 @@ static const struct ListMenuItem natureList[] =
     {sQuietNatureName,NATURE_QUIET},
     {sLonelyNatureName, NATURE_LONELY},
     {sNaughtyNatureName,NATURE_NAUGHTY},
-    {sDocileNatureName,NATURE_RELAXED},
+    {sRelaxedNatureName,NATURE_RELAXED},
     {sLaxNatureName,NATURE_LAX},
     {sHastyNatureName,NATURE_HASTY},
     {sNaiveNatureName,NATURE_NAIVE},
