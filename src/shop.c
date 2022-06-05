@@ -325,7 +325,7 @@ static const struct itemFlagMap itemToFlag[] =
 {
 
     // test
-    {ITEM_FIGY_BERRY, FLAG_ALL_STARTERS},
+    //{ITEM_BRASS_KNUCKLES, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
@@ -401,7 +401,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_FIGY_BERRY, FLAG_ROOM_14_CLEAR},
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
-    //life orb, choice items
+    //life orb, choice items, throat spray, brass knuckles
 
 };
 

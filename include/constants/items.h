@@ -993,8 +993,9 @@
 #define ITEM_2SF_EVO_STONE 768
 #define ITEM_HEEL_COVER 769
 #define ITEM_THERMOSTAT 770
+#define ITEM_BRASS_KNUCKLES 771
 
-#define ITEMS_COUNT 771
+#define ITEMS_COUNT 772
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

@@ -3671,3 +3671,8 @@ static const u8 sThermostatDesc[] = _(
     "Extends the length\n"
     "of any weather\n"
     "used by the holder.");
+
+static const u8 sBrassKnucklesDesc[] = _(
+    "Boost contact move\n"
+    "damage by 25\n"
+    "percent.");

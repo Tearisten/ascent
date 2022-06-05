@@ -6387,10 +6387,10 @@ const struct Item gItems[] =
 
     [ITEM_THROAT_SPRAY] = // Todo
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("Throat Spray"),
+        .itemId = ITEM_THROAT_SPRAY,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sThroatSprayDesc,
         .holdEffect = HOLD_EFFECT_THROAT_SPRAY,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -6414,7 +6414,7 @@ const struct Item gItems[] =
         .itemId = ITEM_HEAVY_DUTY_BOOTS,
         .holdEffect = HOLD_EFFECT_HEAVY_DUTY_BOOTS,
         .price = 3800,
-        .description = sDummyDesc,
+        .description = sHeavyDutyBootsDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -9585,4 +9585,15 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
     
+    [ITEM_BRASS_KNUCKLES] =
+    {
+        .name = _("Brass Knx"),
+        .itemId = ITEM_BRASS_KNUCKLES,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_BRASS_KNUCKLES,
+        .description = sBrassKnucklesDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

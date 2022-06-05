@@ -9275,6 +9275,12 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
             MulModifier(&finalModifier, UQ_4_12(1.3));
         }
         break;
+    case HOLD_EFFECT_BRASS_KNUCKLES:
+        if (gBattleMoves[move].flags & FLAG_MAKES_CONTACT)
+        {
+            MulModifier(&finalModifier, UQ_4_12(1.25));
+        }
+        break;
     }
 
     // target's hold effect
