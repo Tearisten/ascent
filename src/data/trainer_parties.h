@@ -8,7 +8,7 @@ static const struct TrainerMon sParty_Tester[] = {
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 0,
-    .moves = {MOVE_FLAMETHROWER, MOVE_SURF, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_SUNNY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     }
 };
@@ -1331,7 +1331,7 @@ static const struct TrainerMon sParty_GP_2_Mid[] = {
 static const struct TrainerMon sParty_GP_2_Elite[] = {
     {
         .species = SPECIES_POLIWHIRL,
-        .heldItem = ITEM_DAMP_ROCK,
+        .heldItem = ITEM_THERMOSTAT,
         .ability = ABILITY_HIDDEN, // drizzle
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,

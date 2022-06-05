@@ -323,6 +323,11 @@ struct itemFlagMap
 
 static const struct itemFlagMap itemToFlag[] =
 {
+
+    // test
+    {ITEM_THERMOSTAT, FLAG_ALL_STARTERS},
+    {ITEM_DAMP_ROCK, FLAG_ALL_STARTERS},
+    
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
     {ITEM_2SF_EVO_STONE, FLAG_ROOM_10_CLEAR}, // start of area 3
@@ -360,10 +365,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_BLACK_SLUDGE, FLAG_ROOM_6_CLEAR},
 
     // Room 8
-    {ITEM_HEAT_ROCK, FLAG_ROOM_7_CLEAR},
-    {ITEM_ICY_ROCK, FLAG_ROOM_7_CLEAR},
-    {ITEM_SMOOTH_ROCK, FLAG_ROOM_7_CLEAR},
-    {ITEM_DAMP_ROCK, FLAG_ROOM_7_CLEAR},
+    {ITEM_THERMOSTAT, FLAG_ROOM_7_CLEAR},
 
     // Room 9
     {ITEM_FOCUS_SASH, FLAG_ROOM_8_CLEAR},
@@ -387,7 +389,7 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 13
     {ITEM_POWER_HERB, FLAG_ROOM_12_CLEAR},
     {ITEM_WHITE_HERB, FLAG_ROOM_12_CLEAR},
-    {ITEM_HEEL_COVER, FLAG_ALL_STARTERS}, //test code
+    {ITEM_HEEL_COVER, FLAG_ROOM_12_CLEAR},
 
     // Room 14
     {ITEM_ASSAULT_VEST, FLAG_ROOM_13_CLEAR},

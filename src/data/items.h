@@ -6443,7 +6443,7 @@ const struct Item gItems[] =
 
     [ITEM_UTILITY_UMBRELLA] =
     {
-        .name = _("Utility Umbrla"),
+        .name = _("Utlty Umbrla"),
         .itemId = ITEM_UTILITY_UMBRELLA,
         .price = 2400,
         .holdEffect = HOLD_EFFECT_UTILITY_UMBRELLA,
@@ -9572,4 +9572,15 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
     
+    [ITEM_THERMOSTAT] =
+    {
+        .name = _("Thermostat"),
+        .itemId = ITEM_THERMOSTAT,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_THERMOSTAT,
+        .description = sThermostatDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

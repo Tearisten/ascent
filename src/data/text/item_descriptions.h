@@ -3663,3 +3663,8 @@ static const u8 sHeelCoverDesc[] = _(
     "A hold item that\n"
     "removes 4x weakness\n"
     "to attacks");
+
+static const u8 sThermostatDesc[] = _(
+    "Extends the length\n"
+    "of any weather\n"
+    "used by the holder.");
