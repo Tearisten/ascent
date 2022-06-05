@@ -218,6 +218,8 @@ PokeShop_TryPurchasePrize::
 
 PokeShop_NotEnoughBP::
 	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
+	special CloseFrontierExchangeCornerItemIconWindow
+	special CloseBattlePointsWindow
 	waitmessage
 	releaseall
 	end
