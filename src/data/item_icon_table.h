@@ -822,5 +822,6 @@ const u32 *const gItemIconTable[][2] =
     // Custom evo stones
     [ITEM_MID_EVO_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone}, // Todo, shiny stone for now
     [ITEM_2SF_EVO_STONE] = {gItemIcon_DuskStone, gItemIconPalette_DuskStone}, // Todo, shiny stone for now
+    [ITEM_HEEL_COVER] = {gItemIcon_BindingBand, gItemIconPalette_BindingBand},
 
 };

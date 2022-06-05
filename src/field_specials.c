@@ -2625,10 +2625,9 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
 {
     // Little cup 1
     // empty because starters only
-    // perhaps give more pokemon ally switch?
     
     //test
-    //{SPECIES_ZAPDOS, 1, FLAG_ALL_STARTERS},
+    {SPECIES_SCIZOR, 1, FLAG_ALL_STARTERS},
 
     // Little cup 2
     {SPECIES_POOCHYENA, 1, FLAG_ROOM_1_CLEAR},

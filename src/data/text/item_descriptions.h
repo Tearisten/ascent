@@ -3654,3 +3654,8 @@ static const u8 s2SFEvoStoneDesc[] = _(
     "Evolves 2 stage\n"
     "Pokemon into their\n"
     "final stage.");
+
+static const u8 sHeelCoverDesc[] = _(
+    "A hold item that\n"
+    "removes 4x weakness\n"
+    "to attacks");

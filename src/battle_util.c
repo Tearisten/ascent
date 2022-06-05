@@ -9287,7 +9287,6 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
             if (updateFlags)
                 gSpecialStatuses[battlerDef].berryReduced = TRUE;
         }
-        break;
     }
 
     if (gBattleMoves[move].flags & FLAG_DMG_MINIMIZE    && gStatuses3[battlerDef] & STATUS3_MINIMIZED)
@@ -9499,6 +9498,10 @@ static u16 CalcTypeEffectivenessMultiplierInternal(u16 move, u8 moveType, u8 bat
             RecordAbilityBattle(battlerDef, gBattleMons[battlerDef].ability);
         }
     }
+
+    // if hold item is heel guard
+    if (modifier >= UQ_4_12(4.0) && GetBattlerHoldEffectParam(battlerDef) == NUMBER_OF_MON_TYPES)
+        modifier = UQ_4_12(1.0);
 
     return modifier;
 }

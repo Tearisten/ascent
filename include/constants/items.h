@@ -991,8 +991,9 @@
 #define ITEM_HOURGLASS 766
 #define ITEM_MID_EVO_STONE 767
 #define ITEM_2SF_EVO_STONE 768
+#define ITEM_HEEL_COVER 769
 
-#define ITEMS_COUNT 769
+#define ITEMS_COUNT 770
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

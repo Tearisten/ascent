@@ -9546,7 +9546,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
     },
 
-        [ITEM_2SF_EVO_STONE] =
+    [ITEM_2SF_EVO_STONE] =
     {
         .name = _("2SF Evo Stone"),
         .itemId = ITEM_2SF_EVO_STONE,
@@ -9555,6 +9555,19 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_HEEL_COVER] =
+    {
+        .name = _("Heel Guard"),
+        .itemId = ITEM_HEEL_COVER,
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_RESIST_BERRY,
+        .holdEffectParam = NUMBER_OF_MON_TYPES,
+        .description = sHeelCoverDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
     
 };
