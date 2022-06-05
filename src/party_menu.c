@@ -3179,7 +3179,6 @@ static void Task_SwitchHoldItemsPrompt(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        DisplayAlreadyHoldingItemSwitchMessage(&gPlayerParty[gPartyMenu.slotId], sPartyMenuItemId, TRUE);
         gTasks[taskId].func = Task_SwitchItemsYesNo;
     }
 }
@@ -3188,7 +3187,6 @@ static void Task_SwitchItemsYesNo(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSwitchItemsYesNoInput;
     }
 }
@@ -5742,7 +5740,6 @@ static void TryGiveItemOrMailToSelectedMon(u8 taskId)
     }
     else
     {
-        DisplayAlreadyHoldingItemSwitchMessage(&gPlayerParty[gPartyMenu.slotId], sPartyMenuItemId, TRUE);
         gTasks[taskId].func = Task_SwitchItemsFromBagYesNo;
     }
 }
@@ -5836,7 +5833,7 @@ static void Task_SwitchItemsFromBagYesNo(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        PartyMenuDisplayYesNoMenu();
+        //PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSwitchItemsFromBagYesNoInput;
     }
 }
@@ -5844,37 +5841,25 @@ static void Task_SwitchItemsFromBagYesNo(u8 taskId)
 static void Task_HandleSwitchItemsFromBagYesNoInput(u8 taskId)
 {
     u16 item;
-
-    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    item = gPartyMenu.bagItem;
+    RemoveItemToGiveFromBag(item);
+    if (AddBagItem(sPartyMenuItemId, 1) == FALSE)
     {
-    case 0: // Yes, switch items
-        item = gPartyMenu.bagItem;
-        RemoveItemToGiveFromBag(item);
-        if (AddBagItem(sPartyMenuItemId, 1) == FALSE)
-        {
-            ReturnGiveItemToBagOrPC(item);
-            BufferBagFullCantTakeItemMessage(sPartyMenuItemId);
-            DisplayPartyMenuMessage(gStringVar4, FALSE);
-            gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
-        }
-        else if (ItemIsMail(item))
-        {
-            sPartyMenuInternal->exitCallback = CB2_WriteMailToGiveMonFromBag;
-            Task_ClosePartyMenu(taskId);
-        }
-        else
-        {
-            GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], item);
-            DisplaySwitchedHeldItemMessage(item, sPartyMenuItemId, TRUE);
-            gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
-        }
-        break;
-    case MENU_B_PRESSED:
-        PlaySE(SE_SELECT);
-        // fallthrough
-    case 1: // No, dont switch items
+        ReturnGiveItemToBagOrPC(item);
+        BufferBagFullCantTakeItemMessage(sPartyMenuItemId);
+        DisplayPartyMenuMessage(gStringVar4, FALSE);
         gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
-        break;
+    }
+    else if (ItemIsMail(item))
+    {
+        sPartyMenuInternal->exitCallback = CB2_WriteMailToGiveMonFromBag;
+        Task_ClosePartyMenu(taskId);
+    }
+    else
+    {
+        GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], item);
+        DisplaySwitchedHeldItemMessage(item, sPartyMenuItemId, TRUE);
+        gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
     }
 }
 
