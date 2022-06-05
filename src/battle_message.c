@@ -741,6 +741,7 @@ static const u8 sText_HazardCrewActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} cle
 static const u8 sText_GiftOfWindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} brings the\ngift of tailwind!");
 static const u8 sText_KillingSpreeText[] = _("{B_ATK_NAME_WITH_PREFIX} is unstoppable!\n They won't need to recharge.");
 static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s Sp. ATTACK!");
+static const u8 sText_SilverSpoonActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} feels safe\non the switch!");
 
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1350,7 +1351,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GIFTOFWIND - 12] = sText_GiftOfWindActivateText,
     [STRINGID_KILLINGSPREE - 12] = sText_KillingSpreeText,
     [STRINGID_PKMNCUTSSPATTACKWITH - 12] = sText_PkmnCutsSpAttackWith,
-    [STRING_ID_HEALSWITHVAMPIRE - 12] = sText_PkmnRestoredHPUsingVampire,
+    [STRINGID_HEALSWITHVAMPIRE - 12] = sText_PkmnRestoredHPUsingVampire,
+    [STRINGID_SILVERSPOON - 12] = sText_SilverSpoonActivateText,
+
 };
 
 const u16 gMentalHerbCureStringIds[] = 

@@ -1588,6 +1588,12 @@ BattleScript_HCTryHazards::
 BattleScript_NoHazards::
 	end3
 
+BattleScript_SilverSpoonActivates::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_SILVERSPOON
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_EffectCopycat:
 	attackcanceler
 	attackstring
@@ -8100,7 +8106,7 @@ BattleScript_VampireHPDrain::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
-	printstring STRING_ID_HEALSWITHVAMPIRE
+	printstring STRINGID_HEALSWITHVAMPIRE
 	waitmessage B_WAIT_TIME_LONG
 	orhalfword gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd

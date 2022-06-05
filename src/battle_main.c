@@ -3678,6 +3678,13 @@ static void TryDoEventsBeforeFirstTurn(void)
         if (AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gBattlerAttacker, 0, 0, 0) != 0)
             return;
     }
+    // increment entry switch counter so silver spoon won't work on first switch in
+    // but will work on first turn switch outs
+    // this isn't used for anything so it should be fine
+    if (gBattleResults.playerSwitchesCounter < 255)
+    {
+        gBattleResults.playerSwitchesCounter += gBattlersCount;  
+    }
     if (AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE1, 0, 0, 0, 0) != 0)
         return;
     if (AbilityBattleEffects(ABILITYEFFECT_OPRESSION1, 0, 0, 0, 0) != 0)

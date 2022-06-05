@@ -4478,6 +4478,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_SILVER_SPOON:
+            if (!gSpecialStatuses[battler].switchInAbilityDone
+            && gBattleResults.playerSwitchesCounter > 0 // don't activate first turn of battle
+            && gCurrentTurnActionNumber != gBattlersCount-1) // don't actiavate if last move of turn forces switch
+            {
+                //gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_HAZARD_CREW;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SilverSpoonActivates);
+                effect++;
+            }
+            break;
         case ABILITY_HAZARD_CREW:
             if (!gSpecialStatuses[battler].switchInAbilityDone && CanClearHazards(battler))
             {
@@ -7914,6 +7925,9 @@ bool32 IsBattlerProtected(u8 battlerId, u16 move)
         return TRUE;
     else if (gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_MAT_BLOCK
       && !IS_MOVE_STATUS(move))
+        return TRUE;
+    else if (GetBattlerAbility(gBattlerTarget) == ABILITY_SILVER_SPOON
+             && gDisableStructs[gBattlerTarget].isFirstTurn == 2) // just switched in
         return TRUE;
     else
         return FALSE;
