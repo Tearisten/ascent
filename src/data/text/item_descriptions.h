@@ -3678,3 +3678,8 @@ static const u8 sBrassKnucklesDesc[] = _(
     "Boost contact move\n"
     "damage by 25\n"
     "percent.");
+
+static const u8 sGreedyPotDesc[] = _(
+    "Temporarily boost\n"
+    "move prio after\n"
+    "switching in.");

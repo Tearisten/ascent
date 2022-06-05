@@ -162,6 +162,7 @@
 #define HOLD_EFFECT_HOURGLASS           181
 #define HOLD_EFFECT_THERMOSTAT          182
 #define HOLD_EFFECT_BRASS_KNUCKLES      183
+#define HOLD_EFFECT_GREEDY_POT          184
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

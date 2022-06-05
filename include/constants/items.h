@@ -994,8 +994,9 @@
 #define ITEM_HEEL_COVER 769
 #define ITEM_THERMOSTAT 770
 #define ITEM_BRASS_KNUCKLES 771
+#define ITEM_GREEDY_POT 772
 
-#define ITEMS_COUNT 772
+#define ITEMS_COUNT 773
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

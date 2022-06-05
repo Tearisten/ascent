@@ -326,8 +326,8 @@ static const struct itemFlagMap itemToFlag[] =
 
     // test
     //{ITEM_DESTINY_KNOT, FLAG_ALL_STARTERS},
-    {ITEM_ABILITY_CAPSULE, FLAG_ALL_STARTERS},
-    {ITEM_ABILITY_PATCH, FLAG_ALL_STARTERS},
+    //{ITEM_ABILITY_CAPSULE, FLAG_ALL_STARTERS},
+    //{ITEM_GREEDY_POT, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
@@ -337,6 +337,7 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
     {ITEM_SITRUS_BERRY, FLAG_ALL_STARTERS},
+    {ITEM_CUSTAP_BERRY, FLAG_ALL_STARTERS},
 
     // Room 2
     {ITEM_MUSCLE_BAND, FLAG_ROOM_1_CLEAR},
@@ -404,7 +405,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
     //life orb, choice items, throat spray, brass knuckles, ability patchs
-    // adrenaline orb
+    // adrenaline orb, greedy pot
 
 };
 

@@ -7242,7 +7242,7 @@ const struct Item gItems[] =
     {
         .name = _("Custap Berry"),
         .itemId = ITEM_CUSTAP_BERRY,
-        .price = 20,
+        .price = 200,
         .holdEffect = HOLD_EFFECT_CUSTAP_BERRY,
         .holdEffectParam = 4,
         .description = sCustapBerryDesc,
@@ -9592,6 +9592,18 @@ const struct Item gItems[] =
         .price = 4000,
         .holdEffect = HOLD_EFFECT_BRASS_KNUCKLES,
         .description = sBrassKnucklesDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_GREEDY_POT] =
+    {
+        .name = _("Greedy Pot"),
+        .itemId = ITEM_GREEDY_POT,
+        .price = 4800,
+        .holdEffect = HOLD_EFFECT_GREEDY_POT,
+        .description = sGreedyPotDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
