@@ -13,7 +13,7 @@
 #define BALLS_POCKET       1
 #define TMHM_POCKET        2
 #define BERRIES_POCKET     3
-#define KEYITEMS_POCKET    4
-#define POCKETS_COUNT      5
+#define POCKETS_COUNT      4
+#define KEYITEMS_POCKET    5
 
 #endif // GUARD_ITEM_CONSTANTS_H

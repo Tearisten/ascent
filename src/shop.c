@@ -326,6 +326,8 @@ static const struct itemFlagMap itemToFlag[] =
 
     // test
     //{ITEM_DESTINY_KNOT, FLAG_ALL_STARTERS},
+    {ITEM_ABILITY_CAPSULE, FLAG_ALL_STARTERS},
+    {ITEM_MID_EVO_STONE, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2

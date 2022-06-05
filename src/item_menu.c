@@ -311,7 +311,7 @@ static const struct MenuAction sItemMenuActions[] = {
 // ACTION_DUMMY is used to represent blank spaces
 static const u8 sContextMenuItems_ItemsPocket[] = {
     ACTION_USE,         ACTION_GIVE,
-    ACTION_TOSS,        ACTION_CANCEL
+    ACTION_DUMMY,       ACTION_CANCEL
 };
 
 static const u8 sContextMenuItems_KeyItemsPocket[] = {
@@ -325,8 +325,7 @@ static const u8 sContextMenuItems_BallsPocket[] = {
 };
 
 static const u8 sContextMenuItems_TmHmPocket[] = {
-    ACTION_USE,         ACTION_GIVE,
-    ACTION_DUMMY,       ACTION_CANCEL
+    ACTION_USE
 };
 
 static const u8 sContextMenuItems_BerriesPocket[] = {
@@ -1702,14 +1701,14 @@ static void OpenContextMenu(u8 taskId)
         FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
         BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
     }
-    if (gBagMenu->contextMenuNumItems == 1)
-        PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x1));
-    else if (gBagMenu->contextMenuNumItems == 2)
-        PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x2));
-    else if (gBagMenu->contextMenuNumItems == 4)
-        PrintContextMenuItemGrid(BagMenu_AddWindow(ITEMWIN_2x2), 2, 2);
-    else
-        PrintContextMenuItemGrid(BagMenu_AddWindow(ITEMWIN_2x3), 2, 3);
+    // if (gBagMenu->contextMenuNumItems == 1)
+    //     PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x1));
+    // else if (gBagMenu->contextMenuNumItems == 2)
+    //     PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x2));
+    // else if (gBagMenu->contextMenuNumItems == 4)
+    //     PrintContextMenuItemGrid(BagMenu_AddWindow(ITEMWIN_2x2), 2, 2);
+    // else
+    //     PrintContextMenuItemGrid(BagMenu_AddWindow(ITEMWIN_2x3), 2, 3);
 }
 
 static void PrintContextMenuItems(u8 windowId)
@@ -1738,21 +1737,30 @@ static void Task_ItemContext_Normal(u8 taskId)
 
 static void Task_ItemContext_SingleRow(u8 taskId)
 {
+    // keep tms the same?
     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
     {
-        s8 selection = Menu_ProcessInputNoWrap();
-        switch (selection)
+        if (gBagPosition.pocket + 1 == POCKET_BERRIES)
         {
-        case MENU_NOTHING_CHOSEN:
-            break;
-        case MENU_B_PRESSED:
-            PlaySE(SE_SELECT);
-            sItemMenuActions[ACTION_CANCEL].func.void_u8(taskId);
-            break;
-        default:
-            PlaySE(SE_SELECT);
-            sItemMenuActions[gBagMenu->contextMenuItemsPtr[selection]].func.void_u8(taskId);
-            break;
+            sItemMenuActions[ACTION_GIVE].func.void_u8(taskId);
+        }
+        else if (gBagPosition.pocket + 1 == POCKET_TM_HM)
+        {
+            PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x1));
+            s8 selection = Menu_ProcessInputNoWrap();
+            switch (selection)
+            {
+                case MENU_NOTHING_CHOSEN:
+                    break;
+                case MENU_B_PRESSED:
+                    PlaySE(SE_SELECT);
+                    sItemMenuActions[ACTION_CANCEL].func.void_u8(taskId);
+                    break;
+                default:
+                    PlaySE(SE_SELECT);
+                    sItemMenuActions[gBagMenu->contextMenuItemsPtr[selection]].func.void_u8(taskId);
+                    break;
+            }
         }
     }
 }
@@ -1761,48 +1769,16 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
 {
     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
     {
-        s8 cursorPos = Menu_GetCursorPos();
-        if (JOY_NEW(DPAD_UP))
+        PlaySE(SE_SELECT);
+        // for use items
+        if (gBagPosition.pocket + 1 == POCKET_POKE_BALLS)
         {
-            if (cursorPos > 0 && IsValidContextMenuPos(cursorPos - 2))
-            {
-                PlaySE(SE_SELECT);
-                ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_UP);
-            }
+            sItemMenuActions[ACTION_USE].func.void_u8(taskId);
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        // for hold items
+        else if (gBagPosition.pocket + 1 == POCKET_ITEMS)
         {
-            if (cursorPos < (gBagMenu->contextMenuNumItems - 2) && IsValidContextMenuPos(cursorPos + 2))
-            {
-                PlaySE(SE_SELECT);
-                ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_DOWN);
-            }
-        }
-        else if (JOY_NEW(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
-        {
-            if ((cursorPos & 1) && IsValidContextMenuPos(cursorPos - 1))
-            {
-                PlaySE(SE_SELECT);
-                ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_LEFT, MENU_CURSOR_DELTA_NONE);
-            }
-        }
-        else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
-        {
-            if (!(cursorPos & 1) && IsValidContextMenuPos(cursorPos + 1))
-            {
-                PlaySE(SE_SELECT);
-                ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_RIGHT, MENU_CURSOR_DELTA_NONE);
-            }
-        }
-        else if (JOY_NEW(A_BUTTON))
-        {
-            PlaySE(SE_SELECT);
-            sItemMenuActions[gBagMenu->contextMenuItemsPtr[cursorPos]].func.void_u8(taskId);
-        }
-        else if (JOY_NEW(B_BUTTON))
-        {
-            PlaySE(SE_SELECT);
-            sItemMenuActions[ACTION_CANCEL].func.void_u8(taskId);
+            sItemMenuActions[ACTION_GIVE].func.void_u8(taskId);
         }
     }
 }
