@@ -2397,8 +2397,10 @@ static const u8 sThroatSprayDesc[] = _( // Todo
 static const u8 sEjectPackDesc[] = _( // Todo
     "?????");
 
-static const u8 sHeavyDutyBootsDesc[] = _( // Todo
-    "?????");
+static const u8 sHeavyDutyBootsDesc[] = _(
+    "A hold item that\n"
+    "makes user immune\n"
+    "to entry hazards.");
 
 static const u8 sBlunderPolicyDesc[] = _( // Todo
     "?????");
@@ -2406,8 +2408,10 @@ static const u8 sBlunderPolicyDesc[] = _( // Todo
 static const u8 sRoomServiceDesc[] = _( // Todo
     "?????");
 
-static const u8 sUtilityUmbrellaDesc[] = _( // Todo
-    "?????");
+static const u8 sUtilityUmbrellaDesc[] = _(
+    "A hold item that\n"
+    "prevents chip\n"
+    "from weather");
 
 // Berries
 static const u8 sCheriBerryDesc[] = _(

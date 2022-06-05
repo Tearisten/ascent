@@ -382,6 +382,7 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 12
     {ITEM_TERRAIN_EXTENDER, FLAG_ROOM_11_CLEAR},
     {ITEM_LIGHT_CLAY, FLAG_ROOM_11_CLEAR},
+    {ITEM_UTILITY_UMBRELLA, FLAG_ROOM_11_CLEAR},
 
     // Room 13
     {ITEM_POWER_HERB, FLAG_ROOM_12_CLEAR},
@@ -391,6 +392,7 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 14
     {ITEM_ASSAULT_VEST, FLAG_ROOM_13_CLEAR},
     {ITEM_PLATE_MAIL, FLAG_ROOM_13_CLEAR},
+    {ITEM_HEAVY_DUTY_BOOTS, FLAG_ROOM_13_CLEAR},
     {ITEM_SAFETY_GOGGLES, FLAG_ROOM_13_CLEAR},
 
 
@@ -398,7 +400,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_LEFTOVERS, FLAG_ROOM_14_CLEAR},
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
-    //life orb, choice items, heavy dty boots, utility umbrella
+    //life orb, choice items
 
 };
 

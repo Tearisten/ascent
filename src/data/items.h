@@ -6407,11 +6407,12 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_HEAVY_DUTY_BOOTS] = // Todo
+    [ITEM_HEAVY_DUTY_BOOTS] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Hvy Dty Boots"),
+        .itemId = ITEM_HEAVY_DUTY_BOOTS,
+        .holdEffect = HOLD_EFFECT_HEAVY_DUTY_BOOTS,
+        .price = 3800,
         .description = sDummyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -6440,11 +6441,12 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_UTILITY_UMBRELLA] = // Todo
+    [ITEM_UTILITY_UMBRELLA] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Utility Umbrla"),
+        .itemId = ITEM_UTILITY_UMBRELLA,
+        .price = 2400,
+        .holdEffect = HOLD_EFFECT_UTILITY_UMBRELLA,
         .description = sDummyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
