@@ -6115,7 +6115,7 @@ const struct Item gItems[] =
     {
         .name = _("Destiny Knot"),
         .itemId = ITEM_DESTINY_KNOT,
-        .price = 4000,
+        .price = 6000,
         .holdEffect = HOLD_EFFECT_DESTINY_KNOT,
         .description = sDestinyKnotDesc,
         .pocket = POCKET_ITEMS,

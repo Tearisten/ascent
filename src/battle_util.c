@@ -7364,6 +7364,21 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     gBattlescriptCurrInstr = BattleScript_AirBaloonMsgPop;
                 }
                 break;
+            case HOLD_EFFECT_DESTINY_KNOT:
+                if (TARGET_TURN_DAMAGED
+                    && IsMoveMakingContact(gCurrentMove, gBattlerAttacker)
+                    && IsBattlerAlive(gBattlerAttacker)
+                    && !IsBattlerAlive(gBattlerTarget)
+                    && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD)
+                {
+                    effect = ITEM_HP_CHANGE;
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_DestinyKnotActivates;
+                    PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
+                    RecordItemEffectBattle(battlerId, HOLD_EFFECT_DESTINY_KNOT);
+                }
+                break;
             case HOLD_EFFECT_ROCKY_HELMET:
                 if (TARGET_TURN_DAMAGED
                     && IsMoveMakingContact(gCurrentMove, gBattlerAttacker)
