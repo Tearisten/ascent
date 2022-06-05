@@ -2392,7 +2392,10 @@ static const u8 sProtectivePadsDesc[] = _(
     "effects.");
 
 static const u8 sThroatSprayDesc[] = _( // Todo
-    "?????");
+    "Boost Sp. Attack\n"
+    "and deal 1.3x dmg\n"
+    "with sound moves.");
+
 
 static const u8 sEjectPackDesc[] = _( // Todo
     "?????");
