@@ -325,8 +325,7 @@ static const struct itemFlagMap itemToFlag[] =
 {
 
     // test
-    {ITEM_THERMOSTAT, FLAG_ALL_STARTERS},
-    {ITEM_DAMP_ROCK, FLAG_ALL_STARTERS},
+    {ITEM_FIGY_BERRY, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
@@ -397,9 +396,9 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_HEAVY_DUTY_BOOTS, FLAG_ROOM_13_CLEAR},
     {ITEM_SAFETY_GOGGLES, FLAG_ROOM_13_CLEAR},
 
-
     // Room 15
     {ITEM_LEFTOVERS, FLAG_ROOM_14_CLEAR},
+    {ITEM_FIGY_BERRY, FLAG_ROOM_14_CLEAR},
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
     //life orb, choice items

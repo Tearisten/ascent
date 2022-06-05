@@ -2465,9 +2465,9 @@ static const u8 sSitrusBerryDesc[] = _(
     "in battle.");
 
 static const u8 sFigyBerryDesc[] = _(
-    "A hold item that\n"
-    "restores HP but\n"
-    "may confuse.");
+    "Restores 50\n"
+    "percent hp\n"
+    "in battle.");
 
 static const u8 sWikiBerryDesc[] = _(
     "A hold item that\n"

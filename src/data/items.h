@@ -6607,9 +6607,9 @@ const struct Item gItems[] =
     {
         .name = _("Figy Berry"),
         .itemId = ITEM_FIGY_BERRY,
-        .price = 20,
-        .holdEffect = HOLD_EFFECT_CONFUSE_SPICY,
-        .holdEffectParam = 8,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_RESTORE_PCT_HP,
+        .holdEffectParam = 50,
         .description = sFigyBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -9583,4 +9583,5 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+    
 };
