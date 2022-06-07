@@ -6178,6 +6178,7 @@ bool32 CanBeBurned(u8 battlerId)
       || ability == ABILITY_WATER_VEIL
       || ability == ABILITY_WATER_BUBBLE
       || ability == ABILITY_COMATOSE
+      || ability == ABILITY_HEATPROOF
       || IsAbilityStatusProtected(battlerId)
       || IsBattlerTerrainAffected(battlerId, STATUS_FIELD_MISTY_TERRAIN))
         return FALSE;

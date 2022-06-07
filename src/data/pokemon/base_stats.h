@@ -2842,7 +2842,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MINERAL,
         .eggGroup2 = EGG_GROUP_MINERAL,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_TECHNICIAN, ABILITY_LIGHTNING_ROD, ABILITY_NO_GUARD},
+            .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_TECHNICIAN, ABILITY_NO_GUARD},
         #else
             .abilities = {ABILITY_SOUNDPROOF, ABILITY_STATIC},
         #endif
@@ -2874,7 +2874,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MINERAL,
         .eggGroup2 = EGG_GROUP_MINERAL,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_TECHNICIAN, ABILITY_LIGHTNING_ROD, ABILITY_NO_GUARD}, //zap cannon?
+            .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_TECHNICIAN, ABILITY_NO_GUARD}, //zap cannon?
         #else
             .abilities = {ABILITY_SOUNDPROOF, ABILITY_STATIC},
         #endif
