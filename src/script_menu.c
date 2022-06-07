@@ -871,6 +871,20 @@ static const struct ListMenuItem natureList[] =
     {sSeriousNatureName,NATURE_SERIOUS},
 };
 
+
+// couldn't include the def file for these names due to compile issues, not worth fixing
+// also they are in all caps so f
+static const u8 Name_LittleCup[] = _("Little Cup");
+static const u8 Name_GrowingPains[] = _("Growing Pains");
+static const u8 Name_TeenageDaydream[] = _("Teenage Daydream");
+
+static const struct ListMenuItem pokeShopTypes[] =
+{
+    {Name_LittleCup, FLAG_ALL_STARTERS},
+    {Name_GrowingPains, FLAG_ROOM_5_CLEAR},
+    {Name_TeenageDaydream, FLAG_ROOM_10_CLEAR}
+};
+
 static const u8 sText_Easy[] = _("Easy");
 static const u8 sText_Normal[] = _("Normal");
 static const u8 sText_Hard[] = _("Hard");
@@ -894,7 +908,8 @@ struct
     {statIVList, ARRAY_COUNT(statIVList)},//3
     {statIVNums, ARRAY_COUNT(statIVNums)},//4
     {natureList, ARRAY_COUNT(natureList)},//5
-    {DifficultyList, ARRAY_COUNT(DifficultyList)}//6
+    {DifficultyList, ARRAY_COUNT(DifficultyList)},//6
+    {pokeShopTypes, ARRAY_COUNT(pokeShopTypes)}//7
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);

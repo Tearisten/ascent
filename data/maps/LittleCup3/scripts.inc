@@ -53,6 +53,7 @@ LittleCup3_Nuzlocke_gift:
 	case NO, MoveRelearners_EventScript_CantTeach
 	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8004, FLOORFLAG_PREV @ previous floor clear flag
+	setorcopyvar VAR_0x8002, 0 @ which nz shop is it?
 	special NuzlockeGift
 	setorcopyvar VAR_0x8004, VAR_RESULT
 	bufferspeciesname STR_VAR_1, VAR_RESULT

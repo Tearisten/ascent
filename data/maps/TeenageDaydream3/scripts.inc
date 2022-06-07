@@ -58,6 +58,7 @@ TeenageDaydream3_Nuzlocke_gift:
 	switch VAR_RESULT
 	case NO, MoveRelearners_EventScript_CantTeach
 	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8002, 2 @ which nz shop is it?
 	setorcopyvar VAR_0x8004, FLOORFLAG_PREV @ previous floor clear flag
 	special NuzlockeGift
 	setorcopyvar VAR_0x8004, VAR_RESULT

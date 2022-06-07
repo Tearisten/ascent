@@ -1,5 +1,6 @@
 @ this floors specific battle data
 @ copy from here down for new maps
+@ also set the nz gift to the right area
 .set ROOM_BATTLE_COUNT, 2
 .set ROOM_BATTLE_TYPE, 2
 .set FLOORMONEY, 3200
@@ -48,14 +49,26 @@ TeenageDaydream1_PokeShop_event::
 
 @ unused since no gifts on this floor
 TeenageDaydream1_Nuzlocke_gift: 
-	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
+	msgbox Nuzlocke_gift_text_confirm, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, MoveRelearners_EventScript_CantTeach
+	case MULTI_B_PRESSED, MoveRelearners_EventScript_CantTeach
+	setorcopyvar VAR_0x8002, 2 @ which nz shop is it?
 	setorcopyvar VAR_0x8004, FLOORFLAG_PREV @ previous floor clear flag
 	special NuzlockeGift
-	showmonpic VAR_RESULT, 5, 5
+	setorcopyvar VAR_0x8004, VAR_RESULT
 	bufferspeciesname STR_VAR_1, VAR_RESULT
+	setorcopyvar VAR_0x8007, VAR_0x8004 @setname for pic
+	setorcopyvar VAR_0x8008, 0 @is shiny
+	special ShowFrontierExchangeCornerItemIconWindow
+	special FillFrontierPokeBlock
 	msgbox Nuzlocke_gift_text, MSGBOX_DEFAULT
-	waitmessage
+	waitbuttonpress
+	givemon VAR_0x8004, 50, ITEM_NONE
 	hidemonpic
+	special CloseFrontierExchangeCornerItemIconWindow
+	setflag FLAG_NUZ_GIFT
 	releaseall
 	end
 

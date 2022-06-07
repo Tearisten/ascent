@@ -8719,7 +8719,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PURE_POWER, ABILITY_NONE, ABILITY_TELEPATHY},
+            .abilities = {ABILITY_TELEPATHY, ABILITY_INTREPID_SWORD, ABILITY_HUGE_POWER},
         #else
             .abilities = {ABILITY_PURE_POWER, ABILITY_NONE},
         #endif
@@ -8747,7 +8747,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PURE_POWER, ABILITY_TECHNICIAN, ABILITY_TELEPATHY},
+            .abilities = {ABILITY_TELEPATHY, ABILITY_INTREPID_SWORD, ABILITY_HUGE_POWER},
         #else
             .abilities = {ABILITY_PURE_POWER, ABILITY_NONE},
         #endif

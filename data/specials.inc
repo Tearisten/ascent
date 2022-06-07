@@ -547,3 +547,4 @@ gSpecials::
 	def_special isShiny
 	def_special NuzlockeGift
 	def_special GiveNzStarter
+	def_special ShowPokeShopSelector

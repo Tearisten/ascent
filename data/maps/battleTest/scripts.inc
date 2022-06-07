@@ -171,15 +171,12 @@ ItemShop_event::
 	releaseall
 	end
 
-PokeShop_event::
-	lock
-	faceplayer
+PokeShop_event_multi::
 	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK
 	special ShowBattlePointsWindow
 	setvar VAR_0x8004, SCROLL_MULTI_POKESHOP
+	special ShowScrollableMultichoice @turned into a pokeshop command
 	special ShowFrontierExchangeCornerItemIconWindow 
-	@msgbox NatureChange_text, MSGBOX_DEFAULT // for adding movedata to menu maybe?
-	special ShowScrollableMultichoice
 	waitstate
 	setorcopyvar VAR_0x8007, VAR_RESULT
 	setorcopyVar VAR_0x8008, 0
@@ -194,12 +191,47 @@ PokeShop_event::
 	case MULTI_B_PRESSED, PokeShop_Deny
 	end
 
+PokeShop_event::
+	scrollingmultichoice 7, 1, 1, 3, TRUE
+	switch VAR_RESULT
+	case MULTI_B_PRESSED, MakeShiny_Deny
+	case FLAG_ALL_STARTERS, showpokeshopLC
+	case FLAG_ROOM_5_CLEAR, showpokeshopGP
+	case FLAG_ROOM_10_CLEAR, showpokeshopTD
+	@else unsure
+	goto PokeShop_experience_event
+
+showpokeshopLC::
+	goto_if_unset FLAG_ALL_STARTERS, PokeShop_experience_event
+	setvar 0x8002, 0 @which pokeshop to use
+	goto PokeShop_event_multi
+
+showpokeshopGP::
+	goto_if_unset FLAG_ROOM_5_CLEAR, PokeShop_experience_event
+	setvar 0x8002, 1 @which pokeshop to use
+	goto PokeShop_event_multi
+
+showpokeshopTD::
+	goto_if_unset FLAG_ROOM_10_CLEAR, PokeShop_experience_event
+	setvar 0x8002, 2 @which pokeshop to use
+	goto PokeShop_event_multi
+
 PokeShop_text:
 	.string "Are you sure you want {STR_VAR_1}?$"
 
 PokeShop_Deny::
 	special CloseBattlePointsWindow
 	special CloseFrontierExchangeCornerItemIconWindow
+	releaseall
+	end
+
+PokeShop_experience_text:
+	.string "You must prove yourself to access\n"
+	.string "this shop. Come back later.$"
+
+PokeShop_experience_event::
+	msgbox PokeShop_experience_text, MSGBOX_DEFAULT
+	waitmessage
 	releaseall
 	end
 

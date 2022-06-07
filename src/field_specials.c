@@ -2621,7 +2621,7 @@ struct pokeToFlagMap{
 #define POKE_SHOP_SIZE 100
 #define POKE_SHOP_MAX_TEXT 100
 
-static const struct pokeToFlagMap scrollMultiPokeShop[] = 
+static const struct pokeToFlagMap scrollMultiPokeShopLC[] = 
 {
     // Little cup 1
     // empty because starters only
@@ -2674,6 +2674,10 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     {SPECIES_STUNKY, 1, FLAG_ROOM_4_CLEAR},
     
 
+};
+
+static const struct pokeToFlagMap scrollMultiPokeShopGP[] = 
+{
     // Growing Pains 1 
     // guaranteed to get a weather setter with only 2nd stage evo
     {SPECIES_BALTOY, 1, FLAG_ROOM_5_CLEAR},
@@ -2711,7 +2715,26 @@ static const struct pokeToFlagMap scrollMultiPokeShop[] =
     {SPECIES_SUNFLORA, 2, FLAG_ROOM_9_CLEAR},
     {SPECIES_LINOONE_GALARIAN, 2, FLAG_ROOM_9_CLEAR},
     {SPECIES_MEDICHAM, 2, FLAG_ROOM_9_CLEAR},
+};
 
+static const struct pokeToFlagMap scrollMultiPokeShopTD[] = 
+{
+    // Teenage Daydream 1 
+    {SPECIES_ZACIAN, 1, FLAG_ROOM_10_CLEAR},
+};
+
+
+struct
+{
+    const struct pokeToFlagMap *set;
+    int count;
+} 
+static const scrollMultiPokeShopGroups[] = 
+{
+    {scrollMultiPokeShopLC, ARRAY_COUNT(scrollMultiPokeShopLC)},
+    {scrollMultiPokeShopGP, ARRAY_COUNT(scrollMultiPokeShopGP)},
+    {scrollMultiPokeShopTD, ARRAY_COUNT(scrollMultiPokeShopTD)}
+    
 };
 
 
@@ -2724,6 +2747,7 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     struct Task *task = &gTasks[taskId];
     static const u8 sPokeShopMenuStringTemplate[] = _("{DYNAMIC 0}{CLEAR_TO 0x46}{DYNAMIC 1}BP");
     u8 count = 0;
+    u8 areaShop = gSpecialVar_0x8002;
 
     ScriptContext2_Enable();
     sScrollableMultichoice_ScrollOffset = 0;
@@ -2738,19 +2762,19 @@ static void Task_ShowScrollableMultichoice(u8 taskId)
     sFrontierExchangeCorner_NeverRead = 0;
     InitScrollableMultichoice();
 
-    for (width = 0, i = 0; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
+    for (width = 0, i = 0; i < scrollMultiPokeShopGroups[areaShop].count; i++)
     {
-        if (FlagGet(scrollMultiPokeShop[i].flag))
+        if (FlagGet(scrollMultiPokeShopGroups[areaShop].set[i].flag))
         {
             DynamicPlaceholderTextUtil_Reset();
-            StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShop[i].species]);
-            ConvertIntToDecimalStringN(gStringVar2, scrollMultiPokeShop[i].costBP, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            StringCopy(gStringVar1, gSpeciesNames[scrollMultiPokeShopGroups[areaShop].set[i].species]);
+            ConvertIntToDecimalStringN(gStringVar2, scrollMultiPokeShopGroups[areaShop].set[i].costBP, STR_CONV_MODE_RIGHT_ALIGN, 3);
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar2);
             DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sPokeShopMenuStringTemplate);
             StringCopy(finalNames[count], gStringVar4);
             sScrollableMultichoice_ListMenuItem[count].name = finalNames[count];
-            sScrollableMultichoice_ListMenuItem[count].id = scrollMultiPokeShop[i].species;
+            sScrollableMultichoice_ListMenuItem[count].id = scrollMultiPokeShopGroups[areaShop].set[i].species;
             DisplayTextAndGetWidth(sScrollableMultichoice_ListMenuItem[count].name, width);
             count++;
         }
@@ -2871,10 +2895,11 @@ static void CloseScrollableMultichoice(u8 taskId)
     u16 selection;
     struct Task *task = &gTasks[taskId];
     ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
-    for (u8 i = 0; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
+    u8 areaShop = gSpecialVar_0x8002;
+    for (u8 i = 0; i < scrollMultiPokeShopGroups[areaShop].count; i++)
     {
-        if (scrollMultiPokeShop[i].species == sScrollableMultichoice_ListMenuItem[selection].id)
-            gSpecialVar_0x8004 = scrollMultiPokeShop[i].costBP;
+        if (scrollMultiPokeShopGroups[areaShop].set[i].species == sScrollableMultichoice_ListMenuItem[selection].id)
+            gSpecialVar_0x8004 = scrollMultiPokeShopGroups[areaShop].set[i].costBP;
     }
     
     StringCopy(gStringVar1, gSpeciesNames[sScrollableMultichoice_ListMenuItem[selection].id]);
@@ -4690,12 +4715,13 @@ void NuzlockeGift()
     u8 i = 0;
     u32 randomPokesThisFloor[10] = {0};
     u8 totalFloorCount = 0;
+    u8 areaShop = gSpecialVar_0x8002;
     
-    for (i; i < ARRAY_COUNT(scrollMultiPokeShop); i++)
+    for (i; i < scrollMultiPokeShopGroups[areaShop].count; i++)
     {
-        if (scrollMultiPokeShop[i].flag == floorFlag)
+        if (scrollMultiPokeShopGroups[areaShop].set[i].flag == floorFlag)
         {
-            randomPokesThisFloor[totalFloorCount] = scrollMultiPokeShop[i].species;
+            randomPokesThisFloor[totalFloorCount] = scrollMultiPokeShopGroups[areaShop].set[i].species;
             totalFloorCount++;
         }
     }
@@ -4755,4 +4781,17 @@ void GiveNzStarter()
     {
         gSpecialVar_Result = grassStart[Random() % 8];
     }
+}
+
+void ShowPokeShopSelector()
+{
+    u8 selection;
+    
+    
+    
+    
+    
+    
+    
+    gSpecialVar_0x8004 = selection;
 }
