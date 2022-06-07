@@ -237,7 +237,7 @@ PokeShop_experience_event::
 
 PokeShop_TryPurchasePrize::
 	specialvar VAR_TEMP_0, GetFrontierBattlePoints
-	goto_if_lt VAR_TEMP_0, VAR_0x8004, PokeShop_NotEnoughBP
+	goto_if_lt VAR_TEMP_0, VAR_0x8004, PokeShop_NotEnoughBP_pokeshop
 	givemon VAR_0x8001, 50, ITEM_NONE
 	special TakeFrontierBattlePoints @needs correct var set beforehand
 	special UpdateBattlePointsWindow
@@ -248,11 +248,17 @@ PokeShop_TryPurchasePrize::
 	releaseall
 	end
 
-PokeShop_NotEnoughBP::
+PokeShop_NotEnoughBP_shiny::
 	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
+	waitmessage
+	releaseall
+	end
+
+PokeShop_NotEnoughBP_pokeshop::
+	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
+	waitmessage
 	special CloseFrontierExchangeCornerItemIconWindow
 	special CloseBattlePointsWindow
-	waitmessage
 	releaseall
 	end
 
@@ -269,7 +275,7 @@ MakeShiny_event::
 	special ChoosePartyMon
 	waitstate
 	specialvar VAR_TEMP_0, GetFrontierBattlePoints
-	goto_if_lt VAR_TEMP_0, 5, PokeShop_NotEnoughBP
+	goto_if_lt VAR_TEMP_0, 5, PokeShop_NotEnoughBP_shiny
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MakeShiny_Deny
 	special isShiny
 	goto_if_eq VAR_RESULT, PARTY_NOTHING_CHOSEN, MakeShinyAlready
