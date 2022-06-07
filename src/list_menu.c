@@ -722,6 +722,20 @@ static u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, b
 
         if (scrollOffset == 0)
         {
+            if (selectedRow == 0)
+            {
+                if (list->template.maxShowed >= list->template.totalItems - 1) // don't redraw on non scrolling lists
+                {
+                    list->selectedRow = list->template.totalItems - 1;
+                    return 1; // non scroll lists need 1
+                }
+                else // broken for scroll lists
+                {
+                    list->selectedRow = list->template.maxShowed - 1;
+                    list->scrollOffset = list->template.totalItems - list->template.maxShowed;
+                    return 2; // scroll lists need 2
+                }
+            }
             while (selectedRow != 0)
             {
                 selectedRow--;
@@ -731,8 +745,6 @@ static u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, b
                     return 1;
                 }
             }
-
-            return 0;
         }
         else
         {
@@ -758,6 +770,20 @@ static u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, b
 
         if (scrollOffset == list->template.totalItems - list->template.maxShowed)
         {
+            if (selectedRow == list->template.maxShowed - 1)
+            {
+                if (list->template.maxShowed - 1 >= list->template.totalItems - 1) // don't redraw on non scrolling lists
+                {
+                    list->selectedRow = 0;
+                    return 1; // non scroll lists need 1 but scroll lists need 2
+                }
+                else
+                {
+                    list->selectedRow = 0;
+                    list->scrollOffset = 0;
+                    return 2; // non scroll lists need 1 but scroll lists need 2
+                }
+            }
             while (selectedRow < list->template.maxShowed - 1)
             {
                 selectedRow++;
@@ -807,8 +833,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
             u16 y, width, height;
 
             ScrollWindow(list->template.windowId, 1, count * yMultiplier, PIXEL_FILL(list->template.fillValue));
-            ListMenuPrintEntries(list, list->scrollOffset, 0, count);
-
+            ListMenuPrintEntries(list, list->scrollOffset, 0, list->template.maxShowed);
             y = (list->template.maxShowed * yMultiplier) + list->template.upText_Y;
             width = GetWindowAttribute(list->template.windowId, WINDOW_WIDTH) * 8;
             height = (GetWindowAttribute(list->template.windowId, WINDOW_HEIGHT) * 8) - y;
@@ -821,8 +846,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
             u16 width;
 
             ScrollWindow(list->template.windowId, 0, count * yMultiplier, PIXEL_FILL(list->template.fillValue));
-            ListMenuPrintEntries(list, list->scrollOffset + (list->template.maxShowed - count), list->template.maxShowed - count, count);
-
+            ListMenuPrintEntries(list, list->scrollOffset, 0, list->template.maxShowed);
             width = GetWindowAttribute(list->template.windowId, WINDOW_WIDTH) * 8;
             FillWindowPixelRect(list->template.windowId,
                                 PIXEL_FILL(list->template.fillValue),
