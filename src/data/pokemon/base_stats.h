@@ -2874,7 +2874,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MINERAL,
         .eggGroup2 = EGG_GROUP_MINERAL,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_TECHNICIAN, ABILITY_NO_GUARD}, //zap cannon?
+            .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_TECHNICIAN, ABILITY_NO_GUARD},
         #else
             .abilities = {ABILITY_SOUNDPROOF, ABILITY_STATIC},
         #endif
@@ -3381,7 +3381,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_WATER_2,
         .eggGroup2 = EGG_GROUP_WATER_2,
-        .abilities = {ABILITY_SWIFT_SWIM, ABILITY_WATER_VEIL, ABILITY_LIGHTNING_ROD},
+        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_WATER_VEIL, ABILITY_SWIFT_SWIM},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -12783,7 +12783,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_POISON_TOUCH, ABILITY_DRY_SKIN, ABILITY_OBSESSION},
+            .abilities = {ABILITY_POISON_TOUCH, ABILITY_DRY_SKIN, ABILITY_ADAPTABILITY},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -12814,7 +12814,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_POISON_TOUCH, ABILITY_DRY_SKIN, ABILITY_OBSESSION},
+            .abilities = {ABILITY_POISON_TOUCH, ABILITY_DRY_SKIN, ABILITY_ADAPTABILITY},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
