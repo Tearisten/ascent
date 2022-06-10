@@ -40,7 +40,7 @@ LittleCup4_OnLoad:
 
 LittleCup4_PokeShop_event::
 	faceplayer
-	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_RANDOM_GIFTS, PokeShop_event
 	goto_if_unset FLAG_NUZ_GIFT, LittleCup4_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage
@@ -163,6 +163,7 @@ LittleCup4_npc_finish1::
 	waitmessage
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 1, LittleCup4_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto LittleCup4_npc_walk2
 	
 LittleCup4_npc_walk2::
@@ -176,6 +177,7 @@ LittleCup4_npc_finish2::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 2, LittleCup4_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto LittleCup4_npc_walk3
 
 LittleCup4_npc_walk3:

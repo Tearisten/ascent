@@ -45,7 +45,7 @@ GrowingPains4_OnLoad:
 
 GrowingPains4_PokeShop_event::
 	faceplayer
-	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_RANDOM_GIFTS, PokeShop_event
 	goto_if_unset FLAG_NUZ_GIFT, GrowingPains4_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage
@@ -168,6 +168,7 @@ GrowingPains4_npc_finish1::
 	waitmessage
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 1, GrowingPains4_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto GrowingPains4_npc_walk2
 	
 GrowingPains4_npc_walk2::
@@ -181,6 +182,7 @@ GrowingPains4_npc_finish2::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 2, GrowingPains4_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto GrowingPains4_npc_walk3
 
 GrowingPains4_npc_walk3::
@@ -194,6 +196,7 @@ GrowingPains4_npc_finish3::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 3, GrowingPains3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto GrowingPains3_npc_walk4
 
 GrowingPains4_npc_walk4:

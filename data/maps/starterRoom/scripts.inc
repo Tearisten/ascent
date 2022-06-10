@@ -95,7 +95,7 @@ Gauntlet1_Gauntlet1_starterRoom_noChoice::
 	
 Gauntlet1_starterRoom_FireCush_event::
 	goto_if_set FLAG_FIRE_STARTER, Gauntlet1_starterRoom_haveThisType_event
-	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_FireCush_nz_event
+	goto_if_set FLAG_RANDOM_GIFTS, Gauntlet1_starterRoom_FireCush_nz_event
 	scrollingmultichoice 0, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setorcopyvar VAR_0x8004, VAR_RESULT
@@ -133,7 +133,7 @@ Gauntlet1_starterRoom_FireCush_nz_event::
 
 Gauntlet1_starterRoom_WaterCush_event::
 	goto_if_set FLAG_WATER_STARTER, Gauntlet1_starterRoom_haveThisType_event
-	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_WaterCush_nz_event
+	goto_if_set FLAG_RANDOM_GIFTS, Gauntlet1_starterRoom_WaterCush_nz_event
 	scrollingmultichoice 1, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setorcopyvar VAR_0x8004, VAR_RESULT
@@ -171,7 +171,7 @@ Gauntlet1_starterRoom_WaterCush_nz_event::
 
 Gauntlet1_starterRoom_GrassCush_event::
 	goto_if_set FLAG_GRASS_STARTER, Gauntlet1_starterRoom_haveThisType_event 
-	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_GrassCush_nz_event
+	goto_if_set FLAG_RANDOM_GIFTS, Gauntlet1_starterRoom_GrassCush_nz_event
 	scrollingmultichoice 2, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, SPECIES_NONE, Gauntlet1_Gauntlet1_starterRoom_noChoice
 	setorcopyvar VAR_0x8004, VAR_RESULT
@@ -240,9 +240,9 @@ Gauntlet1_starterRoom_WhatDifficultyText:
 	.string "What difficulty would you like?\n"
 	.string "This cannot be changed later.$"
 
-Gauntlet1_starterRoom_Nuzlocke_event::
+Gauntlet1_starterRoom_Random_Gifts_event::
 	faceplayer
-	goto_if_set Nuzlocke_Mode, Gauntlet1_starterRoom_nuzlocke_already_active
+	goto_if_set FLAG_RANDOM_GIFTS, Gauntlet1_starterRoom_nuzlocke_already_active
 	goto_if_set FLAG_FIRE_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
 	goto_if_set FLAG_GRASS_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
 	goto_if_set FLAG_WATER_STARTER, Gauntlet1_starterRoom_nuzlocke_too_late
@@ -254,17 +254,17 @@ Gauntlet1_starterRoom_Nuzlocke_event::
 	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
 
 Gauntlet1_starterRoom_Nuzlocke_yes::
-	setflag Nuzlocke_Mode
+	setflag FLAG_RANDOM_GIFTS
 	release
 	end
 
 Gauntlet1_starterRoom_Nuzlocke_no::
-	clearflag Nuzlocke_Mode
+	clearflag FLAG_RANDOM_GIFTS
 	release
 	end
 
 Gauntlet1_starterRoom_NuzlockeText:
-	.string "Would you like to play in nuzlocke mode?\n"
+	.string "Would you like enable random gifts?\n"
 	.string "This cannot be changed later.$"
 
 Gauntlet1_starterRoom_nuzlocke_too_late::
@@ -273,7 +273,7 @@ Gauntlet1_starterRoom_nuzlocke_too_late::
 	end
 
 Gauntlet1_starterRoom_nuzlocke_too_late_text:
-	.string "You may not enable nuzlocke mode\n"
+	.string "You may not enable random gifts\n"
 	.string "after selecting any starters.$"
 
 Gauntlet1_starterRoom_nuzlocke_already_active::
@@ -282,4 +282,37 @@ Gauntlet1_starterRoom_nuzlocke_already_active::
 	end
 
 Gauntlet1_starterRoom_nuzlocke_already_active_text:
-	.string "You have already enabled nuzlocke mode.$"
+	.string "You have already enabled random gifts.$"
+
+Gauntlet1_starterRoom_permaDeath_event::
+	faceplayer
+	goto_if_set FLAG_PERMA_DEATH, Gauntlet1_starterRoom_perma_death_already_active
+	msgbox Gauntlet1_starterRoom_permaDeath_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, Gauntlet1_starterRoom_permaDeath_no
+	case YES, Gauntlet1_starterRoom_permaDeath_yes
+	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_permaDeath_text:
+	.string "Would you like to enable perma death?\n"
+	.string "A wipeout will also cause your run to end.$"
+
+Gauntlet1_starterRoom_perma_death_already_active::
+	msgbox Gauntlet1_starterRoom_permaDeath_already_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Gauntlet1_starterRoom_permaDeath_already_text:
+	.string "You have already enabled perma death.$"
+
+
+Gauntlet1_starterRoom_permaDeath_yes::
+	setflag FLAG_PERMA_DEATH
+	release
+	end
+
+Gauntlet1_starterRoom_permaDeath_no::
+	clearflag FLAG_PERMA_DEATH
+	release
+	end

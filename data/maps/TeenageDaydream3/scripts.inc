@@ -45,7 +45,7 @@ TeenageDaydream3_OnLoad:
 
 TeenageDaydream3_PokeShop_event::
 	faceplayer
-	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_RANDOM_GIFTS, PokeShop_event
 	goto_if_unset FLAG_NUZ_GIFT, TeenageDaydream3_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage
@@ -182,6 +182,7 @@ TeenageDaydream3_npc_finish2::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 2, TeenageDaydream3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto TeenageDaydream3_npc_walk3
 
 TeenageDaydream3_npc_walk3::
@@ -195,6 +196,7 @@ TeenageDaydream3_npc_finish3::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 3, TeenageDaydream3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto TeenageDaydream3_npc_walk4
 
 TeenageDaydream3_npc_walk4:

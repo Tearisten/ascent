@@ -158,9 +158,8 @@ void (*gItemUseCB)(u8, TaskFunc);
 
 static void ResetPartyMenu(void);
 static void CB2_InitPartyMenu(void);
-static bool8 ShowPartyMenu(void);
 static void SetPartyMonsAllowedInMinigame(void);
-static void ExitPartyMenu(void);
+static void ExitPartyMenu(void);    
 static bool8 AllocPartyMenuBg(void);
 static bool8 AllocPartyMenuBgGfx(void);
 static void InitPartyMenuWindows(u8);
@@ -411,7 +410,7 @@ static bool8 SetUpFieldMove_Dive(void);
 #include "data/party_menu.h"
 
 // code
-static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
+void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
 {
     u16 i;
 
@@ -482,7 +481,7 @@ static void CB2_InitPartyMenu(void)
     }
 }
 
-static bool8 ShowPartyMenu(void)
+bool8 ShowPartyMenu(void)
 {
     switch (gMain.state)
     {

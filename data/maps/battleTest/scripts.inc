@@ -480,7 +480,7 @@ Gauntlet1_nuzlocke_lost::
 	end
 
 Gauntlet1_nuzlocke_lost_text:
-	.string "Your nuzlocke is over.\n"
+	.string "Your perma death run is over.\n"
 	.string "Better luck next time.$"
 
 Nuzlocke_no_gifts_left_text:
@@ -488,9 +488,33 @@ Nuzlocke_no_gifts_left_text:
 	.string "Try again on the next floor.$"
 
 Nuzlocke_gift_text:
-	.string "You received {STR_VAR_1}\n"
+	.string "You received {STR_VAR_1}.\n"
 	.string "Best of luck gamer.$"
 
 Nuzlocke_gift_text_confirm:
 	.string "Are you ready to receive your\n"
 	.string "nuzlocke pokemon?$"
+
+Nuzlocke_allow_withdrawl::
+	call_if_unset FLAG_PERMA_WARNING, Nuzlocke_withdrawl_warning
+	fadescreen FADE_TO_BLACK
+	special AllowWithdrawl
+	waitstate
+	special ShowPartyForChanges
+	waitstate
+	return
+
+Nuzlocke_withdrawl_warning::
+	msgbox Nuzlocke_warning_text, MSGBOX_DEFAULT
+	waitmessage
+	release
+	setflag FLAG_PERMA_WARNING
+	return
+
+Nuzlocke_warning_text:
+	.string "THE FOLLOWING IS A ONE TIME NOTICE\n"
+	.string "After a death, you may withdraw new\p"
+	.string "mons for the coming battles. This is\n"
+	.string "irreversable. Please be certain when\p"
+	.string "selecting the withdraw option. There\n"
+	.string "is no option to deposit till finishing.$"

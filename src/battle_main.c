@@ -5000,13 +5000,14 @@ static void HandleEndTurn_BattleWon(void)
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        if (FlagGet(Nuzlocke_Mode))
+        if (FlagGet(FLAG_PERMA_DEATH))
         {
             //u8 gBattlerTemp = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
             for (u8 i = 0; i < PARTY_SIZE; i++)
             {
-                if (!gPlayerParty[i].hp)
+                if (!gPlayerParty[i].hp && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
                     {
+                        FlagSet(FLAG_HAS_DEATH);
                         ZeroMonData(&gPlayerParty[i]);
                     };
             }
@@ -5048,7 +5049,7 @@ static void HandleEndTurn_BattleLost(void)
 {
     gCurrentActionFuncId = 0;
     
-    if (FlagGet(Nuzlocke_Mode))
+    if (FlagGet(FLAG_PERMA_DEATH))
         FlagSet(FLAG_NUZ_LOSE);
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))

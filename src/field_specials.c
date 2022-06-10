@@ -67,6 +67,7 @@
 #include "palette.h"
 #include "trainer_pokemon_sprites.h"
 #include "dynamic_placeholder_text_util.h"
+#include "pokemon_storage_system.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -4834,15 +4835,17 @@ void GiveNzStarter()
     }
 }
 
-void ShowPokeShopSelector()
+void AllowWithdrawl()
 {
-    u8 selection;
-    
-    
-    
-    
-    
-    
-    
-    gSpecialVar_0x8004 = selection;
+    CleanupOverworldWindowsAndTilemaps();
+    if (FlagGet(FLAG_HAS_DEATH))
+    {
+        EnterPokeStorage(0);
+        FlagClear(FLAG_HAS_DEATH);
+    }
+}
+
+void ShowPartyForChanges()
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScript);
 }

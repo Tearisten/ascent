@@ -571,7 +571,6 @@ EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 
 // Main tasks
-static void EnterPokeStorage(u8);
 static void Task_InitPokeStorage(u8);
 static void Task_PlaceMon(u8);
 static void Task_ChangeScreen(u8);
@@ -1705,9 +1704,18 @@ static void CreateMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 static void CB2_ExitPokeStorage(void)
 {
-    sPreviousBoxOption = GetCurrentBoxOption();
-    //gFieldCallback = FieldTask_ReturnToPcMenu;
-    SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+    // if openining to withdraw after nz death
+    if (FlagSet(!FLAG_HAS_DEATH))
+    {
+        sPreviousBoxOption = GetCurrentBoxOption();
+        //gFieldCallback = FieldTask_ReturnToPcMenu;
+        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+    }
+    else // opening to move from start menu
+    {
+        SetMainCallback2(CB2_ReturnToFieldContinueScript);
+    }
+
 }
 
 // Unused
@@ -2009,7 +2017,7 @@ static void CB2_PokeStorage(void)
     BuildOamBuffer();
 }
 
-static void EnterPokeStorage(u8 boxOption)
+void EnterPokeStorage(u8 boxOption)
 {
     ResetTasks();
     sCurrentBoxOption = boxOption;
@@ -2293,16 +2301,8 @@ static void Task_PokeStorageMain(u8 taskId)
             sStorage->state = MSTATE_MOVE_CURSOR;
             break;
         case INPUT_SHOW_PARTY:
-            if (sStorage->boxOption != OPTION_MOVE_MONS && sStorage->boxOption != OPTION_MOVE_ITEMS)
-            {
-                PrintMessage(MSG_WHICH_ONE_WILL_TAKE);
-                sStorage->state = MSTATE_WAIT_MSG;
-            }
-            else
-            {
-                ClearSavedCursorPos();
-                SetPokeStorageTask(Task_ShowPartyPokemon);
-            }
+            ClearSavedCursorPos();
+            SetPokeStorageTask(Task_ShowPartyPokemon);
             break;
         case INPUT_HIDE_PARTY:
             if (sStorage->boxOption == OPTION_MOVE_MONS)
@@ -2313,6 +2313,10 @@ static void Task_PokeStorageMain(u8 taskId)
                     SetPokeStorageTask(Task_HidePartyPokemon);
             }
             else if (sStorage->boxOption == OPTION_MOVE_ITEMS)
+            {
+                SetPokeStorageTask(Task_HidePartyPokemon);
+            }
+            else if (sStorage->boxOption == OPTION_WITHDRAW)
             {
                 SetPokeStorageTask(Task_HidePartyPokemon);
             }
@@ -2652,9 +2656,18 @@ static void Task_OnSelectedMon(u8 taskId)
             }
             break;
         case MENU_WITHDRAW:
-            PlaySE(SE_SELECT);
-            ClearBottomWindow();
-            SetPokeStorageTask(Task_WithdrawMon);
+            if (!sInPartyMenu)
+            {
+                PlaySE(SE_SELECT);
+                ClearBottomWindow();
+                SetPokeStorageTask(Task_WithdrawMon);
+            }
+            else
+            {
+                ClearBottomWindow();
+                sStorage->state = MSTATE_HANDLE_INPUT;
+                SetPokeStorageTask(Task_HidePartyPokemon);
+            }
             break;
         case MENU_STORE:
             if (IsRemovingLastPartyMon())
@@ -7900,8 +7913,11 @@ static void CreateCursorSprites(void)
 
 static void ToggleCursorAutoAction(void)
 {
-    sAutoActionOn = !sAutoActionOn;
-    sStorage->cursorSprite->oam.paletteNum = sStorage->cursorPalNums[sAutoActionOn];
+    if (sStorage->boxOption == OPTION_MOVE_MONS)
+    {
+        sAutoActionOn = !sAutoActionOn;
+        sStorage->cursorSprite->oam.paletteNum = sStorage->cursorPalNums[sAutoActionOn];
+    }
 }
 
 static u8 GetCursorPosition(void)

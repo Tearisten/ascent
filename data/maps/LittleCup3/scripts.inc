@@ -39,7 +39,7 @@ LittleCup3_OnLoad:
 
 LittleCup3_PokeShop_event::
 	faceplayer
-	goto_if_unset Nuzlocke_Mode, PokeShop_event
+	goto_if_unset FLAG_RANDOM_GIFTS, PokeShop_event
 	goto_if_unset FLAG_NUZ_GIFT, LittleCup3_Nuzlocke_gift
 	msgbox Nuzlocke_no_gifts_left_text, MSGBOX_DEFAULT
 	waitmessage
@@ -162,6 +162,8 @@ LittleCup3_npc_finish1::
 	waitmessage
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 1, LittleCup3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto LittleCup3_npc_walk2
 	
 LittleCup3_npc_walk2::
@@ -175,6 +177,7 @@ LittleCup3_npc_finish2::
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 2, LittleCup3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto LittleCup3_npc_walk3
 
 LittleCup3_npc_walk3:
