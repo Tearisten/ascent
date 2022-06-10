@@ -73,7 +73,7 @@ TeenageDaydream3_Nuzlocke_gift:
 	hidemonpic
 	special CloseFrontierExchangeCornerItemIconWindow
 	setflag FLAG_NUZ_GIFT
-	releaseall
+	release
 	end
 
 TeenageDaydream3_ReadyOrNot::

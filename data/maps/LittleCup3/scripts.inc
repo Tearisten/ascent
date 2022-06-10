@@ -67,7 +67,7 @@ LittleCup3_Nuzlocke_gift:
 	hidemonpic
 	special CloseFrontierExchangeCornerItemIconWindow
 	setflag FLAG_NUZ_GIFT
-	releaseall
+	release
 	end
 
 LittleCup3_ReadyOrNot::
