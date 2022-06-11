@@ -1027,7 +1027,7 @@ const struct Item gItems[] =
     {
         .name = _("AbilityPatch"),
         .itemId = ITEM_ABILITY_PATCH,
-        .price = 5000,
+        .price = 7000, // super expensive because very powerful on ceratain mons
         .description = sAbilityPatchDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_PARTY_MENU,
@@ -9503,7 +9503,7 @@ const struct Item gItems[] =
     {
         .name = _("Gravity Well"),
         .itemId = ITEM_GRAVITY_WELL,
-        .price = 100,
+        .price = 4100,
         .holdEffect = HOLD_EFFECT_GRAVITY_WELL,
         .holdEffectParam = 1,
         .description = sGravityWellDesc,
@@ -9516,7 +9516,7 @@ const struct Item gItems[] =
     {
         .name = _("Wind Chimes"),
         .itemId = ITEM_WIND_CHIMES,
-        .price = 100,
+        .price = 4100,
         .holdEffect = HOLD_EFFECT_WIND_CHIMES,
         .holdEffectParam = 1,
         .description = sWindChimesDesc,
@@ -9577,7 +9577,7 @@ const struct Item gItems[] =
     {
         .name = _("Thermostat"),
         .itemId = ITEM_THERMOSTAT,
-        .price = 4000,
+        .price = 3800,
         .holdEffect = HOLD_EFFECT_THERMOSTAT,
         .description = sThermostatDesc,
         .pocket = POCKET_ITEMS,

@@ -107,7 +107,7 @@ static const u8 sJumpKickDescription[] = _(
 
 static const u8 sRollingKickDescription[] = _(
     "A fast kick delivered from\n"
-    "a rapid spin.");
+    "a rapid spin. High crit.");
 
 static const u8 sSandAttackDescription[] = _(
     "Reduces the foe's accuracy\n"
@@ -242,8 +242,8 @@ static const u8 sPsybeamDescription[] = _(
     "may confuse the foe.");
 
 static const u8 sBubbleBeamDescription[] = _(
-    "Forcefully sprays bubbles\n"
-    "that may lower Speed.");
+    "Forcefully sprays bubbles,\n"
+    "may lower Speed.");
 
 static const u8 sAuroraBeamDescription[] = _(
     "Fires a rainbow-colored\n"
