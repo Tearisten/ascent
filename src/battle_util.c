@@ -9129,13 +9129,13 @@ static u32 CalcDefenseStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, 
     break;
     }
 
-    // sandstorm sp.def boost for rock types
-    if ((IS_BATTLER_OF_TYPE(battlerDef, TYPE_ROCK) || GetBattlerAbility(battlerDef) == ABILITY_OVERCOAT)
+    // sandstorm sp.def boost for rock/ground types
+    if ((IS_BATTLER_OF_TYPE(battlerDef, TYPE_ROCK) || GetBattlerAbility(battlerDef) == ABILITY_OVERCOAT) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_GROUND)
         && WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SANDSTORM && !usesDefStat)
             MulModifier(&modifier, UQ_4_12(1.5));
 
-    // hail boosts def for ice types
-    if ((IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE) || GetBattlerAbility(battlerDef) == ABILITY_OVERCOAT)
+    // hail boosts def for ice/fighting types
+    if ((IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE) || GetBattlerAbility(battlerDef) == ABILITY_OVERCOAT) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_FIGHTING)
         && WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_HAIL && usesDefStat)
         MulModifier(&modifier, UQ_4_12(1.5));
 
