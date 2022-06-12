@@ -231,14 +231,14 @@
 #define EXT_CTRL_CODE_PAUSE_MUSIC            0x17
 #define EXT_CTRL_CODE_RESUME_MUSIC           0x18
 
-#define TEXT_COLOR_TRANSPARENT  0x0
-#define TEXT_COLOR_WHITE        0x1
+#define TEXT_COLOR_TRANSPARENT  0x0 
+#define TEXT_COLOR_WHITE        0x1 
 #define TEXT_COLOR_DARK_GRAY    0x2
 #define TEXT_COLOR_LIGHT_GRAY   0x3
-#define TEXT_COLOR_RED          0x4
-#define TEXT_COLOR_LIGHT_RED    0x5
-#define TEXT_COLOR_GREEN        0x6
-#define TEXT_COLOR_LIGHT_GREEN  0x7
+#define TEXT_COLOR_RED          0x4 
+#define TEXT_COLOR_LIGHT_RED    0x5 
+#define TEXT_COLOR_GREEN        0x6 
+#define TEXT_COLOR_LIGHT_GREEN  0x7 
 #define TEXT_COLOR_BLUE         0x8
 #define TEXT_COLOR_LIGHT_BLUE   0x9
 #define TEXT_DYNAMIC_COLOR_1    0xA // Usually white
