@@ -24,7 +24,7 @@ GrowingPains4_Trainer2_text:
 	.string "Sableye can be a defensive or\n"
 	.string "special defensive wall.$"
 
-.set TRAINER2, 12
+.set TRAINER3, 12
 GrowingPains4_Trainer3_text:
 	.string "Sableye can be a defensive or\n"
 	.string "special defensive wall.$"

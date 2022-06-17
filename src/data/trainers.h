@@ -292,4 +292,43 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_GP_5_Boss},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_5_Boss)
     },
+    [TRAINER_TD_1_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_GUITARIST,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_GUITARIST,
+        .trainerName = _("Kyle"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_1_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Intro)
+    },
+    [TRAINER_TD_1_MID] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE,
+        .trainerName = _("Bob"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_1_Mid},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Mid)
+    },
+    [TRAINER_TD_1_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE,
+        .trainerName = _("Amy"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_1_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Elite)
+    },
 };

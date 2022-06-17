@@ -23,9 +23,9 @@
 #define TRAINER_GP_4_INTRO                   19
 #define TRAINER_GP_4_ELITE                   20
 #define TRAINER_GP_5_BOSS                    21
-#define TRAINER_GRUNT_SPACE_CENTER_1         22
-#define TRAINER_GRUNT_MT_PYRE_1              23
-#define TRAINER_GRUNT_MT_PYRE_2              24
+#define TRAINER_TD_1_INTRO                   22
+#define TRAINER_TD_1_MID                     23
+#define TRAINER_TD_1_ELITE                   24
 #define TRAINER_GRUNT_MT_PYRE_3              25
 #define TRAINER_GRUNT_WEATHER_INST_4         26
 #define TRAINER_GRUNT_AQUA_HIDEOUT_5         27

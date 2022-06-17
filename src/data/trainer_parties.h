@@ -2140,6 +2140,404 @@ static const struct TrainerMon sParty_GP_5_Boss[] = {
     },
 };
 
+static const struct TrainerMon sParty_TD_1_Intro[] = {
+    {
+        .species = SPECIES_PILOSWINE,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_SLOT_1, // moxie
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_PARK_BALL,
+        .slot = 0,
+        .moves = {MOVE_ICE_SHARD, MOVE_STEALTH_ROCK, MOVE_ROCK_SLIDE, MOVE_ICICLE_CRASH},
+    },
+    {
+        .species = SPECIES_LIEPARD,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_HIDDEN, // prankster
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DUSK_BALL,
+        .slot = 0,
+        .moves = {MOVE_TAUNT, MOVE_FOUL_PLAY, MOVE_U_TURN, MOVE_SPIKES},
+    },
+    {
+        .species = SPECIES_KLANG,
+        .heldItem = ITEM_EVIOLITE,
+        .ability = ABILITY_HIDDEN, // clear body
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_HEAVY_BALL,
+        .slot = 1,
+        .moves = {MOVE_AUTOTOMIZE, MOVE_SPARK, MOVE_GEAR_GRIND, MOVE_STOMPING_TANTRUM},
+    },
+    {
+        .species = SPECIES_ARBOK,
+        .heldItem = ITEM_BIG_ROOT,
+        .ability = ABILITY_SLOT_1, // vampire
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FAST_BALL,
+        .slot = 1,
+        .moves = {MOVE_CRUNCH, MOVE_POISON_FANG, MOVE_PSYCHIC_FANGS, MOVE_THUNDER_FANG},
+    },
+    {
+        .species = SPECIES_CHANSEY,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_1, // natural cure
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_HEAL_BALL,
+        .slot = 2,
+        .moves = {MOVE_SEISMIC_TOSS, MOVE_SOFT_BOILED, MOVE_THUNDER_WAVE, MOVE_FLAMETHROWER},
+    },
+    {
+        .species = SPECIES_CHANSEY,
+        .heldItem = ITEM_LUM_BERRY,
+        .ability = ABILITY_SLOT_1, // natural cure
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_HEAL_BALL,
+        .slot = 2,
+        .moves = {MOVE_SEISMIC_TOSS, MOVE_SOFT_BOILED, MOVE_SING, MOVE_ICE_BEAM},
+    },
+    {
+        .species = SPECIES_CHANSEY,
+        .heldItem = ITEM_ROCKY_HELMET,
+        .ability = ABILITY_SLOT_1, // natural cure
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_HEAL_BALL,
+        .slot = 2,
+        .moves = {MOVE_SEISMIC_TOSS, MOVE_SOFT_BOILED, MOVE_TOXIC, MOVE_THUNDERBOLT},
+    },
+    {
+        .species = SPECIES_MR_MIME,
+        .heldItem = ITEM_LIGHT_CLAY,
+        .ability = ABILITY_SLOT_1, // screen cleaner
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DREAM_BALL,
+        .slot = 3,
+        .moves = {MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM},
+    },
+    {
+        .species = SPECIES_JYNX,
+        .heldItem = ITEM_LIGHT_CLAY,
+        .ability = ABILITY_SLOT_1, // magic bounce
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DREAM_BALL,
+        .slot = 3,
+        .moves = {MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC, MOVE_ICE_BEAM},
+    },
+    {
+        .species = SPECIES_NOCTOWL,
+        .heldItem = ITEM_TRIFORCE,
+        .ability = ABILITY_SLOT_1, // magic bounce
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_ULTRA_BALL,
+        .slot = 4,
+        .moves = {MOVE_AIR_SLASH, MOVE_HYPER_VOICE, MOVE_HYPNOSIS, MOVE_DREAM_EATER},
+    },
+    {
+        .species = SPECIES_SLIGGOO,
+        .heldItem = ITEM_ASSAULT_VEST,
+        .ability = ABILITY_SLOT_1, // sap sipper
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 4,
+        .moves = {MOVE_DRAGON_PULSE, MOVE_MAGICAL_LEAF, MOVE_BODY_SLAM, MOVE_MUDDY_WATER},
+    },
+    {
+        .species = SPECIES_DOUBLADE,
+        .heldItem = ITEM_EXPERT_BELT,
+        .ability = ABILITY_SLOT_1, // sap sipper
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_TIMER_BALL,
+        .slot = 5,
+        .moves = {MOVE_SHADOW_SNEAK, MOVE_SACRED_SWORD, MOVE_IRON_HEAD, MOVE_SWORDS_DANCE},
+    },
+};
+
+static const struct TrainerMon sParty_TD_1_Mid[] = {
+    {
+        .species = SPECIES_SOLROCK,
+        .heldItem = ITEM_THERMOSTAT,
+        .ability = ABILITY_HIDDEN, // drought
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_BOLD,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_REPEAT_BALL,
+        .slot = 0,
+        .moves = {MOVE_POWER_GEM, MOVE_MYSTICAL_FIRE, MOVE_PSYCHIC, MOVE_CALM_MIND},
+    },
+    {
+        .species = SPECIES_SUNFLORA,
+        .heldItem = ITEM_BIG_ROOT,
+        .ability = ABILITY_SLOT_2, // solar power
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LEVEL_BALL,
+        .slot = 1,
+        .moves = {MOVE_GIGA_DRAIN, MOVE_MYSTICAL_FIRE, MOVE_ENCORE, MOVE_MORNING_SUN},
+    },
+    {
+        .species = SPECIES_CHARMELEON,
+        .heldItem = ITEM_EVIOLITE,
+        .ability = ABILITY_HIDDEN, // solar power
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_POKE_BALL,
+        .slot = 1,
+        .moves = {MOVE_FIRE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_SEISMIC_TOSS, MOVE_BREAKING_SWIPE},
+    },
+    {
+        .species = SPECIES_WEEPINBELL,
+        .heldItem = ITEM_BLACK_SLUDGE,
+        .ability = ABILITY_SLOT_1, // chlorophyll
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NET_BALL,
+        .slot = 2,
+        .moves = {MOVE_RAZOR_LEAF, MOVE_SLUDGE_BOMB, MOVE_KNOCK_OFF, MOVE_SLEEP_POWDER},
+    },
+    {
+        .species = SPECIES_IVYSAUR,
+        .heldItem = ITEM_BLACK_SLUDGE,
+        .ability = ABILITY_SLOT_1, // chlorophyll
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NET_BALL,
+        .slot = 2,
+        .moves = {MOVE_POISON_JAB, MOVE_MAGICAL_LEAF, MOVE_STOMPING_TANTRUM, MOVE_LEECH_SEED},
+    },
+    {
+        .species = SPECIES_HELIOLISK,
+        .heldItem = ITEM_SHELL_BELL,
+        .ability = ABILITY_SLOT_1, // dry skin
+        .evs = EV_SPREAD_FAST_SPATTACK,
+        .nature = NATURE_TIMID,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LURE_BALL,
+        .slot = 3,
+        .moves = {MOVE_VOLT_SWITCH, MOVE_GLARE, MOVE_SUBSTITUTE, MOVE_PARABOLIC_CHARGE},
+    },
+    {
+        .species = SPECIES_TOXICROAK,
+        .heldItem = ITEM_WEIGHTED_BOOTS,
+        .ability = ABILITY_SLOT_2, // dry skin
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NEST_BALL,
+        .slot = 3,
+        .moves = {MOVE_POISON_JAB, MOVE_DRAIN_PUNCH, MOVE_FIRE_PUNCH, MOVE_KNOCK_OFF},
+    },
+    {
+        .species = SPECIES_SANDSLASH,
+        .heldItem = ITEM_ROCKY_HELMET,
+        .ability = ABILITY_HIDDEN, // Hazard crew
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LUXURY_BALL,
+        .slot = 4,
+        .moves = {MOVE_HIGH_HORSEPOWER, MOVE_X_SCISSOR, MOVE_GYRO_BALL, MOVE_ROCK_SLIDE},
+    },
+    {
+        .species = SPECIES_MAROWAK,
+        .heldItem = ITEM_KINGS_ROCK,
+        .ability = ABILITY_SLOT_1, // rock head
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LUXURY_BALL,
+        .slot = 4,
+        .moves = {MOVE_BONEMERANG, MOVE_ROCK_SLIDE, MOVE_DOUBLE_EDGE, MOVE_ACCELEROCK},
+    },
+        {
+        .species = SPECIES_ZANGOOSE,
+        .heldItem = ITEM_TOXIC_ORB,
+        .ability = ABILITY_HIDDEN, // toxic boost
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_CHERISH_BALL,
+        .slot = 5,
+        .moves = {MOVE_FACADE, MOVE_KNOCK_OFF, MOVE_BULK_UP, MOVE_EXTREME_SPEED},
+    },
+    {
+        .species = SPECIES_ZANGOOSE,
+        .heldItem = ITEM_TOXIC_ORB,
+        .ability = ABILITY_HIDDEN, // toxic boost
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_CHERISH_BALL,
+        .slot = 5,
+        .moves = {MOVE_FACADE, MOVE_DRAIN_PUNCH, MOVE_POWER_UP_PUNCH, MOVE_EXTREME_SPEED},
+    },
+    {
+        .species = SPECIES_ZANGOOSE,
+        .heldItem = ITEM_TOXIC_ORB,
+        .ability = ABILITY_HIDDEN, // toxic boost
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_CHERISH_BALL,
+        .slot = 5,
+        .moves = {MOVE_FACADE, MOVE_THUNDER_PUNCH, MOVE_TAUNT, MOVE_SUCKER_PUNCH},
+    },
+};
+
+static const struct TrainerMon sParty_TD_1_Elite[] = {
+    {
+        .species = SPECIES_LUNATONE,
+        .heldItem = ITEM_THERMOSTAT,
+        .ability = ABILITY_HIDDEN, // drizzle
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_REPEAT_BALL,
+        .slot = 0,
+        .moves = {MOVE_POWER_GEM, MOVE_SCALD, MOVE_PSYCHIC, MOVE_CALM_MIND},
+    },
+    {
+        .species = SPECIES_SEAKING,
+        .heldItem = ITEM_LUM_BERRY,
+        .ability = ABILITY_HIDDEN, // swift swim
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DIVE_BALL,
+        .slot = 1,
+        .moves = {MOVE_FISHIOUS_REND, MOVE_PLUCK, MOVE_POISON_JAB, MOVE_FLIP_TURN},
+    },
+    {
+        .species = SPECIES_SEAKING,
+        .heldItem = ITEM_SHELL_BELL,
+        .ability = ABILITY_SLOT_2, // water veil
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DIVE_BALL,
+        .slot = 1,
+        .moves = {MOVE_FISHIOUS_REND, MOVE_AQUA_JET, MOVE_HORN_LEECH, MOVE_AQUA_RING},
+    },
+    {
+        .species = SPECIES_WHISCASH,
+        .heldItem = ITEM_KINGS_ROCK,
+        .ability = ABILITY_HIDDEN, // rain dish
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_REPEAT_BALL,
+        .slot = 2,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_SPARK, MOVE_WATERFALL},
+    },
+    {
+        .species = SPECIES_MASQUERAIN,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_HIDDEN, // rain dish
+        .evs = EV_SPREAD_FAST_SPATTACK,
+        .nature = NATURE_TIMID,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_NET_BALL,
+        .slot = 2,
+        .moves = {MOVE_BUG_BUZZ, MOVE_QUIVER_DANCE, MOVE_AIR_CUTTER, MOVE_GIGA_DRAIN},
+    },
+    {
+        .species = SPECIES_FEAROW,
+        .heldItem = ITEM_HEAVY_DUTY_BOOTS,
+        .ability = ABILITY_SLOT_1, // lightning rod
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FAST_BALL,
+        .slot = 3,
+        .moves = {MOVE_BOLT_BEAK, MOVE_DRILL_RUN, MOVE_DRILL_PECK, MOVE_NIGHT_SLASH},
+    },
+    {
+        .species = SPECIES_FEAROW,
+        .heldItem = ITEM_WIND_CHIMES,
+        .ability = ABILITY_SLOT_2, // opression
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FAST_BALL,
+        .slot = 3,
+        .moves = {MOVE_ROOST, MOVE_TAILWIND, MOVE_DRILL_PECK, MOVE_KNOCK_OFF},
+    },
+    {
+        .species = SPECIES_BRELOOM,
+        .heldItem = ITEM_PLATE_MAIL,
+        .ability = ABILITY_HIDDEN, // technician
+        .evs = EV_SPREAD_TANKY_DEF,
+        .nature = NATURE_IMPISH,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FRIEND_BALL,
+        .slot = 4,
+        .moves = {MOVE_MACH_PUNCH, MOVE_SPORE, MOVE_GRASSY_GLIDE, MOVE_GRASSY_TERRAIN},
+    },
+    {
+        .species = SPECIES_ELDEGOSS,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .ability = ABILITY_SLOT_2, // regenerator
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_FRIEND_BALL,
+        .slot = 4,
+        .moves = {MOVE_LEAF_STORM, MOVE_SPORE, MOVE_AROMATHERAPY, MOVE_U_TURN},
+    },
+    {
+        .species = SPECIES_SEVIPER,
+        .heldItem = ITEM_HOURGLASS,
+        .ability = ABILITY_HIDDEN, // infiltrator
+        .evs = EV_SPREAD_TANKY_ATTACK,
+        .nature = NATURE_ADAMANT,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_DUSK_BALL,
+        .slot = 5,
+        .moves = {MOVE_COIL, MOVE_AQUA_TAIL, MOVE_POISON_JAB, MOVE_SUCKER_PUNCH},
+    },
+    {
+        .species = SPECIES_SEVIPER,
+        .heldItem = ITEM_WISE_GLASSES,
+        .ability = ABILITY_HIDDEN, // infiltrator
+        .evs = EV_SPREAD_TANKY_SPATTACK,
+        .nature = NATURE_MODEST,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_LUXURY_BALL,
+        .slot = 5,
+        .moves = {MOVE_SLUDGE_WAVE, MOVE_FLAMETHROWER, MOVE_DARK_PULSE, MOVE_NUZZLE},
+    },
+    // seviper
+};
+
+
+//idea list
+// team with all eviolites?
 
 
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {

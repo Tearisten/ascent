@@ -1,18 +1,19 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 @ also set the nz gift to the right area
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 3200
-.set FLOORBP, 2 
-.set FLOORHS, 3 
-.set FLOORFLAG, FLAG_ROOM_6_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_5_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_5
+.set ROOM_BATTLE_COUNT, 3
+.set ROOM_BATTLE_TYPE, 1
+.set FLOORMONEY, 4500
+.set FLOORBP, 3
+.set FLOORHS, 3
+.set FLOORFLAG, FLAG_ROOM_11_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_10_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_10
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_GP_1_INTRO
-.set TRAINER2ID, TRAINER_GP_1_ELITE
+.set TRAINER1ID, TRAINER_TD_1_INTRO
+.set TRAINER2ID, TRAINER_TD_1_MID
+.set TRAINER3ID, TRAINER_TD_1_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
@@ -24,6 +25,11 @@ TeenageDaydream1_Trainer1_text:
 TeenageDaydream1_Trainer2_text:
 	.string "I'll never let my pokemon.\n"
 	.string "grow up.$"
+
+.set TRAINER3, 12
+TeenageDaydream1_Trainer3_text:
+	.string "Sableye can be a defensive or\n"
+	.string "special defensive wall.$"
 
 TeenageDaydream1_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream1_OnTransition
@@ -181,7 +187,21 @@ TeenageDaydream1_npc_finish2::
 	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto TeenageDaydream1_npc_walk3
 
-TeenageDaydream1_npc_walk3:
+TeenageDaydream1_npc_walk3::
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move
+	waitmovement 0
+	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, GrowingPains3_npc_finish3
+
+TeenageDaydream1_npc_finish3::
+	special HealPlayerParty
+	applymovement TRAINER3, GrowingPains3_npc_walk3_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 3, GrowingPains3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
+	goto GrowingPains3_npc_walk4
+
+TeenageDaydream1_npc_walk4:
 	releaseall
 	end
 
@@ -229,6 +249,25 @@ TeenageDaydream1_npc_walk2_move_back::
 	face_down
 	step_end
 
+TeenageDaydream1_npc_walk3_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+TeenageDaydream1_npc_walk3_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 TeenageDaydream1_Trainer1_event::
 	faceplayer
 	lockall
@@ -240,5 +279,13 @@ TeenageDaydream1_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream1_Trainer2_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+
+TeenageDaydream1_Trainer3_event::
+	faceplayer
+	lockall
+	msgbox TeenageDaydream1_Trainer3_text, MSGBOX_DEFAULT
 	releaseall
 	end
