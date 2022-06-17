@@ -8840,8 +8840,39 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
     case ABILITY_UNSEEN_FIST:
-        if (IsMoveMakingContact(move, gBattlerAttacker))
-            MulModifier(&modifier, UQ_4_12(1.2));
+        if (IsMoveMakingContact(move, gBattlerAttacker) // if contact and one of thes protect options
+        && ((gProtectStructs[gBattlerTarget].protected)
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_WIDE_GUARD
+           && gBattleMoves[move].target & (MOVE_TARGET_BOTH | MOVE_TARGET_FOES_AND_ALLY))
+        || (gProtectStructs[gBattlerTarget].banefulBunkered)
+        || (gProtectStructs[gBattlerTarget].obstructed && !IS_MOVE_STATUS(move))
+        || (gProtectStructs[gBattlerTarget].spikyShielded)
+        || (gProtectStructs[gBattlerTarget].kingsShielded && gBattleMoves[move].power != 0)
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_QUICK_GUARD
+                && GetChosenMovePriority(gBattlerAttacker) > 0)
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_MAT_BLOCK
+            && !IS_MOVE_STATUS(move))
+        || (GetBattlerAbility(gBattlerTarget) == ABILITY_SILVER_SPOON
+            && gDisableStructs[gBattlerTarget].isFirstTurn == 2 // just switched in
+            && gChosenActionByBattler[gBattlerTarget] == B_ACTION_SWITCH))) //// don't activate if uturn etc...
+                MulModifier(&modifier, UQ_4_12(.66));
+        break;
+    case ABILITY_INFILTRATOR:
+        if (gProtectStructs[gBattlerTarget].protected
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_WIDE_GUARD
+           && gBattleMoves[move].target & (MOVE_TARGET_BOTH | MOVE_TARGET_FOES_AND_ALLY))
+        || (gProtectStructs[gBattlerTarget].banefulBunkered)
+        || (gProtectStructs[gBattlerTarget].obstructed && !IS_MOVE_STATUS(move))
+        || (gProtectStructs[gBattlerTarget].spikyShielded)
+        || (gProtectStructs[gBattlerTarget].kingsShielded && gBattleMoves[move].power != 0)
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_QUICK_GUARD
+                && GetChosenMovePriority(gBattlerAttacker) > 0)
+        || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_MAT_BLOCK
+            && !IS_MOVE_STATUS(move))
+        || (GetBattlerAbility(gBattlerTarget) == ABILITY_SILVER_SPOON
+            && gDisableStructs[gBattlerTarget].isFirstTurn == 2 // just switched in
+            && gChosenActionByBattler[gBattlerTarget] == B_ACTION_SWITCH)) //// don't activate if uturn etc...
+                MulModifier(&modifier, UQ_4_12(.25));
         break;
     }
 
