@@ -18,18 +18,18 @@
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream1_Trainer1_text:
-	.string "My Chinchou smells of cheese.\n"
-	.string "Want a whiff?$"
+	.string "Balance is healthy for life.\n"
+	.string "and battles.$"
 
 .set TRAINER2, 11
 TeenageDaydream1_Trainer2_text:
-	.string "I'll never let my pokemon.\n"
-	.string "grow up.$"
+	.string "My sun is so bright.\n"
+	.string "Watch out for the fire.$"
 
 .set TRAINER3, 12
 TeenageDaydream1_Trainer3_text:
-	.string "Sableye can be a defensive or\n"
-	.string "special defensive wall.$"
+	.string "Night is always so peaceful.\n"
+	.string "I sleep better in the rain.$"
 
 TeenageDaydream1_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream1_OnTransition
