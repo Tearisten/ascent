@@ -4428,22 +4428,22 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
     if (WEATHER_HAS_EFFECT)
     {
         if (ability == ABILITY_SWIFT_SWIM       && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_RAIN)
-            speed *= 2;
+            speed *= (speed * 150) / 100;
         else if (ability == ABILITY_CHLOROPHYLL && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_SUN)
-            speed *= 2;
+            speed *= (speed * 150) / 100;
         else if (ability == ABILITY_SAND_RUSH   && gBattleWeather & B_WEATHER_SANDSTORM)
-            speed *= 2;
+            speed *= (speed * 150) / 100;
         else if (ability == ABILITY_SLUSH_RUSH  && gBattleWeather & B_WEATHER_HAIL)
-            speed *= 2;
+            speed *= (speed * 150) / 100;
     }
 
     // other abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battlerId].status1 & STATUS1_ANY)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
-        speed *= 2;
+        speed *= speed = (speed * 150) / 100;
     else if (ability == ABILITY_SLOW_START && gDisableStructs[battlerId].slowStartTimer != 0)
-        speed /= 2;
+        speed /= speed = (speed * 150) / 100;
     else if (ability == ABILITY_BULL_RUSH)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_HUSTLE)
