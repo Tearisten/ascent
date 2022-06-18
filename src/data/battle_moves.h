@@ -8746,7 +8746,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_FLINCH_HIT,
         .power = 85,
         .type = TYPE_ICE,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
@@ -11025,7 +11025,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BEHEMOTH_BASH] =
     {
-        .effect = EFFECT_DYNAMAX_DOUBLE_DMG,
+        .effect = EFFECT_BODY_PRESS,
         .power = 100,
         .type = TYPE_STEEL,
         .accuracy = 100,
