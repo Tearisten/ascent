@@ -1448,7 +1448,7 @@ static const struct TrainerMon sParty_GP_3_Intro[] = {
     {
         .species = SPECIES_GABITE,
         .heldItem = ITEM_ROCKY_HELMET,
-        .ability = ABILITY_SLOT_HIDDEN, // water veil
+        .ability = ABILITY_HIDDEN, // water veil
         .evs = EV_SPREAD_TANKY_ATTACK,
         .nature = NATURE_ADAMANT,
         .iv = MAX_PER_STAT_IVS,
@@ -2576,12 +2576,12 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .evs = EV_SPREAD_TANKY_SPATTACK,
         .nature = NATURE_MODEST,
         .iv = MAX_PER_STAT_IVS,
-        .ball = ITEM_SPORTS_BALL,
+        .ball = ITEM_SPORT_BALL,
         .slot = 1,
         .moves = {MOVE_EARTH_POWER, MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_PROTECT},
     },
     {
-        .species = SPECIES_CHIMECO,
+        .species = SPECIES_CHIMECHO,
         .heldItem = ITEM_TRIFORCE,
         .ability = ABILITY_SLOT_1, // levitate
         .evs = EV_SPREAD_TANKY_SPATTACK,
@@ -2603,7 +2603,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .moves = {MOVE_EXTRASENSORY, MOVE_AIR_SLASH, MOVE_LIGHT_SCREEN, MOVE_REFLECT},
     },
     {
-        .species = SPECIES_THROW,
+        .species = SPECIES_THROH,
         .heldItem = ITEM_MUSCLE_BAND,
         .ability = ABILITY_SLOT_1, // levitate
         .evs = EV_SPREAD_TANKY_ATTACK,
@@ -2615,7 +2615,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
     },
     {
         .species = SPECIES_SAWK,
-        .heldItem = ITEM_FIGI_BERRY,
+        .heldItem = ITEM_FIGY_BERRY,
         .ability = ABILITY_SLOT_1, // levitate
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,
@@ -2627,7 +2627,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
     {
         .species = SPECIES_SCRAFTY,
         .heldItem = ITEM_HOURGLASS,
-        .ability = ABILITY_SLOT_HIDDEN, // intimidate
+        .ability = ABILITY_HIDDEN, // intimidate
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_IMPISH,
         .iv = MAX_PER_STAT_IVS,
@@ -2725,7 +2725,7 @@ static const struct TrainerMon sParty_TD_2_Mid[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_SAFARI_BALL,
         .slot = 3,
-        .moves = {MOVE_SPIKY_SHEILD, MOVE_SEED_BOMB, MOVE_BULK_UP, MOVE_PAIN_SPLIT},
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_SEED_BOMB, MOVE_BULK_UP, MOVE_PAIN_SPLIT},
     },
     {
         .species = SPECIES_ZWEILOUS,
