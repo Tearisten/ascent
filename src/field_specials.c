@@ -2777,6 +2777,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
 // early area 4 ideas
 // chansey 
 // pretty early fossil floor
+// mamswine for sure
 
 struct
 {

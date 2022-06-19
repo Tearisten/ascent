@@ -1,29 +1,29 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 3
-.set ROOM_BATTLE_TYPE, 1
+.set ROOM_BATTLE_TYPE, 2
 .set FLOORMONEY, 3300
-.set FLOORBP, 2
+.set FLOORBP, 4
 .set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_7_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_6_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_6
+.set FLOORFLAG, FLAG_ROOM_12_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_11_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_11
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_GP_2_INTRO
-.set TRAINER2ID, TRAINER_GP_2_MID
-.set TRAINER3ID, TRAINER_GP_2_ELITE
+.set TRAINER1ID, TRAINER_TD_2_INTRO
+.set TRAINER2ID, TRAINER_TD_2_MID
+.set TRAINER3ID, TRAINER_TD_2_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream2_Trainer1_text:
-	.string "I like pokemon with\n"
-	.string "multiple forms.$"
+	.string "Are you tryna fight bro?\n"
+	.string "Break through my guard.$"
 
 .set TRAINER2, 11
 TeenageDaydream2_Trainer2_text:
-	.string "Bugs are so cool. They \n"
-	.string "are great for battles.$"
+	.string "I've got sand in my\n"
+	.string "boots. It's everywhere.$"
 
 .set TRAINER3, 12
 TeenageDaydream2_Trainer3_text:

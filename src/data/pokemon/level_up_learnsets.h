@@ -967,7 +967,7 @@ static const struct LevelUpMove sMankeyLevelUpLearnset[] = {
 static const struct LevelUpMove sPrimeapeLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_RAGE),
     LEVEL_UP_MOVE( 1, MOVE_THRASH),
-    LEVEL_UP_MOVE( 1, MOVE_CLOSE_COMBAT),
+    LEVEL_UP_MOVE( 1, MOVE_SKY_UPPERCUT),
     LEVEL_UP_MOVE( 1, MOVE_STOMPING_TANTRUM),
     LEVEL_UP_MOVE( 1, MOVE_OUTRAGE),
     LEVEL_UP_MOVE( 1, MOVE_FIRE_PUNCH),
@@ -4434,15 +4434,14 @@ static const struct LevelUpMove sHitmontopLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HIGH_HORSEPOWER),
     LEVEL_UP_MOVE( 1, MOVE_TRIPLE_AXEL),
     LEVEL_UP_MOVE( 1, MOVE_TOPSY_TURVY),
-    LEVEL_UP_MOVE( 1, MOVE_TRIPLE_KICK),
     LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),
     LEVEL_UP_MOVE( 1, MOVE_GYRO_BALL),
     LEVEL_UP_MOVE( 1, MOVE_TROP_KICK),
     LEVEL_UP_MOVE( 1, MOVE_WIDE_GUARD),
     LEVEL_UP_MOVE( 1, MOVE_QUICK_GUARD),
     LEVEL_UP_MOVE( 1, MOVE_RAPID_SPIN),
-    LEVEL_UP_MOVE( 1, MOVE_CLOSE_COMBAT),
     LEVEL_UP_MOVE( 1, MOVE_STEALTH_ROCK),
+    LEVEL_UP_MOVE( 1, MOVE_TRIPLE_KICK),
     LEVEL_UP_MOVE( 1, MOVE_HELPING_HAND),
     LEVEL_UP_END
 };
@@ -11301,10 +11300,11 @@ static const struct LevelUpMove sVanilliteLevelUpLearnset[] = {
 
 static const struct LevelUpMove sVanillishLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_ACID_ARMOR),
-    LEVEL_UP_MOVE( 1, MOVE_ICE_BEAM),
     LEVEL_UP_MOVE( 1, MOVE_POWER_GEM),
     LEVEL_UP_MOVE( 1, MOVE_FREEZE_DRY),
     LEVEL_UP_MOVE( 1, MOVE_WEATHER_BALL),
+    LEVEL_UP_MOVE( 1, MOVE_SLACK_OFF),
+    LEVEL_UP_MOVE( 1, MOVE_FOLLOW_ME),
     
     //vanillite
     LEVEL_UP_MOVE( 1, MOVE_WATER_PULSE),
