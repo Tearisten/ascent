@@ -1,24 +1,24 @@
 @ this floors specific battle data
 @ copy from here down for new maps
-.set ROOM_BATTLE_COUNT, 3
-.set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 3500
-.set FLOORBP, 2
+.set ROOM_BATTLE_COUNT, 4
+.set ROOM_BATTLE_TYPE, 1
+.set FLOORMONEY, 5000
+.set FLOORBP, 4
 .set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_8_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_7_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_7
+.set FLOORFLAG, FLAG_ROOM_13_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_12_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_12
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_GP_3_INTRO
-.set TRAINER2ID, TRAINER_GP_3_MID
-.set TRAINER3ID, TRAINER_GP_3_ELITE
+.set TRAINER1ID, TRAINER_TD_3_INTRO
+.set TRAINER2ID, TRAINER_TD_3_MID
+.set TRAINER3ID, TRAINER_TD_3_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream3_Trainer1_text:
-	.string "Rodents are so cute.\n"
-	.string "Want to hold mine?$"
+	.string "Gotta go fast or you'll\n"
+	.string "get out run.$"
 
 .set TRAINER2, 11
 TeenageDaydream3_Trainer2_text:
@@ -27,6 +27,11 @@ TeenageDaydream3_Trainer2_text:
 
 .set TRAINER3, 12
 TeenageDaydream3_Trainer3_text:
+	.string "I scammed some noobs for\n"
+	.string "their starter pokemon.$"
+
+.set TRAINER4, 13
+TeenageDaydream3_Trainer4_text:
 	.string "I scammed some noobs for\n"
 	.string "their starter pokemon.$"
 
@@ -199,9 +204,24 @@ TeenageDaydream3_npc_finish3::
 	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto TeenageDaydream3_npc_walk4
 
-TeenageDaydream3_npc_walk4:
+TeenageDaydream3_npc_walk4::
+	applymovement TRAINER4, TeenageDaydream3_npc_walk4_move
+	waitmovement 0
+	trainerbattle_single TRAINER4ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, TeenageDaydream3_npc_finish4
+
+TeenageDaydream3_npc_finish4::
+	special HealPlayerParty
+	applymovement TRAINER4, TeenageDaydream3_npc_walk4_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 4, TeenageDaydream3_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
+	goto TeenageDaydream3_npc_walk5
+
+TeenageDaydream3_npc_walk5:
 	releaseall
 	end
+
 
 TeenageDaydream3_npc_walk1_move::
 	walk_down
@@ -266,6 +286,23 @@ TeenageDaydream3_npc_walk3_move_back::
 	face_down
 	step_end
 
+TeenageDaydream3_npc_walk4_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+TeenageDaydream3_npc_walk4_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 TeenageDaydream3_Trainer1_event::
 	faceplayer
 	lockall
@@ -284,5 +321,12 @@ TeenageDaydream3_Trainer3_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream3_Trainer3_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+TeenageDaydream3_Trainer4_event::
+	faceplayer
+	lockall
+	msgbox TeenageDaydream3_Trainer4_text, MSGBOX_DEFAULT
 	releaseall
 	end

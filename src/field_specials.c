@@ -2748,7 +2748,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
     {SPECIES_BRELOOM, 5, FLAG_ROOM_12_CLEAR},
     {SPECIES_GARBODOR, 3, FLAG_ROOM_12_CLEAR},
     {SPECIES_GASTRODON, 5, FLAG_ROOM_12_CLEAR},
-    {SPECIES_WHIMSICOTT, 5, FLAG_ROOM_12_CLEAR},
+    {SPECIES_WHIMSICOTT, 5, FLAG_ROOM_12_CLEAR}, // gift of wind
 
     //Teenage Daydream 4
     {SPECIES_DUSCLOPS, 7, FLAG_ROOM_13_CLEAR}, // twisted mind slot 2, make sure give trick room

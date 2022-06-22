@@ -29,10 +29,10 @@
 #define TRAINER_TD_2_INTRO                   25
 #define TRAINER_TD_2_MID                     26
 #define TRAINER_TD_2_ELITE                   27
-#define TRAINER_GRUNT_AQUA_HIDEOUT_6         28
-#define TRAINER_FREDRICK                     29
-#define TRAINER_MATT                         30
-#define TRAINER_ZANDER                       31
+#define TRAINER_TD_3_INTRO                   28
+#define TRAINER_TD_3_EARLY                   29
+#define TRAINER_TD_3_LATE                    30
+#define TRAINER_TD_3_ELITE                   31
 #define TRAINER_SHELLY_WEATHER_INSTITUTE     32
 #define TRAINER_SHELLY_SEAFLOOR_CAVERN       33
 #define TRAINER_ARCHIE                       34
@@ -158,7 +158,7 @@
 #define TRAINER_DARRIN                      154
 #define TRAINER_TONY_1                      155
 #define TRAINER_JEROME                      156
-#define TRAINER_MATTHEW                     157
+#define TRAINER_TD_3_LATEHEW                     157
 #define TRAINER_DAVID                       158
 #define TRAINER_SPENCER                     159
 #define TRAINER_ROLAND                      160

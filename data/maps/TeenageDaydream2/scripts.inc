@@ -2,7 +2,7 @@
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 3
 .set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 3300
+.set FLOORMONEY, 4700
 .set FLOORBP, 4
 .set FLOORHS, 3
 .set FLOORFLAG, FLAG_ROOM_12_CLEAR
@@ -27,8 +27,8 @@ TeenageDaydream2_Trainer2_text:
 
 .set TRAINER3, 12
 TeenageDaydream2_Trainer3_text:
-	.string "Ready to get wet?\n"
-	.string "Splash splash loser.$"
+	.string "Martial arts masters must\n"
+	.string "adapt to mountain weather.$"
 
 TeenageDaydream2_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream2_OnTransition
