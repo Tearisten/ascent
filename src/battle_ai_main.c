@@ -1368,7 +1368,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score -= 10;
             break;
         case EFFECT_TOXIC_SPIKES:
-            if (gSideTimers[GetBattlerSide(battlerDef)].toxicSpikesAmount >= 2)
+            if (gSideTimers[GetBattlerSide(battlerDef)].toxicSpikesAmount >= 1)
                 score -= 10;
             else if (PartnerMoveIsSameNoTarget(AI_DATA->battlerAtkPartner, move, AI_DATA->partnerMove) && gSideTimers[GetBattlerSide(battlerDef)].toxicSpikesAmount == 1)
                 score -= 10; // only one mon needs to set up the last layer of Toxic Spikes
