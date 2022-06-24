@@ -44,6 +44,14 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
     switch (gBattleScripting.reshowMainState)
     {
     case 0:
+        // if we were looking at the enemy party, reset to the current party
+        // 100% better ways to do this but hey this works so...
+        // has to be done before sprites are loaded
+        if (enemyPartyPreview)
+            for (u8 i = 0; i < PARTY_SIZE; i++)
+            {
+                gPlayerParty[i] = gPlayerPartyTemp[i];
+            }
         ScanlineEffect_Clear();
         BattleInitBgsAndWindows();
         SetBgAttribute(1, BG_ATTR_CHARBASEINDEX, 0);

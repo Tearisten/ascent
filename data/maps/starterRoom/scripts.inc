@@ -296,7 +296,9 @@ Gauntlet1_starterRoom_permaDeath_event::
 
 Gauntlet1_starterRoom_permaDeath_text:
 	.string "Would you like to enable perma death?\n"
-	.string "A wipeout will also cause your run to end.$"
+	.string "A wipeout will also cause your run to end.\p"
+	.string "You may still replace fainted mons after\n"
+	.string "battles. This cannot be changed later.$"
 
 Gauntlet1_starterRoom_perma_death_already_active::
 	msgbox Gauntlet1_starterRoom_permaDeath_already_text, MSGBOX_DEFAULT
@@ -314,5 +316,43 @@ Gauntlet1_starterRoom_permaDeath_yes::
 
 Gauntlet1_starterRoom_permaDeath_no::
 	clearflag FLAG_PERMA_DEATH
+	release
+	end
+
+Gauntlet1_starterRoom_fullPreview_event::
+	faceplayer
+	goto_if_set FLAG_FULL_PREVIEW, Gauntlet1_starterRoom_fullPreview_already_active
+	msgbox Gauntlet1_starterRoom_fullPreview_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, Gauntlet1_starterRoom_fullPreview_no
+	case YES, Gauntlet1_starterRoom_fullPreview_yes
+	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+Gauntlet1_starterRoom_fullPreview_text:
+	.string "Would you like to enable full preview?\n"
+	.string "The intended and default setting is off.\p"
+	.string "While off, you may only view enemy party\n"
+	.string "composition and current hp status.\p"
+	.string "While on, you may view enemy\n"
+	.string "partys fully, mid battle. This includes\p"
+	.string "current hp, items, moves, stats, etc.\n"
+	.string "This can not be changed later.$"
+
+Gauntlet1_starterRoom_fullPreview_already_active::
+	msgbox Gauntlet1_starterRoom_fullPreview_already_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Gauntlet1_starterRoom_fullPreview_already_text:
+	.string "You have already enabled full preview.$"
+
+Gauntlet1_starterRoom_fullPreview_yes::
+	setflag FLAG_FULL_PREVIEW
+	release
+	end
+
+Gauntlet1_starterRoom_fullPreview_no::
+	clearflag FLAG_FULL_PREVIEW
 	release
 	end

@@ -248,6 +248,8 @@ u8 gMultiUsePlayerCursor;
 u8 gNumberOfMovesToChoose;
 u8 gBattleControllerData[MAX_BATTLERS_COUNT]; // Used by the battle controllers to store misc sprite/task IDs for each battler
 
+
+
 static const struct ScanlineEffectParams sIntroScanlineParams16Bit =
 {
     &REG_BG3HOFS, SCANLINE_EFFECT_DMACNT_16BIT, 1
@@ -415,12 +417,12 @@ static void (* const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_WON]               = HandleEndTurn_BattleWon,
     [B_OUTCOME_LOST]              = HandleEndTurn_BattleLost,
     [B_OUTCOME_DREW]              = HandleEndTurn_BattleLost,
-    [B_OUTCOME_RAN]               = HandleEndTurn_RanFromBattle,
+    [B_OUTCOME_RAN]               = HandleEndTurn_BattleLost,
     [B_OUTCOME_PLAYER_TELEPORTED] = HandleEndTurn_FinishBattle,
     [B_OUTCOME_MON_FLED]          = HandleEndTurn_MonFled,
     [B_OUTCOME_CAUGHT]            = HandleEndTurn_FinishBattle,
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
-    [B_OUTCOME_FORFEITED]         = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_FORFEITED]         = HandleEndTurn_BattleLost,
     [B_OUTCOME_MON_TELEPORTED]    = HandleEndTurn_FinishBattle,
 };
 
@@ -3828,51 +3830,6 @@ void BattleTurnPassed(void)
 
 u8 IsRunningFromBattleImpossible(void)
 {
-    u32 holdEffect, i;
-
-    if (gBattleMons[gActiveBattler].item == ITEM_ENIGMA_BERRY_E_READER)
-        holdEffect = gEnigmaBerries[gActiveBattler].holdEffect;
-    else
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item);
-
-    gPotentialItemEffectBattler = gActiveBattler;
-
-    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) // Cannot ever run from saving Birch's battle.
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
-        return 1;
-    }
-    if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT && WILD_DOUBLE_BATTLE
-        && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT))) // The second pokemon cannot run from a double wild battle, unless it's the only alive mon.
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE;
-        return 1;
-    }
-
-    if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
-        return 0;
-    #if B_GHOSTS_ESCAPE >= GEN_6
-        if (IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
-            return 0;
-    #endif
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-        return 0;
-    if (GetBattlerAbility(gActiveBattler) == ABILITY_RUN_AWAY)
-        return 0;
-
-    if ((i = IsAbilityPreventingEscape(gActiveBattler)))
-    {
-        gBattleScripting.battler = i - 1;
-        gLastUsedAbility = gBattleMons[i - 1].ability;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PREVENTS_ESCAPE;
-        return 2;
-    }
-
-    if (!CanBattlerEscape(gActiveBattler))
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE;
-        return 1;
-    }
     return 0;
 }
 
@@ -4023,7 +3980,20 @@ static void HandleTurnActionSelectionState(void)
                     break;
                 case B_ACTION_USE_ITEM:
                 // alternatively change false to FlagGet(FLAG_DISABLE_BAG)
-                    if (FlagGet(FLAG_DISABLE_BAG) || gBattleTypeFlags & (BATTLE_TYPE_LINK
+                    if (TRUE)
+                    {
+                        for (u8 i = 0; i < PARTY_SIZE; i++)
+                        {
+                            gPlayerPartyTemp[i] = gPlayerParty[i];
+                            gPlayerParty[i] = gEnemyParty[i];
+                        }
+                        
+                        enemyPartyPreview = TRUE;
+
+                        BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
+                        MarkBattlerForControllerExec(gActiveBattler);
+                    }
+                    else if (FlagGet(FLAG_DISABLE_BAG) || gBattleTypeFlags & (BATTLE_TYPE_LINK
                                             | BATTLE_TYPE_FRONTIER_NO_PYRAMID
                                             | BATTLE_TYPE_EREADER_TRAINER
                                             | BATTLE_TYPE_RECORDED_LINK))
@@ -4124,7 +4094,7 @@ static void HandleTurnActionSelectionState(void)
                 }
 
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
-                    && gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
+                    //&& gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
                     && gBattleResources->bufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
                     gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
@@ -4210,18 +4180,7 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if ((gBattleResources->bufferB[gActiveBattler][1] | (gBattleResources->bufferB[gActiveBattler][2] << 8)) == 0)
-                    {
-                        gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
-                    }
-                    else
-                    {
-                        gLastUsedItem = (gBattleResources->bufferB[gActiveBattler][1] | (gBattleResources->bufferB[gActiveBattler][2] << 8));
-                        if (ItemId_GetPocket(gLastUsedItem) == POCKET_POKE_BALLS)
-                            gBattleStruct->throwingPokeBall = TRUE;
-                        gBattleCommunication[gActiveBattler]++;
-                    }
-                    break;
+                    enemyPartyPreview = FALSE;
                 case B_ACTION_SWITCH:
                     if (gBattleResources->bufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
@@ -5048,6 +5007,7 @@ static void HandleEndTurn_BattleWon(void)
 static void HandleEndTurn_BattleLost(void)
 {
     gCurrentActionFuncId = 0;
+    gBattleOutcome = B_OUTCOME_LOST;
     
     if (FlagGet(FLAG_PERMA_DEATH))
         FlagSet(FLAG_NUZ_LOSE);
@@ -5088,16 +5048,16 @@ static void HandleEndTurn_RanFromBattle(void)
 {
     gCurrentActionFuncId = 0;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         gBattlescriptCurrInstr = BattleScript_PrintPlayerForfeited;
-        gBattleOutcome = B_OUTCOME_FORFEITED;
-        gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+        gBattleOutcome = B_OUTCOME_LOST;
+        //gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
     {
         gBattlescriptCurrInstr = BattleScript_PrintPlayerForfeited;
-        gBattleOutcome = B_OUTCOME_FORFEITED;
+        gBattleOutcome = B_OUTCOME_LOST;
     }
     else
     {

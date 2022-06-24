@@ -2511,7 +2511,9 @@ void DisplayPartyMenuStdMessage(u32 stringId)
 
         if (stringId == PARTY_MSG_CHOOSE_MON)
         {
-            if (sPartyMenuInternal->chooseHalf)
+            if (enemyPartyPreview)
+                stringId = PARTY_MSG_ENEMY_PREVIEW;
+            else if (sPartyMenuInternal->chooseHalf)
                 stringId = PARTY_MSG_CHOOSE_MON_AND_CONFIRM;
             else if (!ShouldUseChooseMonText())
                 stringId = PARTY_MSG_CHOOSE_MON_OR_CANCEL;
@@ -2670,7 +2672,18 @@ static u8 GetPartyMenuActionsType(struct Pokemon *mon)
             actionType = ACTIONS_NONE; // actions populated by SetPartyMonFieldSelectionActions
         break;
     case PARTY_MENU_TYPE_IN_BATTLE:
-        actionType = GetPartyMenuActionsTypeInBattle(mon);
+        if (!enemyPartyPreview)
+        {
+            actionType = GetPartyMenuActionsTypeInBattle(mon);
+        }
+        else if (FlagGet(FLAG_FULL_PREVIEW))
+        {
+            actionType = ACTIONS_SUMMARY_ONLY;
+        }
+        else
+        {
+            actionType = ACTIONS_TRADE;
+        }
         break;
     case PARTY_MENU_TYPE_CHOOSE_HALF:
         switch (GetPartySlotEntryStatus(gPartyMenu.slotId))

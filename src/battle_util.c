@@ -727,13 +727,10 @@ bool8 TryRunFromBattle(u8 battler)
         gBattleStruct->runTries++;
     }
 
-    if (effect)
-    {
-        gCurrentTurnActionNumber = gBattlersCount;
-        gBattleOutcome = B_OUTCOME_RAN;
-    }
+    gCurrentTurnActionNumber = gBattlersCount;
+    gBattleOutcome = B_OUTCOME_RAN;
 
-    return effect;
+    return 1;
 }
 
 void HandleAction_Run(void)

@@ -146,7 +146,7 @@ static const struct TrainerMon sParty_LC_1_Elite[] = {
 static const struct TrainerMon sParty_LC_2_Intro[] = {
     {
         .species = SPECIES_ZIGZAGOON_GALARIAN,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_ROCKY_HELMET,
         .ability = ABILITY_SLOT_1, // filter
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_IMPISH,
