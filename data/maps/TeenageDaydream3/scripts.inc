@@ -11,29 +11,30 @@
 
 @ this floors trainer ids
 .set TRAINER1ID, TRAINER_TD_3_INTRO
-.set TRAINER2ID, TRAINER_TD_3_MID
-.set TRAINER3ID, TRAINER_TD_3_ELITE
+.set TRAINER2ID, TRAINER_TD_3_EARLY
+.set TRAINER3ID, TRAINER_TD_3_LATE
+.set TRAINER4ID, TRAINER_TD_3_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream3_Trainer1_text:
-	.string "Gotta go fast or you'll\n"
-	.string "get out run.$"
+	.string "Gastrodon can be used in\n"
+	.string "a few different ways.$"
 
 .set TRAINER2, 11
 TeenageDaydream3_Trainer2_text:
-	.string "Indimidate is just the\n"
-	.string "best ability in the game.$"
+	.string "Lead pokemon always set\n"
+	.string "the mood of the fight.$"
 
 .set TRAINER3, 12
 TeenageDaydream3_Trainer3_text:
-	.string "I scammed some noobs for\n"
-	.string "their starter pokemon.$"
+	.string "I always sample every kind\n"
+	.string "of ice cream at the shop.$"
 
 .set TRAINER4, 13
 TeenageDaydream3_Trainer4_text:
-	.string "I scammed some noobs for\n"
-	.string "their starter pokemon.$"
+	.string "You're too slow, bro.\n"
+	.string "Eat my dust.$"
 
 TeenageDaydream3_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream3_OnTransition

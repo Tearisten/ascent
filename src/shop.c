@@ -510,9 +510,10 @@ static const struct itemFlagMap tmToFlag[] =
     {ITEM_NONE, FLAG_UNUSED_0x95F} // required empty end for some reason
 };
 
-// make sure to give out giga impact / hyper beam for tauros
 // area 4
 // swords dance / nasty plot
+// make sure to give out giga impact / hyper beam for tauros
+
 
 static EWRAM_DATA u16 *shopTMslist = NULL;
 static void SetTMShopItemsForSale()
