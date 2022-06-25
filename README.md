@@ -1,3 +1,5 @@
+https://www.pokecommunity.com/showthread.php?p=10495547#post10495547
+
 # pokeemerald Expansion
 
 ## What is the pokeemerald Expansion?
