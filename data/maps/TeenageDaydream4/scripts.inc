@@ -1,33 +1,40 @@
 @ this floors specific battle data
 @ copy from here down for new maps
-.set ROOM_BATTLE_COUNT, 2
-.set ROOM_BATTLE_TYPE, 1
-.set FLOORMONEY, 3800
-.set FLOORBP, 2
-.set FLOORHS, 3
-.set FLOORFLAG, FLAG_ROOM_9_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_8_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_8
+.set ROOM_BATTLE_COUNT, 4
+.set ROOM_BATTLE_TYPE, 2
+.set FLOORMONEY, 5200
+.set FLOORBP, 5
+.set FLOORHS, 4
+.set FLOORFLAG, FLAG_ROOM_14_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_13_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_13
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_GP_4_INTRO
-.set TRAINER2ID, TRAINER_GP_4_ELITE
+.set TRAINER1ID, TRAINER_TD_4_INTRO
+.set TRAINER2ID, TRAINER_TD_4_EARLY
+.set TRAINER3ID, TRAINER_TD_4_LATE
+.set TRAINER4ID, TRAINER_TD_4_ELITE
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream4_Trainer1_text:
-	.string "Flexibility is the key to\n"
-	.string "victory. Stretch daily.$"
+	.string "Gastrodon can be used in\n"
+	.string "a few different ways.$"
 
 .set TRAINER2, 11
 TeenageDaydream4_Trainer2_text:
-	.string "Sableye can be a defensive or\n"
-	.string "special defensive wall.$"
+	.string "Lead pokemon always set\n"
+	.string "the mood of the fight.$"
 
-.set TRAINER2, 12
+.set TRAINER3, 12
 TeenageDaydream4_Trainer3_text:
-	.string "Sableye can be a defensive or\n"
-	.string "special defensive wall.$"
+	.string "I always sample every kind\n"
+	.string "of ice cream at the shop.$"
+
+.set TRAINER4, 13
+TeenageDaydream4_Trainer4_text:
+	.string "You're too slow, bro.\n"
+	.string "Eat my dust.$"
 
 TeenageDaydream4_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream4_OnTransition
@@ -35,13 +42,12 @@ TeenageDaydream4_MapScripts::
 	.byte 0
 
 TeenageDaydream4_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_4
+	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_4
 	end
 
 TeenageDaydream4_OnLoad:
 	call_if_set FLOORFLAG, PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	end
-
 
 TeenageDaydream4_PokeShop_event::
 	faceplayer
@@ -156,6 +162,7 @@ TeenageDaydream4_end_battles::
 	releaseall
 	end
 
+
 TeenageDaydream4_npc_walk1::
 	applymovement TRAINER1, TeenageDaydream4_npc_walk1_move
 	waitmovement 0
@@ -168,7 +175,6 @@ TeenageDaydream4_npc_finish1::
 	waitmessage
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
 	goto_if_eq VAR_TEMP_A, 1, TeenageDaydream4_end_battles
-	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto TeenageDaydream4_npc_walk2
 	
 TeenageDaydream4_npc_walk2::
@@ -186,22 +192,37 @@ TeenageDaydream4_npc_finish2::
 	goto TeenageDaydream4_npc_walk3
 
 TeenageDaydream4_npc_walk3::
-	applymovement TRAINER3, TeenageDaydream3_npc_walk3_move
+	applymovement TRAINER3, TeenageDaydream4_npc_walk3_move
 	waitmovement 0
-	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, TeenageDaydream3_npc_finish3
+	trainerbattle_single TRAINER3ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, TeenageDaydream4_npc_finish3
 
 TeenageDaydream4_npc_finish3::
 	special HealPlayerParty
-	applymovement TRAINER3, TeenageDaydream3_npc_walk3_move_back
+	applymovement TRAINER3, TeenageDaydream4_npc_walk3_move_back
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
-	goto_if_eq VAR_TEMP_A, 3, TeenageDaydream3_end_battles
+	goto_if_eq VAR_TEMP_A, 3, TeenageDaydream4_end_battles
 	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
-	goto TeenageDaydream3_npc_walk4
+	goto TeenageDaydream4_npc_walk4
 
-TeenageDaydream4_npc_walk4:
+TeenageDaydream4_npc_walk4::
+	applymovement TRAINER4, TeenageDaydream4_npc_walk4_move
+	waitmovement 0
+	trainerbattle_single TRAINER4ID, Route110_Text_MayDefeated, Route110_Text_MayDefeated, TeenageDaydream4_npc_finish4
+
+TeenageDaydream4_npc_finish4::
+	special HealPlayerParty
+	applymovement TRAINER4, TeenageDaydream4_npc_walk4_move_back
+	waitmovement 0
+	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
+	goto_if_eq VAR_TEMP_A, 4, TeenageDaydream4_end_battles
+	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
+	goto TeenageDaydream4_npc_walk5
+
+TeenageDaydream4_npc_walk5:
 	releaseall
 	end
+
 
 TeenageDaydream4_npc_walk1_move::
 	walk_down
@@ -266,6 +287,23 @@ TeenageDaydream4_npc_walk3_move_back::
 	face_down
 	step_end
 
+TeenageDaydream4_npc_walk4_move::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+TeenageDaydream4_npc_walk4_move_back::
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
 TeenageDaydream4_Trainer1_event::
 	faceplayer
 	lockall
@@ -280,10 +318,16 @@ TeenageDaydream4_Trainer2_event::
 	releaseall
 	end
 
-
 TeenageDaydream4_Trainer3_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream4_Trainer3_text, MSGBOX_DEFAULT
+	releaseall
+	end
+
+TeenageDaydream4_Trainer4_event::
+	faceplayer
+	lockall
+	msgbox TeenageDaydream4_Trainer4_text, MSGBOX_DEFAULT
 	releaseall
 	end

@@ -33,10 +33,10 @@
 #define TRAINER_TD_3_EARLY                   29
 #define TRAINER_TD_3_LATE                    30
 #define TRAINER_TD_3_ELITE                   31
-#define TRAINER_SHELLY_WEATHER_INSTITUTE     32
-#define TRAINER_SHELLY_SEAFLOOR_CAVERN       33
-#define TRAINER_ARCHIE                       34
-#define TRAINER_LEAH                         35
+#define TRAINER_TD_4_INTRO                   32
+#define TRAINER_TD_4_EARLY                   33
+#define TRAINER_TD_4_LATE                    34
+#define TRAINER_TD_4_ELITE                   35
 #define TRAINER_DAISY                        36
 #define TRAINER_ROSE_1                       37
 #define TRAINER_FELIX                        38

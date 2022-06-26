@@ -422,4 +422,56 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_TD_3_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_3_Elite)
     },
+        [TRAINER_TD_4_INTRO] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("Hanna"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_4_Intro},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Intro)
+    },
+    [TRAINER_TD_4_EARLY] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("Hanna"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_4_Early},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Early)
+    },
+    [TRAINER_TD_4_LATE] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("Hanna"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_4_Late},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Late)
+    },
+    [TRAINER_TD_4_ELITE] =
+    {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("Hanna"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .partySize = 6,
+        .party = {.TrainerMon = sParty_TD_4_Elite},
+        .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Elite)
+    },
 };

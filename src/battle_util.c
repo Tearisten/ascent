@@ -9573,7 +9573,7 @@ static u16 CalcTypeEffectivenessMultiplierInternal(u16 move, u8 moveType, u8 bat
 
     // if hold item is heel guard
     if (modifier >= UQ_4_12(4.0) && GetBattlerHoldEffectParam(battlerDef) == NUMBER_OF_MON_TYPES)
-        modifier = UQ_4_12(1.0);
+        modifier = UQ_4_12(2.0);
 
     return modifier;
 }
