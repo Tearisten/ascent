@@ -132,7 +132,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
       "x": 1,
       "y": 8,
       "elevation": 3,
@@ -145,7 +145,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 2,
       "y": 8,
       "elevation": 3,
@@ -158,8 +158,21 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_CAMERAMAN",
       "x": 3,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TeenageDaydream3_Trainer3_event",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "x": 4,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
