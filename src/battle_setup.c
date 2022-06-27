@@ -810,7 +810,7 @@ u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_SIDNEY;
         if (gTrainerBattleOpponent_A == TRAINER_GP_5_BOSS)
             return B_TRANSITION_PHOEBE;
-        if (gTrainerBattleOpponent_A == TRAINER_GLACIA)
+        if (gTrainerBattleOpponent_A == TRAINER_TD_5_BOSS)
             return B_TRANSITION_GLACIA;
         if (gTrainerBattleOpponent_A == TRAINER_DRAKE)
             return B_TRANSITION_DRAKE;

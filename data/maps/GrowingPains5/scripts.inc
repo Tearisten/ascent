@@ -24,7 +24,7 @@ GrowingPains5_MapScripts::
 	.byte 0
 
 GrowingPains5_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_5
+	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_5
 	end
 
 GrowingPains5_OnLoad:

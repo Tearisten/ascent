@@ -1,16 +1,16 @@
 @ this floors specific battle data
 @ copy from here down for new maps
 .set ROOM_BATTLE_COUNT, 1
-.set ROOM_BATTLE_TYPE, 2
-.set FLOORMONEY, 4000
+.set ROOM_BATTLE_TYPE, 1
+.set FLOORMONEY, 5500
 .set FLOORBP, 3
 .set FLOORHS, 4
-.set FLOORFLAG, FLAG_ROOM_10_CLEAR
-.set FLOORFLAG_PREV, FLAG_ROOM_9_CLEAR
-.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_9
+.set FLOORFLAG, FLAG_ROOM_15_CLEAR
+.set FLOORFLAG_PREV, FLAG_ROOM_14_CLEAR
+.set FLAG_NUZ_GIFT, FLAG_NZ_GIFT_14
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_GP_5_BOSS
+.set TRAINER1ID, TRAINER_TD_5_BOSS
 
 @ this floors trainer npc ids
 .set TRAINER1, 10
@@ -24,7 +24,7 @@ TeenageDaydream5_MapScripts::
 	.byte 0
 
 TeenageDaydream5_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_LITTLE_CUP_5
+	setrespawn HEAL_LOCATION_FLOOR_TEENAGE_DAYDREAM_5
 	end
 
 TeenageDaydream5_OnLoad:

@@ -37,7 +37,7 @@
 #define TRAINER_TD_4_EARLY                   33
 #define TRAINER_TD_4_LATE                    34
 #define TRAINER_TD_4_ELITE                   35
-#define TRAINER_DAISY                        36
+#define TRAINER_TD_5_BOSS                    36
 #define TRAINER_ROSE_1                       37
 #define TRAINER_FELIX                        38
 #define TRAINER_VIOLET                       39

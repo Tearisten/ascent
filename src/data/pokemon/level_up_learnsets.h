@@ -941,9 +941,13 @@ static const struct LevelUpMove sPsyduckLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGolduckLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_HYPER_BEAM),
+    LEVEL_UP_MOVE( 1, MOVE_NIGHT_SHADE),
+    LEVEL_UP_MOVE( 1, MOVE_WEATHER_BALL),
     LEVEL_UP_MOVE( 1, MOVE_HYDRO_PUMP),
+    LEVEL_UP_MOVE( 1, MOVE_AQUA_RING),
     LEVEL_UP_MOVE( 1, MOVE_ICE_BEAM),
+    LEVEL_UP_MOVE( 1, MOVE_SNIPE_SHOT),
+    LEVEL_UP_MOVE( 1, MOVE_LIFE_DEW),
     LEVEL_UP_MOVE( 1, MOVE_MOONBLAST),
     LEVEL_UP_MOVE( 1, MOVE_PSYCHIC),
     LEVEL_UP_MOVE( 1, MOVE_PSYSTRIKE),
@@ -10897,8 +10901,11 @@ static const struct LevelUpMove sCofagrigusLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SHADOW_BALL),
     LEVEL_UP_MOVE( 1, MOVE_DESTINY_BOND),
     LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),
-    LEVEL_UP_MOVE( 1, MOVE_SHADOW_PUNCH),
-    LEVEL_UP_MOVE( 1, MOVE_TRICK_ROOM),
+    LEVEL_UP_MOVE( 1, MOVE_FAKE_TEARS),
+    LEVEL_UP_MOVE( 1, MOVE_ENDURE),
+    LEVEL_UP_MOVE( 1, MOVE_ALLY_SWITCH),
+    LEVEL_UP_MOVE( 1, MOVE_TOXIC_SPIKES),
+    LEVEL_UP_MOVE( 1, MOVE_CRAFTY_SHIELD),
 
     // yamask
     LEVEL_UP_MOVE( 1, MOVE_PROTECT),
@@ -11566,7 +11573,6 @@ static const struct LevelUpMove sJoltikLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGalvantulaLevelUpLearnset[] = {    
-    //LEVEL_UP_MOVE( 0, MOVE_STICKY_WEB),
     LEVEL_UP_MOVE( 1, MOVE_STICKY_WEB),
     LEVEL_UP_MOVE( 1, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE( 1, MOVE_SCREECH),
@@ -16268,6 +16274,7 @@ static const struct LevelUpMove sDubwoolLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_DEFENSE_CURL),
+    LEVEL_UP_MOVE( 1, MOVE_SLACK_OFF),
     LEVEL_UP_MOVE( 1, MOVE_COPYCAT),
     LEVEL_UP_MOVE(12, MOVE_GUARD_SPLIT),
     LEVEL_UP_MOVE(16, MOVE_DOUBLE_KICK),
