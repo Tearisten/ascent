@@ -41,12 +41,12 @@ MoveRelearners_EventScript_NoMoveToTeachMon::
 	end
  
 MoveRelearners_EventScript_CantTeach::
-	releaseall
+	release
 	end
 
 MoveRelearners_EventScript_ComeBackWithHeartScale::
 	msgbox MoveRelearners_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
-	releaseall
+	release
 	end
 
 MoveRelearners_Text_ImTheMoveTutor:
@@ -105,7 +105,7 @@ EVspreader_event::
 	setorcopyvar VAR_0x8005, VAR_0x8002
 	special IncreaseChosenMonEVs
 	goto_if_eq VAR_RESULT, 0, EVspreader_aboveMax_func
-	releaseall
+	release
 	end
 
 EVspreader_text:
@@ -114,7 +114,7 @@ EVspreader_text:
 
 EVspreader_aboveMax_func::
 	msgbox EVspreader_aboveMax_text, MSGBOX_DEFAULT
-	releaseall
+	release
 	end
 
 EVspreader_aboveMax_text:
@@ -129,7 +129,7 @@ EVreset_event::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	waitstate
 	special ResetChosenMonEVs
-	releaseall
+	release
 	end
 
 EVreset_text:
@@ -150,7 +150,7 @@ NatureChange_event::
 	setorcopyvar VAR_0x8004, VAR_0x8000
 	setorcopyvar VAR_0x8005, VAR_RESULT
 	special ChangePokemonNature
-	releaseall
+	release
 	end
 
 NatureChange_text::
@@ -161,14 +161,14 @@ TMShop_event::
 	lockall
 	special CreateTMShopMenu
 	waitstate
-	releaseall
+	release
 	end
 
 ItemShop_event::
 	lockall
 	special CreatePokemartMenu
 	waitstate
-	releaseall
+	release
 	end
 
 PokeShop_event_multi::
@@ -199,7 +199,7 @@ PokeShop_event::
 	case FLAG_ROOM_5_CLEAR, showpokeshopGP
 	case FLAG_ROOM_10_CLEAR, showpokeshopTD
 	@else unsure
-	goto PokeShop_experience_event
+	goto MakeShiny_Deny
 
 showpokeshopLC::
 	goto_if_unset FLAG_ALL_STARTERS, PokeShop_experience_event
@@ -222,7 +222,7 @@ PokeShop_text:
 PokeShop_Deny::
 	special CloseBattlePointsWindow
 	special CloseFrontierExchangeCornerItemIconWindow
-	releaseall
+	release
 	end
 
 PokeShop_experience_text:
@@ -232,7 +232,7 @@ PokeShop_experience_text:
 PokeShop_experience_event::
 	msgbox PokeShop_experience_text, MSGBOX_DEFAULT
 	waitmessage
-	releaseall
+	release
 	end
 
 PokeShop_TryPurchasePrize::
@@ -245,13 +245,13 @@ PokeShop_TryPurchasePrize::
 	waitse
 	special CloseFrontierExchangeCornerItemIconWindow
 	special CloseBattlePointsWindow
-	releaseall
+	release
 	end
 
 PokeShop_NotEnoughBP_shiny::
 	msgbox PokeShop_neBP_text, MSGBOX_DEFAULT
 	waitmessage
-	releaseall
+	release
 	end
 
 PokeShop_NotEnoughBP_pokeshop::
@@ -259,7 +259,7 @@ PokeShop_NotEnoughBP_pokeshop::
 	waitmessage
 	special CloseFrontierExchangeCornerItemIconWindow
 	special CloseBattlePointsWindow
-	releaseall
+	release
 	end
 
 PokeShop_neBP_text:
@@ -302,7 +302,7 @@ MakeShiny_event::
 
 
 MakeShiny_Deny::
-	releaseall
+	release
 	end
 
 MakeShiny_exitmenu::

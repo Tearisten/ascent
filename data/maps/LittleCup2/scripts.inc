@@ -233,12 +233,12 @@ LittleCup2_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox LittleCup2_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
+	release
 	end
 
 LittleCup2_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox LittleCup2_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
+	release
 	end

@@ -42,7 +42,7 @@ TeenageDaydream3_MapScripts::
 	.byte 0
 
 TeenageDaydream3_OnTransition:
-	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_3
+	setrespawn HEAL_LOCATION_FLOOR_TEENAGE_DAYDREAM_3
 	end
 
 TeenageDaydream3_OnLoad:
@@ -308,26 +308,26 @@ TeenageDaydream3_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream3_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 TeenageDaydream3_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream3_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 TeenageDaydream3_Trainer3_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream3_Trainer3_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 TeenageDaydream3_Trainer4_event::
 	faceplayer
 	lockall
 	msgbox TeenageDaydream3_Trainer4_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end

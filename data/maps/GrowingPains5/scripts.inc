@@ -225,5 +225,5 @@ GrowingPains5_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains5_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end

@@ -269,8 +269,8 @@ Gauntlet1_starterRoom_NuzlockeText:
 
 Gauntlet1_starterRoom_nuzlocke_too_late::
 	msgbox Gauntlet1_starterRoom_nuzlocke_too_late_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 Gauntlet1_starterRoom_nuzlocke_too_late_text:
 	.string "You may not enable random gifts\n"
@@ -278,8 +278,8 @@ Gauntlet1_starterRoom_nuzlocke_too_late_text:
 
 Gauntlet1_starterRoom_nuzlocke_already_active::
 	msgbox Gauntlet1_starterRoom_nuzlocke_already_active_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 Gauntlet1_starterRoom_nuzlocke_already_active_text:
 	.string "You have already enabled random gifts.$"
@@ -302,8 +302,8 @@ Gauntlet1_starterRoom_permaDeath_text:
 
 Gauntlet1_starterRoom_perma_death_already_active::
 	msgbox Gauntlet1_starterRoom_permaDeath_already_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 Gauntlet1_starterRoom_permaDeath_already_text:
 	.string "You have already enabled perma death.$"
@@ -341,8 +341,8 @@ Gauntlet1_starterRoom_fullPreview_text:
 
 Gauntlet1_starterRoom_fullPreview_already_active::
 	msgbox Gauntlet1_starterRoom_fullPreview_already_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 Gauntlet1_starterRoom_fullPreview_already_text:
 	.string "You have already enabled full preview.$"

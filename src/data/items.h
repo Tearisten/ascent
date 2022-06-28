@@ -9564,7 +9564,7 @@ const struct Item gItems[] =
     {
         .name = _("Heel Guard"),
         .itemId = ITEM_HEEL_COVER,
-        .price = 20,
+        .price = 4500,
         .holdEffect = HOLD_EFFECT_RESIST_BERRY,
         .holdEffectParam = NUMBER_OF_MON_TYPES,
         .description = sHeelCoverDesc,

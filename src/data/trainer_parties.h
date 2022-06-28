@@ -1,7 +1,7 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
-    .species = SPECIES_CHARMANDER,
-    .heldItem = ITEM_DESTINY_KNOT,
+    .species = SPECIES_PICHU,
+    .heldItem = ITEM_WEIGHTED_BOOTS,
     .ability = ABILITY_SLOT_1,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
@@ -12,8 +12,8 @@ static const struct TrainerMon sParty_Tester[] = {
     //.shiny = TRUE
     },
     {
-    .species = SPECIES_CHARMANDER,
-    .heldItem = ITEM_DESTINY_KNOT,
+    .species = SPECIES_PICHU,
+    .heldItem = ITEM_WEIGHTED_BOOTS,
     .ability = ABILITY_SLOT_1,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
@@ -22,7 +22,7 @@ static const struct TrainerMon sParty_Tester[] = {
     .slot = 1,
     .moves = {MOVE_SEISMIC_TOSS, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
-    }
+    },
 };
 
 static const struct TrainerMon sParty_LC_1_Intro[] = {
@@ -3127,8 +3127,8 @@ static const struct TrainerMon sParty_TD_3_Early[] = {
         .species = SPECIES_RAICHU,
         .heldItem = ITEM_FOCUS_SASH,
         .ability = ABILITY_SLOT_1, // static shock
-        .evs = EV_SPREAD_FAST_SPATTACK,
-        .nature = NATURE_TIMID,
+        .evs = EV_SPREAD_FAST_ATTACK,
+        .nature = NATURE_JOLLY,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_ULTRA_BALL,
         .slot = 3,

@@ -271,19 +271,19 @@ GrowingPains3_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains3_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 GrowingPains3_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains3_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 GrowingPains3_Trainer3_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains3_Trainer3_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end

@@ -2944,6 +2944,10 @@ void InitMoveSelectionsVarsAndStrings(void)
     MoveSelectionDisplayPpString();
     MoveSelectionDisplayPpNumber();
     MoveSelectionDisplayMoveType();
+    if (IsBattlerAlive(1)) // if single battle or default target is alive
+        MoveSelectionDisplayMoveType();
+    else // if double battle and only left target alive
+        MoveSelectionDisplayMoveTypeDoubles(2);
 }
 
 static void PlayerHandleChooseItem(void)

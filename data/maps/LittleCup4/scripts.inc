@@ -232,12 +232,12 @@ LittleCup4_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox LittleCup4_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 LittleCup4_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox LittleCup4_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end

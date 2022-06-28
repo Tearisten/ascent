@@ -270,20 +270,20 @@ GrowingPains4_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains4_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 GrowingPains4_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains4_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 
 GrowingPains4_Trainer3_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains4_Trainer3_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end

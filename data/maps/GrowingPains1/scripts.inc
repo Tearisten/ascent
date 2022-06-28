@@ -232,12 +232,12 @@ GrowingPains1_Trainer1_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains1_Trainer1_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
 
 GrowingPains1_Trainer2_event::
 	faceplayer
 	lockall
 	msgbox GrowingPains1_Trainer2_text, MSGBOX_DEFAULT
-	releaseall
-	end
+ 	release
+ 	end
