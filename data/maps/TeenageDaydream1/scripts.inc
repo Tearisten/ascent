@@ -197,7 +197,7 @@ TeenageDaydream1_npc_finish3::
 	applymovement TRAINER3, GrowingPains3_npc_walk3_move_back
 	waitmovement 0
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_COUNT
-	goto_if_eq VAR_TEMP_A, 3, GrowingPains3_end_battles
+	goto_if_eq VAR_TEMP_A, 3, TeenageDaydream1_end_battles
 	call_if_set FLAG_HAS_DEATH, Nuzlocke_allow_withdrawl
 	goto GrowingPains3_npc_walk4
 
