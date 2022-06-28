@@ -831,7 +831,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
         if (!movingDown)
         {
             u16 y, width, height;
-
+            FillWindowPixelBuffer(list->template.windowId, PIXEL_FILL(list->template.fillValue));
             ScrollWindow(list->template.windowId, 1, count * yMultiplier, PIXEL_FILL(list->template.fillValue));
             ListMenuPrintEntries(list, list->scrollOffset, 0, list->template.maxShowed);
             y = (list->template.maxShowed * yMultiplier) + list->template.upText_Y;
@@ -844,7 +844,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
         else
         {
             u16 width;
-
+            FillWindowPixelBuffer(list->template.windowId, PIXEL_FILL(list->template.fillValue));
             ScrollWindow(list->template.windowId, 0, count * yMultiplier, PIXEL_FILL(list->template.fillValue));
             ListMenuPrintEntries(list, list->scrollOffset, 0, list->template.maxShowed);
             width = GetWindowAttribute(list->template.windowId, WINDOW_WIDTH) * 8;
@@ -894,7 +894,7 @@ static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAn
             ListMenuScroll(list, cursorCount, movingDown);
             ListMenuDrawCursor(list);
             ListMenuCallSelectionChangedCallback(list, FALSE);
-            CopyWindowToVram(list->template.windowId, COPYWIN_GFX);
+            CopyWindowToVram(list->template.windowId, COPYWIN_FULL);
             break;
         }
     }
