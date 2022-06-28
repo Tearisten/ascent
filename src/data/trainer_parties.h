@@ -3882,10 +3882,6 @@ static const struct TrainerMon sParty_TD_4_Late[] = {
     },
 };
 
-//idea list
-
-//aroma veil with choice?
-// scyther
 static const struct TrainerMon sParty_TD_4_Elite[] = {
     {
         .species = SPECIES_SHARPEDO,

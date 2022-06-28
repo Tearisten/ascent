@@ -18,8 +18,8 @@
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream3_Trainer1_text:
-	.string "Gastrodon can be used in\n"
-	.string "a few different ways.$"
+	.string "Gastrodon is so flexible.\n"
+	.string "You'll never see it coming.$"
 
 .set TRAINER2, 11
 TeenageDaydream3_Trainer2_text:

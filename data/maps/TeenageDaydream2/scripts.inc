@@ -22,8 +22,8 @@ TeenageDaydream2_Trainer1_text:
 
 .set TRAINER2, 11
 TeenageDaydream2_Trainer2_text:
-	.string "I've got sand in my\n"
-	.string "boots. It's everywhere.$"
+	.string "There's sand in my boots.\n"
+	.string "It's everywhere.$"
 
 .set TRAINER3, 12
 TeenageDaydream2_Trainer3_text:

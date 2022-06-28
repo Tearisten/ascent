@@ -18,23 +18,23 @@
 @ this floors trainer npc ids
 .set TRAINER1, 10
 TeenageDaydream4_Trainer1_text:
-	.string "Gastrodon can be used in\n"
-	.string "a few different ways.$"
+	.string "I can't stand anything too\n"
+	.string "popular. I like hidden gems.$"
 
 .set TRAINER2, 11
 TeenageDaydream4_Trainer2_text:
-	.string "Lead pokemon always set\n"
-	.string "the mood of the fight.$"
+	.string "I'm aiming for employee\n"
+	.string "of the month.$"
 
 .set TRAINER3, 12
 TeenageDaydream4_Trainer3_text:
-	.string "I always sample every kind\n"
-	.string "of ice cream at the shop.$"
+	.string "Rock, Paper, Scissors...\n"
+	.string "SHOOT!$"
 
 .set TRAINER4, 13
 TeenageDaydream4_Trainer4_text:
-	.string "You're too slow, bro.\n"
-	.string "Eat my dust.$"
+	.string "BOOP. It's just a prank bro.\n"
+	.string "I did it on a whim for real.$"
 
 TeenageDaydream4_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream4_OnTransition
