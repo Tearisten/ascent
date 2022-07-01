@@ -799,7 +799,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, s32 itemId, u8 y, u8 itemPos)
         }
         else if (sMartInfo.martType == MART_TYPE_TM)
         {
-            if (GetSetItemBought(sMartInfo.shopId, itemPos, FLAG_GET_BOUGHT))
+            if ((CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
             {
                 StringCopy(gStringVar1, gText_SoldOut);
                 StringExpandPlaceholders(gStringVar4, gText_StrVar1);
@@ -1190,10 +1190,12 @@ static void Task_BuyMenu(u8 taskId)
             }
 
             if (ItemId_GetPocket(itemId) == POCKET_TM_HM && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
-                BuyMenuDisplayMessage(taskId, gText_SoldOut, BuyMenuReturnToItemList);
+                BuyMenuReturnToItemList(taskId);
+                //BuyMenuDisplayMessage(taskId, gText_SoldOut, BuyMenuReturnToItemList);
             else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
             {
-                BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
+                BuyMenuReturnToItemList(taskId);
+                //BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
             }
             else
             {
@@ -1226,14 +1228,15 @@ static void Task_BuyMenu(u8 taskId)
 
                     StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
                     
-                    if (!GetSetItemBought(sMartInfo.shopId, sShopData->selectedRow + sShopData->scrollOffset, FLAG_GET_BOUGHT))
+                    if (!CheckBagHasItem(itemId, 1) && !CheckPCHasItem(itemId, 1))
                     {
                         tItemCount = 1;
                         BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                     }
                     else
                     {
-                        BuyMenuDisplayMessage(taskId, gText_SorryWereOutOfThis, BuyMenuReturnToItemList);
+                        BuyMenuReturnToItemList(taskId);
+                        //BuyMenuDisplayMessage(taskId, gText_SorryWereOutOfThis, BuyMenuReturnToItemList);
                     }
                 }
                 else
@@ -1348,7 +1351,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     {
         if (AddBagItem(tItemId, tItemCount) == TRUE)
         {
-            GetSetItemBought(sMartInfo.shopId, sShopData->selectedRow + sShopData->scrollOffset, FLAG_SET_BOUGHT);
+            //GetSetItemBought(sMartInfo.shopId, sShopData->selectedRow + sShopData->scrollOffset, FLAG_SET_BOUGHT);
             BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
             RecordItemPurchase(taskId);
         }
