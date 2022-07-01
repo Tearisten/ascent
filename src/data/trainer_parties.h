@@ -3950,7 +3950,7 @@ static const struct TrainerMon sParty_TD_4_Elite[] = {
         .moves = {MOVE_VOLT_SWITCH, MOVE_HEAT_WAVE, MOVE_THUNDERBOLT, MOVE_ROAR},
     },
     {
-        .species = SPECIES_DRIFLOON,
+        .species = SPECIES_DRIFBLIM,
         .heldItem = ITEM_PLATE_MAIL,
         .ability = ABILITY_SLOT_2, // friend guard
         .evs = EV_SPREAD_TANKY_SPATTACK,
