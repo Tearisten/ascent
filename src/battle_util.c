@@ -1791,7 +1791,8 @@ u8 TrySetCantSelectMoveBattleScript(void)
     gPotentialItemEffectBattler = gActiveBattler;
     if (HOLD_EFFECT_CHOICE(holdEffect) && *choicedMove != MOVE_NONE && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        if (IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
+        if ((IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
+            || (!IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(gActiveBattler) != ABILITY_AROMA_VEIL))
         {
             gCurrentMove = *choicedMove;
             gLastUsedItem = gBattleMons[gActiveBattler].item;
@@ -1824,7 +1825,7 @@ u8 TrySetCantSelectMoveBattleScript(void)
             && *choicedMove != MOVE_NONE
             && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        if (IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
+        if ((IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL))
         {
             gCurrentMove = *choicedMove;
             gLastUsedItem = gBattleMons[gActiveBattler].item;

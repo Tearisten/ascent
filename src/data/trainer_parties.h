@@ -1867,7 +1867,7 @@ static const struct TrainerMon sParty_GP_4_Intro[] = {
     {
         .species = SPECIES_MEDICHAM,
         .heldItem = ITEM_HOURGLASS,
-        .ability = ABILITY_SLOT_2, // technician
+        .ability = ABILITY_SLOT_2, // intrepid sword
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,
         .iv = MAX_PER_STAT_IVS,
