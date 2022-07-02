@@ -1204,6 +1204,21 @@ void Task_HandleChooseMonInput(u8 taskId)
                 MoveCursorToConfirm();
             }
             break;
+        case 9:
+            PlaySE(SE_SELECT);
+            if (gPartyMenu.slotId2 == PARTY_SIZE + 1 && gPartyMenu.action == PARTY_ACTION_SWITCH)
+            {
+                HandleChooseMonCancel(taskId, slotPtr);
+            }
+            else if (gPartyMenu.action == PARTY_ACTION_SWITCH)
+            {
+                HandleChooseMonSelection(taskId, slotPtr);
+            }
+            else
+            {
+                CursorCb_Switch(taskId);
+            }
+            break;
         }
     }
 }
@@ -1416,6 +1431,12 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
     if (JOY_NEW(START_BUTTON))
         return 8;
 
+    if (JOY_NEW(SELECT_BUTTON) 
+     && (gPartyMenu.action == PARTY_ACTION_CHOOSE_MON || gPartyMenu.action == PARTY_ACTION_SWITCH)
+     && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD
+     && gPartyMenu.slotId !=  PARTY_SIZE + 1)
+    // && gPartyMenu.slotId2 != PARTY_SIZE + 1) //cancel
+        return 9;
     if (movementDir)
     {
         UpdateCurrentPartySelection(slotPtr, movementDir);
