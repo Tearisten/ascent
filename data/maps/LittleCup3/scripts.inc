@@ -25,6 +25,7 @@ LittleCup3_Trainer2_text:
 	.string "The only thing cooler is crabs.$"
 
 LittleCup3_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup3_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, LittleCup3_OnLoad
 	.byte 0

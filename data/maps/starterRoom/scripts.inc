@@ -1,4 +1,5 @@
 starterRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	goto_if_set FLAG_ALL_STARTERS, StarterRoom_OnTransition
 	.byte 0
 
@@ -13,7 +14,7 @@ Gauntlet1_starterRoom_ProffessorBirch_event::
 	end
 
 Gauntlet1_starterRoom_ProffessorBirch_text:
-	.string "Welcome to the Gauntlet,\n"
+	.string "Welcome to the Pokemon Ascent,\n"
 	.string "a challenging battle experience.\p"
 	.string "Defeat all trainers on each floor\n"
 	.string "to advance.\p" 
@@ -31,6 +32,8 @@ Gauntlet1_starterRoom_ProffessorBirch_text:
 	.string "you may soft lock yourself\p"
 	.string "if you make poor team building\n"
 	.string "choices.\p"
+	.string "Talk to my assistants to enable\n"
+	.string "an assortment of run modifiers.\p"
 	.string "Select a starter of each type to\n"
 	.string "advance to the first floor.$"
 

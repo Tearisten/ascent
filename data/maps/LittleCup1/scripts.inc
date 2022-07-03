@@ -9,7 +9,7 @@
 .set FLOORFLAG_PREV, FLAG_ALL_STARTERS
 
 @ this floors trainer ids
-.set TRAINER1ID, TRAINER_LC_1_INTRO
+.set TRAINER1ID, TRAINER_TEST
 .set TRAINER2ID, TRAINER_LC_1_ELITE
 
 @ this floors trainer npc ids
@@ -23,6 +23,7 @@ LittleCup1_Trainer2_text:
 	.string "all time.$"
 
 LittleCup1_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup1_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, LittleCup1_OnLoad
 	.byte 0

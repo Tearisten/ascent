@@ -19,6 +19,7 @@ GrowingPains5_Trainer1_text:
 	.string "called quickdisquake.$"
 
 GrowingPains5_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains5_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, GrowingPains5_OnLoad
 	.byte 0

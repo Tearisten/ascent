@@ -25,6 +25,7 @@ LittleCup4_Trainer2_text:
 	.string "You'll regret being too fast.$"
 
 LittleCup4_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup4_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, LittleCup4_OnLoad
 	.byte 0

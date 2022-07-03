@@ -32,6 +32,7 @@ TeenageDaydream1_Trainer3_text:
 	.string "I sleep better in the rain.$"
 
 TeenageDaydream1_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream1_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, TeenageDaydream1_OnLoad
 	.byte 0

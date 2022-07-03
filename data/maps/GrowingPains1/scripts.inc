@@ -25,6 +25,7 @@ GrowingPains1_Trainer2_text:
 	.string "grow up.$"
 
 GrowingPains1_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains1_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, GrowingPains1_OnLoad
 	.byte 0

@@ -37,6 +37,7 @@ TeenageDaydream3_Trainer4_text:
 	.string "Eat my dust.$"
 
 TeenageDaydream3_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream3_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, TeenageDaydream3_OnLoad
 	.byte 0

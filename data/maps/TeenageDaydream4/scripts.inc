@@ -37,6 +37,7 @@ TeenageDaydream4_Trainer4_text:
 	.string "I did it on a whim for real.$"
 
 TeenageDaydream4_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, TeenageDaydream4_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, TeenageDaydream4_OnLoad
 	.byte 0

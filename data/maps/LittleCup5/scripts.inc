@@ -19,6 +19,7 @@ LittleCup5_Trainer1_text:
 	.string "between every battle.$"
 
 LittleCup5_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup5_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, LittleCup5_OnLoad
 	.byte 0

@@ -30,6 +30,7 @@ GrowingPains4_Trainer3_text:
 	.string "special defensive wall.$"
 
 GrowingPains4_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains4_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, GrowingPains4_OnLoad
 	.byte 0

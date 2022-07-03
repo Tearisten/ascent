@@ -31,6 +31,7 @@ GrowingPains3_Trainer3_text:
 	.string "their starter pokemon.$"
 
 GrowingPains3_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, GrowingPains3_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, GrowingPains3_OnLoad
 	.byte 0

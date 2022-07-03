@@ -26,6 +26,7 @@ LittleCup2_Trainer2_text:
 	.string "let me get ahead in boosts.$"
 
 LittleCup2_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, LittleCup2_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, LittleCup2_OnLoad
 	.byte 0

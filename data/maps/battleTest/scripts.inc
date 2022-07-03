@@ -1,4 +1,5 @@
 battleTest_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Ascent_OnWarp
 	map_script MAP_SCRIPT_ON_TRANSITION, BattleTest_OnTransition
 	.byte 0
 
@@ -518,3 +519,12 @@ Nuzlocke_warning_text:
 	.string "irreversable. Please be certain when\p"
 	.string "selecting the withdraw option. There\n"
 	.string "is no option to deposit till finishing.$"
+
+Ascent_OnWarp:
+	map_script_2 VAR_TEMP_1, 0, Ascent_OnWarp_EventScript_TurnPlayerNorth
+	.2byte 0
+
+Ascent_OnWarp_EventScript_TurnPlayerNorth::
+	setvar VAR_TEMP_1, 1
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
