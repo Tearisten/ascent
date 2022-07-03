@@ -4959,6 +4959,8 @@ static void HandleEndTurn_BattleWon(void)
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
+        TryRestoreHeldItems();
+
         if (FlagGet(FLAG_PERMA_DEATH))
         {
             //u8 gBattlerTemp = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
@@ -4967,6 +4969,7 @@ static void HandleEndTurn_BattleWon(void)
                 if (!gPlayerParty[i].hp && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
                     {
                         FlagSet(FLAG_HAS_DEATH);
+                        AddBagItem(GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM), 1);
                         ZeroMonData(&gPlayerParty[i]);
                     };
             }
@@ -5137,10 +5140,6 @@ static void HandleEndTurn_FinishBattle(void)
         RecordedBattle_SetPlaybackFinished();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        #if B_TRAINERS_KNOCK_OFF_ITEMS
-        if (gBattleTypeFlags)
-            TryRestoreHeldItems();
-        #endif
         for (i = 0; i < PARTY_SIZE; i++)
         {
             UndoMegaEvolution(i);
