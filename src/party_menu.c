@@ -5021,8 +5021,8 @@ void ItemUseCB_TMHM(u8 taskId, TaskFunc task)
     }
     else
     {
-        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
-        gTasks[taskId].func = Task_ReplaceMoveYesNo;
+        //DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
+        gTasks[taskId].func = Task_ShowSummaryScreenToForgetMove;
     }
 }
 
@@ -5048,14 +5048,14 @@ static void Task_DoLearnedMoveFanfareAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        //PlayFanfare(MUS_LEVEL_UP);
+        PlayFanfare(MUS_LEVEL_UP);
         gTasks[taskId].func = Task_LearnNextMoveOrClosePartyMenu;
     }
 }
 
 static void Task_LearnNextMoveOrClosePartyMenu(u8 taskId)
 {
-    if (IsFanfareTaskInactive() && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
+    if (IsFanfareTaskInactive())
     {
         if (gPartyMenu.learnMoveState == 1)
             Task_TryLearningNextMove(taskId);
@@ -5154,7 +5154,7 @@ static void StopLearningMovePrompt(u8 taskId)
 {
     StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
     StringExpandPlaceholders(gStringVar4, gText_StopLearningMove2);
-    DisplayPartyMenuMessage(gStringVar4, TRUE);
+    //DisplayPartyMenuMessage(gStringVar4, TRUE);
     ScheduleBgCopyTilemapToVram(2);
     gTasks[taskId].func = Task_StopLearningMoveYesNo;
 }
@@ -5163,8 +5163,8 @@ static void Task_StopLearningMoveYesNo(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        PartyMenuDisplayYesNoMenu();
-        gTasks[taskId].func = Task_HandleStopLearningMoveYesNoInput;
+        //PartyMenuDisplayYesNoMenu();
+        gTasks[taskId].func = Task_TryLearningNextMove;
     }
 }
 
