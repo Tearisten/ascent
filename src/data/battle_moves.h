@@ -802,18 +802,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ACID] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_4
-            .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
-        #else
-            .effect = EFFECT_DEFENSE_DOWN_HIT,
-        #endif
+        .effect = EFFECT_HIT,
         .power = 40,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         .split = SPLIT_SPECIAL,
     },
@@ -1312,19 +1308,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FIRE_SPIN] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_5
-            .power = 35,
-            .accuracy = 85,
-        #else
-            .power = 15,
-            .accuracy = 70,
-        #endif
-        .effect = EFFECT_TRAP,
+        .power = 40,
+        .accuracy = 100,
+        .effect = EFFECT_HIT,
         .type = TYPE_FIRE,
         .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .split = SPLIT_SPECIAL,
     },
@@ -9169,7 +9160,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .split = SPLIT_SPECIAL,
     },

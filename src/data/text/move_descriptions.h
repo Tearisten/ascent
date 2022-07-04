@@ -202,8 +202,8 @@ static const u8 sDisableDescription[] = _(
     "the foe's moves.");
 
 static const u8 sAcidDescription[] = _(
-    "Sprays a hide-melting acid.\n"
-    "May lower Defense.");
+    "Sprays a strong acid that\n"
+    "always strikes first.");
 
 static const u8 sEmberDescription[] = _(
     "A weak fire attack that may\n"
@@ -330,8 +330,8 @@ static const u8 sDragonRageDescription[] = _(
     "always inflict 40 HP damage.");
 
 static const u8 sFireSpinDescription[] = _(
-    "Traps the foe in a ring of\n"
-    "fire for 2 to 5 turns.");
+    "Quickly spin and fan flames\n"
+    "that always strike first.");
 
 static const u8 sThunderShockDescription[] = _(
     "An electrical attack that\n"
@@ -2266,8 +2266,8 @@ static const u8 sPLAY_ROUGHDescription[] = _(
     "May lower Attack.");
 
 static const u8 sFAIRY_WINDDescription[] = _(
-    "Stirs up a fairy wind to\n"
-    "strike the foe.");
+    "Stirs up a fairy wind that\n"
+    "always strikes first.");
 
 static const u8 sMOONBLASTDescription[] = _(
     "Attacks with the power of\n"
@@ -2748,7 +2748,7 @@ static const u8 sBODY_PRESSDescription[] = _(
 
 static const u8 sMIND_FLAYDescription[] = _(
     "Does more damage the\n"
-    "higher the user's Sp. def.");
+    "higher the user's Sp. Def.");
     
 static const u8 sDECORATEDescription[] = _(
     "The user sharply raises\n"

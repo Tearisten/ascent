@@ -5638,6 +5638,7 @@ static const struct LevelUpMove sNosepassLevelUpLearnset[] = {
 static const struct LevelUpMove sTorkoalLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_ANCIENT_POWER),
     LEVEL_UP_MOVE( 1, MOVE_FIRE_SPIN),
+    LEVEL_UP_MOVE( 1, MOVE_BODY_PRESS),
     LEVEL_UP_MOVE( 1, MOVE_YAWN),
     LEVEL_UP_MOVE( 1, MOVE_WITHDRAW),
     LEVEL_UP_MOVE( 1, MOVE_LAVA_PLUME),
@@ -13074,7 +13075,7 @@ static const struct LevelUpMove sFlabebeLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_WISH),
     LEVEL_UP_MOVE( 1, MOVE_MAGICAL_LEAF),
     LEVEL_UP_MOVE( 1, MOVE_AROMATHERAPY),
-    LEVEL_UP_MOVE( 1, MOVE_FAIRY_WIND),
+    LEVEL_UP_MOVE( 1, MOVE_DRAINING_KISS),
     LEVEL_UP_MOVE( 1, MOVE_GRASSY_TERRAIN),
     LEVEL_UP_MOVE( 1, MOVE_MISTY_TERRAIN),
     LEVEL_UP_END
@@ -13086,6 +13087,7 @@ static const struct LevelUpMove sFloetteLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_WATER_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_GRASS_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_SOLAR_BEAM),
+    LEVEL_UP_MOVE( 1, MOVE_FAIRY_WIND),
 
     //Flabebe 
     LEVEL_UP_MOVE( 1, MOVE_FOLLOW_ME),
@@ -13095,7 +13097,7 @@ static const struct LevelUpMove sFloetteLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_WISH),
     LEVEL_UP_MOVE( 1, MOVE_MAGICAL_LEAF),
     LEVEL_UP_MOVE( 1, MOVE_AROMATHERAPY),
-    LEVEL_UP_MOVE( 1, MOVE_FAIRY_WIND),
+    LEVEL_UP_MOVE( 1, MOVE_DRAINING_KISS),
     LEVEL_UP_MOVE( 1, MOVE_GRASSY_TERRAIN),
     LEVEL_UP_MOVE( 1, MOVE_MISTY_TERRAIN),
     LEVEL_UP_END
