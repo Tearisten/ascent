@@ -4942,7 +4942,7 @@ const struct Item gItems[] =
     {
         .name = _("Lucky Punch"),
         .itemId = ITEM_LUCKY_PUNCH,
-        .price = 1000,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_LUCKY_PUNCH,
         .description = sLuckyPunchDesc,
         .pocket = POCKET_ITEMS,

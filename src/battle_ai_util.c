@@ -757,6 +757,8 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     case EFFECT_PSYWAVE:
         dmg = gBattleMons[battlerAtk].level * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND 
                                                 || AI_DATA->atkAbility == ABILITY_SPLIT? 2 : 1);
+        if (AI_GetHoldEffect(battlerAtk) == HOLD_EFFECT_LUCKY_PUNCH)
+            dmg = (dmg * 150) / 100;
         break;
     case EFFECT_DRAGON_RAGE:
         dmg = 40 * (AI_DATA->atkAbility == ABILITY_PARENTAL_BOND

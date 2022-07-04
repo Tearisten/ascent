@@ -1961,8 +1961,6 @@ s32 CalcCritChanceStage(u8 battlerAtk, u8 battlerDef, u32 move, bool32 recordAbi
         critChance  = 2 * ((gBattleMons[gBattlerAttacker].status2 & STATUS2_FOCUS_ENERGY) != 0)
                     + ((gBattleMoves[gCurrentMove].flags & FLAG_HIGH_CRIT) != 0)
                     + (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
-                    + 2 * (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
-                    + 2 * BENEFITS_FROM_LEEK(battlerAtk, holdEffectAtk)
                     + (abilityAtk == ABILITY_SUPER_LUCK);
 
         if (critChance >= ARRAY_COUNT(sCriticalHitChance))
@@ -11098,6 +11096,8 @@ static void Cmd_metronome(void)
 static void Cmd_dmgtolevel(void)
 {
     gBattleMoveDamage = gBattleMons[gBattlerAttacker].level;
+    if (gBattleMons[gBattlerAttacker].item == ITEM_LUCKY_PUNCH)
+        gBattleMoveDamage =  (gBattleMoveDamage * 150) / 100;
     gBattlescriptCurrInstr++;
 }
 

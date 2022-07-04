@@ -1813,8 +1813,8 @@ static const u8 sThickClubDesc[] = _(
 
 static const u8 sLuckyPunchDesc[] = _(
     "A hold item that\n"
-    "raises Chansey's\n"
-    "critical-hit rate.");
+    "improves level based\n"
+    "move damage.");
 
 static const u8 sMetalPowderDesc[] = _(
     "A hold item that\n"
