@@ -2745,6 +2745,10 @@ static const u8 sCLANGOROUS_SOULDescription[] = _(
 static const u8 sBODY_PRESSDescription[] = _(
     "Does more damage the\n"
     "higher the user's Def.");
+
+static const u8 sMIND_FLAYDescription[] = _(
+    "Does more damage the\n"
+    "higher the user's Sp. def.");
     
 static const u8 sDECORATEDescription[] = _(
     "The user sharply raises\n"
@@ -3659,6 +3663,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_COURT_CHANGE - 1] = sCOURT_CHANGEDescription,
     [MOVE_CLANGOROUS_SOUL - 1] = sCLANGOROUS_SOULDescription,
     [MOVE_BODY_PRESS - 1] = sBODY_PRESSDescription,
+    [MOVE_MIND_FLAY - 1] = sMIND_FLAYDescription,
     [MOVE_DECORATE - 1] = sDECORATEDescription,
     [MOVE_DRUM_BEATING - 1] = sDRUM_BEATINGDescription,
     [MOVE_SNAP_TRAP - 1] = sSNAP_TRAPDescription,

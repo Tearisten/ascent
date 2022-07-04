@@ -780,6 +780,7 @@ gBattleAnims_Moves::
 	.4byte Move_ASTRAL_BARRAGE
 	.4byte Move_EERIE_SPELL
 	.4byte Move_PSYCHE_OUT
+	.4byte Move_MIND_FLAY
 	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
 
 	.align 2
@@ -13536,6 +13537,9 @@ Move_BODY_PRESS::
 	launchtask AnimTask_SquishTarget 0x2 0x0
 	waitforvisualfinish
 	end
+
+Move_MIND_FLAY::
+	goto Move_STORED_POWER
 
 Move_DECORATE::
 	goto Move_FLOWER_SHIELD

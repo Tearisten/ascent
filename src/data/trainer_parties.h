@@ -1,14 +1,14 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
     .species = SPECIES_PICHU,
-    .heldItem = ITEM_WEIGHTED_BOOTS,
+    .heldItem = ITEM_NONE,
     .ability = ABILITY_SLOT_1,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 0,
-    .moves = {MOVE_PSYCHE_OUT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_MIND_FLAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {

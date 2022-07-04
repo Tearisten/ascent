@@ -707,6 +707,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_COURT_CHANGE] = _("Court Change"),
     [MOVE_CLANGOROUS_SOUL] = _("ClngrousSoul"),
     [MOVE_BODY_PRESS] = _("Body Press"),
+    [MOVE_MIND_FLAY] = _("Mind Flay"),
     [MOVE_DECORATE] = _("Decorate"),
     [MOVE_DRUM_BEATING] = _("Drum Beating"),
     [MOVE_SNAP_TRAP] = _("Snap Trap"),
