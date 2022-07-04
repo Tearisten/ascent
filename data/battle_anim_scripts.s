@@ -779,6 +779,7 @@ gBattleAnims_Moves::
 	.4byte Move_GLACIAL_LANCE
 	.4byte Move_ASTRAL_BARRAGE
 	.4byte Move_EERIE_SPELL
+	.4byte Move_PSYCHE_OUT
 	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
 
 	.align 2
@@ -21558,6 +21559,17 @@ HealBellRing:
 Move_FAKE_OUT:
 	playsewithpan SE_M_FLATTER, 0
 	createvisualtask AnimTask_FakeOut, 5
+	waitforvisualfinish
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+	createvisualtask AnimTask_StretchTargetUp, 3
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 3, 16, 0, RGB_WHITE
+	end
+
+Move_PSYCHE_OUT:
+	playsewithpan SE_M_FLATTER, 0
+	createvisualtask AnimTask_PsycheOut, 5
 	waitforvisualfinish
 	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1

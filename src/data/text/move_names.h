@@ -253,6 +253,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_WHIRLPOOL] = _("Whirlpool"),
     [MOVE_BEAT_UP] = _("Beat Up"),
     [MOVE_FAKE_OUT] = _("Fake Out"),
+    [MOVE_PSYCHE_OUT] = _("Psyche Out"),
     [MOVE_UPROAR] = _("Uproar"),
     [MOVE_STOCKPILE] = _("Stockpile"),
     [MOVE_SPIT_UP] = _("Spit Up"),

@@ -952,6 +952,7 @@ static const u8 sMovesNotAffectedByStench[] =
     [MOVE_DRAGON_RUSH] = 1,
     [MOVE_EXTRASENSORY] = 1,
     [MOVE_FAKE_OUT] = 1,
+    [MOVE_PSYCHE_OUT] = 1,
     [MOVE_FIERY_WRATH] = 1,
     [MOVE_FIRE_FANG] = 1,
     [MOVE_FLING] = 1,

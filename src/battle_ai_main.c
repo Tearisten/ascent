@@ -1498,7 +1498,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             {
                 score -= 10;
             }
-            else if (move == MOVE_FAKE_OUT) // filter out first impression
+            else if (move == MOVE_FAKE_OUT || move == MOVE_PSYCHE_OUT) // filter out first impression
             {
                 if ((AI_DATA->atkHoldEffect == HOLD_EFFECT_CHOICE_BAND || AI_DATA->atkAbility == ABILITY_GORILLA_TACTICS ||
                     AI_DATA->atkAbility == ABILITY_BULL_RUSH || AI_DATA->atkAbility == ABILITY_OBSESSION    )
@@ -3876,7 +3876,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_DEF, &score);
         break;
     case EFFECT_FAKE_OUT:
-        if (move == MOVE_FAKE_OUT    // filter out first impression
+        if ((move == MOVE_FAKE_OUT || move == MOVE_PSYCHE_OUT)// filter out first impression
           && ShouldFakeOut(battlerAtk, battlerDef, move))
             score += 8;
         break;

@@ -8,7 +8,7 @@ static const struct TrainerMon sParty_Tester[] = {
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 0,
-    .moves = {MOVE_SEISMIC_TOSS, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_PSYCHE_OUT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {

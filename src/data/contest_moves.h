@@ -5831,6 +5831,14 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
+    [MOVE_PSYCHE_OUT] =
+    {
+        .effect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
+
     [MOVE_JUNGLE_HEALING] =
     {
         .effect = CONTEST_EFFECT_QUALITY_DEPENDS_ON_TIMING,
