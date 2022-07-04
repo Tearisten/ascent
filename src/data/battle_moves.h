@@ -2395,7 +2395,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
             .power = 100,
-            .accuracy = 90,
+            .accuracy = 100,
         #elif B_UPDATED_MOVE_DATA == GEN_5
             .power = 90,
             .accuracy = 90,
@@ -2403,7 +2403,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
             .power = 90,
             .accuracy = 85,
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_SUPERPOWER,
         .type = TYPE_WATER,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -2986,8 +2986,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MUD_SLAP] =
     {
-        .effect = EFFECT_ACCURACY_DOWN_HIT,
-        .power = 20,
+        .effect = EFFECT_HIT_ESCAPE,
+        .power = 60,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,
@@ -5270,10 +5270,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_AERIAL_ACE] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_HIT_ESCAPE,
         .power = 60,
         .type = TYPE_FLYING,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -5709,7 +5709,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HAMMER_ARM,
         .power = 100,
         .type = TYPE_FIGHTING,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -7875,8 +7875,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CLEAR_SMOG] =
     {
-        .effect = EFFECT_CLEAR_SMOG,
-        .power = 50,
+        .effect = EFFECT_HIT_ESCAPE,
+        .power = 60,
         .type = TYPE_POISON,
         .accuracy = 0,
         .pp = 15,
@@ -9786,7 +9786,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HAMMER_ARM,
         .power = 100,
         .type = TYPE_ICE,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,

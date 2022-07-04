@@ -606,8 +606,8 @@ static const u8 sAcidArmorDescription[] = _(
     "to sharply raise Defense.");
 
 static const u8 sCrabhammerDescription[] = _(
-    "Hammers with a pincer. Has a\n"
-    "high critical-hit ratio.");
+    "Hammers with a massive claw\n"
+    "but lowers atk and def.");
 
 static const u8 sExplosionDescription[] = _(
     "Inflicts severe damage but\n"
@@ -754,8 +754,8 @@ static const u8 sSludgeBombDescription[] = _(
     "damage. May also poison.");
 
 static const u8 sMudSlapDescription[] = _(
-    "Hurls mud in the foe's face\n"
-    "to reduce its accuracy.");
+    "Does damage then switches\n"
+    "out the user.");
 
 static const u8 sOctazookaDescription[] = _(
     "Fires a lump of ink to\n"
@@ -1107,7 +1107,7 @@ static const u8 sIngrainDescription[] = _(
 
 static const u8 sSuperpowerDescription[] = _(
     "Boosts strength sharply,\n"
-    "but lowers abilities.");
+    "but lowers atk and def.");
 
 static const u8 sMagicCoatDescription[] = _(
     "Reflects special effects\n"
@@ -1330,8 +1330,8 @@ static const u8 sBulletSeedDescription[] = _(
     "to strike the foe.");
 
 static const u8 sAerialAceDescription[] = _(
-    "An extremely speedy and\n"
-    "unavoidable attack.");
+    "Does damage then switches\n"
+    "out the user.");
 
 static const u8 sIcicleSpearDescription[] = _(
     "Attacks the foe by firing\n"
@@ -1966,8 +1966,8 @@ static const u8 sCHIP_AWAYDescription[] = _(
     "stat changes.");
 
 static const u8 sCLEAR_SMOGDescription[] = _(
-    "Attacks with white haze that\n"
-    "eliminates all stat changes.");
+    "Does damage then switches\n"
+    "out the user.");
 
 static const u8 sSTORED_POWERDescription[] = _(
     "The higher the user's stats\n"
