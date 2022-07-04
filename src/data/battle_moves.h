@@ -5151,10 +5151,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHADOW_PUNCH] =
     {
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_SOUL_SHOCK,
+        .power = 80,
         .type = TYPE_GHOST,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -10960,7 +10960,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRUM_BEATING] =
     {
-        .effect = EFFECT_SPEED_DOWN_HIT,
+        .effect = EFFECT_SOUL_SHOCK,
         .power = 80,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -11380,8 +11380,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LASH_OUT] =
     {
-        .effect = EFFECT_LASH_OUT,
-        .power = 75,
+        .effect = EFFECT_SOUL_SHOCK,
+        .power = 100,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 5,
@@ -11533,10 +11533,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDER_CAGE] =
     {
-        .effect = EFFECT_TRAP,
+        .effect = EFFECT_SOUL_SHOCK,
         .power = 80,
         .type = TYPE_ELECTRIC,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,

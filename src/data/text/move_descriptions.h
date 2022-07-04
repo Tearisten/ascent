@@ -1302,8 +1302,8 @@ static const u8 sSignalBeamDescription[] = _(
     "may confuse the foe.");
 
 static const u8 sShadowPunchDescription[] = _(
-    "An unavoidable punch that\n"
-    "is thrown from shadows.");
+    "A spooky haunting punch that\n"
+    "does special damage.");
 
 static const u8 sExtrasensoryDescription[] = _(
     "Attacks with a peculiar\n"
@@ -2755,8 +2755,8 @@ static const u8 sDECORATEDescription[] = _(
     "the target's Atk and Sp.Atk");
     
 static const u8 sDRUM_BEATINGDescription[] = _(
-    "Plays a drum to attack.\n"
-    "The foe's Speed is lowered.");
+    "Plays a drum to attack which\n"
+    "deals special damage.");
     
 static const u8 sSNAP_TRAPDescription[] = _(
     "Snares the target in a snap\n"
