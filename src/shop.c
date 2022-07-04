@@ -407,7 +407,7 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
     //life orb, choice items, throat spray, brass knuckles, ability patchs
-    // adrenaline orb, greedy pot
+    // adrenaline orb, greedy pot, lucky punch
 
 };
 

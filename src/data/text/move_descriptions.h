@@ -243,11 +243,11 @@ static const u8 sPsybeamDescription[] = _(
 
 static const u8 sBubbleBeamDescription[] = _(
     "Forcefully sprays bubbles,\n"
-    "may lower Speed.");
+    "has high crit.");
 
 static const u8 sAuroraBeamDescription[] = _(
     "Fires a rainbow-colored\n"
-    "beam that may lower Attack.");
+    "beam that has high crit.");
 
 static const u8 sHyperBeamDescription[] = _(
     "Powerful, but leaves the\n"
@@ -2087,7 +2087,7 @@ static const u8 sHEART_STAMPDescription[] = _(
 
 static const u8 sRAZOR_SHELLDescription[] = _(
     "Tears at the foe with sharp\n"
-    "shells. May lower Defense.");
+    "shells. Has high crit.");
 
 static const u8 sLEAF_TORNADODescription[] = _(
     "Circles the foe with leaves\n"
