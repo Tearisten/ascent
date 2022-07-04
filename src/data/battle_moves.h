@@ -234,7 +234,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GUST] =
     {
-        .effect = EFFECT_GUST,
+        .effect = EFFECT_AIRSTREAM,
         .power = 40,
         .type = TYPE_FLYING,
         .accuracy = 100,

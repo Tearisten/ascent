@@ -406,6 +406,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_MIND_FLAY
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_SHOCK
 	.4byte BattleScript_EffectHearten                 @ EFFECT_HEARTEN
+	.4byte BattleScript_EffectAirstream               @ EFFECT_Airstream
 
 
 BattleScript_EffectShellSideArm:
@@ -881,6 +882,46 @@ BattleScript_HeartenBoostDef:
 	setstatchanger STAT_SPDEF, 1, FALSE
 	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, BattleScript_MoveEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_MoveEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectAirstream::
+	attackcanceler
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	copybyte gBattlerTarget, gBattlerAttacker
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+EffectAirstream_CheckAttackerStats:
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, EffectAirstream_CheckAllyStats
+	playstatchangeanimation BS_TARGET, BIT_SPEED, 0x0
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, EffectAirstream_CheckAllyStats
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	jumpifnoally BS_ATTACKER, BattleScript_MoveEnd
+	setallytonexttarget EffectAirstream_CheckAllyStats
+	goto BattleScript_MoveEnd
+EffectAirstream_CheckAllyStats:
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_MoveEnd
+	playstatchangeanimation BS_TARGET, BIT_SPEED, 0x0
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, BattleScript_MoveEnd
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

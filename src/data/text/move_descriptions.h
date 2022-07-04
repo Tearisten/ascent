@@ -62,8 +62,8 @@ static const u8 sCutDescription[] = _(
     "scythes, claws, etc.");
 
 static const u8 sGustDescription[] = _(
-    "Strikes the foe with a gust\n"
-    "of wind whipped up by wings.");
+    "Whips up a gust that damages\n"
+    "and boosts team speed.");
 
 static const u8 sWingAttackDescription[] = _(
     "Strikes the foe with wings\n"
