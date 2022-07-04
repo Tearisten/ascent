@@ -2887,6 +2887,10 @@ static const u8 sCORROSIVE_GASDescription[] = _(
     "held by surrounding Pokémon.");
 
 static const u8 sCOACHINGDescription[] = _(
+    "Properly cheers allies to\n"
+    "up Sp. Attack and Sp. Defense.");
+    
+static const u8 sHEARTENDescription[] = _(
     "Properly coaches allies to\n"
     "up their Attack and Defense.");
 
@@ -3699,6 +3703,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_POLTERGEIST - 1] = sPOLTERGEISTDescription,
     [MOVE_CORROSIVE_GAS - 1] = sCORROSIVE_GASDescription,
     [MOVE_COACHING - 1] = sCOACHINGDescription,
+    [MOVE_HEARTEN - 1] = sHEARTENDescription,
     [MOVE_FLIP_TURN - 1] = sFLIP_TURNDescription,
     [MOVE_TRIPLE_AXEL - 1] = sTRIPLE_AXELDescription,
     [MOVE_DUAL_WINGBEAT - 1] = sDUAL_WINGBEATDescription,

@@ -743,6 +743,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_POLTERGEIST] = _("Poltergeist"),
     [MOVE_CORROSIVE_GAS] = _("CorrosiveGas"),
     [MOVE_COACHING] = _("Coaching"),
+    [MOVE_HEARTEN] = _("Hearten"),
     [MOVE_FLIP_TURN] = _("Flip Turn"),
     [MOVE_TRIPLE_AXEL] = _("Triple Axel"),
     [MOVE_DUAL_WINGBEAT] = _("DualWingbeat"),

@@ -405,6 +405,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_BOLT_BEAK
 	.4byte BattleScript_EffectHit                     @ EFFECT_MIND_FLAY
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_SHOCK
+	.4byte BattleScript_EffectHearten                 @ EFFECT_HEARTEN
+
 
 BattleScript_EffectShellSideArm:
 	shellsidearmcheck
@@ -847,6 +849,36 @@ BattleScript_CoachingWorks:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_CoachingBoostDef:
 	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_MoveEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectHearten:
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifnoally BS_ATTACKER, BattleScript_ButItFailed
+	copybyte gBattlerTarget, gBattlerAttacker
+	setallytonexttarget EffectHearten_CheckAllyStats
+	goto BattleScript_ButItFailed
+EffectHearten_CheckAllyStats:
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_HeartenWorks
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_HeartenWorks
+	goto BattleScript_ButItFailed   @ ally at max atk, def
+BattleScript_HeartenWorks:
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF, 0x0
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, BattleScript_HeartenBoostDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_HeartenBoostDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HeartenBoostDef:
+	setstatchanger STAT_SPDEF, 1, FALSE
 	statbuffchange STAT_BUFF_ALLOW_PTR | STAT_BUFF_NOT_PROTECT_AFFECTED, BattleScript_MoveEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_MoveEnd
 	printfromtable gStatUpStringIds

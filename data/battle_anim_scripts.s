@@ -781,6 +781,7 @@ gBattleAnims_Moves::
 	.4byte Move_EERIE_SPELL
 	.4byte Move_PSYCHE_OUT
 	.4byte Move_MIND_FLAY
+	.4byte Move_HEARTEN
 	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
 
 	.align 2
@@ -14197,6 +14198,9 @@ Move_CORROSIVE_GAS::
 	end @to do:
 
 Move_COACHING::
+	end @to do:
+
+Move_HEARTEN::
 	end @to do:
 
 Move_FLIP_TURN::
