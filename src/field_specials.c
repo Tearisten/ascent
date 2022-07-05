@@ -2780,6 +2780,8 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
 // pretty early fossil floor
 // mamswine for sure
 // ~17 or 18 do eevee floor
+// lucario
+//weaville
 
 struct
 {

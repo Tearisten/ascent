@@ -575,7 +575,7 @@ static const struct TrainerMon sParty_LC_4_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LOVE_BALL,
         .slot = 4,
-        .moves = {MOVE_FAKE_OUT, MOVE_HYPNOSIS, MOVE_CONFUSION, MOVE_PSYSHOCK},
+        .moves = {MOVE_PSYCHE_OUT, MOVE_HYPNOSIS, MOVE_CONFUSION, MOVE_PSYSHOCK},
     },    
     {
         .species = SPECIES_SPOINK,
@@ -872,7 +872,7 @@ static const struct TrainerMon sParty_GP_1_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LEVEL_BALL,
         .slot = 0,
-        .moves = {MOVE_DISCHARGE, MOVE_WATER_PULSE, MOVE_PROTECT, MOVE_THUNDER_WAVE},
+        .moves = {MOVE_DISCHARGE, MOVE_BUBBLE, MOVE_PROTECT, MOVE_THUNDER_WAVE},
         .shiny = TRUE,
     },
     {
@@ -1372,7 +1372,7 @@ static const struct TrainerMon sParty_GP_2_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LURE_BALL,
         .slot = 1,
-        .moves = {MOVE_MEGA_DRAIN, MOVE_WATER_PULSE, MOVE_FAKE_OUT, MOVE_AURORA_BEAM},
+        .moves = {MOVE_MEGA_DRAIN, MOVE_WATER_PULSE, MOVE_PSYCHE_OUT, MOVE_AURORA_BEAM},
     },
     {
         .species = SPECIES_KABUTO,
@@ -1694,7 +1694,7 @@ static const struct TrainerMon sParty_GP_3_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_FAST_BALL,
         .slot = 0,
-        .moves = {MOVE_FIRE_PLEDGE, MOVE_SCORCHING_SANDS, MOVE_ENCORE, MOVE_EXTRASENSORY},
+        .moves = {MOVE_FIRE_PLEDGE, MOVE_SCORCHING_SANDS, MOVE_ENCORE, MOVE_FIRE_SPIN},
     },
     {
         .species = SPECIES_CHARMELEON,
@@ -2296,7 +2296,7 @@ static const struct TrainerMon sParty_TD_1_Mid[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LEVEL_BALL,
         .slot = 1,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_MYSTICAL_FIRE, MOVE_ENCORE, MOVE_MORNING_SUN},
+        .moves = {MOVE_GIGA_DRAIN, MOVE_MYSTICAL_FIRE, MOVE_FIRE_SPIN, MOVE_MORNING_SUN},
     },
     {
         .species = SPECIES_CHARMELEON,
@@ -2644,7 +2644,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_PARK_BALL,
         .slot = 4,
-        .moves = {MOVE_FAKE_OUT, MOVE_KNOCK_OFF, MOVE_TRIPLE_AXEL, MOVE_TRIPLE_KICK},
+        .moves = {MOVE_FAKE_OUT, MOVE_KNOCK_OFF, MOVE_TRIPLE_AXEL, MOVE_BODY_PRESS},
     },
     {
         .species = SPECIES_ROTOM,
@@ -2692,7 +2692,7 @@ static const struct TrainerMon sParty_TD_2_Mid[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_REPEAT_BALL,
         .slot = 1,
-        .moves = {MOVE_BODY_PRESS, MOVE_ICICLE_CRASH, MOVE_EARTHQUAKE, MOVE_ICE_SHARD},
+        .moves = {MOVE_SLACK_OFF, MOVE_ICICLE_CRASH, MOVE_EARTHQUAKE, MOVE_ICE_SHARD},
     },
     {
         .species = SPECIES_GLIGAR,
@@ -3077,7 +3077,7 @@ static const struct TrainerMon sParty_TD_3_Early[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAVY_BALL,
         .slot = 0,
-        .moves = {MOVE_STEALTH_ROCK, MOVE_SPIKES, MOVE_GYRO_BALL, MOVE_RAPID_SPIN},
+        .moves = {MOVE_STEALTH_ROCK, MOVE_BODY_PRESS, MOVE_GYRO_BALL, MOVE_RAPID_SPIN},
     },
     {
         .species = SPECIES_CINCCINO,
@@ -3143,7 +3143,7 @@ static const struct TrainerMon sParty_TD_3_Early[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_ULTRA_BALL,
         .slot = 3,
-        .moves = {MOVE_FAKE_OUT, MOVE_THUNDERBOLT, MOVE_AURA_SPHERE, MOVE_PSYSHOCK},
+        .moves = {MOVE_PSYCHE_OUT, MOVE_THUNDERBOLT, MOVE_AURA_SPHERE, MOVE_PSYSHOCK},
     },
     {
         .species = SPECIES_JELLICENT,
@@ -3427,7 +3427,7 @@ static const struct TrainerMon sParty_TD_3_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_NET_BALL,
         .slot = 3,
-        .moves = {MOVE_SURF, MOVE_GIGA_DRAIN, MOVE_FAKE_OUT, MOVE_ICE_BEAM},
+        .moves = {MOVE_SURF, MOVE_GIGA_DRAIN, MOVE_PSYCHE_OUT, MOVE_DRUM_BEATING},
     },
     {
         .species = SPECIES_MANTINE,
@@ -3496,7 +3496,7 @@ static const struct TrainerMon sParty_TD_4_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LOVE_BALL,
         .slot = 0,
-        .moves = {MOVE_COACHING, MOVE_BODY_SLAM, MOVE_HEAL_BELL, MOVE_MILK_DRINK},
+        .moves = {MOVE_HEARTEN, MOVE_BODY_SLAM, MOVE_HEAL_BELL, MOVE_MILK_DRINK},
     },
     {
         .species = SPECIES_WEEZING,
@@ -4056,14 +4056,14 @@ static const struct TrainerMon sParty_TD_5_Boss[] = {
     },
     {
         .species = SPECIES_COFAGRIGUS,
-        .heldItem = ITEM_TRIFORCE,
+        .heldItem = ITEM_LUCKY_PUNCH,
         .ability = ABILITY_SLOT_1, // mummy
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_BOLD,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DUSK_BALL,
         .slot = 3,
-        .moves = {MOVE_HEX, MOVE_DESTINY_BOND, MOVE_NIGHT_SHADE, MOVE_WILL_O_WISP},
+        .moves = {MOVE_PAIN_SPLIT, MOVE_DESTINY_BOND, MOVE_NIGHT_SHADE, MOVE_WILL_O_WISP},
     },
         {
         .species = SPECIES_DUSCLOPS,
@@ -4085,7 +4085,7 @@ static const struct TrainerMon sParty_TD_5_Boss[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_QUICK_BALL,
         .slot = 4,
-        .moves = {MOVE_DRAGON_TAIL, MOVE_HONE_CLAWS, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE},
+        .moves = {MOVE_DRAGON_TAIL, MOVE_HONE_CLAWS, MOVE_EARTHQUAKE, MOVE_LASH_OUT},
     },
     {
         .species = SPECIES_MALAMAR,
