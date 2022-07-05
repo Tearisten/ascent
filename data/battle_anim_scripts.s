@@ -5589,7 +5589,7 @@ Move_INCINERATE:
 	createvisualtask AnimTask_BlendMonInAndOut, 5, ANIM_DEF_PARTNER, RGB_RED, 12, 1, 1
 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
 	delay 5
-	createsprite gSlideMonToOriginalPosSpriteTemplate,  ANIM_ATTACKER, 2, 3, 0, 0, 9
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_TARGET, 2, 3, 0, 9
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
