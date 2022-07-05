@@ -1465,7 +1465,7 @@ static const struct TrainerMon sParty_GP_3_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAL_BALL,
         .slot = 1,
-        .moves = {MOVE_AIR_SLASH, MOVE_WISH, MOVE_TAILWIND, MOVE_DAZZLING_GLEAM},
+        .moves = {MOVE_AIR_SLASH, MOVE_MIND_FLAY, MOVE_TAILWIND, MOVE_DAZZLING_GLEAM},
     },
     {
         .species = SPECIES_WIGGLYTUFF,
@@ -2883,7 +2883,7 @@ static const struct TrainerMon sParty_TD_2_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAL_BALL,
         .slot = 4,
-        .moves = {MOVE_PSYCHIC, MOVE_AIR_SLASH, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER},
+        .moves = {MOVE_MIND_FLAY, MOVE_AIR_SLASH, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER},
     },
     {
         .species = SPECIES_BRAIXEN,
@@ -3110,7 +3110,7 @@ static const struct TrainerMon sParty_TD_3_Early[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_GREAT_BALL,
         .slot = 2,
-        .moves = {MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_MOONBLAST, MOVE_REFLECT},
+        .moves = {MOVE_CALM_MIND, MOVE_PSYSHOCK, MOVE_MOONBLAST, MOVE_MIND_FLAY},
     },
     {
         .species = SPECIES_TORKOAL,
@@ -4052,7 +4052,7 @@ static const struct TrainerMon sParty_TD_5_Boss[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LUXURY_BALL,
         .slot = 3,
-        .moves = {MOVE_STRENGTH_SAP, MOVE_GIGA_DRAIN, MOVE_SHADOW_BALL, MOVE_SHELL_SMASH},
+        .moves = {MOVE_STRENGTH_SAP, MOVE_MIND_FLAY, MOVE_SHADOW_BALL, MOVE_AMNESIA},
     },
     {
         .species = SPECIES_COFAGRIGUS,
