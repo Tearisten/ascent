@@ -2284,13 +2284,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         #else
             .power = 20,
         #endif
-        .effect = EFFECT_SPEED_DOWN_HIT,
+        .effect = EFFECT_HIT,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         .split = SPLIT_SPECIAL,
     },
