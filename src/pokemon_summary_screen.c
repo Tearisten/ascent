@@ -278,6 +278,7 @@ static void PrintLeftColumnStats(void);
 static void BufferRightColumnStats(void);
 static void PrintRightColumnStats(void);
 static void PrintExpPointsNextLevel(void);
+static void PrintMonRecords(void);
 static void PrintBattleMoves(void);
 static void Task_PrintBattleMoves(u8 taskId);
 static void PrintMoveNameAndPP(u8 a);
@@ -501,10 +502,10 @@ static const struct WindowTemplate sSummaryTemplate[] =
     },
     [PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP] = {
         .bg = 0,
-        .tilemapLeft = 10,
+        .tilemapLeft = 11,
         .tilemapTop = 14,
-        .width = 11,
-        .height = 4,
+        .width = 7,
+        .height = 6,
         .paletteNum = 6,
         .baseBlock = 275,
     },
@@ -652,10 +653,10 @@ static const struct WindowTemplate sPageSkillsTemplate[] =
     },
     [PSS_DATA_WINDOW_EXP] = {
         .bg = 0,
-        .tilemapLeft = 24,
+        .tilemapLeft = 20,
         .tilemapTop = 14,
         .width = 6,
-        .height = 4,
+        .height = 6,
         .paletteNum = 6,
         .baseBlock = 543,
     },
@@ -2793,44 +2794,7 @@ static void SetMonPicBackgroundPalette(bool8 isMonShiny)
 
 static void DrawExperienceProgressBar(struct Pokemon *unused)
 {
-    s64 numExpProgressBarTicks;
-    struct PokeSummary *summary = &sMonSummaryScreen->summary;
-    u16 *dst;
-    u8 i;
-
-    if (summary->level < MAX_LEVEL)
-    {
-        u32 expBetweenLevels = gExperienceTables[gBaseStats[summary->species].growthRate][summary->level + 1] - gExperienceTables[gBaseStats[summary->species].growthRate][summary->level];
-        u32 expSinceLastLevel = summary->exp - gExperienceTables[gBaseStats[summary->species].growthRate][summary->level];
-
-        // Calculate the number of 1-pixel "ticks" to illuminate in the experience progress bar.
-        // There are 8 tiles that make up the bar, and each tile has 8 "ticks". Hence, the numerator
-        // is multiplied by 64.
-        numExpProgressBarTicks = expSinceLastLevel * 64 / expBetweenLevels;
-        if (numExpProgressBarTicks == 0 && expSinceLastLevel != 0)
-            numExpProgressBarTicks = 1;
-    }
-    else
-    {
-        numExpProgressBarTicks = 0;
-    }
-
-    dst = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x255];
-    for (i = 0; i < 8; i++)
-    {
-        if (numExpProgressBarTicks > 7)
-            dst[i] = 0x206A;
-        else
-            dst[i] = 0x2062 + (numExpProgressBarTicks % 8);
-        numExpProgressBarTicks -= 8;
-        if (numExpProgressBarTicks < 0)
-            numExpProgressBarTicks = 0;
-    }
-
-    if (GetBgTilemapBuffer(1) == sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0])
-        ScheduleBgCopyTilemapToVram(1);
-    else
-        ScheduleBgCopyTilemapToVram(2);
+    return;
 }
 
 static void DrawContestMoveHearts(u16 move)
@@ -2946,7 +2910,7 @@ static void PrintNotEggInfo(void)
     strArray[0] = CHAR_SLASH;
     StringCopy(&strArray[1], &gSpeciesNames[summary->species2][0]);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, strArray, 0, 1, 0, 1);
-    PrintGenderSymbol(mon, summary->species2);
+    //PrintGenderSymbol(mon, summary->species2);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
 }
@@ -3028,13 +2992,12 @@ static void PrintPageNamesAndStats(void)
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT, gText_SpDef4, statsXPos, 17, 0, 1);
     statsXPos = 2 + GetStringCenterAlignXOffset(FONT_NORMAL, gText_Speed2, 36);
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT, gText_Speed2, statsXPos, 33, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_ExpPoints, 6, 1, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_NextLv, 6, 17, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Knockouts, 0, 1, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Faints, 0, 17, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Switches, 0, 33, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS, gText_Status, 2, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, gText_Power, 0, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, gText_Accuracy2, 0, 17, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_APPEAL_JAM, gText_Appeal, 0, 1, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_APPEAL_JAM, gText_Jam, 0, 17, 0, 1);
 }
 
 static void PutPageWindowTilemaps(u8 page)
@@ -3335,11 +3298,7 @@ static void BufferNatureString(void)
 
 static void GetMetLevelString(u8 *output)
 {
-    u8 level = sMonSummaryScreen->summary.metLevel;
-    if (level == 0)
-        level = EGG_HATCH_LEVEL;
-    ConvertIntToDecimalStringN(output, level, STR_CONV_MODE_LEFT_ALIGN, 3);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, output);
+    return;
 }
 
 static bool8 DoesMonOTMatchOwner(void)
@@ -3462,7 +3421,8 @@ static void PrintSkillsPageText(void)
     PrintLeftColumnStats();
     BufferRightColumnStats();
     PrintRightColumnStats();
-    PrintExpPointsNextLevel();
+    PrintMonRecords();
+    //PrintExpPointsNextLevel();
 }
 
 static void Task_PrintSkillsPage(u8 taskId)
@@ -3490,7 +3450,8 @@ static void Task_PrintSkillsPage(u8 taskId)
         PrintRightColumnStats();
         break;
     case 7:
-        PrintExpPointsNextLevel();
+        //PrintExpPointsNextLevel();
+        PrintMonRecords();
         break;
     case 8:
         DestroyTask(taskId);
@@ -3643,6 +3604,33 @@ static void PrintExpPointsNextLevel(void)
     ConvertIntToDecimalStringN(gStringVar1, expToNextLevel, STR_CONV_MODE_RIGHT_ALIGN, 6);
     x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
     PrintTextOnWindow(windowId, gStringVar1, x, 17, 0, 0);
+}
+
+//GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_EV);
+static void PrintMonRecords(void)
+{
+    //struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    u8 windowId = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_EXP);
+    int x;
+    u8 knockouts = 0;
+    u8 faints = 0;
+    u8 switches = 0;
+
+    knockouts = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_KNOCKOUTS);
+    faints = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FAINTS);
+    switches = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SWITCHES);
+
+    ConvertIntToDecimalStringN(gStringVar1, knockouts, STR_CONV_MODE_RIGHT_ALIGN, 7);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    PrintTextOnWindow(windowId, gStringVar1, x, 1, 0, 0);
+
+    ConvertIntToDecimalStringN(gStringVar1, faints, STR_CONV_MODE_RIGHT_ALIGN, 6);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    PrintTextOnWindow(windowId, gStringVar1, x, 17, 0, 0);
+
+    ConvertIntToDecimalStringN(gStringVar1, switches, STR_CONV_MODE_RIGHT_ALIGN, 6);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    PrintTextOnWindow(windowId, gStringVar1, x, 33, 0, 0);
 }
 
 static void PrintBattleMoves(void)

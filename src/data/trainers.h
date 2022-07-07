@@ -6,7 +6,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _(""),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = 0,
         .partySize = 0,
         .party = {.TrainerMon = NULL},

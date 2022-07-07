@@ -1925,7 +1925,7 @@ static void ResetHPTaskData(u8 taskId, u8 caseId, u32 hp)
 
 u8 GetAilmentFromStatus(u32 status)
 {
-    if (status & STATUS1_PSN_ANY)
+    if (status & STATUS1_POISON)
         return AILMENT_PSN;
     if (status & STATUS1_PARALYSIS)
         return AILMENT_PRZ;
@@ -1935,6 +1935,8 @@ u8 GetAilmentFromStatus(u32 status)
         return AILMENT_FRZ;
     if (status & STATUS1_BURN)
         return AILMENT_BRN;
+    if (status & STATUS1_TOXIC_POISON)
+        return AILMENT_PKRS;
     return AILMENT_NONE;
 }
 
@@ -1947,8 +1949,6 @@ u8 GetMonAilment(struct Pokemon *mon)
     ailment = GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS));
     if (ailment != AILMENT_NONE)
         return ailment;
-    if (CheckPartyPokerus(mon, 0))
-        return AILMENT_PKRS;
     return AILMENT_NONE;
 }
 
@@ -2345,13 +2345,7 @@ static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox
 
 static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c)
 {
-    if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
-    {
-        if (c != 0)
-            menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[4] >> 3, (menuBox->infoRects->dimensions[5] >> 3), (menuBox->infoRects->dimensions[6] >> 3) + 8, (menuBox->infoRects->dimensions[7] >> 3) + 4, FALSE);
-        if (c != 2)
-            DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
-    }
+    return;
 }
 
 static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox)
@@ -2364,12 +2358,7 @@ static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox)
 
 static void DisplayPartyPokemonGenderNidoranCheck(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c)
 {
-    u8 nickname[POKEMON_NAME_LENGTH + 1];
-
-    if (c == 1)
-        menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[8] >> 3, (menuBox->infoRects->dimensions[9] >> 3) + 1, menuBox->infoRects->dimensions[10] >> 3, menuBox->infoRects->dimensions[11] >> 3, FALSE);
-    GetMonNickname(mon, nickname);
-    DisplayPartyPokemonGender(GetMonGender(mon), GetMonData(mon, MON_DATA_SPECIES), nickname, menuBox);
+    return;
 }
 
 static void DisplayPartyPokemonGender(u8 gender, u16 species, u8 *nickname, struct PartyMenuBox *menuBox)
@@ -4269,7 +4258,6 @@ static void UpdatePartyMonAilmentGfx(u8 status, struct PartyMenuBox *menuBox)
     switch (status)
     {
     case AILMENT_NONE:
-    case AILMENT_PKRS:
         gSprites[menuBox->statusSpriteId].invisible = TRUE;
         break;
     default:
