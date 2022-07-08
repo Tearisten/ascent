@@ -3255,6 +3255,16 @@ bool8 HandleFaintedMonActions(void)
                 {
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
                     gBattleStruct->faintedActionsState = 5;
+
+                    struct Pokemon *party = (GetBattlerSide(gBattlerFainted) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+                    u32 monId;
+                    u32 faintCount;
+                    monId = gBattlerPartyIndexes[gBattlerFainted];
+                    faintCount = GetMonData(&party[monId], MON_DATA_FAINTS, NULL);
+                    if (faintCount != 255) // u8
+                        faintCount += 1;
+                    SetMonData(&party[monId], MON_DATA_FAINTS, &faintCount);
+                    
                     return TRUE;
                 }
             } while (++gBattleStruct->faintedActionsBattlerId != gBattlersCount);
