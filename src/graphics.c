@@ -680,6 +680,7 @@ const u8 gHealthboxElementsGfxTable[] = INCBIN_U8("graphics/battle_interface/hpb
                                                   "graphics/battle_interface/status_slp.4bpp",
                                                   "graphics/battle_interface/status_frz.4bpp",
                                                   "graphics/battle_interface/status_brn.4bpp",
+                                                  "graphics/battle_interface/status_txc.4bpp",
                                                   "graphics/battle_interface/misc.4bpp",
                                                   "graphics/battle_interface/hpbar_anim.4bpp",
                                                   "graphics/battle_interface/misc_frameend.4bpp",
@@ -691,7 +692,7 @@ const u8 gHealthboxElementsGfxTable[] = INCBIN_U8("graphics/battle_interface/hpb
                                                   "graphics/battle_interface/healthbox_doubles_frameend.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend_bar.4bpp");
 
-const u8 gHealthboxElementsTxc[] = INCBIN_U8("graphics/battle_interface/status_txc.4bpp");
+//const u8 gHealthboxElementsTxc[] = INCBIN_U8("graphics/battle_interface/status_txc.4bpp");
                                     
 const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCBIN_U32("graphics/battle_interface/unused_window3.4bpp.lz");
 const u32 gBattleInterfaceGfx_UnusedWindow4[] = INCBIN_U32("graphics/battle_interface/unused_window4.4bpp.lz");
