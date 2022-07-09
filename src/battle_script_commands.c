@@ -12526,7 +12526,7 @@ static void Cmd_trywish(void)
 static void Cmd_settoxicspikes(void)
 {
     u8 targetSide = GetBattlerSide(gBattlerTarget);
-    if (gSideTimers[targetSide].toxicSpikesAmount >= 1)
+    if (gSideTimers[targetSide].toxicSpikesAmount >= 2)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
