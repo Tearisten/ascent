@@ -167,6 +167,7 @@ bool32 SideHasMoveSplit(u8 battlerId, u8 split);
 void IncreaseStatUpScore(u8 battlerAtk, u8 battlerDef, u8 statId, s16 *score);
 void IncreasePoisonScore(u8 battlerAtk, u8 battlerdef, u16 move, s16 *score);
 void IncreaseBurnScore(u8 battlerAtk, u8 battlerdef, u16 move, s16 *score);
+void IncreaseFreezeScore(u8 battlerAtk, u8 battlerdef, u16 move, s16 *score);
 void IncreaseParalyzeScore(u8 battlerAtk, u8 battlerDef, u16 move, s16 *score);
 void IncreaseSleepScore(u8 battlerAtk, u8 battlerDef, u16 move, s16 *score);
 void IncreaseConfusionScore(u8 battlerAtk, u8 battlerDef, u16 move, s16 *score);

@@ -277,8 +277,7 @@ static const u8 sBrandDescription[] = _("Bn using contact atks.");
 static const u8 sPoisonTouchDescription[] = _("Psn using contact atks.");
 static const u8 sVampireDescription[] = _("Biting moves heal user.");
 static const u8 sSilverSpoonDescription[] = _("Use protect on switch in.");
-
-
+static const u8 sIceColdDescription[] = _("Chill on touch");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -573,6 +572,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BRAND] = _("Brand"),
     [ABILITY_VAMPIRE] = _("Vampire"),
     [ABILITY_SILVER_SPOON] = _("Silver Spoon"),
+    [ABILITY_ICE_COLD] = _("Ice Cold"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -867,4 +867,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BRAND] = sBrandDescription,
     [ABILITY_VAMPIRE] = sVampireDescription,
     [ABILITY_SILVER_SPOON] = sSilverSpoonDescription,
+    [ABILITY_ICE_COLD] = sIceColdDescription,
 };
