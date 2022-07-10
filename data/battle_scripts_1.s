@@ -407,6 +407,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_SHOCK
 	.4byte BattleScript_EffectHearten                 @ EFFECT_HEARTEN
 	.4byte BattleScript_EffectAirstream               @ EFFECT_Airstream
+	.4byte BattleScript_EffectSheerCold               @ EFFECT_SHEER_COLD
+
 
 
 BattleScript_EffectShellSideArm:
@@ -5168,6 +5170,29 @@ BattleScript_EffectWillOWisp::
 	seteffectprimary
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectSheerCold::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_FREEZE, BattleScript_AlreadyFrozen
+	jumpiftype BS_TARGET, TYPE_ICE, BattleScript_NotAffected
+	@jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
+	@jumpifability BS_TARGET, ABILITY_WATER_BUBBLE, BattleScript_WaterVeilPrevents
+	@jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	@jumpifflowerveil BattleScript_FlowerVeilProtects
+	@jumpifleafguardprotected BS_TARGET, BattleScript_LeafGuardProtects
+	@jumpifshieldsdown BS_TARGET, BattleScript_LeafGuardProtects
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_FREEZE
+	seteffectprimary
+	goto BattleScript_MoveEnd
+
 BattleScript_WaterVeilPrevents::
 	call BattleScript_AbilityPopUp
 	copybyte gEffectBattler, gBattlerTarget
@@ -5179,6 +5204,13 @@ BattleScript_AlreadyBurned::
 	setalreadystatusedmoveattempt BS_ATTACKER
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNALREADYHASBURN
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_AlreadyFrozen::
+	setalreadystatusedmoveattempt BS_ATTACKER
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNALREADYHASFREEZE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -7362,6 +7394,11 @@ BattleScript_PoisonHealActivates::
 
 BattleScript_BurnTurnDmg::
 	printstring STRINGID_PKMNHURTBYBURN
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_DoStatusTurnDmg
+
+BattleScript_FreezeTurnDmg::
+	printstring STRINGID_PKMNHURTBYFREEZE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_DoStatusTurnDmg
 

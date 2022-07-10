@@ -598,6 +598,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 {
                 case EFFECT_POISON:
                 case EFFECT_WILL_O_WISP:
+                case EFFECT_SHEER_COLD:
                 case EFFECT_TOXIC:
                 case EFFECT_LEECH_SEED:
                     score -= 5;
@@ -1542,6 +1543,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score -= 6;
             break;
         case EFFECT_WILL_O_WISP:
+        case EFFECT_SHEER_COLD:
             if (!AI_CanBurn(battlerAtk, battlerDef, AI_DATA->defAbility, AI_DATA->battlerAtkPartner, move, AI_DATA->partnerMove))
                 score -= 10;
             break;
@@ -1632,8 +1634,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             break;
         case EFFECT_BIDE:
             if (!HasDamagingMove(battlerDef)
-              || GetHealthPercentage(battlerAtk) < 30 //Close to death
-              || gBattleMons[battlerDef].status1 & (STATUS1_SLEEP | STATUS1_FREEZE)) //No point in biding if can't take damage
+              || GetHealthPercentage(battlerAtk) < 30) //Close to death
                 score -= 10;
             break;
         case EFFECT_HIT_SWITCH_TARGET:
@@ -2973,9 +2974,6 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_PREFER_STATUS_MOVES && IS_MOVE_STATUS(move) && effectiveness != AI_EFFECTIVENESS_x0)
         score++;
     
-    // check thawing moves
-    if ((gBattleMons[battlerAtk].status1 & STATUS1_FREEZE) && TestMoveFlags(move, FLAG_THAW_USER))
-        score += (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) ? 20 : 10;
     
     // check burn
     if (gBattleMons[battlerAtk].status1 & STATUS1_BURN)
@@ -3445,6 +3443,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
           || HasMoveEffect(battlerDef, EFFECT_POISON)
           || HasMoveEffect(battlerDef, EFFECT_PARALYZE)
           || HasMoveEffect(battlerDef, EFFECT_WILL_O_WISP)
+          || HasMoveEffect(battlerDef, EFFECT_SHEER_COLD)
           || HasMoveEffect(battlerDef, EFFECT_CONFUSE)
           || HasMoveEffect(battlerDef, EFFECT_LEECH_SEED))
             score += 2;
@@ -3994,6 +3993,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_TORMENT:
         break;
     case EFFECT_WILL_O_WISP:
+    case EFFECT_SHEER_COLD:
         IncreaseBurnScore(battlerAtk, battlerDef, move, &score);
         break;
     case EFFECT_FOLLOW_ME:
@@ -4754,6 +4754,7 @@ static s16 AI_SetupFirstTurn(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_SANDSTORM:
     case EFFECT_HAIL:
     case EFFECT_GEOMANCY:
+    case EFFECT_SHEER_COLD:
         score += 2;
         break;
     default:

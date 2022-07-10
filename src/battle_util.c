@@ -2542,7 +2542,8 @@ enum
     ENDTURN_THROAT_CHOP,
     ENDTURN_SLOW_START,
     ENDTURN_PLASMA_FISTS,
-    ENDTURN_BATTLER_COUNT
+    ENDTURN_FREEZE,
+    ENDTURN_BATTLER_COUNT,
 };
 
 // Ingrain, Leech Seed, Strength Sap and Aqua Ring
@@ -3066,12 +3067,32 @@ u8 DoBattlerEndTurnEffects(void)
                 gStatuses4[i] &= ~STATUS4_PLASMA_FISTS;
             gBattleStruct->turnEffectsTracker++;
             break;
+        case ENDTURN_FREEZE:  // freeze
+            if ((gBattleMons[gActiveBattler].status1 & STATUS1_FREEZE)
+                && gBattleMons[gActiveBattler].hp != 0)
+            {
+                MAGIC_GUARD_CHECK;
+                gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                // if (ability == ABILITY_HEATPROOF)
+                // {
+                //     if (gBattleMoveDamage > (gBattleMoveDamage / 2) + 1) // Record ability if the burn takes less damage than it normally would.
+                //         RecordAbilityBattle(gActiveBattler, ABILITY_HEATPROOF);
+                //     gBattleMoveDamage /= 2;
+                // }
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+                BattleScriptExecute(BattleScript_FreezeTurnDmg);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        
         case ENDTURN_BATTLER_COUNT:  // done
             gBattleStruct->turnEffectsTracker = 0;
             gBattleStruct->turnEffectsBattlerId++;
             break;
-        }
 
+        }
         if (effect != 0)
             return effect;
 
@@ -3402,24 +3423,8 @@ u8 AtkCanceller_UnableToUseMove(void)
             }
             gBattleStruct->atkCancellerTracker++;
             break;
-        case CANCELLER_FROZEN: // check being frozen
-            if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE && !(gBattleMoves[gCurrentMove].flags & FLAG_THAW_USER))
-            {
-                if (Random() % 5)
-                {
-                    gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
-                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                }
-                else // unfreeze
-                {
-                    gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_FREEZE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveUsedUnfroze;
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DEFROSTED;
-                }
-                effect = 2;
-            }
-            gBattleStruct->atkCancellerTracker++;
+            case CANCELLER_FROZEN: // check being frozen
+                gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_TRUANT: // truant
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
@@ -3608,17 +3613,6 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_THAW: // move thawing
-            if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
-            {
-                if (!(gBattleMoves[gCurrentMove].effect == EFFECT_BURN_UP && !IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_FIRE)))
-                {
-                    gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_FREEZE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveUsedUnfroze;
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DEFROSTED_BY_MOVE;
-                }
-                effect = 2;
-            }
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_POWDER_MOVE:
@@ -5060,7 +5054,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     effect = 2, statId = STAT_ATK;
                 break;
             case ABILITY_FLASH_FIRE:
-                if (moveType == TYPE_FIRE && !((gBattleMons[battler].status1 & STATUS1_FREEZE) && B_FLASH_FIRE_FROZEN <= GEN_4))
+                if (moveType == TYPE_FIRE && B_FLASH_FIRE_FROZEN <= GEN_4)
                 {
                     if (!(gBattleResources->flags->flags[battler] & RESOURCE_FLAG_FLASH_FIRE))
                     {
@@ -9252,10 +9246,9 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
     if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_PHYSICAL(move)
         && gBattleMoves[move].effect != EFFECT_FACADE && abilityAtk != ABILITY_GUTS)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
-    else if ((gBattleMons[battlerAtk].status1 & STATUS1_POISON || gBattleMons[battlerAtk].status1 & STATUS1_TOXIC_POISON) 
+    else if ((gBattleMons[battlerAtk].status1 & STATUS1_FREEZE) 
             && IS_MOVE_SPECIAL(move)
-            && gBattleMoves[move].effect != EFFECT_FACADE
-            && abilityAtk != ABILITY_POISON_HEAL)
+            && gBattleMoves[move].effect != EFFECT_FACADE)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
 
     // check sunny/rain weather

@@ -618,10 +618,13 @@
 #define STRINGID_GIFTOFWIND                           615
 #define STRINGID_KILLINGSPREE                         616
 #define STRINGID_PKMNCUTSSPATTACKWITH                 617
-#define STRINGID_HEALSWITHVAMPIRE                    618
-#define STRINGID_SILVERSPOON                         619
+#define STRINGID_HEALSWITHVAMPIRE                     618
+#define STRINGID_SILVERSPOON                          619
+#define STRINGID_PKMNHURTBYFREEZE                     620
+#define STRINGID_PKMNALREADYHASFREEZE                 621
 
-#define BATTLESTRINGS_COUNT                           620
+
+#define BATTLESTRINGS_COUNT                           622
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.

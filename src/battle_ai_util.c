@@ -1304,6 +1304,7 @@ bool32 IsNonVolatileStatusMoveEffect(u16 moveEffect)
     case EFFECT_PARALYZE:
     case EFFECT_WILL_O_WISP:
     case EFFECT_YAWN:
+    case EFFECT_SHEER_COLD:
         return TRUE;
     default:
         return FALSE;
@@ -2674,8 +2675,6 @@ bool32 CanKnockOffItem(u8 battler, u16 item)
 // status checks
 bool32 IsBattlerIncapacitated(u8 battler, u16 ability)
 {
-    if ((gBattleMons[battler].status1 & STATUS1_FREEZE) && !HasThawingMove(battler))
-        return TRUE;    // if battler has thawing move we assume they will definitely use it, and thus being frozen should be neglected
 
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
         return TRUE;
@@ -3124,7 +3123,8 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u8 battlerAtkPartner, u8 battlerDef, 
        || gBattleMoves[partnerMove].effect == EFFECT_TOXIC
        || gBattleMoves[partnerMove].effect == EFFECT_PARALYZE
        || gBattleMoves[partnerMove].effect == EFFECT_WILL_O_WISP
-       || gBattleMoves[partnerMove].effect == EFFECT_YAWN))
+       || gBattleMoves[partnerMove].effect == EFFECT_YAWN
+       || gBattleMoves[partnerMove].effect == EFFECT_SHEER_COLD))
         return TRUE;
     return FALSE;
 }

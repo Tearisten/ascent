@@ -1318,8 +1318,8 @@ static const u8 sSandTombDescription[] = _(
     "quicksand for 2 to 5 turns.");
 
 static const u8 sSheerColdDescription[] = _(
-    "A chilling attack that\n"
-    "causes fainting if it hits.");
+    "Inflicts frostbite on the\n"
+    "foe with intense frost.");
 
 static const u8 sMuddyWaterDescription[] = _(
     "Attacks with muddy water.\n"
