@@ -268,6 +268,10 @@ Gauntlet1_starterRoom_Nuzlocke_no::
 
 Gauntlet1_starterRoom_NuzlockeText:
 	.string "Would you like enable random gifts?\n"
+	.string "While off, you may buy pokes from\p"
+	.string "shop npcs with BP earned in battle.\n"
+	.string "While on, random gift pokemon\p"
+	.string "are given out. Only one per floor.\n"
 	.string "This cannot be changed later.$"
 
 Gauntlet1_starterRoom_nuzlocke_too_late::
