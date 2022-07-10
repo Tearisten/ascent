@@ -11998,7 +11998,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_AMORPHOUS,
         .eggGroup2 = EGG_GROUP_AMORPHOUS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_AFTERMATH, ABILITY_FRIEND_GUARD, ABILITY_FLARE_BOOST},
+            .abilities = {ABILITY_AFTERMATH, ABILITY_FRIEND_GUARD, ABILITY_SPUNKY},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -12026,7 +12026,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_AMORPHOUS,
         .eggGroup2 = EGG_GROUP_AMORPHOUS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_AFTERMATH, ABILITY_FRIEND_GUARD, ABILITY_FLARE_BOOST},
+            .abilities = {ABILITY_AFTERMATH, ABILITY_FRIEND_GUARD, ABILITY_SPUNKY},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif

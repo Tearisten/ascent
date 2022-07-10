@@ -8478,8 +8478,8 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         if (basePower <= 60)
            MulModifier(&modifier, UQ_4_12(1.5));
         break;
-    case ABILITY_FLARE_BOOST:
-        if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_SPECIAL(move))
+    case ABILITY_SPUNKY:
+        if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_SPECIAL(move))
            MulModifier(&modifier, UQ_4_12(1.5));
         break;
     case ABILITY_TOXIC_BOOST:
@@ -9276,9 +9276,10 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
     if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_PHYSICAL(move)
         && gBattleMoves[move].effect != EFFECT_FACADE && abilityAtk != ABILITY_GUTS)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
-    else if ((gBattleMons[battlerAtk].status1 & STATUS1_FREEZE) 
-            && IS_MOVE_SPECIAL(move)
-            && gBattleMoves[move].effect != EFFECT_FACADE)
+    else if (gBattleMons[battlerAtk].status1 & STATUS1_FREEZE
+            && abilityAtk != ABILITY_SPUNKY 
+            && IS_MOVE_SPECIAL(move))
+            //&& gBattleMoves[move].effect != EFFECT_FACADE)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
 
     // check sunny/rain weather

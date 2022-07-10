@@ -74,7 +74,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_FAIRY_AURA] = 6,
     [ABILITY_FILTER] = 6,
     [ABILITY_FLAME_BODY] = 4,
-    [ABILITY_FLARE_BOOST] = 5,
+    [ABILITY_SPUNKY] = 5,
     [ABILITY_FLASH_FIRE] = 6,
     [ABILITY_FLOWER_GIFT] = 4,
     [ABILITY_FLOWER_VEIL] = 0,
@@ -2822,7 +2822,7 @@ bool32 ShouldBurnSelf(u8 battler, u16 ability)
      ability == ABILITY_QUICK_FEET
       || ability == ABILITY_HEATPROOF
       || ability == ABILITY_MAGIC_GUARD
-      || (ability == ABILITY_FLARE_BOOST && HasMoveWithSplit(battler, SPLIT_SPECIAL))
+      || (ability == ABILITY_SPUNKY && HasMoveWithSplit(battler, SPLIT_SPECIAL))
       || (ability == ABILITY_GUTS && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || HasMoveEffect(battler, EFFECT_FACADE)
       || HasMoveEffect(battler, EFFECT_PSYCHO_SHIFT)))
