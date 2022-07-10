@@ -3203,7 +3203,7 @@ bool8 HandleFaintedMonActions(void)
                 if (gAbsentBattlerFlags & gBitTable[i] && !HasNoMonsToSwitch(i, PARTY_SIZE, PARTY_SIZE))
                     gAbsentBattlerFlags &= ~(gBitTable[i]);
             }
-            // fall through
+        // fall through
         case 1:
             do
             {
@@ -3212,7 +3212,25 @@ bool8 HandleFaintedMonActions(void)
                  && !(gBattleStruct->givenExpMons & gBitTable[gBattlerPartyIndexes[gBattleStruct->faintedActionsBattlerId]])
                  && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
                 {
+                    // this only only happens once per mon death
+                    // even in double battles
+                    // give_exp is the one that would loop over all player mons, not this function
                     //BattleScriptExecute(BattleScript_GiveExp);
+                    if (gBattlerAttacker != gBattlerFainted 
+                        && gBattlerAttacker != BATTLE_PARTNER(gBattlerFainted)
+                        && gCurrentTurnActionNumber < gBattlersCount) // status kills don't count
+                    {
+                        u32 monId;  
+                        u8 koCount;
+                        struct Pokemon *partyKO = (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+                        monId = gBattlerPartyIndexes[gBattlerAttacker];
+
+                        koCount = GetMonData(&partyKO[monId], MON_DATA_KNOCKOUTS, NULL);
+                        if (koCount != 255) // u8
+                            koCount += 1;
+                        SetMonData(&partyKO[monId], MON_DATA_KNOCKOUTS, &koCount);
+                    }
+
                     gBattleStruct->faintedActionsState = 2;
                     return TRUE;
                 }
