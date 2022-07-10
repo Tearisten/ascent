@@ -272,12 +272,12 @@ static const u8 sInversityDescription[] = _("Inverse damage when hit.");
 static const u8 sClutchDescription[] = _("Damage up 1.5x when low.");
 static const u8 sBrilliantDescription[] = _("Prevents Sp. Atk reduction.");
 static const u8 sWaterLilyDescription[] = _("Party def/sdef up in rain.");
-static const u8 sStaticShockDescription[] = _("Pz using contact atks.");
-static const u8 sBrandDescription[] = _("Bn using contact atks.");
-static const u8 sPoisonTouchDescription[] = _("Psn using contact atks.");
+static const u8 sStaticShockDescription[] = _("Pz on any contact.");
+static const u8 sBrandDescription[] = _("Brn on any contact.");
+static const u8 sPoisonTouchDescription[] = _("Psn on any contact.");
 static const u8 sVampireDescription[] = _("Biting moves heal user.");
 static const u8 sSilverSpoonDescription[] = _("Use protect on switch in.");
-static const u8 sIceColdDescription[] = _("Chill on touch");
+static const u8 sIceColdDescription[] = _("Frz on any contact");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
