@@ -2165,7 +2165,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                   && gBattleMoves[AI_DATA->partnerMove].effect == EFFECT_PLEDGE
                   && move != AI_DATA->partnerMove) // Different pledge moves
                 {
-                    if (gBattleMons[AI_DATA->battlerAtkPartner].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
+                    if (gBattleMons[AI_DATA->battlerAtkPartner].status1 & (STATUS1_SLEEP))
                     // && gBattleMons[AI_DATA->battlerAtkPartner].status1 != 1) // Will wake up this turn - how would AI know
                         score -= 10; // Don't use combo move if your partner will cause failure
                 }
@@ -2989,6 +2989,25 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             break;
         default:
             if (IS_MOVE_PHYSICAL(move) && gBattleMoves[move].effect != EFFECT_FACADE)
+                score -= 2;
+            break;
+        }
+    }
+
+    // check frz
+    if (gBattleMons[battlerAtk].status1 & STATUS1_FREEZE)
+    {
+        switch (AI_DATA->atkAbility)
+        {
+        case ABILITY_SPUNKY:
+            break;
+        case ABILITY_NATURAL_CURE:
+            if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_SMART_SWITCHING
+             && HasOnlyMovesWithSplit(battlerAtk, SPLIT_SPECIAL, TRUE))
+                score = 90; // Force switch if all your attacking moves are special and you have Natural Cure.
+            break;
+        default:
+            if (IS_MOVE_SPECIAL(move) && gBattleMoves[move].effect != EFFECT_FACADE)
                 score -= 2;
             break;
         }

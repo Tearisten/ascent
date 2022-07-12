@@ -8727,7 +8727,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_FACADE:
-        if (gBattleMons[battlerAtk].status1 & (STATUS1_BURN | STATUS1_PSN_ANY | STATUS1_PARALYSIS))
+        if (gBattleMons[battlerAtk].status1 & (STATUS1_BURN | STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_FREEZE))
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case EFFECT_BRINE:
@@ -9278,8 +9278,8 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
     else if (gBattleMons[battlerAtk].status1 & STATUS1_FREEZE
             && abilityAtk != ABILITY_SPUNKY 
-            && IS_MOVE_SPECIAL(move))
-            //&& gBattleMoves[move].effect != EFFECT_FACADE)
+            && IS_MOVE_SPECIAL(move)
+            && gBattleMoves[move].effect != EFFECT_FACADE))
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
 
     // check sunny/rain weather
