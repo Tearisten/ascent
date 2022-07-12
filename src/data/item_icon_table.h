@@ -86,7 +86,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_SWIFT_FEATHER] = {gItemIcon_SwiftFeather, gItemIconPalette_SwiftFeather},
     // Ability Modifiers
     [ITEM_ABILITY_CAPSULE] = {gItemIcon_AbilityCapsule, gItemIconPalette_AbilityCapsule},
-    [ITEM_ABILITY_PATCH] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_ABILITY_PATCH] = {gItemIcon_AbilityPatch, gItemIconPalette_AbilityPatch}, // Todo
     // Mints
     [ITEM_LONELY_MINT] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_ADAMANT_MINT] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
@@ -547,12 +547,12 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_ADRENALINE_ORB] = {gItemIcon_AdrenalineOrb, gItemIconPalette_AdrenalineOrb},
     [ITEM_TERRAIN_EXTENDER] = {gItemIcon_TerrainExtender, gItemIconPalette_TerrainExtender},
     [ITEM_PROTECTIVE_PADS] = {gItemIcon_ProtectivePads, gItemIconPalette_ProtectivePads},
-    [ITEM_THROAT_SPRAY] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_THROAT_SPRAY] = {gItemIcon_ThroatSpray, gItemIconPalette_ThroatSpray}, // Todo
     [ITEM_EJECT_PACK] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
-    [ITEM_HEAVY_DUTY_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_HEAVY_DUTY_BOOTS] = {gItemIcon_HeavyDutyBoots, gItemIconPalette_HeavyDutyBoots},
     [ITEM_BLUNDER_POLICY] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_ROOM_SERVICE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
-    [ITEM_UTILITY_UMBRELLA] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_UTILITY_UMBRELLA] = {gItemIcon_UtilityUmbrella, gItemIconPalette_UtilityUmbrella}, // Todo
     // Berries
     [ITEM_CHERI_BERRY] = {gItemIcon_CheriBerry, gItemIconPalette_CheriBerry},
     [ITEM_CHESTO_BERRY] = {gItemIcon_ChestoBerry, gItemIconPalette_ChestoBerry},

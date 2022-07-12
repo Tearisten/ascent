@@ -9980,4 +9980,17 @@ extern const u8 gMailTilemap_Retro[];
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
 
+// custom stuff or rhh unemplemented
+extern const u32 gItemIcon_AbilityPatch[];
+extern const u32 gItemIconPalette_AbilityPatch[];
+
+extern const u32 gItemIcon_HeavyDutyBoots[];
+extern const u32 gItemIconPalette_HeavyDutyBoots[];
+
+extern const u32 gItemIcon_ThroatSpray[];
+extern const u32 gItemIconPalette_ThroatSpray[];
+
+extern const u32 gItemIcon_UtilityUmbrella[];
+extern const u32 gItemIconPalette_UtilityUmbrella[];
+
 #endif //GUARD_GRAPHICS_H

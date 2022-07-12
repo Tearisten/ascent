@@ -325,9 +325,10 @@ static const struct itemFlagMap itemToFlag[] =
 {
 
     // test
-    {ITEM_COVERAGE_GEM, FLAG_ALL_STARTERS},
-    {ITEM_STAB_GEM, FLAG_ALL_STARTERS},
-    //{ITEM_GREEDY_POT, FLAG_ALL_STARTERS},
+    {ITEM_THROAT_SPRAY, FLAG_ALL_STARTERS},
+    {ITEM_UTILITY_UMBRELLA, FLAG_ALL_STARTERS},
+    {ITEM_HEAVY_DUTY_BOOTS, FLAG_ALL_STARTERS},
+    {ITEM_ABILITY_PATCH, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
