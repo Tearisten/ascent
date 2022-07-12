@@ -995,8 +995,10 @@
 #define ITEM_THERMOSTAT 770
 #define ITEM_BRASS_KNUCKLES 771
 #define ITEM_GREEDY_POT 772
+#define ITEM_STAB_GEM 773
+#define ITEM_COVERAGE_GEM 774
 
-#define ITEMS_COUNT 773
+#define ITEMS_COUNT 775
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

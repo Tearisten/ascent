@@ -3683,3 +3683,13 @@ static const u8 sGreedyPotDesc[] = _(
     "Temporarily boost\n"
     "move prio after\n"
     "switching in.");
+
+static const u8 sStabGemDesc[] = _(
+    "Increase power\n"
+    "of STAB moves\n"
+    "once.");
+
+static const u8 sCoverageGemDesc[] = _(
+    "Increase power\n"
+    "of non STAB\n"
+    "moves once.");

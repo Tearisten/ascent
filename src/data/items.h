@@ -9608,4 +9608,30 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_STAB_GEM] =
+    {
+        .name = _("STAB Gem"),
+        .itemId = ITEM_STAB_GEM,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_GEMS,
+        .holdEffectParam = 33,
+        .description = sStabGemDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_COVERAGE_GEM] =
+    {
+        .name = _("Coverage Gem"),
+        .itemId = ITEM_COVERAGE_GEM,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_GEMS,
+        .holdEffectParam = 33,
+        .description = sCoverageGemDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

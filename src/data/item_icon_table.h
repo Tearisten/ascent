@@ -822,6 +822,8 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_THERMOSTAT] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     [ITEM_BRASS_KNUCKLES] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     [ITEM_GREEDY_POT] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
+    [ITEM_STAB_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
+    [ITEM_COVERAGE_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     
     // Custom evo stones
     [ITEM_MID_EVO_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone}, // Todo, shiny stone for now

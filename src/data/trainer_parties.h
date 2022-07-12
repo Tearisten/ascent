@@ -8,19 +8,31 @@ static const struct TrainerMon sParty_Tester[] = {
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 0,
-    .moves = {MOVE_POWDER_SNOW, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {
     .species = SPECIES_PICHU,
-    .heldItem = ITEM_WEIGHTED_BOOTS,
+    .heldItem = ITEM_NONE,
     .ability = ABILITY_SLOT_1,
     .evs = EV_SPREAD_NONE,
     .nature = NATURE_SERIOUS,
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 1,
-    .moves = {MOVE_SEISMIC_TOSS, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    //.shiny = TRUE
+    },
+    {
+    .species = SPECIES_PICHU,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_SLOT_1,
+    .evs = EV_SPREAD_NONE,
+    .nature = NATURE_SERIOUS,
+    .iv = MAX_PER_STAT_IVS,
+    .ball = ITEM_MASTER_BALL,
+    .slot = 2,
+    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
 };
