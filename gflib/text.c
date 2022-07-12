@@ -319,30 +319,46 @@ bool16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, voi
 void RunTextPrinters(void)
 {
     int i;
-
-    if (!gDisableTextPrinters)
+    u16 temp;
+    //bool32 isInstantText = !gSaveBlock2Ptr->speedchoiceConfig.instantText ? TRUE : FALSE; // force correct result. this is dumb, i know.
+    bool32 isInstantText = TRUE;
+    do
     {
-        for (i = 0; i < NUM_TEXT_PRINTERS; ++i)
+    	int numEmpty = 0;
+        if (!gDisableTextPrinters)
         {
-            if (sTextPrinters[i].active)
+            for (i = 0; i < 0x20; ++i)
             {
-                u16 temp = RenderFont(&sTextPrinters[i]);
-                switch (temp)
+                if (sTextPrinters[i].active)
                 {
-                case RENDER_PRINT:
-                    CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
-                case RENDER_UPDATE:
-                    if (sTextPrinters[i].callback != 0)
-                        sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, temp);
-                    break;
-                case RENDER_FINISH:
-                    sTextPrinters[i].active = FALSE;
-                    break;
+                    u16 temp = RenderFont(&sTextPrinters[i]);
+                    switch (temp)
+                    {
+                    case 0:
+                        CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, 2);
+                        if (sTextPrinters[i].callback != 0)
+                            sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, temp);
+                        break;
+                    case 3:
+                        if (sTextPrinters[i].callback != 0)
+                            sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, temp);
+                        return;
+                    case 1:
+                        sTextPrinters[i].active = 0;
+                        return;
+                    }
+                }
+                else
+                {
+                    numEmpty++;
                 }
             }
+            if(numEmpty == 0x20)
+                return;
         }
-    }
+    } while(isInstantText);
 }
+
 
 bool16 IsTextPrinterActive(u8 id)
 {
@@ -873,7 +889,7 @@ bool16 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
     else
     {
         TextPrinterDrawDownArrow(textPrinter);
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        if (JOY_NEW(A_BUTTON | B_BUTTON) || (JOY_HELD(A_BUTTON | B_BUTTON) && GetPlayerTextSpeed() == 2))
         {
             result = TRUE;
             PlaySE(SE_SELECT);
@@ -891,7 +907,7 @@ bool16 TextPrinterWait(struct TextPrinter *textPrinter)
     }
     else
     {
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        if ((JOY_HELD(A_BUTTON | B_BUTTON) && GetPlayerTextSpeed() == 2) || JOY_NEW(A_BUTTON | B_BUTTON))
         {
             result = TRUE;
             PlaySE(SE_SELECT);
