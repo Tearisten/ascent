@@ -5413,7 +5413,7 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
         && gBattleMoves[move].effect != EFFECT_LEVEL_DAMAGE)
     {   
         if (((moveType == gBattleMons[battlerAtk].type1 || moveType == gBattleMons[battlerAtk].type2) && gBattleMons[battlerAtk].item == ITEM_STAB_GEM)
-            || gBattleMons[battlerAtk].item == ITEM_COVERAGE_GEM
+            || (gBattleMons[battlerAtk].item == ITEM_COVERAGE_GEM && moveType != gBattleMons[battlerAtk].type1 && moveType != gBattleMons[battlerAtk].type2)
             || moveType == ItemId_GetSecondaryId(gBattleMons[battlerAtk].item))
         {
             gSpecialStatuses[battlerAtk].gemParam = GetBattlerHoldEffectParam(battlerAtk);
