@@ -9279,7 +9279,7 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
     else if (gBattleMons[battlerAtk].status1 & STATUS1_FREEZE
             && abilityAtk != ABILITY_SPUNKY 
             && IS_MOVE_SPECIAL(move)
-            && gBattleMoves[move].effect != EFFECT_FACADE))
+            && gBattleMoves[move].effect != EFFECT_FACADE)
         dmg = ApplyModifier(UQ_4_12(0.5), dmg);
 
     // check sunny/rain weather
