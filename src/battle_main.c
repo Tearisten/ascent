@@ -5409,7 +5409,8 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
 
     // Check if a gem should activate.
     GET_MOVE_TYPE(move, moveType);
-    if (holdEffect == HOLD_EFFECT_GEMS)
+    if (holdEffect == HOLD_EFFECT_GEMS && move != MOVE_DRAGON_RAGE && move != MOVE_SONIC_BOOM
+        && gBattleMoves[move].effect != EFFECT_LEVEL_DAMAGE)
     {   
         if (((moveType == gBattleMons[battlerAtk].type1 || moveType == gBattleMons[battlerAtk].type2) && gBattleMons[battlerAtk].item == ITEM_STAB_GEM)
             || gBattleMons[battlerAtk].item == ITEM_COVERAGE_GEM
