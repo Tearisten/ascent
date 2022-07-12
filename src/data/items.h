@@ -9613,7 +9613,7 @@ const struct Item gItems[] =
     {
         .name = _("STAB Gem"),
         .itemId = ITEM_STAB_GEM,
-        .price = 10,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_GEMS,
         .holdEffectParam = 33,
         .description = sStabGemDesc,
@@ -9626,7 +9626,7 @@ const struct Item gItems[] =
     {
         .name = _("Coverage Gem"),
         .itemId = ITEM_COVERAGE_GEM,
-        .price = 10,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_GEMS,
         .holdEffectParam = 33,
         .description = sCoverageGemDesc,
