@@ -1355,7 +1355,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THUNDER_WAVE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_7
-            .accuracy = 95,
+            .accuracy = 90,
         #else
             .accuracy = 100,
         #endif
@@ -4162,7 +4162,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WILL_O_WISP] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 95,
+            .accuracy = 90,
         #else
             .accuracy = 75,
         #endif
@@ -5223,7 +5223,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SHEER_COLD,
         .power = 0,
         .type = TYPE_ICE,
-        .accuracy = 95,
+        .accuracy = 90,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

@@ -1676,6 +1676,30 @@ static bool32 AccuracyCalcHelper(u16 move)
         JumpIfMoveFailed(7, move);
         return TRUE;
     }
+    else if (gBattleMoves[move].effect == EFFECT_SHEER_COLD
+            && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE))
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+    else if (gBattleMoves[move].effect == EFFECT_WILL_O_WISP
+            && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_FIRE))
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    } 
+    else if (move == MOVE_THUNDER_WAVE
+            && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ELECTRIC))
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+    else if (move == MOVE_HYPNOSIS
+            && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_PSYCHIC))
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
     else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD
             || (GetBattlerAbility(gBattlerAttacker) == ABILITY_COMPOUND_EYES && IS_MOVE_STATUS(move)))
     {
