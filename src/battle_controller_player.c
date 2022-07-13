@@ -356,7 +356,7 @@ static void HandleInputChooseAction(void)
             PlayerBufferExecCompleted();
         }
     }
-    else if (JOY_NEW(START_BUTTON))
+    else if (JOY_NEW(START_BUTTON))// && IsDoubleBattle())
     {
         SwapHpBarsWithHpText();
     }
