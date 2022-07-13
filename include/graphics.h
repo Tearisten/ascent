@@ -9993,4 +9993,16 @@ extern const u32 gItemIconPalette_ThroatSpray[];
 extern const u32 gItemIcon_UtilityUmbrella[];
 extern const u32 gItemIconPalette_UtilityUmbrella[];
 
+extern const u32 gItemIcon_HourGlass[];
+extern const u32 gItemIconPalette_HourGlass[];
+
+extern const u32 gItemIcon_WindChimes[];
+extern const u32 gItemIconPalette_WindChimes[];
+
+extern const u32 gItemIcon_TrinityForce[];
+extern const u32 gItemIconPalette_TrinityForce[];
+
+extern const u32 gItemIcon_PlateMail[];
+extern const u32 gItemIconPalette_PlateMail[];
+
 #endif //GUARD_GRAPHICS_H

@@ -2057,3 +2057,15 @@ const u32 gItemIconPalette_ThroatSpray[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_UtilityUmbrella[] = INCBIN_U32("graphics/items/icons/utility_umbrella.4bpp.lz");
 const u32 gItemIconPalette_UtilityUmbrella[] = INCBIN_U32("graphics/items/icon_palettes/utility_umbrella.gbapal.lz");
+
+const u32 gItemIcon_WindChimes[] = INCBIN_U32("graphics/items/icons/windchimes.4bpp.lz");
+const u32 gItemIconPalette_WindChimes[] = INCBIN_U32("graphics/items/icon_palettes/windchimes.gbapal.lz");
+
+const u32 gItemIcon_HourGlass[] = INCBIN_U32("graphics/items/icons/hourglass.4bpp.lz");
+const u32 gItemIconPalette_HourGlass[] = INCBIN_U32("graphics/items/icon_palettes/hourglass.gbapal.lz");
+
+const u32 gItemIcon_TrinityForce[] = INCBIN_U32("graphics/items/icons/trinity_force.4bpp.lz");
+const u32 gItemIconPalette_TrinityForce[] = INCBIN_U32("graphics/items/icon_palettes/trinity_force.gbapal.lz");
+
+const u32 gItemIcon_PlateMail[] = INCBIN_U32("graphics/items/icons/plate_mail.4bpp.lz");
+const u32 gItemIconPalette_PlateMail[] = INCBIN_U32("graphics/items/icon_palettes/plate_mail.gbapal.lz");
