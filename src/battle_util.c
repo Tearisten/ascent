@@ -6214,7 +6214,26 @@ bool32 CanSleep(u8 battlerId)
       || IsAbilityStatusProtected(battlerId)
       || IsBattlerTerrainAffected(battlerId, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN))
         return FALSE;
+
     return TRUE;
+}
+
+bool32 SleepClauseActive(u8 battlerId)
+{
+    struct Pokemon *party;
+    u32 i;
+    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&party[i], MON_DATA_STATUS) & STATUS1_SLEEP)
+            return TRUE;
+    }
+    
+    return FALSE;
 }
 
 bool32 CanBePoisoned(u8 battlerAttacker, u8 battlerTarget)

@@ -622,9 +622,10 @@
 #define STRINGID_SILVERSPOON                          619
 #define STRINGID_PKMNHURTBYFREEZE                     620
 #define STRINGID_PKMNALREADYHASFREEZE                 621
+#define STRINGID_SLEEPCLAUSE                          622
 
 
-#define BATTLESTRINGS_COUNT                           622
+#define BATTLESTRINGS_COUNT                           623
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.

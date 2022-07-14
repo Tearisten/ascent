@@ -2787,6 +2787,14 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;
             if (!CanSleep(gEffectBattler))
                 break;
+            if (SleepClauseActive(gEffectBattler))                
+            {
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_SleepClause;
+
+                //gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+                RESET_RETURN
+            }
 
             CancelMultiTurnMoves(gEffectBattler);
             statusChanged = TRUE;

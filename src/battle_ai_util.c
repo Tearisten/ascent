@@ -2695,6 +2695,10 @@ bool32 AI_CanSleep(u8 battler, u16 ability)
       || (gFieldStatuses & (STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN))
       || IsAbilityStatusProtected(battler))
         return FALSE;
+    
+    if (SleepClauseActive(battler))
+        return FALSE;
+
     return TRUE;
 }
 

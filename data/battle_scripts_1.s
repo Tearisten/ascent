@@ -8294,6 +8294,12 @@ BattleScript_PSNPrevention::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_SleepClause::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SLEEPCLAUSE
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_ObliviousPreventsAttraction::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
