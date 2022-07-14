@@ -53,6 +53,20 @@ static bool8 ShouldSwitchIfAllBadMoves(void)
     }
 }
 
+static bool8 ShouldSwitchSleepClause(void)
+{
+    if (gBattleMons[gActiveBattler].status1 & STATUS1_SLEEP) // consider adding case not to switch if the mon with sleep move is dead or not out
+    {
+        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
+        BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 static bool8 ShouldSwitchIfPerishSong(void)
 {
     if (gStatuses3[gActiveBattler] & STATUS3_PERISH_SONG
@@ -481,6 +495,8 @@ bool32 ShouldSwitch(void)
 
     if (availableToSwitch == 0)
         return FALSE;
+    if (ShouldSwitchSleepClause())
+        return TRUE;
     if (ShouldSwitchIfAllBadMoves())
         return TRUE;
     if (ShouldSwitchIfPerishSong())
