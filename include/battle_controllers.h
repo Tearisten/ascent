@@ -301,4 +301,6 @@ void SetControllerToLinkOpponent(void);
 // link partner
 void SetControllerToLinkPartner(void);
 
+extern u8 chosenMoveIdOpponent;
+
 #endif // GUARD_BATTLE_CONTROLLERS_H
