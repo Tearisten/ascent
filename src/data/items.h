@@ -9575,7 +9575,7 @@ const struct Item gItems[] =
     
     [ITEM_THERMOSTAT] =
     {
-        .name = _("Thermostat"),
+        .name = _("Thermometer"),
         .itemId = ITEM_THERMOSTAT,
         .price = 3800,
         .holdEffect = HOLD_EFFECT_THERMOSTAT,

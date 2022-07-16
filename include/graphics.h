@@ -10005,4 +10005,16 @@ extern const u32 gItemIconPalette_TrinityForce[];
 extern const u32 gItemIcon_PlateMail[];
 extern const u32 gItemIconPalette_PlateMail[];
 
+extern const u32 gItemIcon_PotOfGreed[];
+extern const u32 gItemIconPalette_PotOfGreed[];
+
+extern const u32 gItemIcon_HeelGuard[];
+extern const u32 gItemIconPalette_HeelGuard[];
+
+extern const u32 gItemIcon_BrassKnuckles[];
+extern const u32 gItemIconPalette_BrassKnuckles[];
+
+extern const u32 gItemIcon_Thermometer[];
+extern const u32 gItemIconPalette_Thermometer[];
+
 #endif //GUARD_GRAPHICS_H

@@ -2069,3 +2069,15 @@ const u32 gItemIconPalette_TrinityForce[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_PlateMail[] = INCBIN_U32("graphics/items/icons/plate_mail.4bpp.lz");
 const u32 gItemIconPalette_PlateMail[] = INCBIN_U32("graphics/items/icon_palettes/plate_mail.gbapal.lz");
+
+const u32 gItemIcon_PotOfGreed[] = INCBIN_U32("graphics/items/icons/pot_of_greed.4bpp.lz");
+const u32 gItemIconPalette_PotOfGreed[] = INCBIN_U32("graphics/items/icon_palettes/pot_of_greed.gbapal.lz");
+
+const u32 gItemIcon_HeelGuard[] = INCBIN_U32("graphics/items/icons/heel_cover.4bpp.lz");
+const u32 gItemIconPalette_HeelGuard[] = INCBIN_U32("graphics/items/icon_palettes/heel_cover.gbapal.lz");
+
+const u32 gItemIcon_Thermometer[] = INCBIN_U32("graphics/items/icons/thermometer.4bpp.lz");
+const u32 gItemIconPalette_Thermometer[] = INCBIN_U32("graphics/items/icon_palettes/thermometer.gbapal.lz");
+
+const u32 gItemIcon_BrassKnuckles[] = INCBIN_U32("graphics/items/icons/brass_knuckles.4bpp.lz");
+const u32 gItemIconPalette_BrassKnuckles[] = INCBIN_U32("graphics/items/icon_palettes/brass_knuckles.gbapal.lz");

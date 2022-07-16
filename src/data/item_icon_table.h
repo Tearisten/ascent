@@ -815,13 +815,13 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_HOURGLASS] = {gItemIcon_HourGlass, gItemIconPalette_HourGlass},
     [ITEM_WIND_CHIMES] = {gItemIcon_WindChimes, gItemIconPalette_WindChimes},
     [ITEM_PLATE_MAIL] = {gItemIcon_PlateMail, gItemIconPalette_PlateMail},
-    [ITEM_HEEL_COVER] = {gItemIcon_BindingBand, gItemIconPalette_BindingBand}, // Todo (temp binding band)
+    [ITEM_THERMOSTAT] = {gItemIcon_Thermometer, gItemIconPalette_Thermometer}, 
+    [ITEM_BRASS_KNUCKLES] = {gItemIcon_BrassKnuckles, gItemIconPalette_BrassKnuckles},
+    [ITEM_GREEDY_POT] = {gItemIcon_PotOfGreed, gItemIconPalette_PotOfGreed},
+    [ITEM_HEEL_COVER] = {gItemIcon_HeelGuard, gItemIconPalette_HeelGuard},
     [ITEM_FEAST] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_GRAVITY_WELL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
-    [ITEM_THERMOSTAT] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
-    [ITEM_BRASS_KNUCKLES] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
-    [ITEM_GREEDY_POT] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     [ITEM_STAB_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     [ITEM_COVERAGE_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     
