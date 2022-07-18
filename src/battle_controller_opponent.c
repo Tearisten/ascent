@@ -1636,41 +1636,33 @@ static void OpponentHandleChoosePokemon(void)
 {
     s32 chosenMonId;
 
-    if (*(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) == PARTY_SIZE)
+    chosenMonId = GetMostSuitableMonToSwitchInto();
+
+    if (chosenMonId == PARTY_SIZE)
     {
-        chosenMonId = GetMostSuitableMonToSwitchInto();
+        s32 battler1, battler2, firstId, lastId;
 
-        if (chosenMonId == PARTY_SIZE)
+        if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         {
-            s32 battler1, battler2, firstId, lastId;
+            battler2 = battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        }
+        else
+        {
+            battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            battler2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+        }
 
-            if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-            {
-                battler2 = battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-            }
-            else
-            {
-                battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-                battler2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
-            }
+        GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-            GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
-
-            for (chosenMonId = firstId; chosenMonId < lastId; chosenMonId++)
+        for (chosenMonId = firstId; chosenMonId < lastId; chosenMonId++)
+        {
+            if (GetMonData(&gEnemyParty[chosenMonId], MON_DATA_HP) != 0
+                && chosenMonId != gBattlerPartyIndexes[battler1]
+                && chosenMonId != gBattlerPartyIndexes[battler2])
             {
-                if (GetMonData(&gEnemyParty[chosenMonId], MON_DATA_HP) != 0
-                    && chosenMonId != gBattlerPartyIndexes[battler1]
-                    && chosenMonId != gBattlerPartyIndexes[battler2])
-                {
-                    break;
-                }
+                break;
             }
         }
-    }
-    else
-    {
-        chosenMonId = *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler);
-        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
     }
 
 
