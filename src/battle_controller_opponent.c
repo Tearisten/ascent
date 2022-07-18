@@ -105,6 +105,8 @@ static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
 static void Task_StartSendOutAnim(u8 taskId);
 static void EndDrawPartyStatusSummary(void);
 
+static u8 chosenMoveId;
+
 static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
     [CONTROLLER_GETMONDATA]               = OpponentHandleGetMonData,
@@ -1540,11 +1542,12 @@ static void OpponentHandlePrintSelectionString(void)
     OpponentBufferExecCompleted();
 }
 
+
 static void OpponentHandleChooseAction(void)
 {
     //consider moves before switching
     BattleAI_SetupAIData(0xF);
-    BattleAI_ChooseMoveOrAction();
+    chosenMoveId = BattleAI_ChooseMoveOrAction();
     AI_TrySwitchOrUseItem();
     OpponentBufferExecCompleted();
 }
@@ -1564,11 +1567,10 @@ static void OpponentHandleChooseMove(void)
     else
     {
         struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
-        u8 chosenMoveId;
 
         if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_SAFARI | BATTLE_TYPE_ROAMER))
         {
-            BattleAI_SetupAIData(0xF);
+            //BattleAI_SetupAIData(0xF);
             switch (chosenMoveId)
             {
             case AI_CHOICE_WATCH:
@@ -1629,6 +1631,7 @@ static void OpponentHandleChooseItem(void)
     OpponentBufferExecCompleted();
 }
 
+// called on KO
 static void OpponentHandleChoosePokemon(void)
 {
     s32 chosenMonId;
