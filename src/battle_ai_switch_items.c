@@ -47,7 +47,7 @@ static bool8 ShouldSwitchIfAllBadMoves(void)
     {
         gBattleResources->ai->switchMon = 0;
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
+        //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
         return TRUE;
     }
     else
@@ -76,7 +76,7 @@ static bool8 ShouldSwitchIfPerishSong(void)
         && gDisableStructs[gActiveBattler].perishSongTimer == 0)
     {
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
+        //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
         return TRUE;
     }
     else
@@ -229,7 +229,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         {
             // we found a mon.
             *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
+            //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
             return TRUE;
         }
     }
@@ -519,7 +519,7 @@ bool32 ShouldSwitch(void)
     struct Pokemon *party;
     s32 i;
     s32 availableToSwitch;
-    s16 switchPercent = 20; // higher is better chance to switch
+    s16 switchPercent = 10; // higher is better chance to switch
 
     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
         return FALSE;
@@ -627,9 +627,7 @@ bool32 ShouldSwitch(void)
 
     // roll dice for switch based on above factors
     // if no specific mon has been selected, mark selected mon as party size
-    if (switchPercent <= 0)
-        return FALSE;
-    else if((Random() % 100) + 1 <= switchPercent)
+    if((Random() % 100) + 1 <= switchPercent && !(switchPercent <= 0))
     {
         bool8 foundSwap = FALSE;
         for (i = firstId; i < lastId; i++)
@@ -643,8 +641,8 @@ bool32 ShouldSwitch(void)
         BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0); // change mon choice function
         return TRUE;
     }
-    else
-        return FALSE;
+
+    return FALSE;
 }
 
 bool8 AI_TrySwitchOrUseItem(void)
@@ -755,7 +753,7 @@ static void GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId,
     // look for super effective types and moves
     for (i = firstId; i < lastId; i++)
     {
-        if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
+        if (!gBitTable[i] & invalidMons)
         {
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
             u32 typeDmg = UQ_4_12(1.0);
@@ -858,11 +856,11 @@ static void GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 inv
 
 static void GestBestMonDeffensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
-    int i, bits = 0;
+    int i;
     // Find the mon whose type is the most suitable deffensively. 
     for (i = firstId; i < lastId; i++)
     {
-        if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
+        if (!gBitTable[i] & invalidMons)
         {
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
             u32 typeDmg = UQ_4_12(1.0);
@@ -919,11 +917,11 @@ static void GestBestMonDeffensive(struct Pokemon *party, int firstId, int lastId
 
 static void GestBestMonStatusImpact(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
-    int i, bits = 0;
+    int i;
     // Find the mon whose type is the most suitable deffensively. 
     for (i = firstId; i < lastId; i++)
     {
-        if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
+        if (!(gBitTable[i] & invalidMons))
         {   
             // consider adding impact of current mon HP
 
@@ -963,8 +961,6 @@ u8 GetMostSuitableMonToSwitchInto(void)
         return gBattlerPartyIndexes[gActiveBattler] + 1;
 
 
-    // looks like only checking only 1 foe in dbl battle
-    // does account for partner tho
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
         battlerIn1 = gActiveBattler;
@@ -1028,6 +1024,18 @@ u8 GetMostSuitableMonToSwitchInto(void)
     // check for statuses impact
     // working
     GestBestMonStatusImpact(party, firstId, lastId, invalidMons, opposingBattler);
+
+
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        u32 opposingBattler2 = BATTLE_PARTNER(BATTLE_OPPOSITE(gActiveBattler));
+        if (IsBattlerAlive(opposingBattler2))
+        {
+            GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler2);
+            GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler2);
+            GestBestMonDeffensive(party, firstId, lastId, invalidMons, opposingBattler2);
+        }
+    }
 
     // Get best mon based on scores
     s8 bestMonIdScore = INT8_MIN;
