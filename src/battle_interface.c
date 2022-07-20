@@ -1349,7 +1349,7 @@ void SwapHpBarsWithHpText(void)
 
         gBattleSpritesDataPtr->battlerData[i].hpNumbersNoBars ^= 1;
         noBars = gBattleSpritesDataPtr->battlerData[i].hpNumbersNoBars;
-        if (GetBattlerSide(i) == B_SIDE_PLAYER)
+        if (GetBattlerSide(i) == B_SIDE_PLAYER && IsDoubleBattle())
         {
             if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                 continue;
