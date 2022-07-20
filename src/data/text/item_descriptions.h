@@ -3680,8 +3680,8 @@ static const u8 sBrassKnucklesDesc[] = _(
     "percent.");
 
 static const u8 sGreedyPotDesc[] = _(
-    "Temporarily boost\n"
-    "move prio after\n"
+    "Boost move prio\n"
+    "once after\n"
     "switching in.");
 
 static const u8 sStabGemDesc[] = _(
