@@ -127,8 +127,8 @@ EVreset_event::
 	faceplayer
 	msgbox EVreset_text, MSGBOX_DEFAULT
 	special ChoosePartyMon
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	special ResetChosenMonEVs
 	release
 	end
@@ -143,8 +143,8 @@ NatureChange_event::
 	faceplayer
 	msgbox NatureChange_text, MSGBOX_DEFAULT
 	special ChoosePartyMon
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8000, VAR_0x8004
 	scrollingmultichoice 5, 1, 1, 8, TRUE
 	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
