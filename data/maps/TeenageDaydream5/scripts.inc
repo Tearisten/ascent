@@ -76,12 +76,11 @@ TeenageDaydream5_ReadyOrNot::
 	case 2, TeenageDaydream5_TextDoubleBattles
 
 TeenageDaydream5_TextSingleBattles::
-	msgbox TeenageDaydream5_readyText1, MSGBOX_DEFAULT
-	waitmessage
+	msgbox TeenageDaydream5_readyText1, MSGBOX_YESNO
 	goto TeenageDaydream5_TryBattle
 
 TeenageDaydream5_TextDoubleBattles::
-	msgbox TeenageDaydream5_readyText2, MSGBOX_DEFAULT
+	msgbox TeenageDaydream5_readyText2, MSGBOX_YESNO
 	goto TeenageDaydream5_TryBattle
 
 TeenageDaydream5_readyText1:
@@ -93,7 +92,6 @@ TeenageDaydream5_readyText2:
 	.string "Are you ready?$"
 
 TeenageDaydream5_TryBattle::
-	yesnobox 3, 8
 	releaseall
 	switch VAR_RESULT
 	case NO, MoveRelearners_EventScript_CantTeach

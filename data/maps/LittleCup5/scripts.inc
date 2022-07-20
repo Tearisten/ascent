@@ -76,12 +76,11 @@ LittleCup5_ReadyOrNot::
 	case 2, LittleCup5_TextDoubleBattles
 
 LittleCup5_TextSingleBattles::
-	msgbox LittleCup5_readyText1, MSGBOX_DEFAULT
-	waitmessage
+	msgbox LittleCup5_readyText1, MSGBOX_YESNO
 	goto LittleCup5_TryBattle
 
 LittleCup5_TextDoubleBattles::
-	msgbox LittleCup5_readyText2, MSGBOX_DEFAULT
+	msgbox LittleCup5_readyText2, MSGBOX_YESNO
 	goto LittleCup5_TryBattle
 
 LittleCup5_readyText1:
@@ -93,7 +92,6 @@ LittleCup5_readyText2:
 	.string "Are you ready?$"
 
 LittleCup5_TryBattle::
-	yesnobox 3, 8
 	releaseall
 	switch VAR_RESULT
 	case NO, MoveRelearners_EventScript_CantTeach

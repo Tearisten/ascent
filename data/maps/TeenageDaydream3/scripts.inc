@@ -94,12 +94,11 @@ TeenageDaydream3_ReadyOrNot::
 	case 2, TeenageDaydream3_TextDoubleBattles
 
 TeenageDaydream3_TextSingleBattles::
-	msgbox TeenageDaydream3_readyText1, MSGBOX_DEFAULT
-	waitmessage
+	msgbox TeenageDaydream3_readyText1, MSGBOX_YESNO
 	goto TeenageDaydream3_TryBattle
 
 TeenageDaydream3_TextDoubleBattles::
-	msgbox TeenageDaydream3_readyText2, MSGBOX_DEFAULT
+	msgbox TeenageDaydream3_readyText2, MSGBOX_YESNO
 	goto TeenageDaydream3_TryBattle
 
 TeenageDaydream3_readyText1:

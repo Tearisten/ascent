@@ -88,12 +88,11 @@ GrowingPains3_ReadyOrNot::
 	case 2, GrowingPains3_TextDoubleBattles
 
 GrowingPains3_TextSingleBattles::
-	msgbox GrowingPains3_readyText1, MSGBOX_DEFAULT
-	waitmessage
+	msgbox GrowingPains3_readyText1, MSGBOX_YESNO
 	goto GrowingPains3_TryBattle
 
 GrowingPains3_TextDoubleBattles::
-	msgbox GrowingPains3_readyText2, MSGBOX_DEFAULT
+	msgbox GrowingPains3_readyText2, MSGBOX_YESNO
 	goto GrowingPains3_TryBattle
 
 GrowingPains3_readyText1:
@@ -105,7 +104,6 @@ GrowingPains3_readyText2:
 	.string "Are you ready?$"
 
 GrowingPains3_TryBattle::
-	yesnobox 3, 8
 	releaseall
 	switch VAR_RESULT
 	case NO, MoveRelearners_EventScript_CantTeach
