@@ -1436,6 +1436,8 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             //Spin checks
             if (!(gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY))
                 score -= 6;
+            else
+                score += 6;
             break;
         case EFFECT_BELLY_DRUM:
             if (AI_DATA->atkAbility == ABILITY_CONTRARY)
@@ -3456,27 +3458,16 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         //fallthrough
     case EFFECT_HIT_ESCAPE:
     case EFFECT_PARTING_SHOT:
-        if (!IsDoubleBattle())
+        switch (ShouldPivot(battlerAtk, battlerDef, AI_DATA->defAbility, move, AI_THINKING_STRUCT->movesetIndex))
         {
-            switch (ShouldPivot(battlerAtk, battlerDef, AI_DATA->defAbility, move, AI_THINKING_STRUCT->movesetIndex))
-            {
-            case 0: // no
-                score -= 10;    // technically should go in CheckBadMove, but this is easier/less computationally demanding
-                break;
-            case 1: // maybe
-                break;
-            case 2: // yes
-                score += 7;
-                break;
-            }
-        }
-        else //Double Battle
-        {
-            if (CountUsablePartyMons(battlerAtk) == 0)
-                break; // Can't switch
-
-            //if (switchAbility == ABILITY_INTIMIDATE && PartyHasMoveSplit(battlerDef, SPLIT_PHYSICAL))
-                //score += 7;
+        case 0: // no
+            score -= 10;    // technically should go in CheckBadMove, but this is easier/less computationally demanding
+            break;
+        case 1: // maybe
+            break;
+        case 2: // yes
+            score += 7;
+            break;
         }
         break;
     case EFFECT_BATON_PASS:

@@ -4528,7 +4528,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 BattleScriptPushCursorAndCallback(BattleScript_EffectHazardCrew);
                 effect++;
             }
-            return effect; // Note: It returns effect as to not record the ability if ABILITY_HAZARD_CREW does not activate.
+            else
+                return effect; // Note: It returns effect as to not record the ability if ABILITY_HAZARD_CREW does not activate.
             break;
         case ABILITY_TWISTED_MIND:
             if (!gSpecialStatuses[battler].switchInAbilityDone)

@@ -2462,11 +2462,16 @@ static bool32 PartyBattlerShouldAvoidHazards(u8 currBattler, u8 switchBattler)
     if (flags == 0)
         return FALSE;
 
-    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_LEVITATE
-      || holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS)
+    if (ability == ABILITY_MAGIC_GUARD 
+        || ability == ABILITY_LEVITATE 
+        || ability == ABILITY_HAZARD_CREW
+        || holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS)
         return FALSE;
+    
+    if (flags & SIDE_STATUS_TOXIC_SPIKES && !(GetMonData(mon, MON_DATA_STATUS) & STATUS1_ANY))
+        return TRUE;
 
-    if (flags & (SIDE_STATUS_SPIKES | SIDE_STATUS_STEALTH_ROCK) && GetMonData(mon, MON_DATA_HP) < (GetMonData(mon, MON_DATA_MAX_HP) / 8))
+    if (flags & (SIDE_STATUS_SPIKES | SIDE_STATUS_STEALTH_ROCK) && GetMonData(mon, MON_DATA_HP) < (GetMonData(mon, MON_DATA_MAX_HP) / 4))
         return TRUE;
 
     return FALSE;
@@ -2479,7 +2484,7 @@ enum {
 };
 bool32 ShouldPivot(u8 battlerAtk, u8 battlerDef, u16 defAbility, u16 move, u8 moveIndex)
 {
-    bool8 hasStatBoost = AnyUsefulStatIsRaised(battlerAtk) || gBattleMons[battlerDef].statStages[STAT_EVASION] >= 9; //Significant boost in evasion for any class
+    //bool8 hasStatBoost = AnyUsefulStatIsRaised(battlerAtk) || gBattleMons[battlerDef].statStages[STAT_EVASION] >= 9; //Significant boost in evasion for any class
     u8 backupBattler = gActiveBattler;
     bool32 shouldSwitch;
     u8 battlerToSwitch;
@@ -2489,161 +2494,8 @@ bool32 ShouldPivot(u8 battlerAtk, u8 battlerDef, u16 defAbility, u16 move, u8 mo
     battlerToSwitch = *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler);
     gActiveBattler = backupBattler;
 
-    if (PartyBattlerShouldAvoidHazards(battlerAtk, battlerToSwitch))
-        return DONT_PIVOT;
-
-    if (!IsDoubleBattle())
-    {
-        if (CountUsablePartyMons(battlerAtk) == 0)
-            return CAN_TRY_PIVOT; // can't switch, but attack might still be useful
-
-        //TODO - predict opponent switching
-        /*if (IsPredictedToSwitch(battlerDef, battlerAtk) && !hasStatBoost)
-            return PIVOT; // Try pivoting so you can switch to a better matchup to counter your new opponent*/
-
-        if (AI_WhoStrikesFirst(battlerAtk, battlerDef) == AI_IS_FASTER) // Attacker goes first
-        {
-            if (!CanAIFaintTarget(battlerAtk, battlerDef, 0)) // Can't KO foe otherwise
-            {
-                if (CanAIFaintTarget(battlerAtk, battlerDef, 2))
-                {
-                    // attacker can kill target in two hits (theoretically)
-                    if (CanTargetFaintAi(battlerDef, battlerAtk))
-                        return PIVOT;   // Won't get the two turns, pivot
-
-                    if (!IS_MOVE_STATUS(move) && (shouldSwitch
-                     || (AtMaxHp(battlerDef) && (AI_DATA->defHoldEffect == HOLD_EFFECT_FOCUS_SASH
-                      || defAbility == ABILITY_STURDY || defAbility == ABILITY_MULTISCALE || defAbility == ABILITY_SHADOW_SHIELD))))
-                        return PIVOT;   // pivot to break sash/sturdy/multiscale
-                }
-                else if (!hasStatBoost)
-                {
-                    if (!IS_MOVE_STATUS(move) && (AtMaxHp(battlerDef) && (AI_DATA->defHoldEffect == HOLD_EFFECT_FOCUS_SASH
-                      || defAbility == ABILITY_STURDY || defAbility == ABILITY_MULTISCALE || defAbility == ABILITY_SHADOW_SHIELD)))
-                        return PIVOT;   // pivot to break sash/sturdy/multiscale
-
-                    if (shouldSwitch)
-                        return PIVOT;
-
-                    /* TODO - check if switchable mon unafffected by/will remove hazards
-                    if (gSideStatuses[battlerAtk] & SIDE_STATUS_SPIKES && switchScore >= SWITCHING_INCREASE_CAN_REMOVE_HAZARDS)
-                        return PIVOT;*/
-
-                    /*if (BattlerWillFaintFromSecondaryDamage(battlerAtk, AI_DATA->atkAbility) && switchScore >= SWITCHING_INCREASE_WALLS_FOE)
-                        return PIVOT;*/
-
-                    /*if (IsClassDamager(class) && switchScore >= SWITCHING_INCREASE_HAS_SUPER_EFFECTIVE_MOVE)
-                    {
-                        bool8 physMoveInMoveset = PhysicalMoveInMoveset(battlerAtk);
-                        bool8 specMoveInMoveset = SpecialMoveInMoveset(battlerAtk);
-
-                        //Pivot if attacking stats are bad
-                        if (physMoveInMoveset && !specMoveInMoveset)
-                        {
-                            if (STAT_STAGE_ATK < 6)
-                                return PIVOT;
-                        }
-                        else if (!physMoveInMoveset && specMoveInMoveset)
-                        {
-                            if (STAT_STAGE_SPATK < 6)
-                                return PIVOT;
-                        }
-                        else if (physMoveInMoveset && specMoveInMoveset)
-                        {
-                            if (STAT_STAGE_ATK < 6 && STAT_STAGE_SPATK < 6)
-                                return PIVOT;
-                        }
-
-                        return CAN_TRY_PIVOT;
-                    }*/
-                }
-            }
-        }
-        else // Opponent Goes First
-        {
-            if (CanTargetFaintAi(battlerDef, battlerAtk))
-            {
-                if (gBattleMoves[move].effect == EFFECT_TELEPORT)
-                    return DONT_PIVOT; // If you're going to faint because you'll go second, use a different move
-                else
-                    return CAN_TRY_PIVOT; // You're probably going to faint anyways so if for some reason you don't, better switch
-            }
-            else if (CanTargetFaintAiWithMod(battlerDef, battlerAtk, 0, 2)) // Foe can 2HKO AI
-            {
-                if (CanAIFaintTarget(battlerAtk, battlerDef, 0))
-                {
-                    if (!BattlerWillFaintFromSecondaryDamage(battlerAtk, AI_DATA->atkAbility))
-                        return CAN_TRY_PIVOT; // Use this move to KO if you must
-                }
-                else // Can't KO the foe
-                {
-                    return PIVOT;
-                }
-            }
-            else // Foe can 3HKO+ AI
-            {
-                if (CanAIFaintTarget(battlerAtk, battlerDef, 0))
-                {
-                    if (!BattlerWillFaintFromSecondaryDamage(battlerAtk, AI_DATA->atkAbility) // This is the only move that can KO
-                      && !hasStatBoost) //You're not wasting a valuable stat boost
-                    {
-                        return CAN_TRY_PIVOT;
-                    }
-                }
-                else if (CanAIFaintTarget(battlerAtk, battlerDef, 2))
-                {
-                    // can knock out foe in 2 hits
-                    if (IS_MOVE_STATUS(move) && (shouldSwitch //Damaging move
-                      //&& (switchScore >= SWITCHING_INCREASE_RESIST_ALL_MOVES + SWITCHING_INCREASE_KO_FOE //remove hazards
-                     || (AI_DATA->defHoldEffect == HOLD_EFFECT_FOCUS_SASH && AtMaxHp(battlerDef))))
-                        return DONT_PIVOT; // Pivot to break the sash
-                    else
-                        return CAN_TRY_PIVOT;
-                }
-                else
-                {
-                    //if (IsClassDamager(class) && switchScore >= SWITCHING_INCREASE_KO_FOE)
-                        //return PIVOT; //Only switch if way better matchup
-
-                    if (!hasStatBoost)
-                    {
-                        // TODO - check if switching prevents/removes hazards
-                        //if (gSideStatuses[battlerAtk] & SIDE_STATUS_SPIKES && switchScore >= SWITCHING_INCREASE_CAN_REMOVE_HAZARDS)
-                            //return PIVOT;
-
-                        // TODO - not always a good idea
-                        //if (BattlerWillFaintFromSecondaryDamage(battlerAtk) && switchScore >= SWITCHING_INCREASE_HAS_SUPER_EFFECTIVE_MOVE)
-                            //return PIVOT;
-
-                        /*if (IsClassDamager(class) && switchScore >= SWITCHING_INCREASE_HAS_SUPER_EFFECTIVE_MOVE)
-                        {
-                            bool8 physMoveInMoveset = PhysicalMoveInMoveset(battlerAtk);
-                            bool8 specMoveInMoveset = SpecialMoveInMoveset(battlerAtk);
-
-                            //Pivot if attacking stats are bad
-                            if (physMoveInMoveset && !specMoveInMoveset)
-                            {
-                                if (STAT_STAGE_ATK < 6)
-                                    return PIVOT;
-                            }
-                            else if (!physMoveInMoveset && specMoveInMoveset)
-                            {
-                                if (STAT_STAGE_SPATK < 6)
-                                    return PIVOT;
-                            }
-                            else if (physMoveInMoveset && specMoveInMoveset)
-                            {
-                                if (STAT_STAGE_ATK < 6 && STAT_STAGE_SPATK < 6)
-                                    return PIVOT;
-                            }
-                        }*/
-
-                        return CAN_TRY_PIVOT;
-                    }
-                }
-            }
-        }
-    }
+    if (shouldSwitch)
+        return PIVOT;
 
     return DONT_PIVOT;
 }

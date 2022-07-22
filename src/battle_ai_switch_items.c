@@ -509,6 +509,23 @@ static bool8 IsWeakToEnemyType()
     return FALSE;
 }
 
+u8 SwitchScoreHazards()
+{
+    u8 hazardScore = 0;
+    u32 flags = gSideStatuses[GetBattlerSide(gActiveBattler)];
+    
+    if (flags & SIDE_STATUS_STEALTH_ROCK)
+        hazardScore += 20;
+    if (flags & SIDE_STATUS_SPIKES)
+        hazardScore += 10;
+    if (flags & SIDE_STATUS_TOXIC_SPIKES)
+        hazardScore += 20;
+    if (flags & SIDE_STATUS_STICKY_WEB)
+        hazardScore += 25;
+    
+    return hazardScore;
+}
+
 bool32 ShouldSwitch(void)
 {
     // runs once per enemy poke
@@ -597,6 +614,8 @@ bool32 ShouldSwitch(void)
         else
             switchPercent -= 20;
     }
+
+    switchPercent -= SwitchScoreHazards(); // less likely to switch if there are more hazards
 
     if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_DOESNT_AFFECT_FOE, 1)) //add stab type check if super effective type
         switchPercent += 50;
@@ -943,6 +962,29 @@ static void GestBestMonStatusImpact(struct Pokemon *party, int firstId, int last
     }
 }
 
+void AbilitySwitchChecks(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
+{
+    int i;
+    u16 species;
+    u16 ability;
+    u32 flags = gSideStatuses[GetBattlerSide(gActiveBattler)];
+
+    // look for optimal ability options
+    for (i = firstId; i < lastId; i++)
+    {
+        if (!(gBitTable[i] & invalidMons))
+        {   
+            species = GetMonData(&party[i], MON_DATA_SPECIES);
+            ability = gBaseStats[species].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)];
+
+            if (ability == ABILITY_HAZARD_CREW && flags & SIDE_STATUS_STEALTH_ROCK)
+                switchScores[i] += 10;
+
+            // consider adding intimidate/opression
+        }
+    }
+}
+
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u32 opposingBattler = 0;
@@ -1025,6 +1067,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
     // working
     GestBestMonStatusImpact(party, firstId, lastId, invalidMons, opposingBattler);
 
+    AbilitySwitchChecks(party, firstId, lastId, invalidMons, opposingBattler);
+
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
@@ -1041,6 +1085,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     s8 bestMonIdScore = INT8_MIN;
     for (i = firstId; i < lastId; i++)
     {
+        switchScores[i] += (Random() % 2); // introduce a very small amouont randomness of switch while maintaining strong options
         if (!(gBitTable[i] & invalidMons)
             && (switchScores[i] > bestMonIdScore))
         {

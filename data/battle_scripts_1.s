@@ -1653,6 +1653,7 @@ BattleScript_DefogTryHazardsWithAnim:
 	goto BattleScript_DefogTryHazards
 
 BattleScript_EffectHazardCrew::
+	pause B_WAIT_TIME_SHORT
 	defogclear BS_ATTACKER, FALSE, BattleScript_NoHazards
 BattleScript_HCWorks:
 	call BattleScript_AbilityPopUp
@@ -1666,6 +1667,7 @@ BattleScript_NoHazards::
 	end3
 
 BattleScript_SilverSpoonActivates::
+	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_SILVERSPOON
 	waitmessage B_WAIT_TIME_LONG
