@@ -3512,14 +3512,14 @@ static const struct TrainerMon sParty_TD_4_Intro[] = {
     },
     {
         .species = SPECIES_WEEZING,
-        .heldItem = ITEM_TOXIC_ORB,
+        .heldItem = ITEM_FLAME_ORB,
         .ability = ABILITY_SLOT_2, // poison heal
         .evs = EV_SPREAD_TANKY_DEF,
         .nature = NATURE_BOLD,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_CHERISH_BALL,
         .slot = 0,
-        .moves = {MOVE_PAIN_SPLIT, MOVE_TOXIC, MOVE_SLUDGE_BOMB, MOVE_KNOCK_OFF},
+        .moves = {MOVE_PAIN_SPLIT, MOVE_TOXIC, MOVE_SLUDGE_BOMB, MOVE_SECRET_POWER},
     },
     {
         .species = SPECIES_VILEPLUME,

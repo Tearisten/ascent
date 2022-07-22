@@ -3099,7 +3099,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_AMORPHOUS,
         .eggGroup2 = EGG_GROUP_AMORPHOUS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_LEVITATE, ABILITY_POISON_HEAL, ABILITY_NEUTRALIZING_GAS},
+            .abilities = {ABILITY_LEVITATE, ABILITY_SPUNKY, ABILITY_NEUTRALIZING_GAS},
         #else
             .abilities = {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_STENCH},
         #endif
@@ -3128,7 +3128,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_AMORPHOUS,
         .eggGroup2 = EGG_GROUP_AMORPHOUS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_LEVITATE, ABILITY_POISON_HEAL, ABILITY_NEUTRALIZING_GAS},
+            .abilities = {ABILITY_LEVITATE, ABILITY_SPUNKY, ABILITY_NEUTRALIZING_GAS},
         #else
             .abilities = {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_STENCH},
         #endif
