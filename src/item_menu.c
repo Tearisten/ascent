@@ -1230,6 +1230,8 @@ static void PrintItemSoldAmount(int windowId, int numSold, int moneyEarned)
     PrintMoneyAmount(windowId, 38, 1, moneyEarned, 0);
 }
 
+static void AddBagSortSubMenu(void);
+
 static void Task_BagMenu_HandleInput(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
@@ -1282,6 +1284,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
                 BagDestroyPocketScrollArrowPair();
                 BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
                 ListMenuGetScrollAndRow(data[0], scrollPos, cursorPos);
+                AddBagSortSubMenu();
                 gTasks[taskId].func = Task_LoadBagSortOptions;
                 return;
             }
@@ -2670,9 +2673,7 @@ static const u8 *const sSortTypeStrings[] =
 static const u8 sBagMenuSortItems[] =
 {
     ACTION_BY_NAME,
-    ACTION_BY_TYPE,
     ACTION_BY_AMOUNT,
-    ACTION_CANCEL,
 };
 
 static const u8 sBagMenuSortKeyItems[] =
@@ -3146,26 +3147,11 @@ static const u16 sItemsByType[ITEMS_COUNT] =
 
 static void AddBagSortSubMenu(void)
 {
-    switch (gBagPosition.pocket + 1)
-    {
-        case POCKET_KEY_ITEMS:
-            gBagMenu->contextMenuItemsPtr = sBagMenuSortKeyItems;
-            memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortKeyItems, NELEMS(sBagMenuSortKeyItems));
-            gBagMenu->contextMenuNumItems = NELEMS(sBagMenuSortKeyItems);
-            break;
-        case POCKET_POKE_BALLS:
-        case POCKET_BERRIES:
-        case POCKET_TM_HM:
-            gBagMenu->contextMenuItemsPtr = sBagMenuSortPokeBallsBerries;
-            memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortPokeBallsBerries, NELEMS(sBagMenuSortPokeBallsBerries));
-            gBagMenu->contextMenuNumItems = NELEMS(sBagMenuSortPokeBallsBerries);
-            break;
-        default:
-            gBagMenu->contextMenuItemsPtr = sBagMenuSortItems;
-            memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortItems, NELEMS(sBagMenuSortItems));
-            gBagMenu->contextMenuNumItems = NELEMS(sBagMenuSortItems);
-            break;
-    }
+
+    gBagMenu->contextMenuItemsPtr = sBagMenuSortItems;
+    memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortItems, NELEMS(sBagMenuSortItems));
+    gBagMenu->contextMenuNumItems = NELEMS(sBagMenuSortItems);
+
     
     StringExpandPlaceholders(gStringVar4, sText_SortItemsHow);
     FillWindowPixelBuffer(1, PIXEL_FILL(0));
@@ -3181,11 +3167,20 @@ static void AddBagSortSubMenu(void)
 
 static void Task_LoadBagSortOptions(u8 taskId)
 {
-    AddBagSortSubMenu();
-    if (gBagMenu->contextMenuNumItems <= 2)
-        gTasks[taskId].func = Task_ItemContext_SingleRow;
-    else
-        gTasks[taskId].func = Task_ItemContext_MultipleRows;
+    s8 selection = Menu_ProcessInputNoWrap();
+    switch (selection)
+    {
+    case MENU_NOTHING_CHOSEN:
+        break;
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        sItemMenuActions[ACTION_CANCEL].func.void_u8(taskId);
+        break;
+    default:
+        PlaySE(SE_SELECT);
+        sItemMenuActions[gBagMenu->contextMenuItemsPtr[selection]].func.void_u8(taskId);
+        break;
+    }
 }
 
 #define tSortType data[2]
