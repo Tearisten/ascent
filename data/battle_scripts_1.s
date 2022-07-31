@@ -408,6 +408,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHearten                 @ EFFECT_HEARTEN
 	.4byte BattleScript_EffectAirstream               @ EFFECT_Airstream
 	.4byte BattleScript_EffectSheerCold               @ EFFECT_SHEER_COLD
+	.4byte BattleScript_EffectHit		  			  @ EFFECT_EXPANDING_FORCE
 
 
 
@@ -9437,5 +9438,3 @@ BattleScript_NeutralizingGasExitsLoop:
 	jumpifbytenotequal gBattlerTarget, sByteFour, BattleScript_NeutralizingGasExitsLoop	@ SOMEHOW, comparing to gBattlersCount is problematic.
 	restoretarget
 	return
-
-
