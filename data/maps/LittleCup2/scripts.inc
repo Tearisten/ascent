@@ -11,7 +11,6 @@
 
 @ this floors trainer ids
 .set TRAINER1ID, TRAINER_LC_2_INTRO
-@.set TRAINER1ID, TRAINER_TEST
 .set TRAINER2ID, TRAINER_LC_2_ELITE
 
 @ this floors trainer npc ids

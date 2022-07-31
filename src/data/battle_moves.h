@@ -8412,7 +8412,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 75,
-        .type = EFFECT_HIT,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
@@ -11533,7 +11533,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDER_CAGE] =
     {
-        .effect = EFFECT_SOUL_SHOCK,
+        .effect = EFFECT_TRAP,
         .power = 80,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
