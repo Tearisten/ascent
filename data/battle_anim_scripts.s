@@ -14033,7 +14033,27 @@ SetSteelBeamBgPlayer:
 	fadetobg BG_STEEL_BEAM_PLAYER
 
 Move_EXPANDING_FORCE::
-	end @to do:
+	monbg ANIM_TARGET
+	setalpha 8, 8
+	launchtask AnimTask_ExpandingForce 0x5 0x0
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, 2, 0, 2, 0, 8, RGB_RED
+	waitforvisualfinish
+	jumpargeq 0x0, 0x0, ExpandingForceTarget
+ExpandingForcePartner:
+	monbg ANIM_DEF_PARTNER
+	setalpha 8, 8
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 5, 0, 15, 1
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -9, -9, 15, ANIM_DEF_PARTNER, 1
+	clearmonbg ANIM_DEF_PARTNER
+ExpandingForceTarget:
+	loopsewithpan SE_M_PSYBEAM2, SOUND_PAN_TARGET, 10, 3
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 15, 1
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -9, -9, 15, ANIM_TARGET, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 
 Move_STEEL_ROLLER::
 	goto Move_GYRO_BALL

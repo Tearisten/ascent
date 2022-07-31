@@ -5095,3 +5095,19 @@ void AnimTask_TerrainPulse(u8 taskId)
     }
     DestroyAnimVisualTask(taskId);
 }
+
+void AnimTask_ExpandingForce(u8 taskId)
+{
+    if (IsBattlerTerrainAffected(gBattleAnimAttacker, STATUS_FIELD_TERRAIN_ANY))
+    {
+        if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
+            gBattleAnimArgs[0] = TRUE;
+        else //failsafe
+            gBattleAnimArgs[0] = 0;
+    }
+    else
+    {
+        gBattleAnimArgs[0] = 0;
+    }
+    DestroyAnimVisualTask(taskId);
+}
