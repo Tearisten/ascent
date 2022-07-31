@@ -278,6 +278,7 @@ static const u8 sPoisonTouchDescription[] = _("Psn on any contact.");
 static const u8 sVampireDescription[] = _("Biting moves heal user.");
 static const u8 sSilverSpoonDescription[] = _("Use protect on switch in.");
 static const u8 sIceColdDescription[] = _("Frz on any contact");
+static const u8 sFistOfFuryDescription[] = _("Punches hit all enemies");
 
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -573,6 +574,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_VAMPIRE] = _("Vampire"),
     [ABILITY_SILVER_SPOON] = _("Silver Spoon"),
     [ABILITY_ICE_COLD] = _("Ice Cold"),
+    [ABILITY_FIST_OF_FURY] = _("Fist of Fury"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -868,4 +870,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_VAMPIRE] = sVampireDescription,
     [ABILITY_SILVER_SPOON] = sSilverSpoonDescription,
     [ABILITY_ICE_COLD] = sIceColdDescription,
+    [ABILITY_FIST_OF_FURY] = sFistOfFuryDescription,
 };

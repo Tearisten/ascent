@@ -2200,7 +2200,8 @@ static void Cmd_attackanimation(void)
         if ((moveTarget & MOVE_TARGET_BOTH
              || moveTarget & MOVE_TARGET_FOES_AND_ALLY
              || moveTarget & MOVE_TARGET_DEPENDS)
-            && gBattleScripting.animTargetsHit)
+            && gBattleScripting.animTargetsHit
+            && !(GetBattlerAbility(gBattlerAttacker) == ABILITY_FIST_OF_FURY && gBattleMoves[gCurrentMove].flags & FLAG_IRON_FIST_BOOST))
         {
             gBattlescriptCurrInstr++;
             return;

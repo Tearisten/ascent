@@ -10630,6 +10630,8 @@ u32 GetBattlerMoveTargetType(u8 battlerId, u16 move)
     if (gBattleMoves[move].effect == EFFECT_EXPANDING_FORCE
         && IsBattlerTerrainAffected(battlerId, STATUS_FIELD_PSYCHIC_TERRAIN))
         return MOVE_TARGET_BOTH;
+    else if (GetBattlerAbility(battlerId) == ABILITY_FIST_OF_FURY && gBattleMoves[move].flags & FLAG_IRON_FIST_BOOST)
+        return MOVE_TARGET_BOTH;
     else
         return gBattleMoves[move].target;
 }
