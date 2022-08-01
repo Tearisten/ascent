@@ -292,7 +292,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_TWISTED_MIND] = 2,
     [ABILITY_HAZARD_CREW] = 1,
     [ABILITY_GIFT_OF_WIND] = 8,
-    [ABILITY_KILLING_SPREE] = 5,
+    [ABILITY_RUNNING_RIOT] = 5,
     [ABILITY_SPLIT] = 3,
     [ABILITY_INVERSITY] = 4,
     [ABILITY_CLUTCH] = 5,
@@ -848,10 +848,10 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
     }
     // Check recharge
     if (gBattleMoves[move1].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE 
-        && GetBattlerAbility(sBattler_AI) == ABILITY_KILLING_SPREE)
+        && GetBattlerAbility(sBattler_AI) == ABILITY_RUNNING_RIOT)
         return 0;
     if (gBattleMoves[move2].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE 
-        && GetBattlerAbility(sBattler_AI) == ABILITY_KILLING_SPREE)
+        && GetBattlerAbility(sBattler_AI) == ABILITY_RUNNING_RIOT)
         return 0;
     if (gBattleMoves[move1].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE)
         return 1;

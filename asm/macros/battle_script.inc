@@ -1446,7 +1446,7 @@
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
 	.endm
 
-	.macro tryactivatekillingspree battler:req
+	.macro tryactivaterunningriot battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_KILLING_SPREE
 	.endm
 

@@ -8109,7 +8109,7 @@ static void Cmd_various(void)
         }
         break;
     case VARIOUS_TRY_ACTIVATE_KILLING_SPREE:
-        if (GetBattlerAbility(gActiveBattler == ABILITY_KILLING_SPREE)
+        if (GetBattlerAbility(gActiveBattler == ABILITY_RUNNING_RIOT)
             && HasAttackerFaintedTarget()
             && !NoAliveMonsForEitherParty()
             && gDisableStructs[gActiveBattler].rechargeTimer > 0)
@@ -8117,7 +8117,7 @@ static void Cmd_various(void)
             --gDisableStructs[gActiveBattler].rechargeTimer;
             gLastUsedAbility = GetBattlerAbility(gActiveBattler);
             gBattleScripting.abilityPopupOverwrite = gLastUsedAbility;
-            gBattlescriptCurrInstr = BattleScript_KillingSpreeActivates;
+            gBattlescriptCurrInstr = BattleScript_RunningRiotActivates;
             return;
         }
     case VARIOUS_TRY_ACTIVATE_GRIM_NEIGH:   // and as one shadow rider

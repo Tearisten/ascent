@@ -426,7 +426,7 @@ extern const u8 BattleScript_TwistedMindActives[];
 extern const u8 BattleScript_EffectHazardCrew[];
 extern const u8 BattleScript_SilverSpoonActivates[];
 extern const u8 BattleScript_GiftOfWind[];
-extern const u8 BattleScript_KillingSpreeActivates[];
+extern const u8 BattleScript_RunningRiotActivates[];
 extern const u8 BattleScript_MultiHitPrintStrings[];
 extern const u8 BattleScript_VampireHPDrain[];
 
