@@ -31,6 +31,7 @@ static void AnimHydroCannonBeam(struct Sprite *);
 static void AnimWaterGunDroplet(struct Sprite *);
 static void AnimSmallBubblePair_Step(struct Sprite *);
 static void AnimSmallDriftingBubbles(struct Sprite *);
+static void AnimSmallDriftingBubblesDoubles(struct Sprite *);
 static void AnimSmallDriftingBubbles_Step(struct Sprite *);
 static void AnimSmallWaterOrb(struct Sprite *);
 static void AnimWaterSpoutRain(struct Sprite *);
@@ -390,6 +391,17 @@ const struct SpriteTemplate gSmallDriftingBubblesSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSmallDriftingBubbles,
+};
+
+const struct SpriteTemplate gSmallSplashyBubblesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_BUBBLES,
+    .paletteTag = ANIM_TAG_SMALL_BUBBLES,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSmallDriftingBubblesDoubles,
 };
 
 // Used by Water Spout / Water Sport
@@ -1205,6 +1217,27 @@ static void AnimSmallDriftingBubbles(struct Sprite *sprite)
 
     sprite->oam.tileNum += 8;
     InitSpritePosToAnimTarget(sprite, TRUE);
+    randData = (Random2() & 0xFF) | 256;
+    randData2 = (Random2() & 0x1FF);
+    if (randData2 > 255)
+        randData2 = 256 - randData2;
+    sprite->data[1] = randData;
+    sprite->data[2] = randData2;
+    sprite->callback = AnimSmallDriftingBubbles_Step;
+}
+
+static void AnimSmallDriftingBubblesDoubles(struct Sprite *sprite)
+{
+    s16 randData;
+    s16 randData2;
+
+    s16 sprite1Y;
+    s16 sprite2Y;
+
+    sprite->oam.tileNum += 8;
+    SetAverageBattlerPositions(gBattleAnimTarget, 1, &sprite->x, &sprite->y);
+    sprite->y = 60;
+
     randData = (Random2() & 0xFF) | 256;
     randData2 = (Random2() & 0x1FF);
     if (randData2 > 255)

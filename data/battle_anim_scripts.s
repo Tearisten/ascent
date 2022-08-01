@@ -13158,7 +13158,86 @@ Move_ZIPPY_ZAP::
 	end
 
 Move_SPLISHY_SPLASH::
-	end @to do:
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_BUBBLE
+	loadspritegfx ANIM_TAG_SPARK_2 @ElectricityEffect
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createvisualtask AnimTask_Splash, 2, 0, 2
+	delay 8
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 38, 2
+	call SplishySplashBubbles
+	@call SplishySplashElectrify
+	launchtask AnimTask_ShakeMon 0x2 0x5 ANIM_TARGET 0x4 0x0 0xC 0x2
+	launchtask AnimTask_ShakeMon 0x2 0x5 ANIM_DEF_PARTNER 0x4 0x0 0xC 0x2
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+SplishySplashBubbles:
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xF 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xF 0x0
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xA 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xA 0x0
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0x5 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0x5 0x0
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0x0 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0x0 0x0
+	delay 0x2
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfffb 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfffb 0x0
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfff6 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfff6 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 5, 0, 5, 0, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 5, 0, 5, 0, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfff1 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfff1 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -5, 10, 5, 1, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -5, 10, 5, 1, ANIM_DEF_PARTNER
+	delay 0x2
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xffec 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xffec 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 15, 20, 5, 2, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 15, 20, 5, 2, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfff1 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfff1 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -15, -10, 5, 0, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -15, -10, 5, 0, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfff6 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfff6 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 25, 0, 5, 1, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 25, 0, 5, 1, ANIM_DEF_PARTNER
+	delay 0x2
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xfffb 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xfffb 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -8, 8, 5, 2, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -8, 8, 5, 2, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0x0 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0x0 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 2, -8, 5, 0, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 2, -8, 5, 0, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0x5 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0x5 0x0
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -20, 15, 5, 1, ANIM_TARGET
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -20, 15, 5, 1, ANIM_DEF_PARTNER
+	delay 0x2
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_TARGET 0x2 0xA 0x0
+	launchtemplate gSmallSplashyBubblesSpriteTemplate ANIM_DEF_PARTNER 0x2 0xA 0x0
+	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_TARGET
+	return
+
 
 Move_FLOATY_FALL::
 	end @to do:
