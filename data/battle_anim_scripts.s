@@ -13314,8 +13314,29 @@ Move_BUZZY_BUZZ::
 Move_SIZZLY_SLIDE::
 	end @to do:
 
-Move_GLITZY_GLOW:: @next
-	end @to do:
+Move_GLITZY_GLOW::
+	loadspritegfx ANIM_TAG_SPARKLE_3
+	loadspritegfx ANIM_TAG_GREEN_LIGHT_WALL
+	loadspritegfx ANIM_TAG_SPARKLE_2
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	setalpha 0, 16
+	monbg ANIM_ATTACKER
+	launchtemplate gSimplePaletteBlendSpriteTemplate 0x2 0x5 0x1 0x2 0x0 0xd 0x7fff
+	waitforvisualfinish
+	playsewithpan SE_M_HEAL_BELL, SOUND_PAN_ATTACKER
+	call GrantingStarsEffect
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 15
+	createsprite gLightScreenWallSpriteTemplate, ANIM_ATTACKER, 1, 40, 0, ANIM_TAG_GREEN_LIGHT_WALL
+	createsprite gSpecialScreenSparkleSpriteTemplate, ANIM_ATTACKER, 2, 23, 0, ANIM_ATTACKER, 1
+	createsprite gSpecialScreenSparkleSpriteTemplate, ANIM_ATTACKER, 2, 31, -8, ANIM_ATTACKER, 1
+	createsprite gSpecialScreenSparkleSpriteTemplate, ANIM_ATTACKER, 2, 30, 20, ANIM_ATTACKER, 1
+	delay 8
+	call GrantingStarsEffect
+	launchtemplate gSimplePaletteBlendSpriteTemplate 0x2 0x5 0x1 0x0 0xd 0x0 0x7fff
+	waitforvisualfinish
+	blendoff
+	clearmonbg ANIM_ATTACKER
+	end
 
 Move_BADDY_BAD::
 	loadspritegfx ANIM_TAG_SPARKLE_4
