@@ -13264,7 +13264,7 @@ Move_FLOATY_FALL::
 	end
 
 Move_PIKA_PAPOW::
-	end @to do:
+	end @ ignore because friendship attack
 
 Move_BOUNCY_BUBBLE::
 	loadspritegfx ANIM_TAG_BUBBLE
@@ -13314,11 +13314,38 @@ Move_BUZZY_BUZZ::
 Move_SIZZLY_SLIDE::
 	end @to do:
 
-Move_GLITZY_GLOW::
+Move_GLITZY_GLOW:: @next
 	end @to do:
 
 Move_BADDY_BAD::
-	end @to do:
+	loadspritegfx ANIM_TAG_SPARKLE_4
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
+	loadspritegfx ANIM_TAG_WHITE_SHADOW @Destiny Bond
+	loadspritegfx ANIM_TAG_OPENING_EYE @eye
+	setalpha 0, 16
+	monbg ANIM_DEF_PARTNER
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, 1, 1, 0, 12, RGB_BLACK
+	waitforvisualfinish
+	launchtask AnimTask_DestinyBondWhiteShadow 0x5 0x2 0x0 0x30
+	waitforvisualfinish
+	playsewithpan SE_M_CONFUSE_RAY, SOUND_PAN_TARGET
+	createvisualtask AnimTask_InvertScreenColor, 2, 0x1 | 0x2 | 0x4
+	launchtemplate gOpeningEyeSpriteTemplate 0x5 0x4 0x0 0x0 0x1 0x0
+	delay 70
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 15
+	createsprite gReflectWallSpriteTemplate, ANIM_ATTACKER, 1, 40, 0, ANIM_TAG_BLUE_LIGHT_WALL
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 30, 0, ANIM_ATTACKER, 1
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 19, -12, ANIM_ATTACKER, 1
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 10, 20, ANIM_ATTACKER, 1
+	waitforvisualfinish
+	delay 1
+	createvisualtask AnimTask_InvertScreenColor, 2, 0x1 | 0x2 | 0x4
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, 1, 1, 12, 0, RGB_BLACK
+	waitforvisualfinish
+	blendoff
+	clearmonbg ANIM_DEF_PARTNER
+	end
 
 Move_SAPPY_SEED::
 	end @to do:
@@ -13330,7 +13357,7 @@ Move_SPARKLY_SWIRL::
 	end @to do:
 
 Move_VEEVEE_VOLLEY::
-	end @to do:
+	end @ ignore because friendship attack
 
 Move_DOUBLE_IRON_BASH::
 	loadspritegfx ANIM_TAG_GUST
