@@ -8,7 +8,7 @@ static const struct TrainerMon sParty_Tester[] = {
     .iv = MAX_PER_STAT_IVS,
     .ball = ITEM_MASTER_BALL,
     .slot = 0,
-    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     //.shiny = TRUE
     },
     {
@@ -375,7 +375,7 @@ static const struct TrainerMon sParty_LC_3_Intro[] = {
     },
     {
         .species = SPECIES_SWABLU,
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_EXPERT_BELT,
         .ability = ABILITY_SLOT_1, // overcoat
         .evs = EV_SPREAD_TANKY_SPATTACK,
         .nature = NATURE_MODEST,
