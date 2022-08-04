@@ -6365,25 +6365,25 @@ BattleScript_MagicRoomEnds::
 BattleScript_ElectricTerrainEnds::
 	printstring STRINGID_ELECTRICTERRAINENDS
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	end2
 
 BattleScript_MistyTerrainEnds::
 	printstring STRINGID_MISTYTERRAINENDS
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	end2
 
 BattleScript_GrassyTerrainEnds::
 	printstring STRINGID_GRASSYTERRAINENDS
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	end2
 
 BattleScript_PsychicTerrainEnds::
 	printstring STRINGID_PSYCHICTERRAINENDS
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	end2
 
 BattleScript_MudSportEnds::
