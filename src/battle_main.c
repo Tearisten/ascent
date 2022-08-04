@@ -4964,18 +4964,18 @@ static void HandleEndTurn_BattleWon(void)
 
         if (FlagGet(FLAG_PERMA_DEATH))
         {
-            //u8 gBattlerTemp = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
             for (u8 i = 0; i < PARTY_SIZE; i++)
             {
-                if (!gPlayerParty[i].hp && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+                if (!gPlayerParty[i].hp && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+                    && gPlayerPartyCount > 1)
                     {
                         FlagSet(FLAG_HAS_DEATH);
                         AddBagItem(GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM), 1);
                         ZeroMonData(&gPlayerParty[i]);
+                        gPlayerPartyCount--;
                     };
             }
             CompactPartySlots();
-            CalculatePlayerPartyCount();
         }
 
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
@@ -5015,6 +5015,24 @@ static void HandleEndTurn_BattleLost(void)
     
     if (FlagGet(FLAG_PERMA_DEATH))
         FlagSet(FLAG_NUZ_LOSE);
+    
+    TryRestoreHeldItems();
+
+    if (FlagGet(FLAG_PERMA_DEATH))
+    {
+        for (u8 i = 0; i < PARTY_SIZE; i++)
+        {
+            if (!gPlayerParty[i].hp && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+                && gPlayerPartyCount > 1)
+                {
+                    FlagSet(FLAG_HAS_DEATH);
+                    AddBagItem(GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM), 1);
+                    ZeroMonData(&gPlayerParty[i]);
+                    gPlayerPartyCount--;
+                };
+        }
+        CompactPartySlots();
+    }
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
