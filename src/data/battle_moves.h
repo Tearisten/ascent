@@ -4388,7 +4388,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 100,
-        .pp = 20,
+        .pp = 1,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
@@ -6237,7 +6237,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 0,
         .type = TYPE_WATER,
         .accuracy = 0,
-        .pp = 20,
+        .pp = 1,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
@@ -10460,17 +10460,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ZIPPY_ZAP] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .effect = EFFECT_EVASION_UP_HIT,
-            .pp = 10,
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #else
-            .effect = EFFECT_ALWAYS_CRIT,
-            .power = 50,
-            .pp = 15,
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .effect = EFFECT_ALWAYS_CRIT,
+        .power = 50,
+        .pp = 15,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .secondaryEffectChance = 100,
@@ -10671,7 +10664,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_FREEZY_FROST,
         .type = TYPE_ICE,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
     },
