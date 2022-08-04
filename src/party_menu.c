@@ -1398,7 +1398,7 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
 {
     s8 movementDir;
 
-    switch (gMain.newAndRepeatedKeys)
+    switch (gMain.newKeys)
     {
     case DPAD_UP:
         movementDir = MENU_DIR_UP;
@@ -3606,6 +3606,7 @@ static void MoveCursorToConfirm(void)
     AnimatePartySlot(gPartyMenu.slotId, 0);
     gPartyMenu.slotId = PARTY_SIZE;
     AnimatePartySlot(gPartyMenu.slotId, 1);
+    
 }
 
 static void CursorCb_NoEntry(u8 taskId)
