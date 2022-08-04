@@ -13308,11 +13308,11 @@ Move_BOUNCY_BUBBLE::
 	blendoff
 	end
 
-Move_BUZZY_BUZZ::
-	end @to do:
+Move_BUZZY_BUZZ:: 
+	goto Move_NUZZLE
 
-Move_SIZZLY_SLIDE::
-	end @to do:
+Move_SIZZLY_SLIDE:: 
+	goto Move_FLAME_CHARGE
 
 Move_GLITZY_GLOW::
 	loadspritegfx ANIM_TAG_SPARKLE_3
@@ -14364,10 +14364,10 @@ Move_STEEL_ROLLER::
 	goto Move_GYRO_BALL
 
 Move_SCALE_SHOT::
-	end @to do:
+	goto Move_DRAGON_DARTS
 
 Move_METEOR_BEAM::
-	end @to do:
+	goto Move_POWER_GEM
 
 Move_SHELL_SIDE_ARM::
 	launchtask AnimTask_ShellSideArm 0x5 0x0
@@ -14550,7 +14550,7 @@ Move_BURNING_JEALOUSY::
 	goto Move_OVERHEAT
 
 Move_LASH_OUT::
-	end @to do:
+	goto Move_PAYBACK
 
 Move_POLTERGEIST::
 	end @to do:
@@ -14558,55 +14558,55 @@ Move_POLTERGEIST::
 Move_CORROSIVE_GAS::
 	end @to do:
 
-Move_COACHING::
-	end @to do:
+Move_COACHING:: 
+	goto Move_REFLECT
 
-Move_HEARTEN::
-	end @to do:
+Move_HEARTEN:: 
+	goto Move_LIGHT_SCREEN
 
-Move_FLIP_TURN::
-	end @to do:
+Move_FLIP_TURN:: 
+	goto Move_U_TURN
 
-Move_TRIPLE_AXEL::
-	end @to do:
+Move_TRIPLE_AXEL:: 
+	goto Move_TRIPLE_KICK
 
-Move_DUAL_WINGBEAT::
-	end @to do:
+Move_DUAL_WINGBEAT:: 
+	goto Move_WING_ATTACK
 
-Move_SCORCHING_SANDS::
-	end @to do:
+Move_SCORCHING_SANDS:: 
+	goto Move_EARTH_POWER
 
 Move_JUNGLE_HEALING::
 	goto Move_AROMATHERAPY
 
-Move_WICKED_BLOW::
-	end @to do:
+Move_WICKED_BLOW:: 
+	goto Move_BRUTAL_SWING
 
-Move_SURGING_STRIKES::
-	end @to do:
+Move_SURGING_STRIKES:: 
+	goto Move_WATERFALL
 
-Move_THUNDER_CAGE::
-	end @to do:
+Move_THUNDER_CAGE:: 
+	goto Move_MAGNETIC_FLUX
 
-Move_DRAGON_ENERGY::
-	end @to do:
+Move_DRAGON_ENERGY:: 
+	goto Move_DRACO_METEOR
 
-Move_FREEZING_GLARE::
-	end @to do:
+Move_FREEZING_GLARE:: 
+	goto Move_MIRACLE_EYE
 
-Move_FIERY_WRATH::
-	end @to do:
+Move_FIERY_WRATH:: 
+	goto Move_FIRE_BLAST
 
-Move_THUNDEROUS_KICK::
-	end @to do:
+Move_THUNDEROUS_KICK:: 
+	goto Move_MEGA_KICK
 
-Move_GLACIAL_LANCE::
-	end @to do:
+Move_GLACIAL_LANCE:: 
+	goto Move_ICICLE_SPEAR
 
-Move_ASTRAL_BARRAGE::
-	end @to do:
+Move_ASTRAL_BARRAGE:: 
+	goto Move_SHADOW_BALL
 
-Move_EERIE_SPELL::
+Move_EERIE_SPELL:: 
 	end @to do:
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
