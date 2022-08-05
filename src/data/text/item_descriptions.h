@@ -3234,9 +3234,9 @@ static const u8 sTM95Desc[] = _(
     "its Sp. Atk.");
 
 static const u8 sTM96Desc[] = _(
-    "An attack that\n"
-    "gains power if\n"
-    "damaged by the foe.");
+    "Inflicts frostbite\n"
+    "on the foe with\n"
+    "intense frost.");
 
 static const u8 sTM97Desc[] = _(
     "Releases a horrible\n"

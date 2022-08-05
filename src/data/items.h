@@ -8431,11 +8431,11 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM96_AVALANCHE] =
+    [ITEM_TM96_SHEER_COLD] =
     {
-        .name = _("Avalanche"),
-        .itemId = ITEM_TM96_AVALANCHE,
-        .price = 3000,
+        .name = _("Sheer Cold"),
+        .itemId = ITEM_TM96_SHEER_COLD,
+        .price = 2200,
         .description = sTM96Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
