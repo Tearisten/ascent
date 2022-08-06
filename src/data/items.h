@@ -7503,7 +7503,7 @@ const struct Item gItems[] =
 
     [ITEM_TM18_RAIN_DANCE] =
     {
-        .name = _("TM18"),
+        .name = _("Rain Dance"),
         .itemId = ITEM_TM18_RAIN_DANCE,
         .price = 2000,
         .description = sTM18Desc,
