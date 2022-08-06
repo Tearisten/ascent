@@ -4688,7 +4688,7 @@ void IncreaseChosenMonEVs (void)
        break;
     }
 
-    // Should replace 252 here with symbol for max EVs in a stat
+    // Should replace &s252 here with symbol for max EVs in a stat
     if ((sumEVs + increment) > 510)
     {
         newEV = 510 - sumEVs;
@@ -4741,6 +4741,193 @@ void ResetChosenMonEVs (void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
+static void AssignEvPreset()
+{
+    u8 newNature = gSpecialVar_0x8005;
+
+    // it's lame i have to do this but whatever
+    s8 s252 = 252;
+    s8 s128 =  128;
+    s8 s64T = 64;
+    s8 s4 = 4;
+
+    switch (newNature)
+    {
+        case NATURE_ADAMANT:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s4);
+            break;
+        }
+        case NATURE_MODEST:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s4);
+            break;
+        }
+        case NATURE_JOLLY:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_TIMID:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_PACIFIST:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s128);
+            break;
+        }
+        case NATURE_DEMON:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_RAGER:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            break;
+        }
+        case NATURE_BOLD:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s4);
+            break;
+        }
+        case NATURE_IMPISH:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s4);
+            break;
+        }
+        case NATURE_CAREFUL:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s252);
+            break;
+        }
+        case NATURE_CALM:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s252);
+            break;
+        }
+        case NATURE_BRAVE:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s4);
+            break;
+        }
+        case NATURE_QUIET:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s4);
+            break;
+        }
+        case NATURE_LONELY:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_NAUGHTY:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_RELAXED:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s4);
+            break;
+        }
+        case NATURE_LAX:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s4);
+            break;
+        }
+        case NATURE_HASTY:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_NAIVE:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_MILD:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_RASH:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s252);
+            break;
+        }
+        case NATURE_GENTLE:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s4);
+            break;
+        }
+        case NATURE_SASSY:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s252);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s4);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s252);
+            break;
+        }
+        case NATURE_SERIOUS:
+        {
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &s128);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &s64T);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &s64T);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &s64T);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &s64T);
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &s128);
+            break;
+        }
+
+    }
+    
+}
+
 // Changes the selected Pokemon's nature.
 // gSpecialVar_0x8004 must be set to the party slot of the Pokemon whose nature should be changed
 // Set gSpecialVar_0x8005 to the nature
@@ -4750,6 +4937,14 @@ void ChangePokemonNature (void)
     newNature = gSpecialVar_0x8005;
 	SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NATURE, &newNature);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+
+    // apply presets if enabled
+    if (FlagGet(FLAG_SPREAD_PRESET))
+    {
+        ResetChosenMonEVs();
+        AssignEvPreset();
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    }
 }
 
 void MakeShiny(void)

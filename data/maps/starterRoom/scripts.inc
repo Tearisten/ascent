@@ -363,3 +363,42 @@ Gauntlet1_starterRoom_fullPreview_no::
 	clearflag FLAG_FULL_PREVIEW
 	release
 	end
+
+Gauntlet1_starterRoom_nature_preset::
+	faceplayer
+	goto_if_set FLAG_SPREAD_PRESET, Gauntlet1_starterRoom_nature_preset_already_active
+	msgbox Gauntlet1_starterRoom_naturepreset_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, Gauntlet1_starterRoom_naturePreset_no
+	case YES, Gauntlet1_starterRoom_naturePreset_yes
+	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+
+Gauntlet1_starterRoom_nature_preset_already_active::
+	msgbox Gauntlet1_starterRoom_nature_preset_already_text, MSGBOX_DEFAULT
+ 	release
+ 	end
+
+Gauntlet1_starterRoom_nature_preset_already_text:
+	.string "You have already enabled nature presets.$"
+
+Gauntlet1_starterRoom_naturePreset_yes::
+	setflag FLAG_SPREAD_PRESET
+	release
+	end
+
+Gauntlet1_starterRoom_naturePreset_no::
+	clearflag FLAG_SPREAD_PRESET
+	release
+	end
+
+Gauntlet1_starterRoom_naturepreset_text:
+	.string "Would you like to enable nature\n"
+	.string "presets? This will assign default\p"
+	.string "EV values when assigning natures.\n"
+	.string "This feature saves a lot of time\p"
+	.string "when mostly using 252/252/4 sets.\n"
+	.string "You may still reset and assign\p"
+	.string "EV spreads manually. This\n"
+	.string "feature can not be changed later.$"

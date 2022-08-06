@@ -137,7 +137,6 @@ EVreset_text:
 	.string "Reset a POKéMON's EVs?\n"
 	.string "This is free.$"
 
-
 NatureChange_event::
 	lock
 	faceplayer
