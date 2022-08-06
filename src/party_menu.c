@@ -1782,7 +1782,7 @@ static void DisplayGaveHeldItemMessage(struct Pokemon *mon, u16 item, bool8 keep
     GetMonNickname(mon, gStringVar1);
     CopyItemName(item, gStringVar2);
     StringExpandPlaceholders(gStringVar4, gText_PkmnWasGivenItem);
-    PlaySE(SE_SELECT);
+    PlaySE(SE_BANG);
     //DisplayPartyMenuMessage(gStringVar4, keepOpen);
     ScheduleBgCopyTilemapToVram(2);
 }
@@ -1792,7 +1792,7 @@ static void DisplayTookHeldItemMessage(struct Pokemon *mon, u16 item, bool8 keep
     GetMonNickname(mon, gStringVar1);
     CopyItemName(item, gStringVar2);
     StringExpandPlaceholders(gStringVar4, gText_ReceivedItemFromPkmn);
-    PlaySE(SE_SELECT);
+    PlaySE(SE_BANG);
     //DisplayPartyMenuMessage(gStringVar4, keepOpen);
     ScheduleBgCopyTilemapToVram(2);
 }
