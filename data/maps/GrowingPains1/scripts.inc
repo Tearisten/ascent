@@ -32,6 +32,7 @@ GrowingPains1_MapScripts::
 
 GrowingPains1_OnTransition:
 	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_1
+	call_if_set FLAG_EVO_STONE_1, GrowingPains1_NewAreaGuy_remove_event
 	end
 
 GrowingPains1_OnLoad:
@@ -47,7 +48,35 @@ GrowingPains1_PokeShop_event::
 	releaseall
 	end
 
-@ unused since no gifts on this floor
+GrowingPains1_NewAreaGuy_event::
+	faceplayer
+	msgbox GrowingPains1_NewAreaGuy_text, MSGBOX_DEFAULT
+	setflag FLAG_EVO_STONE_1
+	waitmessage
+	fadescreen FADE_TO_BLACK
+	call GrowingPains1_NewAreaGuy_remove_event
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	end
+
+GrowingPains1_NewAreaGuy_remove_event:
+	removeobject 12
+	return
+
+GrowingPains1_NewAreaGuy_text:
+	.string "Congratulations on advancing to area\n"
+	.string "two. This area features slightly more\p"
+	.string "powerful pokemon. It will also have\n"
+	.string "a few weather battles. You may now\p"
+	.string "buy evolution stones from the shop!\n"
+	.string "These first stones will evolve any\p"
+	.string "pokemon to their mid stage. Only \n"
+	.string "three stage pokemon will affected.\p"
+	.string "For example they will work on\n"
+	.string "charmander, but not growlithe.\p"
+	.string "See you in the next area gamer.\n"
+	.string "May your battles be forunate.\p"
+
 GrowingPains1_Nuzlocke_gift: 
 	msgbox Nuzlocke_gift_text_confirm, MSGBOX_DEFAULT
 	yesnobox 3, 8
@@ -76,6 +105,7 @@ GrowingPains1_ReadyOrNot::
 	faceplayer
 	goto_if_set FLOORFLAG, Gauntlet1_Already_clear_event
 	goto_if_set FLAG_NUZ_LOSE, Gauntlet1_nuzlocke_lost
+	goto_if_unset FLAG_EVO_STONE_1, NewAreaGuy_demand_text_event
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_TYPE
 	switch VAR_TEMP_A

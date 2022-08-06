@@ -39,6 +39,7 @@ TeenageDaydream1_MapScripts::
 
 TeenageDaydream1_OnTransition:
 	setrespawn HEAL_LOCATION_FLOOR_TEENAGE_DAYDREAM_1
+	call_if_set FLAG_EVO_STONE_1, TeenageDaydream1_NewAreaGuy_remove_event
 	end
 
 TeenageDaydream1_OnLoad:
@@ -53,6 +54,37 @@ TeenageDaydream1_PokeShop_event::
 	waitmessage
 	releaseall
 	end
+
+TeenageDaydream1_NewAreaGuy_event::
+	faceplayer
+	msgbox TeenageDaydream1_NewAreaGuy_text, MSGBOX_DEFAULT
+	setflag FLAG_EVO_STONE_2
+	waitmessage
+	fadescreen FADE_TO_BLACK
+	call TeenageDaydream1_NewAreaGuy_remove_event
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	end
+
+TeenageDaydream1_NewAreaGuy_remove_event:
+	removeobject 12
+	return
+
+TeenageDaydream1_NewAreaGuy_text:
+	.string "Congratulations on advancing to area\n"
+	.string "three. This area features slightly more\p"
+	.string "powerful pokemon. It will also have\n"
+	.string "a few terrain battles. You may now\p"
+	.string "buy evolution stones from the shop!\n"
+	.string "These second stones will evolve any\p"
+	.string "pokemon to their final stage. Only \n"
+	.string "two stage pokemon will affected.\p"
+	.string "For example they will work on\n"
+	.string "growlite, but not charmeleon.\p"
+	.string "The item shop now also stocks\n"
+	.string "normal ability capsules now.\p"
+	.string "See you in the next area gamer.\n"
+	.string "May your battles be forunate.\p"
 
 @ unused since no gifts on this floor
 TeenageDaydream1_Nuzlocke_gift: 

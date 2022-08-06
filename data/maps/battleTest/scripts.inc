@@ -528,3 +528,12 @@ Ascent_OnWarp_EventScript_TurnPlayerNorth::
 	setvar VAR_TEMP_1, 1
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
+
+NewAreaGuy_demand_text:
+	.string "Please speak with the gentleman\n"
+	.string "before battling.\p"
+
+NewAreaGuy_demand_text_event::
+	msgbox NewAreaGuy_demand_text, MSGBOX_DEFAULT
+	release
+	end
