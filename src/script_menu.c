@@ -809,9 +809,9 @@ static const struct ListMenuItem grassStarters[] =
 
 static const u8 sText_HP[] = _("HP");
 static const u8 sText_Attack[] = _("Attack");
-static const u8 sText_Defence[] = _("Defence");
+static const u8 sText_Defence[] = _("Defense");
 static const u8 sText_SpAttack[] = _("Sp. Attack");
-static const u8 sText_SpDefence[] = _("Sp. Defence");
+static const u8 sText_SpDefence[] = _("Sp. Defense");
 static const u8 sText_Speed[] = _("Speed");
 
 static const struct ListMenuItem statIVList[] =

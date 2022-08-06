@@ -95,12 +95,18 @@ EVspreader_event::
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8003, VAR_0x8004
+	goto EVspreader_middle
+
+EVspreader_middle::
 	scrollingmultichoice 3, 1, 1, 6, TRUE
 	setorcopyvar VAR_0x8002, VAR_RESULT
 	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
 	setorcopyvar VAR_0x8005, VAR_RESULT
+	goto EVspreader_end
+
+EVspreader_end:
 	scrollingmultichoice 4, 1, 1, 7, TRUE
-	goto_if_eq VAR_RESULT, 0, MoveRelearners_EventScript_CantTeach
+	goto_if_eq VAR_RESULT, 0, EVspreader_middle
 	setorcopyvar VAR_0x8006, VAR_RESULT
 	setorcopyvar VAR_0x8004, VAR_0x8003
 	setorcopyvar VAR_0x8005, VAR_0x8002
