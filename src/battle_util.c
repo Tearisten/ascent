@@ -6218,9 +6218,9 @@ bool32 CanSleep(u8 battlerId)
       || gBattleMons[battlerId].status1 & STATUS1_ANY
       || IsAbilityOnSide(battlerId, ABILITY_SWEET_VEIL)
       || IsAbilityStatusProtected(battlerId)
-      || IsBattlerTerrainAffected(battlerId, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN))
+      || IsBattlerTerrainAffected(battlerId, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN)
+      || SleepClauseActive(battlerId))
         return FALSE;
-
     return TRUE;
 }
 
