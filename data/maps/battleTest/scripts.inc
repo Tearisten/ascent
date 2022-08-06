@@ -531,7 +531,7 @@ Ascent_OnWarp_EventScript_TurnPlayerNorth::
 
 NewAreaGuy_demand_text:
 	.string "Please speak with the gentleman\n"
-	.string "before battling.\p"
+	.string "before battling.$"
 
 NewAreaGuy_demand_text_event::
 	msgbox NewAreaGuy_demand_text, MSGBOX_DEFAULT

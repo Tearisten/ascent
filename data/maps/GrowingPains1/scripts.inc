@@ -75,7 +75,7 @@ GrowingPains1_NewAreaGuy_text:
 	.string "For example they will work on\n"
 	.string "charmander, but not growlithe.\p"
 	.string "See you in the next area gamer.\n"
-	.string "May your battles be forunate.\p"
+	.string "May your battles be forunate.$"
 
 GrowingPains1_Nuzlocke_gift: 
 	msgbox Nuzlocke_gift_text_confirm, MSGBOX_DEFAULT

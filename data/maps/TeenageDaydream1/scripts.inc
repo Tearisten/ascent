@@ -84,7 +84,7 @@ TeenageDaydream1_NewAreaGuy_text:
 	.string "The item shop now also stocks\n"
 	.string "normal ability capsules now.\p"
 	.string "See you in the next area gamer.\n"
-	.string "May your battles be forunate.\p"
+	.string "May your battles be forunate.$"
 
 @ unused since no gifts on this floor
 TeenageDaydream1_Nuzlocke_gift: 
