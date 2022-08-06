@@ -7864,7 +7864,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-        [ITEM_TM51_ROOST] =
+    [ITEM_TM51_ROOST] =
     {
         .name = _("Roost"),
         .itemId = ITEM_TM51_ROOST,

@@ -926,19 +926,19 @@ static void GetItemName(s8 *dest, u16 itemId)
         {
             // Get HM number
             ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_HM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
-            StringExpandPlaceholders(dest, gText_NumberItem_HM);
+            StringExpandPlaceholders(dest, gText_NumberItem_TMHM);
         }
         else
         {
             // Get TM number
             ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
+            StringExpandPlaceholders(dest, gText_NumberItem_TMHM);
         }
         break;
     case BERRIES_POCKET:
         ConvertIntToDecimalStringN(gStringVar1, itemId - FIRST_BERRY_INDEX + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
         CopyItemName(itemId, gStringVar2);
-        StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
+        StringExpandPlaceholders(dest, gText_NumberItem_Berry);
         break;
     default:
         CopyItemName(itemId, dest);
