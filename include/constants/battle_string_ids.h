@@ -623,9 +623,10 @@
 #define STRINGID_PKMNHURTBYFREEZE                     620
 #define STRINGID_PKMNALREADYHASFREEZE                 621
 #define STRINGID_SLEEPCLAUSE                          622
+#define STRINGID_ABDICATE                             623
 
 
-#define BATTLESTRINGS_COUNT                           623
+#define BATTLESTRINGS_COUNT                           624
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.

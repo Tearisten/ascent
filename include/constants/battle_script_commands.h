@@ -228,6 +228,7 @@
 #define VARIOUS_CHECK_IF_HOLY_AURA_HEALS        138
 #define VARIOUS_RESET_OPRESSSION_TRACE_BITS     139
 #define VARIOUS_TRY_ACTIVATE_KILLING_SPREE      140
+#define VARIOUS_TRY_ABDICATE                    141
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

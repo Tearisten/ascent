@@ -745,6 +745,7 @@ static const u8 sText_GiftOfWindActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} bri
 static const u8 sText_RunningRiotText[] = _("{B_ATK_NAME_WITH_PREFIX} is unstoppable!\n They won't need to recharge.");
 static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s Sp. ATTACK!");
 static const u8 sText_SilverSpoonActivateText[] = _("{B_ATK_NAME_WITH_PREFIX} feels safe\non the switch!");
+static const u8 sText_AbdicateText[] = _("{B_ATK_NAME_WITH_PREFIX} gains life\non the switch!");
 
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1359,6 +1360,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCUTSSPATTACKWITH - 12] = sText_PkmnCutsSpAttackWith,
     [STRINGID_HEALSWITHVAMPIRE - 12] = sText_PkmnRestoredHPUsingVampire,
     [STRINGID_SILVERSPOON - 12] = sText_SilverSpoonActivateText,
+    [STRINGID_ABDICATE - 12] = sText_AbdicateText,
 
 };
 

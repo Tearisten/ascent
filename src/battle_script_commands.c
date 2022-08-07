@@ -6363,7 +6363,7 @@ static void Cmd_switchineffects(void)
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_ToxicSpikesAbsorbed;
         }
-        else if (IsBattlerAffectedByHazards(gActiveBattler, TRUE))
+        else if (IsBattlerAffectedByHazards(gActiveBattler, TRUE))  
         {
             if (!(gBattleMons[gActiveBattler].status1 & STATUS1_ANY)
                 && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL)
@@ -9437,6 +9437,12 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr += 7;
         return;
     }
+    case VARIOUS_TRY_ABDICATE:
+    {
+        gBattleMoveDamage = -gBattleMons[gActiveBattler].maxHP / 4;
+        gBattlescriptCurrInstr = BattleScriptHealthBarAbdicate;
+        return;
+    }
     } // End of switch (gBattlescriptCurrInstr[2])
 
     gBattlescriptCurrInstr += 3;
@@ -9954,6 +9960,13 @@ static void Cmd_stockpiletohpheal(void)
 // Sign change for drained HP handled in GetDrainedBigRootHp
 static void Cmd_setdrainedhp(void)
 {
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ABDICATE)
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 4;
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
     if (gBattleMoves[gCurrentMove].argument != 0)
         gBattleMoveDamage = (gHpDealt * gBattleMoves[gCurrentMove].argument / 100);
     else

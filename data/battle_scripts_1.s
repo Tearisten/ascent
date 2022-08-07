@@ -409,6 +409,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAirstream               @ EFFECT_Airstream
 	.4byte BattleScript_EffectSheerCold               @ EFFECT_SHEER_COLD
 	.4byte BattleScript_EffectHit		  			  @ EFFECT_EXPANDING_FORCE
+	.4byte BattleScript_EffectAbdicate		  		  @ EFFECT_ABDICATE
 
 
 
@@ -2726,6 +2727,58 @@ BattleScript_EffectHitEscape:
 	waitstate
 	switchineffects BS_ATTACKER
 BattleScript_HitEscapeEnd:
+	end
+
+BattleScript_EffectAbdicate:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	jumpifmovehadnoeffect BattleScript_MoveEnd
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_ATTACKER_VISIBLE
+	moveendfrom MOVEEND_TARGET_VISIBLE
+	jumpifbattleend BattleScript_AbdicateEnd
+	jumpifbyte CMP_NOT_EQUAL gBattleOutcome 0, BattleScript_AbdicateEnd
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_AbdicateEnd
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_AbdicateEnd
+	openpartyscreen BS_ATTACKER, BattleScript_AbdicateEnd
+	switchoutabilities BS_ATTACKER
+	waitstate
+	switchhandleorder BS_ATTACKER, 2
+	returntoball BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	trytoclearprimalweather
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	printstring STRINGID_SWITCHINMON
+	switchinanim BS_ATTACKER, TRUE
+	waitstate
+	switchineffects BS_ATTACKER
+	jumpiffullhp BS_ATTACKER, BattleScript_MoveEnd
+	tryabdicate BS_ATTACKER
+BattleScriptHealthBarAbdicate::
+	healthbarupdate BS_ATTACKER
+	printstring STRINGID_ABDICATE
+	waitmessage B_WAIT_TIME_SHORT
+BattleScript_AbdicateEnd:
 	end
 
 BattleScript_EffectPlaceholder:

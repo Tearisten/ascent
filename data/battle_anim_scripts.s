@@ -782,6 +782,7 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHE_OUT
 	.4byte Move_MIND_FLAY
 	.4byte Move_HEARTEN
+	.4byte Move_ABDICATE
 	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
 
 	.align 2
@@ -25193,3 +25194,15 @@ Special_CriticalCaptureBallThrow:
 	createvisualtask AnimTask_IsBallBlockedByTrainer, 2
 	jumpreteq -1, BallThrowTrainerBlock
 	goto BallThrowEnd
+
+Move_ABDICATE:
+	loadspritegfx ANIM_TAG_GOLD_STARS
+	loadspritegfx ANIM_TAG_SPARKLE_2
+	loadspritegfx ANIM_TAG_ROUND_SHADOW
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	panse_adjustall SE_M_REFLECT, SOUND_PAN_TARGET, SOUND_PAN_ATTACKER, -3, 0
+	createsprite gWishStarSpriteTemplate, ANIM_ATTACKER, 40
+	loopsewithpan SE_M_HEAL_BELL, SOUND_PAN_ATTACKER, 16, 3
+	call GrantingStarsEffect
+	goto Move_U_TURN

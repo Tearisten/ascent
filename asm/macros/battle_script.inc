@@ -2070,3 +2070,7 @@
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, \jumpptr
 	1:
 	.endm
+
+	.macro tryabdicate battler:req
+	various \battler, VARIOUS_TRY_ABDICATE
+	.endm

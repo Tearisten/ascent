@@ -11675,4 +11675,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = 0,
         .split = SPLIT_STATUS,
     },
+    [MOVE_ABDICATE] =
+    {
+        .effect = EFFECT_HIT_ABDICATE,
+        .power = 20,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+    },
 };
