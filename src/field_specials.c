@@ -2751,7 +2751,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
     {SPECIES_WHIMSICOTT, 5, FLAG_ROOM_12_CLEAR}, // gift of wind
 
     //Teenage Daydream 4
-    {SPECIES_DUSCLOPS, 7, FLAG_ROOM_13_CLEAR}, // twisted mind slot 2, make sure give trick room
+    {SPECIES_DUSCLOPS, 7, FLAG_ROOM_13_CLEAR},
     {SPECIES_FERROTHORN, 7, FLAG_ROOM_13_CLEAR},
     {SPECIES_RAICHU_ALOLAN, 5, FLAG_ROOM_13_CLEAR},
     {SPECIES_REUNICLUS, 6, FLAG_ROOM_13_CLEAR},    
@@ -2774,7 +2774,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
 };
     //{SPECIES_MALAMAR, 5, FLAG_ROOM_13_CLEAR}, a bit too OP moves and contrary 17?
     //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
-
+// gyarados, gligar
 // early area 4 ideas
 // chansey, vileplume
 // pretty early fossil floor

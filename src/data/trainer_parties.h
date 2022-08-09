@@ -12,28 +12,15 @@ static const struct TrainerMon sParty_Tester[] = {
     //.shiny = TRUE
     },
     {
-    .species = SPECIES_PICHU,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_SLOT_1,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_MASTER_BALL,
-    .slot = 1,
-    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    //.shiny = TRUE
-    },
-    {
-    .species = SPECIES_PICHU,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_SLOT_1,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_MASTER_BALL,
-    .slot = 2,
-    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    //.shiny = TRUE
+        .species = SPECIES_PICHU,
+        .heldItem = ITEM_NONE,
+        .ability = ABILITY_SLOT_1, // cloud 9
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_GREAT_BALL,
+        .slot = 1,
+        .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -187,7 +174,7 @@ static const struct TrainerMon sParty_LC_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_CHERISH_BALL,
         .slot = 1,
-        .moves = {MOVE_YAWN, MOVE_INCINERATE, MOVE_ANCIENT_POWER, MOVE_RECOVER},
+        .moves = {MOVE_CLEAR_SMOG, MOVE_INCINERATE, MOVE_ANCIENT_POWER, MOVE_RECOVER},
     },
     {
         .species = SPECIES_SWINUB,
@@ -667,7 +654,7 @@ static const struct TrainerMon sParty_LC_4_Elite[] = { // trick room doubles tea
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAL_BALL,
         .slot = 2,
-        .moves = {MOVE_U_TURN, MOVE_BITE, MOVE_ICE_FANG, MOVE_POISON_FANG},
+        .moves = {MOVE_CLEAR_SMOG, MOVE_BITE, MOVE_ICE_FANG, MOVE_POISON_FANG},
     },
     {
         .species = SPECIES_DARUMAKA,
@@ -722,7 +709,7 @@ static const struct TrainerMon sParty_LC_4_Elite[] = { // trick room doubles tea
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_HEAVY_BALL,
         .slot = 5,
-        .moves = {MOVE_FURY_CUTTER, MOVE_METAL_CLAW, MOVE_SHADOW_SNEAK, MOVE_AERIAL_ACE},
+        .moves = {MOVE_FURY_CUTTER, MOVE_METAL_CLAW, MOVE_SHADOW_SNEAK, MOVE_PROTECT},
     },
 };
 
@@ -962,7 +949,7 @@ static const struct TrainerMon sParty_GP_1_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DUSK_BALL,
         .slot = 4,
-        .moves = {MOVE_ROCK_SLIDE, MOVE_BULLDOZE, MOVE_SWAGGER, MOVE_THRASH},
+        .moves = {MOVE_ROCK_SLIDE, MOVE_BULLDOZE, MOVE_MUD_SLAP, MOVE_THRASH},
     },
     {
         .species = SPECIES_MIENFOO,
@@ -1808,7 +1795,7 @@ static const struct TrainerMon sParty_GP_4_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DIVE_BALL,
         .slot = 0,
-        .moves = {MOVE_FELL_STINGER, MOVE_TOXIC_SPIKES, MOVE_POISON_JAB, MOVE_EXPLOSION},
+        .moves = {MOVE_FELL_STINGER, MOVE_TOXIC_SPIKES, MOVE_POISON_JAB, MOVE_CLEAR_SMOG},
     },
     {
         .species = SPECIES_LEDIAN,
@@ -2557,7 +2544,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_BEAST_BALL,
         .slot = 0,
-        .moves = {MOVE_U_TURN, MOVE_AERIAL_ACE, MOVE_CROSS_POISON, MOVE_GIGA_DRAIN},
+        .moves = {MOVE_U_TURN, MOVE_GUST, MOVE_CROSS_POISON, MOVE_GIGA_DRAIN},
     },
     {
         .species = SPECIES_VENOMOTH,
@@ -2568,7 +2555,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_NET_BALL,
         .slot = 0,
-        .moves = {MOVE_SILVER_WIND, MOVE_U_TURN, MOVE_PROTECT, MOVE_SLUDGE_WAVE},
+        .moves = {MOVE_SILVER_WIND, MOVE_CLEAR_SMOG, MOVE_PROTECT, MOVE_SLUDGE_WAVE},
     },
     {
         .species = SPECIES_DUGTRIO_ALOLAN,
@@ -2590,7 +2577,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_SPORT_BALL,
         .slot = 1,
-        .moves = {MOVE_EARTH_POWER, MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_PROTECT},
+        .moves = {MOVE_MUD_SLAP, MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_PROTECT},
     },
     {
         .species = SPECIES_CHIMECHO,
@@ -2612,7 +2599,7 @@ static const struct TrainerMon sParty_TD_2_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DREAM_BALL,
         .slot = 2,
-        .moves = {MOVE_EXTRASENSORY, MOVE_AIR_SLASH, MOVE_LIGHT_SCREEN, MOVE_REFLECT},
+        .moves = {MOVE_EXTRASENSORY, MOVE_GUST, MOVE_LIGHT_SCREEN, MOVE_REFLECT},
     },
     {
         .species = SPECIES_THROH,
@@ -2928,7 +2915,7 @@ static const struct TrainerMon sParty_TD_2_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_QUICK_BALL,
         .slot = 5,
-        .moves = {MOVE_PERISH_SONG, MOVE_FOLLOW_ME, MOVE_AIR_SLASH, MOVE_DRAGON_PULSE},
+        .moves = {MOVE_PERISH_SONG, MOVE_FOLLOW_ME, MOVE_GUST, MOVE_DRAGON_PULSE},
     },
 
 };
@@ -3578,14 +3565,14 @@ static const struct TrainerMon sParty_TD_4_Intro[] = {
     },
     {
         .species = SPECIES_MISMAGIUS,
-        .heldItem = ITEM_SAFETY_GOGGLES,
+        .heldItem = ITEM_LUCKY_PUNCH,
         .ability = ABILITY_SLOT_2, // battery
-        .evs = EV_SPREAD_TANKY_SPATTACK,
-        .nature = NATURE_MODEST,
+        .evs = EV_SPREAD_TANKY_SPDEF,
+        .nature = NATURE_CALM,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_MOON_BALL,
         .slot = 3,
-        .moves = {MOVE_MOONBLAST, MOVE_SHADOW_BALL, MOVE_POWER_GEM, MOVE_NIGHT_SHADE},
+        .moves = {MOVE_MOONBLAST, MOVE_SHADOW_BALL, MOVE_MIND_FLAY, MOVE_NIGHT_SHADE},
     },
     {
         .species = SPECIES_DREDNAW,
@@ -3830,12 +3817,12 @@ static const struct TrainerMon sParty_TD_4_Late[] = {
         .species = SPECIES_ALTARIA,
         .heldItem = ITEM_FIGY_BERRY,
         .ability = ABILITY_SLOT_2, // natural cure
-        .evs = EV_SPREAD_TANKY_SPATTACK,
-        .nature = NATURE_MODEST,
+        .evs = EV_SPREAD_SPREAD,
+        .nature = NATURE_SERIOUS,
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_LOVE_BALL,
         .slot = 3,
-        .moves = {MOVE_ROOST, MOVE_AIR_SLASH, MOVE_DRACO_METEOR, MOVE_U_TURN},
+        .moves = {MOVE_ROOST, MOVE_GUST, MOVE_DRACO_METEOR, MOVE_AERIAL_ACE},
     },
     {
         .species = SPECIES_DRAGALGE,
