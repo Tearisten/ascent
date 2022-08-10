@@ -1973,6 +1973,7 @@ static const struct LevelUpMove sLickitungLevelUpLearnset[] = {
 
 static const struct LevelUpMove sKoffingLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TOXIC_SPIKES),
+    LEVEL_UP_MOVE( 1, MOVE_ACID),
     LEVEL_UP_MOVE( 1, MOVE_SPIKES),
     LEVEL_UP_MOVE( 1, MOVE_CLEAR_SMOG),
     LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),
@@ -1988,13 +1989,15 @@ static const struct LevelUpMove sKoffingLevelUpLearnset[] = {
 
 static const struct LevelUpMove sWeezingLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_DOUBLE_HIT),
+    LEVEL_UP_MOVE( 1, MOVE_SLUDGE_BOMB),
     LEVEL_UP_MOVE( 1, MOVE_DEFOG),
     LEVEL_UP_MOVE( 1, MOVE_PAIN_SPLIT),
     LEVEL_UP_MOVE( 1, MOVE_STEALTH_ROCK),
-    LEVEL_UP_MOVE( 1, MOVE_GYRO_BALL),
-    LEVEL_UP_MOVE( 1, MOVE_SLUDGE_BOMB),
+    LEVEL_UP_MOVE( 1, MOVE_INCINERATE),
+    LEVEL_UP_MOVE( 1, MOVE_POWER_GEM),
 
     LEVEL_UP_MOVE( 1, MOVE_TOXIC_SPIKES),
+    LEVEL_UP_MOVE( 1, MOVE_ACID),
     LEVEL_UP_MOVE( 1, MOVE_SPIKES),
     LEVEL_UP_MOVE( 1, MOVE_CLEAR_SMOG),
     LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),

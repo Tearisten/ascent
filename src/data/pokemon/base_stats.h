@@ -16873,9 +16873,9 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_VICTORY_STAR, ABILITY_IMMUNITY, ABILITY_OVERCOAT},
+            .abilities = {ABILITY_IMMUNITY, ABILITY_SPUNKY, ABILITY_VICTORY_STAR},
         #else
-            .abilities = {ABILITY_COMPOUND_EYES, ABILITY_NONE, ABILITY_SWARM},
+            .abilities = {ABILITY_COMPOUND_EYES, ABILITY_VICTORY_STAR, ABILITY_SWARM},
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
