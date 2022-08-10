@@ -2237,7 +2237,7 @@ static const struct TrainerMon sParty_TD_1_Intro[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DREAM_BALL,
         .slot = 3,
-        .moves = {MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC, MOVE_ICE_BEAM},
+        .moves = {MOVE_ICE_BEAM, MOVE_REFLECT, MOVE_PSYCHIC, MOVE_SHEER_COLD},
     },
     {
         .species = SPECIES_NOCTOWL,
@@ -2816,7 +2816,7 @@ static const struct TrainerMon sParty_TD_2_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_DIVE_BALL,
         .slot = 1,
-        .moves = {MOVE_YAWN, MOVE_MUDDY_WATER, MOVE_ICE_BEAM, MOVE_SNARL},
+        .moves = {MOVE_SHEER_COLD, MOVE_MUDDY_WATER, MOVE_ICE_BEAM, MOVE_SNARL},
     },
     {
         .species = SPECIES_GLALIE,
@@ -3459,7 +3459,7 @@ static const struct TrainerMon sParty_TD_3_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_NEST_BALL,
         .slot = 4,
-        .moves = {MOVE_BUG_BUZZ, MOVE_QUIVER_DANCE, MOVE_ICE_BEAM, MOVE_GIGA_DRAIN},
+        .moves = {MOVE_BUG_BUZZ, MOVE_QUIVER_DANCE, MOVE_ICE_BEAM, MOVE_SHEER_COLD},
     },
     {
         .species = SPECIES_SLOWBRO_GALARIAN,
