@@ -10472,14 +10472,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
             .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         #endif
         .effect = EFFECT_PARALYZE_HIT,
-        .power = 90,
+        .power = 75,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .split = SPLIT_SPECIAL,
+        .split = SPLIT_PHYSICAL,
     },
 
     [MOVE_FLOATY_FALL] =
@@ -10520,16 +10520,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BOUNCY_BUBBLE] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 75,
-            .pp = 20,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-            .argument = 50, 
-        #else
-            .power = 90,
-            .pp = 15,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 75,
+        .pp = 15,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_ABSORB,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -10538,18 +10531,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
     },
-
     [MOVE_BUZZY_BUZZ] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .pp = 20,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .pp = 15,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 60,
+        .pp = 15,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_PARALYZE_HIT,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -10561,15 +10547,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SIZZLY_SLIDE] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .pp = 20,
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_THAW_USER,
-        #else
-            .power = 90,
-            .pp = 15,
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_THAW_USER,
-        #endif
+        .power = 60,
+        .pp = 20,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_THAW_USER,
         .effect = EFFECT_BURN_HIT,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -10581,15 +10561,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GLITZY_GLOW] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .accuracy = 100,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .accuracy = 100,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 40,
+        .accuracy = 100,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_GLITZY_GLOW,
         .type = TYPE_PSYCHIC,
         .pp = 15,
@@ -10601,15 +10575,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BADDY_BAD] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 80,
-            .accuracy = 95,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .accuracy = 100,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 40,
+        .accuracy = 100,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_BADDY_BAD,
         .type = TYPE_DARK,
         .pp = 15,
@@ -10618,20 +10586,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
     },
-
     [MOVE_SAPPY_SEED] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 100,
-            .accuracy = 90,
-            .pp = 10,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .accuracy = 100,
-            .pp = 15,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 50,
+        .accuracy = 90,
+        .pp = 10,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_SAPPY_SEED,
         .type = TYPE_GRASS,
         .secondaryEffectChance = 0,
@@ -10642,17 +10602,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FREEZY_FROST] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 100,
-            .accuracy = 90,
-            .pp = 10,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .accuracy = 100,
-            .pp = 15,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 80,
+        .accuracy = 100,
+        .pp = 10,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_FREEZY_FROST,
         .type = TYPE_ICE,
         .secondaryEffectChance = 0,
@@ -10663,17 +10616,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPARKLY_SWIRL] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .accuracy = 100,
-            .pp = 10,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #else
-            .power = 90,
-            .accuracy = 100,
-            .pp = 15,
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-        #endif
+        .power = 40,
+        .accuracy = 100,
+        .pp = 10,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_SPARKLY_SWIRL,
         .type = TYPE_FAIRY,
         .secondaryEffectChance = 0,

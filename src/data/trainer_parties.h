@@ -856,7 +856,7 @@ static const struct TrainerMon sParty_LC_5_Boss[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_PARK_BALL,
         .slot = 5,
-        .moves = {MOVE_DISCHARGE, MOVE_VOLT_SWITCH, MOVE_EXTREME_SPEED, MOVE_AQUA_JET},
+        .moves = {MOVE_DISCHARGE, MOVE_VOLT_SWITCH, MOVE_EXTREME_SPEED, MOVE_ZIPP_ZAP},
     },
 };
 
@@ -1759,7 +1759,7 @@ static const struct TrainerMon sParty_GP_3_Elite[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_PARK_BALL,
         .slot = 3,
-        .moves = {MOVE_SPARK, MOVE_IRON_TAIL, MOVE_THUNDER_WAVE, MOVE_QUICK_ATTACK},
+        .moves = {MOVE_ZIPPY_ZAP, MOVE_IRON_TAIL, MOVE_THUNDER_WAVE, MOVE_QUICK_ATTACK},
     },
     {
         .species = SPECIES_EEVEE,
@@ -3131,7 +3131,7 @@ static const struct TrainerMon sParty_TD_3_Early[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_ULTRA_BALL,
         .slot = 3,
-        .moves = {MOVE_FAKE_OUT, MOVE_PLASMA_FISTS, MOVE_EXTREME_SPEED, MOVE_PLAY_ROUGH},
+        .moves = {MOVE_FAKE_OUT, MOVE_ZIPPY_ZAP, MOVE_EXTREME_SPEED, MOVE_PLAY_ROUGH},
     },
     {
         .species = SPECIES_RAICHU_ALOLAN,

@@ -41,6 +41,7 @@ static const struct LevelUpMove sIvysaurLevelUpLearnset[] = {
 
 static const struct LevelUpMove sVenusaurLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_PETAL_DANCE),
+    //spore
     LEVEL_UP_MOVE( 1, MOVE_PETAL_DANCE),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
@@ -423,9 +424,17 @@ static const struct LevelUpMove sPikachuLevelUpLearnset[] = {
 
 static const struct LevelUpMove sRaichuLevelUpLearnset[] = {
     //add surf and other partner pika moves
-    LEVEL_UP_MOVE( 1, MOVE_THUNDER_SHOCK),
-    LEVEL_UP_MOVE( 1, MOVE_TAIL_WHIP),
-    LEVEL_UP_MOVE( 1, MOVE_QUICK_ATTACK),
+    LEVEL_UP_MOVE( 1, MOVE_SIZZLY_SLIDE),
+    LEVEL_UP_MOVE( 1, MOVE_FLOATY_FALL),
+    LEVEL_UP_MOVE( 1, MOVE_SPLISHY_SPLASH),
+    LEVEL_UP_MOVE( 1, MOVE_NUZZLE),
+    LEVEL_UP_MOVE( 1, MOVE_AGILITY),
+    LEVEL_UP_MOVE( 1, MOVE_EXTREME_SPEED),
+    LEVEL_UP_MOVE( 1, MOVE_ABDICATE),
+    LEVEL_UP_MOVE( 1, MOVE_AQUA_TAIL),
+    LEVEL_UP_MOVE( 1, MOVE_PLASMA_FISTS),
+    LEVEL_UP_MOVE( 1, MOVE_ZIPPY_ZAP),
+    LEVEL_UP_MOVE( 1, MOVE_FAKE_OUT),
     LEVEL_UP_MOVE( 1, MOVE_THUNDERBOLT),
     LEVEL_UP_END
 };
@@ -1142,6 +1151,7 @@ static const struct LevelUpMove sMachokeLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_BULLET_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_ENCORE),
     LEVEL_UP_MOVE( 1, MOVE_COUNTER),
+    LEVEL_UP_MOVE( 1, MOVE_OCTOLOCK),
     LEVEL_UP_MOVE( 1, MOVE_SEISMIC_TOSS),
     LEVEL_UP_MOVE( 1, MOVE_QUICK_GUARD),
     LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),
@@ -17586,6 +17596,8 @@ static const struct LevelUpMove sRaticateAlolanLevelUpLearnset[] = {
 static const struct LevelUpMove sRaichuAlolanLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_PSYCHIC),
     //add surf and other partner pika moves
+    LEVEL_UP_MOVE( 1, MOVE_BUZZY_BUZZ),
+    LEVEL_UP_MOVE( 1, MOVE_BOUNCY_BUBBLE),
     LEVEL_UP_MOVE( 1, MOVE_EXPANDING_FORCE),
     LEVEL_UP_MOVE( 1, MOVE_ENCORE),
     LEVEL_UP_MOVE( 1, MOVE_PSYSHOCK),
@@ -17594,7 +17606,6 @@ static const struct LevelUpMove sRaichuAlolanLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HEAL_PULSE),
     LEVEL_UP_MOVE( 1, MOVE_FOLLOW_ME),
     LEVEL_UP_MOVE( 1, MOVE_HELPING_HAND),
-    LEVEL_UP_MOVE( 1, MOVE_HEAL_PULSE),
     LEVEL_UP_MOVE( 1, MOVE_PSYCHIC),
     LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
     LEVEL_UP_MOVE( 1, MOVE_SKILL_SWAP),
