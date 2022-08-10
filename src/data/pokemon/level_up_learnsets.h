@@ -1789,6 +1789,7 @@ static const struct LevelUpMove sKrabbyLevelUpLearnset[] = {
 static const struct LevelUpMove sKinglerLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_CRABHAMMER),
     LEVEL_UP_MOVE( 1, MOVE_ANCHOR_SHOT),
+    LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
     LEVEL_UP_MOVE( 1, MOVE_BODY_PRESS),
     LEVEL_UP_MOVE( 1, MOVE_BULLET_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_IRON_DEFENSE),
@@ -2092,6 +2093,8 @@ static const struct LevelUpMove sKangaskhanLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_CRUNCH),
     LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
+    LEVEL_UP_MOVE( 1, MOVE_FIRE_PUNCH),
+    LEVEL_UP_MOVE( 1, MOVE_THUNDER_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_DRAGON_DANCE),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_EDGE),
     LEVEL_UP_MOVE( 1, MOVE_DRAGON_CLAW),
@@ -2239,7 +2242,6 @@ static const struct LevelUpMove sScytherLevelUpLearnset[] = { // heavy investmen
     LEVEL_UP_MOVE( 1, MOVE_GRASSY_GLIDE),
     LEVEL_UP_MOVE( 1, MOVE_DUAL_WINGBEAT),
     LEVEL_UP_MOVE( 1, MOVE_STEEL_WING),
-    LEVEL_UP_MOVE( 1, MOVE_SKY_UPPERCUT),
     LEVEL_UP_MOVE( 1, MOVE_X_SCISSOR),
     LEVEL_UP_MOVE( 1, MOVE_AERIAL_ACE),
     LEVEL_UP_MOVE( 1, MOVE_NIGHT_SLASH),
@@ -3966,12 +3968,12 @@ static const struct LevelUpMove sScizorLevelUpLearnset[] = { //no superpower on 
     LEVEL_UP_MOVE( 1, MOVE_IRON_HEAD),
     LEVEL_UP_MOVE( 1, MOVE_POWER_UP_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_BRUTAL_SWING),
+    LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
     LEVEL_UP_MOVE( 1, MOVE_DEFOG),
     // scyther
     LEVEL_UP_MOVE( 1, MOVE_GRASSY_GLIDE),
     LEVEL_UP_MOVE( 1, MOVE_DUAL_WINGBEAT),
     LEVEL_UP_MOVE( 1, MOVE_STEEL_WING),
-    LEVEL_UP_MOVE( 1, MOVE_SKY_UPPERCUT),
     LEVEL_UP_MOVE( 1, MOVE_X_SCISSOR),
     LEVEL_UP_MOVE( 1, MOVE_AERIAL_ACE),
     LEVEL_UP_MOVE( 1, MOVE_NIGHT_SLASH),
@@ -4965,6 +4967,7 @@ static const struct LevelUpMove sCombuskenLevelUpLearnset[] = {
 static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_BLAZE_KICK),
     // flying press?
+    // hammer arm
     LEVEL_UP_MOVE( 1, MOVE_BLAZE_KICK),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_KICK),
     LEVEL_UP_MOVE( 1, MOVE_FLARE_BLITZ),
@@ -6655,7 +6658,7 @@ static const struct LevelUpMove sSwalotLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTropiusLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_RAZOR_LEAF),
+    LEVEL_UP_MOVE( 1, MOVE_WOOD_HAMMER),
     LEVEL_UP_MOVE( 1, MOVE_SOLAR_BEAM),
     LEVEL_UP_MOVE( 1, MOVE_WHIRLWIND),
     LEVEL_UP_MOVE( 1, MOVE_U_TURN),
@@ -8857,7 +8860,7 @@ static const struct LevelUpMove sSnoverLevelUpLearnset[] = {
 static const struct LevelUpMove sAbomasnowLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 1, MOVE_BLIZZARD), tm only, too early for this
     LEVEL_UP_MOVE( 1, MOVE_WOOD_HAMMER),
-    LEVEL_UP_MOVE( 1, MOVE_ICE_PUNCH),
+    LEVEL_UP_MOVE( 1, MOVE_ICE_HAMMER),
     LEVEL_UP_MOVE( 1, MOVE_WIDE_GUARD),
     LEVEL_UP_MOVE( 1, MOVE_ICY_WIND),
     LEVEL_UP_MOVE( 1, MOVE_GRASS_WHISTLE),

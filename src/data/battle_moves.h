@@ -2392,18 +2392,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_CRABHAMMER] =
-    {
-        #if B_UPDATED_MOVE_DATA >= GEN_6
-            .power = 100,
-            .accuracy = 100,
-        #elif B_UPDATED_MOVE_DATA == GEN_5
-            .power = 90,
-            .accuracy = 90,
-        #else
-            .power = 90,
-            .accuracy = 85,
-        #endif
-        .effect = EFFECT_SUPERPOWER,
+
+        .power = 100,
+        .accuracy = 100,
+        .effect = EFFECT_HAMMER_ARM,
         .type = TYPE_WATER,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -7166,8 +7158,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WOOD_HAMMER] =
     {
-        .effect = EFFECT_RECOIL_25,
-        .power = 120,
+        .effect = EFFECT_HAMMER_ARM,
+        .power = 100,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 15,
@@ -10161,8 +10153,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_HAMMER] =
     {
-        .effect = EFFECT_HIT,
-        .power = 90,
+        .effect = EFFECT_HAMMER_ARM,
+        .power = 100,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 15,
