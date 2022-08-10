@@ -1404,6 +1404,7 @@ static const struct LevelUpMove sSlowbroLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_BATON_PASS),
     LEVEL_UP_MOVE( 1, MOVE_BODY_PRESS),
     LEVEL_UP_MOVE( 1, MOVE_WITHDRAW),
+    LEVEL_UP_MOVE( 1, MOVE_FREEZING_GLARE),
     LEVEL_UP_MOVE( 1, MOVE_PSYSHOCK),
     LEVEL_UP_MOVE( 1, MOVE_SHELL_SIDE_ARM),
     LEVEL_UP_MOVE( 1, MOVE_HEAL_PULSE),
@@ -2889,6 +2890,7 @@ static const struct LevelUpMove sQuilavaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTyphlosionLevelUpLearnset[] = {
+    // fiery wrath
     LEVEL_UP_MOVE( 1, MOVE_ERUPTION),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_EDGE),
     LEVEL_UP_MOVE( 1, MOVE_GYRO_BALL),
@@ -3737,6 +3739,7 @@ static const struct LevelUpMove sSlowkingLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_BATON_PASS),
     LEVEL_UP_MOVE( 1, MOVE_MIND_FLAY),
     LEVEL_UP_MOVE( 1, MOVE_AMNESIA),
+    LEVEL_UP_MOVE( 1, MOVE_FREEZING_GLARE),
     LEVEL_UP_MOVE( 1, MOVE_PSYSHOCK),
     LEVEL_UP_MOVE( 1, MOVE_SHELL_SIDE_ARM),
     LEVEL_UP_MOVE( 1, MOVE_HEAL_PULSE),
@@ -4972,6 +4975,7 @@ static const struct LevelUpMove sCombuskenLevelUpLearnset[] = {
 static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_BLAZE_KICK),
     // flying press?
+    // thunderous kick
     // hammer arm
     LEVEL_UP_MOVE( 1, MOVE_BLAZE_KICK),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_KICK),
@@ -14369,6 +14373,7 @@ static const struct LevelUpMove sBrionneLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sPrimarinaLevelUpLearnset[] = {
+    // freezing glare
     //LEVEL_UP_MOVE( 0, MOVE_SPARKLING_ARIA),
     LEVEL_UP_MOVE( 1, MOVE_SPARKLING_ARIA),
     LEVEL_UP_MOVE( 1, MOVE_POUND),
