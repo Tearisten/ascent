@@ -178,7 +178,7 @@ static const struct TrainerMon sParty_LC_2_Intro[] = {
     },
     {
         .species = SPECIES_SWINUB,
-        .heldItem = ITEM_ICICLE_PLATE,
+        .heldItem = ITEM_STAB_GEM,
         .ability = ABILITY_SLOT_1, // moxie
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,
@@ -1408,7 +1408,7 @@ static const struct TrainerMon sParty_GP_2_Elite[] = {
     },
     {
         .species = SPECIES_CUFANT,
-        .heldItem = ITEM_MUSCLE_BAND,
+        .heldItem = ITEM_COVERAGE_GEM,
         .ability = ABILITY_HIDDEN, // heavy metal
         .evs = EV_SPREAD_TANKY_ATTACK,
         .nature = NATURE_ADAMANT,
@@ -2084,7 +2084,7 @@ static const struct TrainerMon sParty_GP_5_Boss[] = {
     },
     {
         .species = SPECIES_BOLDORE,
-        .heldItem = ITEM_ASSAULT_VEST,
+        .heldItem = ITEM_COVERAGE_GEM,
         .ability = ABILITY_SLOT_1, // sturdy
         .evs = EV_SPREAD_TANKY_SPDEF,
         .nature = NATURE_SASSY,
@@ -2128,7 +2128,7 @@ static const struct TrainerMon sParty_GP_5_Boss[] = {
     },
         {
         .species = SPECIES_WAILMER, // may be a bit out of place in this fight?
-        .heldItem = ITEM_CHOICE_SCARF,
+        .heldItem = ITEM_STAB_GEM,
         .ability = ABILITY_HIDDEN, // obsession
         .evs = EV_SPREAD_TANKY_SPATTACK,
         .nature = NATURE_MODEST,
@@ -2923,7 +2923,7 @@ static const struct TrainerMon sParty_TD_2_Elite[] = {
 static const struct TrainerMon sParty_TD_3_Intro[] = {
     {
         .species = SPECIES_HITMONCHAN,
-        .heldItem = ITEM_BIG_ROOT,
+        .heldItem = ITEM_COVERAGE_GEM,
         .ability = ABILITY_HIDDEN, // bull rush
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,
@@ -4000,7 +4000,7 @@ static const struct TrainerMon sParty_TD_5_Boss[] = {
     },
     {
         .species = SPECIES_TALONFLAME,
-        .heldItem = ITEM_FIGY_BERRY,
+        .heldItem = ITEM_STAB_GEM,
         .ability = ABILITY_HIDDEN, // gale wings
         .evs = EV_SPREAD_FAST_ATTACK,
         .nature = NATURE_JOLLY,
