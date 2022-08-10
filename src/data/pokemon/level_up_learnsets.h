@@ -9734,7 +9734,6 @@ static const struct LevelUpMove sOshawottLevelUpLearnset[] = {
 
 static const struct LevelUpMove sDewottLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_RAZOR_SHELL),
-    LEVEL_UP_MOVE( 1, MOVE_AQUA_JET),
     LEVEL_UP_MOVE( 1, MOVE_CLAMP),
     LEVEL_UP_MOVE( 1, MOVE_ICICLE_SPEAR),
     LEVEL_UP_MOVE( 1, MOVE_WATER_PLEDGE),
@@ -12872,7 +12871,7 @@ static const struct LevelUpMove sFroakieLevelUpLearnset[] = {
 static const struct LevelUpMove sFrogadierLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_WATER_PLEDGE),
     LEVEL_UP_MOVE( 1, MOVE_DARK_PULSE),
-    //LEVEL_UP_MOVE( 1, MOVE_BOUNCY_BUBBLE),
+    LEVEL_UP_MOVE( 1, MOVE_WATER_SHURIKEN),
     LEVEL_UP_MOVE( 1, MOVE_TOXIC_SPIKES),
     LEVEL_UP_MOVE( 1, MOVE_DEFOG),
 
