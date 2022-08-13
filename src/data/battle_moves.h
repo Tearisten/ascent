@@ -10466,13 +10466,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPLISHY_SPLASH] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #else
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #endif
+
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         .effect = EFFECT_PARALYZE_HIT,
-        .power = 75,
+        .power = 70,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 15,
@@ -10484,17 +10481,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLOATY_FALL] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_8
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #else
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #endif
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         .effect = EFFECT_FLINCH_HIT,
         .power = 90,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
@@ -10533,7 +10526,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_BUZZY_BUZZ] =
     {
-        .power = 60,
+        .power = 50,
         .pp = 15,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .effect = EFFECT_PARALYZE_HIT,
@@ -10547,7 +10540,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SIZZLY_SLIDE] =
     {
-        .power = 60,
+        .power = 50,
         .pp = 20,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_THAW_USER,
         .effect = EFFECT_BURN_HIT,
@@ -10602,7 +10595,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FREEZY_FROST] =
     {
-        .power = 80,
+        .power = 75,
         .accuracy = 100,
         .pp = 10,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,

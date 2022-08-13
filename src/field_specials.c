@@ -2662,7 +2662,6 @@ static const struct pokeToFlagMap scrollMultiPokeShopLC[] =
     {SPECIES_DRIFLOON, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_VOLTORB, 1, FLAG_ROOM_3_CLEAR},
     {SPECIES_FRILLISH, 1, FLAG_ROOM_3_CLEAR},
-    //{SPECIES_SLOWPOKE, 1, FLAG_ROOM_3_CLEAR}, two evos woops
     
 
     // Little cup 5
@@ -2770,6 +2769,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
     {SPECIES_ACCELGOR, 6, FLAG_ROOM_14_CLEAR},
     {SPECIES_GOLDUCK, 5, FLAG_ROOM_14_CLEAR},
     {SPECIES_BELLOSSOM, 7, FLAG_ROOM_14_CLEAR},
+    {SPECIES_GLOOM, 7, FLAG_ROOM_14_CLEAR},
     {SPECIES_SCYTHER, 8, FLAG_ROOM_14_CLEAR},
 
 };
@@ -2777,7 +2777,7 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
     //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
 // gyarados, gligar
 // early area 4 ideas
-// chansey, vileplume
+// chansey
 // pretty early fossil floor
 // mamswine for sure
 // ~17 or 18 do eevee floor
