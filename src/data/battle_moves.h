@@ -1995,13 +1995,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CLAMP] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_5
-            .accuracy = 100,
-            .pp = 15,
-        #else
-            .accuracy = 75,
-            .pp = 10,
-        #endif
+
+        .accuracy = 100,
+        .pp = 15,
         .effect = EFFECT_MULTI_HIT,
         .power = 20,
         .type = TYPE_WATER,
@@ -2392,7 +2388,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_CRABHAMMER] =
-
+    {
         .power = 100,
         .accuracy = 100,
         .effect = EFFECT_HAMMER_ARM,
@@ -11178,10 +11174,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SCALE_SHOT] =
     {
-        .effect = EFFECT_PLACEHOLDER,   //TODO (EFFECT_MULTI_HIT + ABILITY_WEAK_ARMOR,
+        .effect = EFFECT_MULTI_HIT,   //TODO (EFFECT_MULTI_HIT + ABILITY_WEAK_ARMOR,
         .power = 25,
         .type = TYPE_DRAGON,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

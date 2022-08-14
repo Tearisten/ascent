@@ -1,15 +1,15 @@
 static const struct TrainerMon sParty_Tester[] = {
     {
-    .species = SPECIES_PICHU,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_SLOT_1,
-    .evs = EV_SPREAD_NONE,
-    .nature = NATURE_SERIOUS,
-    .iv = MAX_PER_STAT_IVS,
-    .ball = ITEM_MASTER_BALL,
-    .slot = 0,
-    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    //.shiny = TRUE
+        .species = SPECIES_PICHU,
+        .heldItem = ITEM_NONE,
+        .ability = ABILITY_SLOT_1,
+        .evs = EV_SPREAD_NONE,
+        .nature = NATURE_SERIOUS,
+        .iv = MAX_PER_STAT_IVS,
+        .ball = ITEM_MASTER_BALL,
+        .slot = 0,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        //.shiny = TRUE
     },
     {
         .species = SPECIES_PICHU,
@@ -856,7 +856,7 @@ static const struct TrainerMon sParty_LC_5_Boss[] = {
         .iv = MAX_PER_STAT_IVS,
         .ball = ITEM_PARK_BALL,
         .slot = 5,
-        .moves = {MOVE_DISCHARGE, MOVE_VOLT_SWITCH, MOVE_EXTREME_SPEED, MOVE_ZIPP_ZAP},
+        .moves = {MOVE_DISCHARGE, MOVE_VOLT_SWITCH, MOVE_EXTREME_SPEED, MOVE_ZIPPY_ZAP},
     },
 };
 
