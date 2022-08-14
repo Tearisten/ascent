@@ -1806,8 +1806,9 @@ u8 TrySetCantSelectMoveBattleScript(void)
     gPotentialItemEffectBattler = gActiveBattler;
     if (HOLD_EFFECT_CHOICE(holdEffect) && *choicedMove != MOVE_NONE && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        if ((IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)
-            || (!IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(gActiveBattler) != ABILITY_AROMA_VEIL))
+        if ((GetBattlerAbility(gActiveBattler) != ABILITY_AROMA_VEIL)
+            && ((IsDoubleBattle() && IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)) || !IsDoubleBattle())
+            
         {
             gCurrentMove = *choicedMove;
             gLastUsedItem = gBattleMons[gActiveBattler].item;
@@ -1820,6 +1821,11 @@ u8 TrySetCantSelectMoveBattleScript(void)
                 gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveChoiceItem;
                 limitations++;
             }
+        }
+        else
+        {
+            gCurrentMove = *choicedMove;
+            gLastUsedItem = gBattleMons[gActiveBattler].item;
         }
     }
     else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && gBattleMoves[move].power == 0 && move != MOVE_ME_FIRST)
@@ -1840,7 +1846,8 @@ u8 TrySetCantSelectMoveBattleScript(void)
             && *choicedMove != MOVE_NONE
             && *choicedMove != 0xFFFF && *choicedMove != move)
     {
-        if ((IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL))
+        if ((GetBattlerAbility(gActiveBattler) != ABILITY_AROMA_VEIL)
+            && ((IsDoubleBattle() && IsBattlerAlive(BATTLE_PARTNER(gActiveBattler)) && GetBattlerAbility(BATTLE_PARTNER(gActiveBattler)) != ABILITY_AROMA_VEIL)) || !IsDoubleBattle())
         {
             gCurrentMove = *choicedMove;
             gLastUsedItem = gBattleMons[gActiveBattler].item;
@@ -1853,6 +1860,11 @@ u8 TrySetCantSelectMoveBattleScript(void)
                 gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveGorillaTactics;
                 limitations++;
             }
+        }
+        else
+        {
+            gCurrentMove = *choicedMove;
+            gLastUsedItem = gBattleMons[gActiveBattler].item;
         }
     }
 
