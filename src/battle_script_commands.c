@@ -2197,6 +2197,11 @@ static void Cmd_attackanimation(void)
     }
     else
     {
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondOn == 1) // No animation on second hit
+        {
+			gBattlescriptCurrInstr++;
+			return;
+        }
         if ((moveTarget & MOVE_TARGET_BOTH
              || moveTarget & MOVE_TARGET_FOES_AND_ALLY
              || moveTarget & MOVE_TARGET_DEPENDS)
