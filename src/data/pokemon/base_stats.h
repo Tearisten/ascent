@@ -2730,7 +2730,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_BRILLIANT, ABILITY_VICTORY_STAR, ABILITY_DAUNTLESS_CROWN},
+            .abilities = {ABILITY_BRILLIANT, ABILITY_TELEPATHY, ABILITY_DAUNTLESS_CROWN},
         #else
             .abilities = {ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_INNER_FOCUS},
         #endif
@@ -2758,7 +2758,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_BRILLIANT, ABILITY_VICTORY_STAR, ABILITY_DAUNTLESS_CROWN},
+            .abilities = {ABILITY_BRILLIANT, ABILITY_TELEPATHY, ABILITY_DAUNTLESS_CROWN},
         #else
             .abilities = {ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_INNER_FOCUS},
         #endif
@@ -5751,7 +5751,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PSYCHIC_SURGE, ABILITY_TELEPATHY, ABILITY_GRIM_NEIGH},
+            .abilities = {ABILITY_PSYCHIC_SURGE, ABILITY_SPLIT, ABILITY_GRIM_NEIGH},
         #else
             .abilities = {ABILITY_INNER_FOCUS, ABILITY_EARLY_BIRD},
         #endif
@@ -19211,7 +19211,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MINERAL,
         .eggGroup2 = EGG_GROUP_MINERAL,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_NO_GUARD, ABILITY_LEVITATE, ABILITY_TOUGH_CLAWS},
+            .abilities = {ABILITY_SPLIT, ABILITY_NO_GUARD, ABILITY_LEVITATE},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif

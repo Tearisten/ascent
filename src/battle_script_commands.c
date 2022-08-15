@@ -281,7 +281,7 @@ static const s32 sExperienceScalingFactors[] =
 
 static const u16 sTrappingMoves[] =
 {
-    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, 0xFFFF
+    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, 0xFFFF
 };
 
 #define STAT_CHANGE_WORKED      0
@@ -1105,6 +1105,9 @@ static const u8 sForbiddenMoves[MOVES_COUNT] =
     [MOVE_WICKED_BLOW] = FORBIDDEN_METRONOME,
     [MOVE_WIDE_GUARD] = FORBIDDEN_METRONOME,
     [MOVE_ZIPPY_ZAP] = FORBIDDEN_METRONOME,
+
+    // custom moves
+    [MOVE_ABDICATE] = FORBIDDEN_PARENTAL_BOND,
 };
 
 static const u16 sMoveEffectsForbiddenToInstruct[] =
@@ -1466,16 +1469,6 @@ static void Cmd_attackcanceler(void)
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
         return;
     }
-    else if (!gSpecialStatuses[gBattlerAttacker].parentalBondOn
-            && GetBattlerAbility(gBattlerAttacker) == ABILITY_SPLIT
-            && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
-            && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget]))
-        {
-            gSpecialStatuses[gBattlerAttacker].parentalBondOn = 2;
-            gMultiHitCounter = 2;
-            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
-            return;
-        }
 
     // Check Protean activation.
     if ((GetBattlerAbility(gBattlerAttacker) == ABILITY_PROTEAN || GetBattlerAbility(gBattlerAttacker) == ABILITY_LIBERO)

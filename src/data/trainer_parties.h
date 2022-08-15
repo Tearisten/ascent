@@ -2264,7 +2264,7 @@ static const struct TrainerMon sParty_TD_1_Intro[] = {
     {
         .species = SPECIES_DOUBLADE,
         .heldItem = ITEM_EXPERT_BELT,
-        .ability = ABILITY_SLOT_2, // levitate
+        .ability = ABILITY_SLOT_1, // split
         .evs = EV_SPREAD_TANKY_ATTACK,
         .nature = NATURE_ADAMANT,
         .iv = MAX_PER_STAT_IVS,
