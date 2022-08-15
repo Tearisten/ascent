@@ -402,3 +402,40 @@ Gauntlet1_starterRoom_naturepreset_text:
 	.string "You may still reset and assign\p"
 	.string "EV spreads manually. This\n"
 	.string "feature can not be changed later.$"
+
+Gauntlet1_starterRoom_gen8speed::
+	faceplayer
+	goto_if_set FLAG_GEN8_SPEED, Gauntlet1_starterRoom_gen8speed_already_active
+	msgbox Gauntlet1_starterRoom_gen8speed_text, MSGBOX_DEFAULT
+	yesnobox 3, 8
+	switch VAR_RESULT
+	case NO, Gauntlet1_starterRoom_gen8speed_no
+	case YES, Gauntlet1_starterRoom_gen8speed_yes
+	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
+
+
+Gauntlet1_starterRoom_gen8speed_already_active::
+	msgbox Gauntlet1_starterRoom_gen8speed_already_text, MSGBOX_DEFAULT
+	return
+
+Gauntlet1_starterRoom_gen8speed_already_text:
+	.string "You have already enabled gen 8 speed\n"
+	.string "calculation.$"
+
+Gauntlet1_starterRoom_gen8speed_yes::
+	setflag FLAG_GEN8_SPEED
+	release
+	end
+
+Gauntlet1_starterRoom_gen8speed_no::
+	clearflag FLAG_GEN8_SPEED
+	release
+	end
+
+Gauntlet1_starterRoom_gen8speed_text:
+	.string "Would you like to enable gen 8\n"
+	.string "speed calculation? This will allow\p"
+	.string "speed values to change mid turn\n"
+	.string "when affected by stat boost/drops.\p"
+	.string "This can not be changed later.$"
+

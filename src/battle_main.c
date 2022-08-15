@@ -4819,6 +4819,26 @@ static void TryChangeTurnOrder(void)
     gBattleStruct->focusPunchBattlerId = 0;
 }
 
+static void TryChangeTurnOrderGen8Speed(u8 lastAttacker)
+{
+    s32 i, j;
+    for (i = lastAttacker; i < gBattlersCount - 1; i++)
+    {
+        for (j = i + 1; j < gBattlersCount; j++)
+        {
+            u8 battler1 = gBattlerByTurnOrder[i];
+            u8 battler2 = gBattlerByTurnOrder[j];
+            if (gActionsByTurnOrder[i] == B_ACTION_USE_MOVE
+                && gActionsByTurnOrder[j] == B_ACTION_USE_MOVE)
+            {
+                if (GetWhoStrikesFirst(battler1, battler2, FALSE))
+                    SwapTurnOrder(i, j);
+            }
+        }
+    }
+    gBattleMainFunc = RunTurnActionsFunctions;
+}
+
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
 {
     u32 i;
@@ -4928,6 +4948,9 @@ static void RunTurnActionsFunctions(void)
         {
             gHitMarker &= ~HITMARKER_NO_ATTACKSTRING;
             gHitMarker &= ~HITMARKER_UNABLE_TO_USE_MOVE;
+
+            if (FlagSet(FLAG_GEN8_SPEED))
+                TryChangeTurnOrderGen8Speed(gCurrentTurnActionNumber);
         }
     }
 }
