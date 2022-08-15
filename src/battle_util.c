@@ -9671,7 +9671,8 @@ static u16 CalcTypeEffectivenessMultiplierInternal(u16 move, u8 moveType, u8 bat
     }
 
     if (((GetBattlerAbility(battlerDef) == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0))
-        || (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && battlerDef == BATTLE_PARTNER(battlerAtk)))
+        || (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && battlerDef == BATTLE_PARTNER(battlerAtk))
+        || (GetBattlerAbility(battlerAtk) == ABILITY_TELEPATHY && battlerDef == BATTLE_PARTNER(battlerAtk)))
         && gBattleMoves[move].power)
     {
         modifier = UQ_4_12(0.0);
@@ -10645,6 +10646,9 @@ u32 GetBattlerMoveTargetType(u8 battlerId, u16 move)
         return MOVE_TARGET_BOTH;
     else if (GetBattlerAbility(battlerId) == ABILITY_FIST_OF_FURY && gBattleMoves[move].flags & FLAG_IRON_FIST_BOOST)
         return MOVE_TARGET_BOTH;
+    else if ((GetBattlerAbility(battlerId) == ABILITY_TELEPATHY || GetBattlerAbility(BATTLE_PARTNER(battlerId)) == ABILITY_TELEPATHY)
+           && gBattleMoves[move].target == MOVE_TARGET_FOES_AND_ALLY)
+       return MOVE_TARGET_BOTH;
     else
         return gBattleMoves[move].target;
 }

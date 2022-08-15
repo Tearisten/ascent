@@ -4857,7 +4857,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PARENTAL_BOND, ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_ILLUMINATE, ABILITY_NONE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
     },
@@ -5751,7 +5751,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PSYCHIC_SURGE, ABILITY_ADAPTABILITY, ABILITY_GRIM_NEIGH},
+            .abilities = {ABILITY_PSYCHIC_SURGE, ABILITY_TELEPATHY, ABILITY_GRIM_NEIGH},
         #else
             .abilities = {ABILITY_INNER_FOCUS, ABILITY_EARLY_BIRD},
         #endif
@@ -18451,7 +18451,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_VICTORY_STAR, ABILITY_BRAND, ABILITY_MAGIC_GUARD},
+            .abilities = {ABILITY_VICTORY_STAR, ABILITY_MAGIC_GUARD, ABILITY_PSYCHIC_SURGE},
         #else
             .abilities = {ABILITY_BLAZE, ABILITY_NONE},
         #endif
@@ -18479,7 +18479,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_VICTORY_STAR, ABILITY_BRAND, ABILITY_MAGIC_GUARD},
+            .abilities = {ABILITY_VICTORY_STAR, ABILITY_MAGIC_GUARD, ABILITY_PSYCHIC_SURGE},
         #else
             .abilities = {ABILITY_BLAZE, ABILITY_NONE},
         #endif
