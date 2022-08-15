@@ -37,9 +37,9 @@ struct PokemonSubstruct2
     /*0x06*/ u8 knockouts;
     /*0x07*/ u8 faints;
     /*0x08*/ u8 switches;
-    /*0x09*/ u8 smart;
-    /*0x0A*/ u8 tough;
-    /*0x0B*/ u8 sheen;
+    /*0x09*/ u8 battles;
+    /*0x0A*/ u8 misses;
+    /*0x0B*/ u8 crits;
 }; /* size = 12 */
 
 struct PokemonSubstruct3

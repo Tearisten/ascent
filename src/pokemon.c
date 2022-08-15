@@ -4717,6 +4717,15 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_SWITCHES:
         retVal = substruct2->switches; 
         break;
+    case MON_DATA_BATTLES:
+        retVal = substruct2->battles; 
+        break;
+    case MON_DATA_CRITS:
+        retVal = substruct2->crits;
+        break;
+    case MON_DATA_MISSES:
+        retVal = substruct2->misses; 
+        break;
     default:
         break;
     }

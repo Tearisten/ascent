@@ -206,6 +206,9 @@
 #define MON_DATA_KNOCKOUTS         91
 #define MON_DATA_FAINTS            92
 #define MON_DATA_SWITCHES          93
+#define MON_DATA_BATTLES           94
+#define MON_DATA_CRITS             95
+#define MON_DATA_MISSES            96
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0

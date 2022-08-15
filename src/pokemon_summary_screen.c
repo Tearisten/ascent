@@ -75,7 +75,7 @@ enum {
 // Skills screen
 #define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT 10 // HP, Attack, Defense
 #define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT 11 // Sp. Attack, Sp. Defense, Speed
-#define PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP 12 // EXP, Next Level
+#define PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT 12
 #define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS 13
 
 // Moves screen
@@ -87,7 +87,11 @@ enum {
 #define PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER 17
 #define PSS_LABEL_WINDOW_PORTRAIT_NICKNAME 18 // The upper name
 #define PSS_LABEL_WINDOW_PORTRAIT_SPECIES 19 // The lower name
-#define PSS_LABEL_WINDOW_END 20
+
+// custom window
+#define PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT 20
+
+#define PSS_LABEL_WINDOW_END 21
 
 // Dynamic fields for the Pokemon Info page
 #define PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER 0
@@ -106,6 +110,10 @@ enum {
 #define PSS_DATA_WINDOW_MOVE_NAMES 0
 #define PSS_DATA_WINDOW_MOVE_PP 1
 #define PSS_DATA_WINDOW_MOVE_DESCRIPTION 2
+
+// custom windows
+#define PSS_DATA_WINDOW_EXP2 5 // Exp, next level
+
 
 #define MOVE_SELECTOR_SPRITES_COUNT 10
 // for the spriteIds field in PokemonSummaryScreenData
@@ -500,9 +508,9 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .paletteNum = 6,
         .baseBlock = 245,
     },
-    [PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP] = {
+    [PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT] = {
         .bg = 0,
-        .tilemapLeft = 11,
+        .tilemapLeft = 10,
         .tilemapTop = 14,
         .width = 7,
         .height = 6,
@@ -571,6 +579,15 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .height = 4,
         .paletteNum = 6,
         .baseBlock = 413,
+    },
+    [PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT] = { // after PSS_DATA_WINDOW_MOVE_DESCRIPTION
+        .bg = 0,
+        .tilemapLeft = 20,
+        .tilemapTop = 14,
+        .width = 7,
+        .height = 6,
+        .paletteNum = 6,
+        .baseBlock = 679,
     },
     [PSS_LABEL_WINDOW_END] = DUMMY_WIN_TEMPLATE
 };
@@ -653,12 +670,21 @@ static const struct WindowTemplate sPageSkillsTemplate[] =
     },
     [PSS_DATA_WINDOW_EXP] = {
         .bg = 0,
-        .tilemapLeft = 20,
+        .tilemapLeft = 17,
+        .tilemapTop = 14,
+        .width = 3,
+        .height = 6,
+        .paletteNum = 6,
+        .baseBlock = 543,
+    },
+    [PSS_DATA_WINDOW_EXP2] = { // after right records
+        .bg = 0,
+        .tilemapLeft = 27,
         .tilemapTop = 14,
         .width = 6,
         .height = 6,
         .paletteNum = 6,
-        .baseBlock = 543,
+        .baseBlock = 721,
     },
 };
 static const struct WindowTemplate sPageMovesTemplate[] = // This is used for both battle and contest moves
@@ -691,6 +717,7 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
         .baseBlock = 599,
     },
 };
+
 static const u8 sTextColors[][3] =
 {
     {0, 1, 2},
@@ -2992,9 +3019,12 @@ static void PrintPageNamesAndStats(void)
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT, gText_SpDef4, statsXPos, 17, 0, 1);
     statsXPos = 2 + GetStringCenterAlignXOffset(FONT_NORMAL, gText_Speed2, 36);
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT, gText_Speed2, statsXPos, 33, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Knockouts, 0, 1, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Faints, 0, 17, 0, 1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, gText_Switches, 0, 33, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT, gText_Battles, 6, 1, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT, gText_Knockouts, 6, 17, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT, gText_Faints, 6, 33, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT, gText_Switches, 4, 1, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT, gText_Crits, 4, 17, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT, gText_Misses, 4, 33, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS, gText_Status, 2, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, gText_Power, 0, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, gText_Accuracy2, 0, 17, 0, 1);
@@ -3002,7 +3032,7 @@ static void PrintPageNamesAndStats(void)
 
 static void PutPageWindowTilemaps(u8 page)
 {
-    u8 i;
+    u8 i; 
 
     ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TITLE);
     ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
@@ -3022,7 +3052,8 @@ static void PutPageWindowTilemaps(u8 page)
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
-        PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
+        PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT);
+        PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT);
         break;
     case PSS_PAGE_BATTLE_MOVES:
         PutWindowTilemap(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE);
@@ -3071,7 +3102,8 @@ static void ClearPageWindowTilemaps(u8 page)
     case PSS_PAGE_SKILLS:
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
-        ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
+        ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_RECORDS_LEFT);
+        ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_RECORDS_RIGHT);
         break;
     case PSS_PAGE_BATTLE_MOVES:
         if (sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE)
@@ -3615,21 +3647,41 @@ static void PrintMonRecords(void)
     u8 knockouts = 0;
     u8 faints = 0;
     u8 switches = 0;
+    u8 battles = 0;
+    u8 misses = 0;
+    u8 crits = 0;
 
     knockouts = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_KNOCKOUTS);
     faints = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FAINTS);
     switches = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SWITCHES);
+    battles = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_BATTLES);
+    misses = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_CRITS);
+    crits = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MISSES);
 
-    ConvertIntToDecimalStringN(gStringVar1, knockouts, STR_CONV_MODE_RIGHT_ALIGN, 7);
-    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    ConvertIntToDecimalStringN(gStringVar1, battles, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 22);
     PrintTextOnWindow(windowId, gStringVar1, x, 1, 0, 0);
 
-    ConvertIntToDecimalStringN(gStringVar1, faints, STR_CONV_MODE_RIGHT_ALIGN, 6);
-    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    ConvertIntToDecimalStringN(gStringVar1, knockouts, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 22);
     PrintTextOnWindow(windowId, gStringVar1, x, 17, 0, 0);
 
-    ConvertIntToDecimalStringN(gStringVar1, switches, STR_CONV_MODE_RIGHT_ALIGN, 6);
-    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 42) + 2;
+    ConvertIntToDecimalStringN(gStringVar1, faints, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 22);
+    PrintTextOnWindow(windowId, gStringVar1, x, 33, 0, 0);
+
+    windowId = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_EXP2);
+
+    ConvertIntToDecimalStringN(gStringVar1, switches, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 20);
+    PrintTextOnWindow(windowId, gStringVar1, x, 1, 0, 0);
+
+    ConvertIntToDecimalStringN(gStringVar1, crits, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 20);
+    PrintTextOnWindow(windowId, gStringVar1, x, 17, 0, 0);
+
+    ConvertIntToDecimalStringN(gStringVar1, misses, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 20);
     PrintTextOnWindow(windowId, gStringVar1, x, 33, 0, 0);
 }
 
