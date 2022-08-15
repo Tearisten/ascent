@@ -277,7 +277,6 @@ bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
 void HandleAction_UseMove(void)
 {
     u32 i, side, moveType, var = 4;
-    u32 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (gBattleStruct->absentBattlerFlags & gBitTable[gBattlerAttacker] || !IsBattlerAlive(gBattlerAttacker))
@@ -343,6 +342,7 @@ void HandleAction_UseMove(void)
             gBattleResults.lastUsedMoveOpponent = gCurrentMove;
     }
 
+    u32 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
     // Set dynamic move type.
     SetTypeBeforeUsingMove(gChosenMove, gBattlerAttacker);
     GET_MOVE_TYPE(gChosenMove, moveType);
@@ -10638,6 +10638,7 @@ bool32 IsBattlerWeatherAffected(u8 battlerId, u32 weatherFlags)
 u32 GetBattlerMoveTargetType(u8 battlerId, u16 move)
 {
     u32 target;
+    volatile u16 test = move;
 
     if (gBattleMoves[move].effect == EFFECT_EXPANDING_FORCE
         && IsBattlerTerrainAffected(battlerId, STATUS_FIELD_PSYCHIC_TERRAIN))

@@ -1817,7 +1817,6 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move)
 static void Cmd_accuracycheck(void)
 {
     u16 type, move = T2_READ_16(gBattlescriptCurrInstr + 5);
-    u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, move);
 
     if (move == ACC_CURR_MOVE)
         move = gCurrentMove;
@@ -1828,12 +1827,20 @@ static void Cmd_accuracycheck(void)
             gBattlescriptCurrInstr += 7;
         else if (gStatuses3[gBattlerTarget] & (STATUS3_SEMI_INVULNERABLE))
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-        else if (!JumpIfMoveAffectedByProtect(0))
+        else if (!JumpIfMoveAffectedByProtect(gCurrentMove))
             gBattlescriptCurrInstr += 7;
+    }
+    else if (gSpecialStatuses[gBattlerAttacker].parentalBondOn == 1
+		|| (gSpecialStatuses[gBattlerAttacker].multiHitOn && (gBattleMoves[move].effect != EFFECT_TRIPLE_KICK
+		|| GetBattlerAbility(gBattlerAttacker) == ABILITY_SKILL_LINK)))
+    {
+        // No acc checks for second hit of Parental Bond or multi hit moves
+        gBattlescriptCurrInstr += 7;
     }
     else
     {
         GET_MOVE_TYPE(move, type);
+        u32 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, move);
         if (JumpIfMoveAffectedByProtect(move))
             return;
         if (AccuracyCalcHelper(move))

@@ -1587,22 +1587,20 @@ static void OpponentHandleChooseMove(void)
                 BtlController_EmitTwoReturnValues(BUFFER_B, 15, gBattlerTarget);
                 break;
             default:
-                {
-                    u16 chosenMove = moveInfo->moves[chosenMoveId];
+                u16 chosenMove = moveInfo->moves[chosenMoveId];
 
-                    if (GetBattlerMoveTargetType(gActiveBattler, chosenMove) & (MOVE_TARGET_USER_OR_SELECTED | MOVE_TARGET_USER))
-                        gBattlerTarget = gActiveBattler;
-                    if (GetBattlerMoveTargetType(gActiveBattler, chosenMove) & MOVE_TARGET_BOTH)
-                    {
-                        gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-                        if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
-                            gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
-                    }                                   
-                    if (CanMegaEvolve(gActiveBattler)) // If opponent can mega evolve, do it.
-                        BtlController_EmitTwoReturnValues(BUFFER_B, 10, (chosenMoveId) | (RET_MEGA_EVOLUTION) | (gBattlerTarget << 8));
-                    else
-                        BtlController_EmitTwoReturnValues(BUFFER_B, 10, (chosenMoveId) | (gBattlerTarget << 8));
-                }
+                if (GetBattlerMoveTargetType(gActiveBattler, chosenMove) & (MOVE_TARGET_USER_OR_SELECTED | MOVE_TARGET_USER))
+                    gBattlerTarget = gActiveBattler;
+                if (GetBattlerMoveTargetType(gActiveBattler, chosenMove) & MOVE_TARGET_BOTH)
+                {
+                    gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+                    if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
+                        gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+                }                                   
+                if (CanMegaEvolve(gActiveBattler)) // If opponent can mega evolve, do it.
+                    BtlController_EmitTwoReturnValues(BUFFER_B, 10, (chosenMoveId) | (RET_MEGA_EVOLUTION) | (gBattlerTarget << 8));
+                else
+                    BtlController_EmitTwoReturnValues(BUFFER_B, 10, (chosenMoveId) | (gBattlerTarget << 8));
                 break;
             }
             OpponentBufferExecCompleted();
