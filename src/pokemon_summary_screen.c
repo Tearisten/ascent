@@ -3655,8 +3655,8 @@ static void PrintMonRecords(void)
     faints = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FAINTS);
     switches = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SWITCHES);
     battles = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_BATTLES);
-    misses = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_CRITS);
-    crits = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MISSES);
+    misses = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MISSES);
+    crits = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_CRITS);
 
     ConvertIntToDecimalStringN(gStringVar1, battles, STR_CONV_MODE_RIGHT_ALIGN, 3);
     x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 22);

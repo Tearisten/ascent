@@ -1854,6 +1854,16 @@ static void Cmd_accuracycheck(void)
 
             if (gBattleMoves[move].power)
                 CalcTypeEffectivenessMultiplier(move, type, gBattlerAttacker, gBattlerTarget, TRUE);
+            
+            // increase crit count
+            u32 missCount;
+            u32 monId;
+            struct Pokemon *party = (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+            monId = gBattlerPartyIndexes[gBattlerAttacker];
+            missCount = GetMonData(&party[monId], MON_DATA_MISSES, NULL);
+            if (missCount != 255) // u8
+                missCount += 1;
+            SetMonData(&party[monId], MON_DATA_MISSES, &missCount);
         }
         JumpIfMoveFailed(7, move);
     }
@@ -2013,6 +2023,20 @@ static void Cmd_critcalc(void)
         gIsCriticalHit = TRUE;
     else
         gIsCriticalHit = FALSE;
+
+    if (gIsCriticalHit)
+    {
+        // increase crit count
+        u32 critCount;
+        u32 monId;
+        struct Pokemon *party = (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+        monId = gBattlerPartyIndexes[gBattlerAttacker];
+        critCount = GetMonData(&party[monId], MON_DATA_CRITS, NULL);
+        if (critCount != 255) // u8
+            critCount += 1;
+        SetMonData(&party[monId], MON_DATA_CRITS, &critCount);
+    }
+
 
     gBattlescriptCurrInstr++;
 }
@@ -12865,6 +12889,16 @@ static void Cmd_trygetintimidatetarget(void)
 static void Cmd_switchoutabilities(void)
 {
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    
+    u32 switchCount;
+    u32 monId;
+    struct Pokemon *party = (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+    monId = gBattlerPartyIndexes[gBattlerAttacker];
+    switchCount = GetMonData(&party[monId], MON_DATA_SWITCHES, NULL);
+    if (switchCount != 255) // u8
+        switchCount += 1;
+    SetMonData(&party[gBattlerPartyIndexes[gBattlerAttacker]], MON_DATA_SWITCHES, &switchCount);
+    
     if (gBattleMons[gActiveBattler].ability == ABILITY_NEUTRALIZING_GAS)
     {
         gBattleMons[gActiveBattler].ability = ABILITY_NONE;

@@ -550,15 +550,6 @@ void HandleAction_Switch(void)
     gActionSelectionCursor[gBattlerAttacker] = 0;
     gMoveSelectionCursor[gBattlerAttacker] = 0;
 
-    u32 switchCount;
-    u32 monId;
-    struct Pokemon *party = (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
-    monId = gBattlerPartyIndexes[gBattlerAttacker];
-    switchCount = GetMonData(&party[monId], MON_DATA_SWITCHES, NULL);
-    if (switchCount != 255) // u8
-        switchCount += 1;
-    SetMonData(&party[gBattlerPartyIndexes[gBattlerAttacker]], MON_DATA_SWITCHES, &switchCount);
-
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, *(gBattleStruct->battlerPartyIndexes + gBattlerAttacker))
 
     gBattleScripting.battler = gBattlerAttacker;

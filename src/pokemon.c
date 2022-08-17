@@ -4725,7 +4725,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_MISSES:
         retVal = substruct2->misses; 
-        break;
+        break; 
     default:
         break;
     }
@@ -5058,6 +5058,15 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_SWITCHES:
         SET8(substruct2->switches);
+        break;
+    case MON_DATA_BATTLES:
+        SET8(substruct2->battles);
+        break;
+    case MON_DATA_CRITS:
+        SET8(substruct2->crits);
+        break;
+    case MON_DATA_MISSES:
+        SET8(substruct2->misses);
         break;
     default:
         break;

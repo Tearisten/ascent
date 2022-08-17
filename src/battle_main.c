@@ -546,6 +546,21 @@ static void CB2_InitBattleInternal(void)
     SetVBlankCallback(VBlankCB_Battle);
     SetUpBattleVarsAndBirchZigzagoon();
 
+    // increase battle count
+    u32 battleCount;
+    struct Pokemon *party = gPlayerParty;
+    u8 x;
+    for (x = 0; x < PARTY_SIZE; x++)
+    {
+        if (GetMonData(&gPlayerParty[x], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            battleCount = GetMonData(&gPlayerParty[x], MON_DATA_BATTLES, NULL);
+            if (battleCount != 255) // u8
+                battleCount += 1;
+            SetMonData(&gPlayerParty[x], MON_DATA_BATTLES, &battleCount);
+        }
+    }
+
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI && gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
         SetMainCallback2(CB2_HandleStartMultiPartnerBattle);
     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
