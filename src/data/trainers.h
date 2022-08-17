@@ -19,8 +19,8 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("Tester"),
         .items = {},
-        .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 2,
         .party = {.TrainerMon = sParty_Tester},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_Tester)
@@ -35,7 +35,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Timmy"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 3,
         .party = {.TrainerMon = sParty_LC_1_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_1_Intro)
@@ -49,7 +49,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Jimmy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 3,
         .party = {.TrainerMon = sParty_LC_1_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_1_Elite)
@@ -64,7 +64,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Robby"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 4,
         .party = {.TrainerMon = sParty_LC_2_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_2_Intro)
@@ -77,7 +77,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Brandon"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
         .partySize = 4,
         .party = {.TrainerMon = sParty_LC_2_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_2_Elite)
@@ -92,7 +92,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Ben"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 5,
         .party = {.TrainerMon = sParty_LC_3_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Intro)
@@ -105,7 +105,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Andy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 5,
         .party = {.TrainerMon = sParty_LC_3_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_3_Elite)
@@ -118,7 +118,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Devon"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_LC_4_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Intro)
@@ -131,7 +131,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Ian"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE,
         .partySize = 6,
         .party = {.TrainerMon = sParty_LC_4_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_4_Elite)
@@ -144,7 +144,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Sidney"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_LC_5_Boss},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_LC_5_Boss)
@@ -157,7 +157,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Katie"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_1_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_1_Intro)
@@ -170,7 +170,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Barbra"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_1_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_1_Elite)
@@ -183,7 +183,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Troy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_2_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Intro)
@@ -196,7 +196,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Chris"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_2_Mid},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Mid)
@@ -209,7 +209,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Cameron"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_2_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_2_Elite)
@@ -222,7 +222,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Gary"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_3_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_3_Intro)
@@ -235,7 +235,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Keith"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_3_Mid},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_3_Mid)
@@ -248,7 +248,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Taylor"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_3_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_3_Elite)
@@ -261,7 +261,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Roger"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_4_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_4_Intro)
@@ -274,7 +274,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Margret"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_4_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_4_Elite)
@@ -287,7 +287,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Phoebe"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_GP_5_Boss},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_GP_5_Boss)
@@ -300,7 +300,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Kyle"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_1_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Intro)
@@ -313,7 +313,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Bob"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_1_Mid},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Mid)
@@ -326,7 +326,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Amy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_1_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_1_Elite)
@@ -339,7 +339,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Patrick"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_2_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_2_Intro)
@@ -352,7 +352,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Caleb"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_2_Mid},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_2_Mid)
@@ -365,7 +365,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Hanna"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_2_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_2_Elite)
@@ -378,7 +378,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Kristen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_3_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_3_Intro)
@@ -391,7 +391,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Fred"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_3_Early},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_3_Early)
@@ -404,7 +404,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Shane"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_3_Late},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_3_Late)
@@ -417,7 +417,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Gerald"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_3_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_3_Elite)
@@ -430,7 +430,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Ted"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_4_Intro},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Intro)
@@ -443,7 +443,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Karen"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_4_Early},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Early)
@@ -456,7 +456,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Tricia"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_4_Late},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Late)
@@ -469,7 +469,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Gary"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_4_Elite},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_4_Elite)
@@ -482,7 +482,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Glacia"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN,
         .partySize = 6,
         .party = {.TrainerMon = sParty_TD_5_Boss},
         .totalMonCountWithRotates = ARRAY_COUNT(sParty_TD_5_Boss)
