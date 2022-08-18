@@ -41,9 +41,9 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define EasyDifficulty       0x20 // Unused Flag
-#define MedDifficulty        0x21 // Unused Flag
-#define HardDifficulty       0x22 // Unused Flag
+#define FLAG_EASY_MODE       0x20 // Unused Flag
+#define FLAG_MED_MODE        0x21 // Unused Flag
+#define FLAG_HARD_MODE       0x22 // Unused Flag
 #define FLAG_RANDOM_GIFTS    0x23 // Unused Flag
 #define FLAG_NUZ_LOSE        0x24 // Unused Flag
 #define FLAG_PERMA_DEATH     0x25 // Unused Flag

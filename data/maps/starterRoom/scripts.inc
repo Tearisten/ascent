@@ -222,21 +222,21 @@ Gauntlet1_starterRoom_Difficulty_event::
 
 
 Gauntlet1_starterRoom_Difficulty_easy::
-	setflag EasyDifficulty
-	clearflag MedDifficulty
-	clearflag  HardDifficulty
+	setflag FLAG_EASY_MODE
+	clearflag FLAG_MED_MODE
+	clearflag  FLAG_HARD_MODE
 	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
 
 Gauntlet1_starterRoom_Difficulty_medium::
-	clearflag EasyDifficulty
-	setflag MedDifficulty
-	clearflag  HardDifficulty
+	clearflag FLAG_EASY_MODE
+	setflag FLAG_MED_MODE
+	clearflag  FLAG_HARD_MODE
 	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
 
 Gauntlet1_starterRoom_Difficulty_hard::
-	clearflag EasyDifficulty
-	clearflag MedDifficulty
-	setflag  HardDifficulty
+	clearflag FLAG_EASY_MODE
+	clearflag FLAG_MED_MODE
+	setflag  FLAG_HARD_MODE
 	goto Gauntlet1_Gauntlet1_starterRoom_noChoice
 
 Gauntlet1_starterRoom_WhatDifficultyText:

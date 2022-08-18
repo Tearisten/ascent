@@ -1852,14 +1852,19 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     u8 ability, gender, friendship;
 
-    u8 difficulty; // 1 = easy, 2 = med, 3 = hard
+    u8 difficulty = 0; // 1 = easy, 2 = med, 3 = hard
 
-    if (FlagGet(EasyDifficulty))
+    if (FlagGet(FLAG_EASY_MODE))
         difficulty = 1;
-    else if (FlagGet(MedDifficulty)) 
+    else if (FlagGet(FLAG_MED_MODE)) 
         difficulty = 2;
-    else if (FlagGet(HardDifficulty))
+    else if (FlagGet(FLAG_HARD_MODE))
         difficulty = 3;
+    
+
+    // default to medium if messed up
+    if (!difficulty)
+        difficulty = 2;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1938,8 +1943,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             else if (partyData[i].gender == TRAINER_MON_FEMALE)
                 gender = MON_FEMALE;
 
-            if (partyData[i].nature > 0)
+            if (difficulty == 1) // easy mode no nature
+            {
+                CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, 50, fixedIV, gender, NATURE_SERIOUS, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
+            }
+            else if (partyData[i].nature > 0)
+            {
                 CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, 50, fixedIV, gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
+            }
             else
             {
                 CreateMon(&party[i], partyData[i].species, 50, fixedIV, TRUE, personalityValue, partyData[i].shiny ? 0 : OT_ID_RANDOM_NO_SHINY, 0);
@@ -1994,7 +2005,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                         break;
                     case 2: // normal
                         fixedIV = 20;
-                        partyData[i].evs[j] /= 1.5; // 66%  ivs
+                        partyData[i].evs[j] = (partyData[i].evs[j] / 50) * 100; // 66%  ivs
                         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
                         SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
                         break;
