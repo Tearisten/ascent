@@ -2005,7 +2005,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                         break;
                     case 2: // normal
                         fixedIV = 20;
-                        partyData[i].evs[j] = (partyData[i].evs[j] / 50) * 100; // 66%  ivs
+                        partyData[i].evs[j] = (partyData[i].evs[j] * 66) / 100; // 66%  ivs
                         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
                         SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
                         break;

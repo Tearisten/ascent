@@ -2081,3 +2081,6 @@ const u32 gItemIconPalette_Thermometer[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_BrassKnuckles[] = INCBIN_U32("graphics/items/icons/brass_knuckles.4bpp.lz");
 const u32 gItemIconPalette_BrassKnuckles[] = INCBIN_U32("graphics/items/icon_palettes/brass_knuckles.gbapal.lz");
+
+const u32 gItemIcon_MagicHat[] = INCBIN_U32("graphics/items/icons/magic_hat.4bpp.lz");
+const u32 gItemIconPalette_MagicHat[] = INCBIN_U32("graphics/items/icon_palettes/magic_hat.gbapal.lz");

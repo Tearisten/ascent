@@ -4555,7 +4555,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 else
                 {
                     gFieldStatuses |= statusFlag;
-                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_GRAVITY_WELL)
+                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_MAGIC_HAT)
                         *timer = 5;
                     else
                         *timer = 4;

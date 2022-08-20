@@ -12659,7 +12659,7 @@ static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
     }
     else
     {
-        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRAVITY_WELL 
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_MAGIC_HAT 
         && statusFlag == STATUS_FIELD_TRICK_ROOM)
             *timer = 5; 
         else

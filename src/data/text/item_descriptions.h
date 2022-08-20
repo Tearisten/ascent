@@ -3638,7 +3638,7 @@ static const u8 sFeastDesc[] = _(
     "HP in battle\n"
     "every turn.");
 
-static const u8 sGravityWellDesc[] = _(
+static const u8 sMagicHatDesc[] = _(
     "Trick Room\n"
     "lasts for an\n"
     "extra turn.");

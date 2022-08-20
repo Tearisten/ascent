@@ -10017,4 +10017,7 @@ extern const u32 gItemIconPalette_BrassKnuckles[];
 extern const u32 gItemIcon_Thermometer[];
 extern const u32 gItemIconPalette_Thermometer[];
 
+extern const u32 gItemIcon_MagicHat[];
+extern const u32 gItemIconPalette_MagicHat[];
+
 #endif //GUARD_GRAPHICS_H

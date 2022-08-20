@@ -819,9 +819,9 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_BRASS_KNUCKLES] = {gItemIcon_BrassKnuckles, gItemIconPalette_BrassKnuckles},
     [ITEM_GREEDY_POT] = {gItemIcon_PotOfGreed, gItemIconPalette_PotOfGreed},
     [ITEM_HEEL_COVER] = {gItemIcon_HeelGuard, gItemIconPalette_HeelGuard},
+    [ITEM_MAGIC_HAT] = {gItemIcon_MagicHat, gItemIconPalette_MagicHat},
     [ITEM_FEAST] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
-    [ITEM_GRAVITY_WELL] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
-    [ITEM_WEIGHTED_BOOTS] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
+    [ITEM_WEIGHTED_BOOTS] = {gItemIcon_MachoBrace, gItemIconPalette_MachoBrace},
     [ITEM_STAB_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     [ITEM_COVERAGE_GEM] = {gItemIcon_QuestionMark, gItemIcon_QuestionMark}, // Todo
     

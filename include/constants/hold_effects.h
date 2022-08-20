@@ -157,7 +157,7 @@
 #define HOLD_EFFECT_TRIFORCE            176
 #define HOLD_EFFECT_PLATE_MAIL          177
 #define HOLD_EFFECT_FEAST               178
-#define HOLD_EFFECT_GRAVITY_WELL        179
+#define HOLD_EFFECT_MAGIC_HAT           179
 #define HOLD_EFFECT_WIND_CHIMES         180
 #define HOLD_EFFECT_HOURGLASS           181
 #define HOLD_EFFECT_THERMOSTAT          182

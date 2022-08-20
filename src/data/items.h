@@ -9499,14 +9499,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_GRAVITY_WELL] =
+    [ITEM_MAGIC_HAT] =
     {
-        .name = _("Gravity Well"),
-        .itemId = ITEM_GRAVITY_WELL,
+        .name = _("Magic Hat"),
+        .itemId = ITEM_MAGIC_HAT,
         .price = 4100,
-        .holdEffect = HOLD_EFFECT_GRAVITY_WELL,
+        .holdEffect = HOLD_EFFECT_MAGIC_HAT,
         .holdEffectParam = 1,
-        .description = sGravityWellDesc,
+        .description = sMagicHatDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

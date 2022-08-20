@@ -329,6 +329,7 @@ static const struct itemFlagMap itemToFlag[] =
     // {ITEM_WIND_CHIMES, FLAG_ALL_STARTERS},
     // {ITEM_TRIFORCE, FLAG_ALL_STARTERS},
     // {ITEM_PLATE_MAIL, FLAG_ALL_STARTERS},
+    //{ITEM_MAGIC_HAT, FLAG_ALL_STARTERS},
     //{ITEM_ABILITY_PATCH, FLAG_ALL_STARTERS},
     
     // Out of order items that are important
@@ -385,7 +386,7 @@ static const struct itemFlagMap itemToFlag[] =
     // Room 11
     {ITEM_DESTINY_KNOT, FLAG_ROOM_10_CLEAR},
     {ITEM_WIND_CHIMES, FLAG_ROOM_10_CLEAR},
-    {ITEM_GRAVITY_WELL, FLAG_ROOM_10_CLEAR},
+    {ITEM_MAGIC_HAT, FLAG_ROOM_10_CLEAR},
     
     // Room 12
     {ITEM_TERRAIN_EXTENDER, FLAG_ROOM_11_CLEAR},

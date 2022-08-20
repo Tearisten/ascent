@@ -2189,7 +2189,7 @@ static const u8 *const sHoldEffectNames[] =
     [HOLD_EFFECT_PLATE_MAIL] = sText_HoldEffectPlateMail,
     [HOLD_EFFECT_FEAST] = sText_HoldEffectFeast,
     [HOLD_EFFECT_TRIFORCE] = sText_HoldEffectTriforce,
-    [HOLD_EFFECT_GRAVITY_WELL] = sText_HoldEffectGravityWell,
+    [HOLD_EFFECT_MAGIC_HAT] = sText_HoldEffectGravityWell,
     [HOLD_EFFECT_WIND_CHIMES] = sText_HoldEffectWindChimes,
     [HOLD_EFFECT_HOURGLASS] = sText_HoldEffectHourglass,
 };

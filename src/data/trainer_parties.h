@@ -603,7 +603,7 @@ static const struct TrainerMon sParty_LC_4_Intro[] = {
 static const struct TrainerMon sParty_LC_4_Elite[] = { // trick room doubles team
     {
         .species = SPECIES_SLOWPOKE,
-        .heldItem = ITEM_GRAVITY_WELL,
+        .heldItem = ITEM_MAGIC_HAT,
         .ability = ABILITY_HIDDEN, // twisted mind
         .evs = EV_SPREAD_TANKY_SPDEF,
         .nature = NATURE_CALM,
