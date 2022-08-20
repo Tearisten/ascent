@@ -5373,11 +5373,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
              && TARGET_TURN_DAMAGED
              && IsMoveMakingContact(move, gBattlerAttacker))
             {
-                #if B_ROUGH_SKIN_DMG >= GEN_4
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 5;
-                #else
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
-                #endif
+
+                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 5;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -5390,8 +5387,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
             if (!IsAbilityOnField(ABILITY_DAMP)
              && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && gBattleMons[gBattlerTarget].hp == 0
-             && IsBattlerAlive(gBattlerAttacker)
-             && IsMoveMakingContact(move, gBattlerAttacker))
+             && IsBattlerAlive(gBattlerAttacker))
             {
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 3;
                 if (gBattleMoveDamage == 0)
@@ -8526,10 +8522,6 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         if (gBattleMoves[move].flags & FLAG_IRON_FIST_BOOST)
            MulModifier(&modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_LONG_REACH:
-        if (IsMoveMakingContact(move, battlerAtk))
-           MulModifier(&modifier, UQ_4_12(1.1));
-        break;
     case ABILITY_SHEER_FORCE:
         if (gBattleMoves[move].flags & FLAG_SHEER_FORCE_BOOST)
            MulModifier(&modifier, UQ_4_12(1.3));
@@ -8552,7 +8544,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         break;
     case ABILITY_ANALYTIC:
         if (GetBattlerTurnOrderNum(battlerAtk) == gBattlersCount - 1 && move != MOVE_FUTURE_SIGHT && move != MOVE_DOOM_DESIRE)
-           MulModifier(&modifier, UQ_4_12(1.4));
+           MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_TOUGH_CLAWS:
         if (IsMoveMakingContact(move, battlerAtk))
@@ -8926,7 +8918,7 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
         }
         break;
     case ABILITY_HUSTLE:
-        MulModifier(&modifier, UQ_4_12(1.2));
+        MulModifier(&modifier, UQ_4_12(1.1));
         break;
     case ABILITY_QUICK_DRAW:
         MulModifier(&modifier, UQ_4_12(.66));
@@ -9405,6 +9397,7 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
             MulModifier(&finalModifier, UQ_4_12(0.66));
         break;
     case ABILITY_FRIEND_GUARD:
+        if (IsDoubleBattle() && IsBattlerAlive(BATTLE_PARTNER(abilityDef)))
         MulModifier(&finalModifier, UQ_4_12(1.2));
         break;
     }

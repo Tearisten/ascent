@@ -1856,7 +1856,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
     if (FlagGet(FLAG_EASY_MODE))
         difficulty = 1;
-    else if (FlagGet(FLAG_MED_MODE)) 
+    else if (FlagGet(FLAG_MED_MODE))
         difficulty = 2;
     else if (FlagGet(FLAG_HARD_MODE))
         difficulty = 3;
@@ -4432,7 +4432,7 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
     else if (ability == ABILITY_BULL_RUSH)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_HUSTLE)
-        speed = (speed * 120) / 100;
+        speed = (speed * 110) / 100;
     else if (ability == ABILITY_MUMMY)
         speed /= 4;
 

@@ -337,7 +337,7 @@ Gauntlet1_starterRoom_fullPreview_event::
 	case MULTI_B_PRESSED, Gauntlet1_Gauntlet1_starterRoom_noChoice
 
 Gauntlet1_starterRoom_fullPreview_text:
-	.string "Would you like to enable full preview?\n"
+	.string "Would you like to enable advanced peek?\n"
 	.string "The intended and default setting is off.\p"
 	.string "While off, you may only view enemy party\n"
 	.string "composition and current hp status.\p"
