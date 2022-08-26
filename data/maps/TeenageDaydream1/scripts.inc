@@ -39,7 +39,6 @@ TeenageDaydream1_MapScripts::
 
 TeenageDaydream1_OnTransition:
 	setrespawn HEAL_LOCATION_FLOOR_TEENAGE_DAYDREAM_1
-	call_if_set FLAG_EVO_STONE_1, TeenageDaydream1_NewAreaGuy_remove_event
 	end
 
 TeenageDaydream1_OnLoad:
@@ -61,28 +60,29 @@ TeenageDaydream1_NewAreaGuy_event::
 	setflag FLAG_EVO_STONE_2
 	waitmessage
 	fadescreen FADE_TO_BLACK
-	call TeenageDaydream1_NewAreaGuy_remove_event
+	closemessage
+	removeobject 13
 	fadescreen FADE_FROM_BLACK
-	releaseall
+	release
 	end
 
 TeenageDaydream1_NewAreaGuy_remove_event:
-	removeobject 12
+	removeobject 13
 	return
 
 TeenageDaydream1_NewAreaGuy_text:
 	.string "Congratulations on advancing to area\n"
 	.string "three. This area features slightly more\p"
 	.string "powerful pokemon. It will also have\n"
-	.string "a few terrain battles. You may now\p"
-	.string "buy evolution stones from the shop!\n"
-	.string "These second stones will evolve any\p"
-	.string "pokemon to their final stage. Only \n"
+	.string "a few terrain battles. You may buy\p"
+	.string "new evolution stones from the shop!\n"
+	.string "These second stones will evolve some\p"
+	.string "pokemon to their final stage. Only\n"
 	.string "two stage pokemon will affected.\p"
 	.string "For example they will work on\n"
 	.string "growlite, but not charmeleon.\p"
 	.string "The item shop now also stocks\n"
-	.string "normal ability capsules now.\p"
+	.string "normal ability capsules.\p"
 	.string "See you in the next area gamer.\n"
 	.string "May your battles be forunate.$"
 
@@ -115,6 +115,7 @@ TeenageDaydream1_ReadyOrNot::
 	faceplayer
 	goto_if_set FLOORFLAG, Gauntlet1_Already_clear_event
 	goto_if_set FLAG_NUZ_LOSE, Gauntlet1_nuzlocke_lost
+	goto_if_unset FLAG_EVO_STONE_2, NewAreaGuy_demand_text_event
 	buffernumberstring STR_VAR_1, ROOM_BATTLE_COUNT
 	setorcopyVar VAR_TEMP_A, ROOM_BATTLE_TYPE
 	switch VAR_TEMP_A

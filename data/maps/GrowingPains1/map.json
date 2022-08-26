@@ -165,10 +165,10 @@
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "FLAG_EVO_STONE_1",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GrowingPains1_NewAreaGuy_event",
-      "flag": "0"
+      "flag": "FLAG_EVO_STONE_1"
     }
   ],
   "warp_events": [

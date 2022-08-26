@@ -32,7 +32,6 @@ GrowingPains1_MapScripts::
 
 GrowingPains1_OnTransition:
 	setrespawn HEAL_LOCATION_FLOOR_GROWING_PAINS_1
-	call_if_set FLAG_EVO_STONE_1, GrowingPains1_NewAreaGuy_remove_event
 	end
 
 GrowingPains1_OnLoad:
@@ -54,10 +53,15 @@ GrowingPains1_NewAreaGuy_event::
 	setflag FLAG_EVO_STONE_1
 	waitmessage
 	fadescreen FADE_TO_BLACK
-	call GrowingPains1_NewAreaGuy_remove_event
+	closemessage
+	removeobject 12
 	fadescreen FADE_FROM_BLACK
-	releaseall
+	release
 	end
+
+GrowingPains1_NewAreaGuy_invisible_event::
+	set_invisible
+	step_end
 
 GrowingPains1_NewAreaGuy_remove_event:
 	removeobject 12
