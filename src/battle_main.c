@@ -4854,12 +4854,8 @@ static void TryChangeTurnOrderGen8Speed(u8 lastAttacker)
         {
             u8 battler1 = gBattlerByTurnOrder[i];
             u8 battler2 = gBattlerByTurnOrder[j];
-            if (gActionsByTurnOrder[i] == B_ACTION_USE_MOVE
-                && gActionsByTurnOrder[j] == B_ACTION_USE_MOVE)
-            {
-                if (GetWhoStrikesFirst(battler1, battler2, FALSE))
-                    SwapTurnOrder(i, j);
-            }
+            if (GetWhoStrikesFirst(battler1, battler2, FALSE))
+                SwapTurnOrder(i, j);
         }
     }
     gBattleMainFunc = RunTurnActionsFunctions;
@@ -4975,7 +4971,7 @@ static void RunTurnActionsFunctions(void)
             gHitMarker &= ~HITMARKER_NO_ATTACKSTRING;
             gHitMarker &= ~HITMARKER_UNABLE_TO_USE_MOVE;
 
-            if (FlagSet(FLAG_GEN8_SPEED))
+            if (FlagGet(FLAG_GEN8_SPEED))
                 TryChangeTurnOrderGen8Speed(gCurrentTurnActionNumber);
         }
     }

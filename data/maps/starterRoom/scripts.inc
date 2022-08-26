@@ -416,7 +416,8 @@ Gauntlet1_starterRoom_gen8speed::
 
 Gauntlet1_starterRoom_gen8speed_already_active::
 	msgbox Gauntlet1_starterRoom_gen8speed_already_text, MSGBOX_DEFAULT
-	return
+	release
+	end
 
 Gauntlet1_starterRoom_gen8speed_already_text:
 	.string "You have already enabled gen 8 speed\n"
