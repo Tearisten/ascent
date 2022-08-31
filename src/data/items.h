@@ -7318,7 +7318,7 @@ const struct Item gItems[] =
     {
         .name = _("Focus Punch"),
         .itemId = ITEM_TM01_FOCUS_PUNCH,
-        .price = 3000,
+        .price = 5300,
         .description = sTM01Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7472,7 +7472,7 @@ const struct Item gItems[] =
     {
         .name = _("Hyper Beam"),
         .itemId = ITEM_TM15_HYPER_BEAM,
-        .price = 7500,
+        .price = 5000,
         .description = sTM15Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7626,7 +7626,7 @@ const struct Item gItems[] =
     {
         .name = _("Psychic"),
         .itemId = ITEM_TM29_PSYCHIC,
-        .price = 2000,
+        .price = 5500,
         .description = sTM29Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7637,7 +7637,7 @@ const struct Item gItems[] =
     {
         .name = _("Shadow Ball"),
         .itemId = ITEM_TM30_SHADOW_BALL,
-        .price = 4000,
+        .price = 6000,
         .description = sTM30Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7703,7 +7703,7 @@ const struct Item gItems[] =
     {
         .name = _("Sludge Bomb"),
         .itemId = ITEM_TM36_SLUDGE_BOMB,
-        .price = 1000,
+        .price = 5000,
         .description = sTM36Desc,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7894,7 +7894,7 @@ const struct Item gItems[] =
     {
         .name = _("Energy Ball"),
         .itemId = ITEM_TM53_ENERGY_BALL,
-        .price = 3000,
+        .price = 4300,
         .description = sTM53Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8089,7 +8089,7 @@ const struct Item gItems[] =
     {
         .name = _("Giga Impact"),
         .itemId = ITEM_TM68_GIGA_IMPACT,
-        .price = 50000,
+        .price = 5000,
         .description = sTM68Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8115,7 +8115,7 @@ const struct Item gItems[] =
     {
         .name = _("Aurora Veil"),
         .itemId = ITEM_TM70_AURORA_VEIL,
-        .price = 3000,
+        .price = 6500,
         .description = sTM70Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8180,7 +8180,7 @@ const struct Item gItems[] =
     {
         .name = _("Swords Dance"),
         .itemId = ITEM_TM75_SWORDS_DANCE,
-        .price = 100,
+        .price = 7000,
         .description = sTM75Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8206,7 +8206,7 @@ const struct Item gItems[] =
     {
         .name = _("Struggle Bug"),
         .itemId = ITEM_TM77_STRUGGLE_BUG,
-        .price = 1000,
+        .price = 4500,
         .description = sTM77Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8291,7 +8291,7 @@ const struct Item gItems[] =
     {
         .name = _("Poison Jab"),
         .itemId = ITEM_TM84_POISON_JAB,
-        .price = 3000,
+        .price = 4200,
         .description = sTM84Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8375,7 +8375,7 @@ const struct Item gItems[] =
     {
         .name = _("Flash Cannon"),
         .itemId = ITEM_TM91_FLASH_CANNON,
-        .price = 4000,
+        .price = 4400,
         .description = sTM91Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8411,7 +8411,7 @@ const struct Item gItems[] =
     {
         .name = _("Sucker Punch"),
         .itemId = ITEM_TM94_SUCKER_PUNCH,
-        .price = 3000,
+        .price = 5000,
         .description = sTM94Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
@@ -8471,7 +8471,7 @@ const struct Item gItems[] =
     {
         .name = _("DazzlingGleam"),
         .itemId = ITEM_TM99_DAZZLING_GLEAM,
-        .price = 3000,
+        .price = 4500,
         .description = sTM99Desc,
 		.importance = 1,
         .pocket = POCKET_TM_HM,
