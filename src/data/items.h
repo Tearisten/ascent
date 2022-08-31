@@ -1027,7 +1027,7 @@ const struct Item gItems[] =
     {
         .name = _("AbilityPatch"),
         .itemId = ITEM_ABILITY_PATCH,
-        .price = 7000, // super expensive because very powerful on ceratain mons
+        .price = 5000, // super expensive because very powerful on ceratain mons
         .description = sAbilityPatchDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4942,7 +4942,7 @@ const struct Item gItems[] =
     {
         .name = _("Lucky Punch"),
         .itemId = ITEM_LUCKY_PUNCH,
-        .price = 4000,
+        .price = 4300,
         .holdEffect = HOLD_EFFECT_LUCKY_PUNCH,
         .description = sLuckyPunchDesc,
         .pocket = POCKET_ITEMS,
@@ -5556,7 +5556,7 @@ const struct Item gItems[] =
     {
         .name = _("Choice Band"),
         .itemId = ITEM_CHOICE_BAND,
-        .price = 4000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_CHOICE_BAND,
         .description = sChoiceBandDesc,
         .pocket = POCKET_ITEMS,
@@ -5568,7 +5568,7 @@ const struct Item gItems[] =
     {
         .name = _("Choice Specs"),
         .itemId = ITEM_CHOICE_SPECS,
-        .price = 4000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_CHOICE_SPECS,
         .description = sChoiceSpecsDesc,
         .pocket = POCKET_ITEMS,
@@ -5580,7 +5580,7 @@ const struct Item gItems[] =
     {
         .name = _("Choice Scarf"),
         .itemId = ITEM_CHOICE_SCARF,
-        .price = 4000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_CHOICE_SCARF,
         .description = sChoiceScarfDesc,
         .pocket = POCKET_ITEMS,
@@ -6029,7 +6029,7 @@ const struct Item gItems[] =
     {
         .name = _("Life Orb"),
         .itemId = ITEM_LIFE_ORB,
-        .price = 4000,
+        .price = 6000,
         .holdEffect = HOLD_EFFECT_LIFE_ORB,
         .description = sLifeOrbDesc,
         .pocket = POCKET_ITEMS,
@@ -9589,7 +9589,7 @@ const struct Item gItems[] =
     {
         .name = _("Brass Knx"),
         .itemId = ITEM_BRASS_KNUCKLES,
-        .price = 4000,
+        .price = 5500,
         .holdEffect = HOLD_EFFECT_BRASS_KNUCKLES,
         .description = sBrassKnucklesDesc,
         .pocket = POCKET_ITEMS,
@@ -9601,7 +9601,7 @@ const struct Item gItems[] =
     {
         .name = _("Greedy Pot"),
         .itemId = ITEM_GREEDY_POT,
-        .price = 4800,
+        .price = 6200,
         .holdEffect = HOLD_EFFECT_GREEDY_POT,
         .description = sGreedyPotDesc,
         .pocket = POCKET_ITEMS,
@@ -9613,7 +9613,7 @@ const struct Item gItems[] =
     {
         .name = _("STAB Gem"),
         .itemId = ITEM_STAB_GEM,
-        .price = 3000,
+        .price = 4700,
         .holdEffect = HOLD_EFFECT_GEMS,
         .holdEffectParam = 33,
         .description = sStabGemDesc,
@@ -9626,7 +9626,7 @@ const struct Item gItems[] =
     {
         .name = _("Coverage Gem"),
         .itemId = ITEM_COVERAGE_GEM,
-        .price = 3000,
+        .price = 4200,
         .holdEffect = HOLD_EFFECT_GEMS,
         .holdEffectParam = 33,
         .description = sCoverageGemDesc,

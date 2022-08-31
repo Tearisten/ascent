@@ -336,6 +336,8 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
     {ITEM_2SF_EVO_STONE, FLAG_ROOM_10_CLEAR}, // start of area 3
     {ITEM_ABILITY_CAPSULE, FLAG_ROOM_10_CLEAR}, // start of area 3
+    {ITEM_ABILITY_PATCH, FLAG_ROOM_15_CLEAR}, // start of area 4
+    //evo stone 3
 
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},
@@ -409,9 +411,26 @@ static const struct itemFlagMap itemToFlag[] =
     {ITEM_FIGY_BERRY, FLAG_ROOM_14_CLEAR},
     {ITEM_WEAKNESS_POLICY, FLAG_ROOM_14_CLEAR},
 
-    //life orb, choice items, throat spray, brass knuckles, ability patchs
-    // adrenaline orb, greedy pot, lucky punch, stab/cov gem
+    // Room 16
+    // evo stones and ability patches
+    {ITEM_ADRENALINE_ORB, FLAG_ROOM_15_CLEAR},
+    {ITEM_LUCKY_PUNCH, FLAG_ROOM_15_CLEAR},
 
+    // Room 17
+    {ITEM_STAB_GEM, FLAG_ROOM_16_CLEAR},
+    {ITEM_COVERAGE_GEM, FLAG_ROOM_16_CLEAR},
+
+    // Room 18
+    {ITEM_CHOICE_BAND, FLAG_ROOM_17_CLEAR},
+    {ITEM_CHOICE_SPECS, FLAG_ROOM_17_CLEAR},
+    {ITEM_CHOICE_SCARF, FLAG_ROOM_17_CLEAR},
+
+    // room 19
+    {ITEM_BRASS_KNUCKLES, FLAG_ROOM_18_CLEAR},
+
+    // Room 20
+    {ITEM_LIFE_ORB, FLAG_ROOM_19_CLEAR},
+    {ITEM_GREEDY_POT, FLAG_ROOM_19_CLEAR},
 };
 
 static EWRAM_DATA u16 *shopItemList = NULL; 
