@@ -616,6 +616,13 @@
 #define MAP_TEENAGE_DAYDREAM4 (3 | (37 << 8))
 #define MAP_TEENAGE_DAYDREAM5 (4 | (37 << 8))
 
-#define MAP_GROUPS_COUNT 38
+// gMapGroup_Prime
+#define MAP_PRIME1 (0 | (38 << 8))
+#define MAP_PRIME2 (1 | (38 << 8))
+#define MAP_PRIME3 (2 | (38 << 8))
+#define MAP_PRIME4 (3 | (38 << 8))
+#define MAP_PRIME5 (4 | (38 << 8))
+
+#define MAP_GROUPS_COUNT 39
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

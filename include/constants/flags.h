@@ -54,7 +54,7 @@
 #define FLAG_EVO_STONE_2     0x2A // Unused Flag
 #define FLAG_SPREAD_PRESET   0x2B // Unused Flag
 #define FLAG_GEN8_SPEED      0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
+#define FLAG_EVO_STONE_3     0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
@@ -665,11 +665,11 @@
 #define FLAG_NZ_GIFT_12    0x26F // Unused Flag
 #define FLAG_NZ_GIFT_13    0x270 // Unused Flag
 #define FLAG_NZ_GIFT_14    0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
+#define FLAG_NZ_GIFT_15    0x272 // Unused Flag
+#define FLAG_NZ_GIFT_16    0x273 // Unused Flag
+#define FLAG_NZ_GIFT_17    0x274 // Unused Flag
+#define FLAG_NZ_GIFT_18    0x275 // Unused Flag
+#define FLAG_NZ_GIFT_19    0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag
@@ -1516,11 +1516,11 @@
 #define FLAG_ROOM_13_CLEAR                          (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_ROOM_14_CLEAR                          (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_ROOM_15_CLEAR                          (SYSTEM_FLAGS + 0x93) // Unused Flag
-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
-#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // Unused Flag
-#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
-#define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
+#define FLAG_ROOM_16_CLEAR                           (SYSTEM_FLAGS + 0x94) // Unused Flag
+#define FLAG_ROOM_17_CLEAR                           (SYSTEM_FLAGS + 0x95) // Unused Flag
+#define FLAG_ROOM_18_CLEAR                           (SYSTEM_FLAGS + 0x96) // Unused Flag
+#define FLAG_ROOM_19_CLEAR                           (SYSTEM_FLAGS + 0x97) // Unused Flag
+#define FLAG_ROOM_20_CLEAR                           (SYSTEM_FLAGS + 0x98) // Unused Flag
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
 #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
 #define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag

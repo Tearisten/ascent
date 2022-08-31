@@ -38,7 +38,8 @@
     "gMapGroup_Gauntlet",
     "gMapGroup_LittleCup",
     "gMapGroup_GrowingPains",
-    "gMapGroup_TeenageDaydream"
+    "gMapGroup_TeenageDaydream",
+    "gMapGroup_Prime"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -650,5 +651,12 @@
     "TeenageDaydream3",
     "TeenageDaydream4",
     "TeenageDaydream5"
+  ],
+  "gMapGroup_Prime": [
+    "Prime1",
+    "Prime2",
+    "Prime3",
+    "Prime4",
+    "Prime5"
   ]
 }

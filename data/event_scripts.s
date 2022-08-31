@@ -1078,3 +1078,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/TeenageDaydream3/scripts.inc"
 	.include "data/maps/TeenageDaydream4/scripts.inc"
 	.include "data/maps/TeenageDaydream5/scripts.inc"
+
+	.include "data/maps/Prime1/scripts.inc"
+	.include "data/maps/Prime2/scripts.inc"
+	.include "data/maps/Prime3/scripts.inc"
+	.include "data/maps/Prime4/scripts.inc"
+	.include "data/maps/Prime5/scripts.inc"

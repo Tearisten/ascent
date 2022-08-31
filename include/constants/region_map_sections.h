@@ -217,7 +217,8 @@
 #define MAPSEC_LITTLE_CUP                   0xD5
 #define MAPSEC_GROWING_PAINS                0xD6
 #define MAPSEC_TEENAGE_DAYDREAM             0xD7
-#define MAPSEC_NONE                         0xD8
+#define MAPSEC_PRIME                        0xD8
+#define MAPSEC_NONE                         0xD9
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

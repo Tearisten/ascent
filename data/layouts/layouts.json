@@ -4580,6 +4580,56 @@
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/battleTest3/border.bin",
       "blockdata_filepath": "data/layouts/battleTest3/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIME1",
+      "name": "prime1_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest4/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest4/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIME2",
+      "name": "prime2_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest4/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest4/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIME3",
+      "name": "prime3_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest4/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest4/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIME4",
+      "name": "prime4_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest4/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest4/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIME5",
+      "name": "prime5_Layout",
+      "width": 15,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/battleTest4/border.bin",
+      "blockdata_filepath": "data/layouts/battleTest4/map.bin"
     }
   ]
 }
