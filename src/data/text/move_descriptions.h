@@ -342,8 +342,8 @@ static const u8 sThunderboltDescription[] = _(
     "that may paralyze the foe.");
 
 static const u8 sThunderWaveDescription[] = _(
-    "A weak jolt of electricity\n"
-    "that paralyzes the foe.");
+    "Use lectricity to paralyze.\n"
+    "Elec. types boost acccuracy.");
 
 static const u8 sThunderDescription[] = _(
     "A lightning attack that may\n"
@@ -366,8 +366,8 @@ static const u8 sDigDescription[] = _(
     "turn and strikes next turn.");
 
 static const u8 sToxicDescription[] = _(
-    "Poisons the foe with an\n"
-    "intensifying toxin.");
+    "Poisons the foe. Poison\n"
+    "types boost accuracy");
 
 static const u8 sConfusionDescription[] = _(
     "A psychic attack that may\n"
@@ -378,8 +378,8 @@ static const u8 sPsychicDescription[] = _(
     "that may lower Sp. Def.");
 
 static const u8 sHypnosisDescription[] = _(
-    "A hypnotizing move that\n"
-    "may induce sleep.");
+    "Hypnotize to induce sleep.\n"
+    "Psychic types boost accuracy.");
 
 static const u8 sMeditateDescription[] = _(
     "Meditates in a peaceful\n"
@@ -607,7 +607,7 @@ static const u8 sAcidArmorDescription[] = _(
 
 static const u8 sCrabhammerDescription[] = _(
     "Hammers with a massive claw\n"
-    "but lowers atk and def.");
+    "but lowers atk.");
 
 static const u8 sExplosionDescription[] = _(
     "Inflicts severe damage but\n"
@@ -1047,7 +1047,7 @@ static const u8 sFlatterDescription[] = _(
 
 static const u8 sWillOWispDescription[] = _(
     "Inflicts a burn on the foe\n"
-    "with intense fire.");
+    "Fire types boost accuracy.");
 
 static const u8 sMementoDescription[] = _(
     "The user faints and lowers\n"
@@ -1318,8 +1318,8 @@ static const u8 sSandTombDescription[] = _(
     "quicksand for 2 to 5 turns.");
 
 static const u8 sSheerColdDescription[] = _(
-    "Inflicts frostbite on the\n"
-    "foe with intense frost.");
+    "Inflicts freeze on the foe.\n"
+    "Ice types boost accuracy.");
 
 static const u8 sMuddyWaterDescription[] = _(
     "Attacks with muddy water.\n"
@@ -1438,8 +1438,8 @@ static const u8 sWAKE_UP_SLAPDescription[] = _(
     "foes, but also heals them.");
 
 static const u8 sHAMMER_ARMDescription[] = _(
-    "A swinging fist attack\n"
-    "that also lowers Speed.");
+    "A swinging fist attack.\n"
+    "Lowers the user's attack.");
 
 static const u8 sGYRO_BALLDescription[] = _(
     "A high-speed spin that does\n"
@@ -1783,7 +1783,7 @@ static const u8 sCHARGE_BEAMDescription[] = _(
 
 static const u8 sWOOD_HAMMERDescription[] = _(
     "Slams the body into a foe\n"
-    "The user gets hurt too.");
+    "and lowers user's attack.");
 
 static const u8 sAQUA_JETDescription[] = _(
     "Strikes first by dashing\n"
@@ -2435,7 +2435,7 @@ static const u8 sSPARKLING_ARIADescription[] = _(
 
 static const u8 sICE_HAMMERDescription[] = _(
     "Swings the fist to strike.\n"
-    "Lowers the user's Speed.");
+    "Lowers the user's Attack.");
 
 static const u8 sFLORAL_HEALINGDescription[] = _(
     "Restores an ally's HP.\n"
@@ -2543,7 +2543,7 @@ static const u8 sCLANGING_SCALESDescription[] = _(
 
 static const u8 sDRAGON_HAMMERDescription[] = _(
     "Swings its whole body\n"
-    "like a hammer to damage.");
+    "and lowers user's attack.");
 
 static const u8 sBRUTAL_SWINGDescription[] = _(
     "Violently swings around\n"

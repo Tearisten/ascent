@@ -9634,4 +9634,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+    [ITEM_3SF_EVO_STONE] =
+    {
+        .name = _("2SF Evo Stone"),
+        .itemId = ITEM_3SF_EVO_STONE,
+        .price = 2500,
+        .description = s3SFEvoStoneDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
 };

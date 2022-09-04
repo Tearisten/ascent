@@ -335,9 +335,9 @@ static const struct itemFlagMap itemToFlag[] =
     // Out of order items that are important
     {ITEM_MID_EVO_STONE, FLAG_ROOM_5_CLEAR}, // start of area 2
     {ITEM_2SF_EVO_STONE, FLAG_ROOM_10_CLEAR}, // start of area 3
+    {ITEM_3SF_EVO_STONE, FLAG_ROOM_15_CLEAR}, // start of area 4
     {ITEM_ABILITY_CAPSULE, FLAG_ROOM_10_CLEAR}, // start of area 3
     {ITEM_ABILITY_PATCH, FLAG_ROOM_15_CLEAR}, // start of area 4
-    //evo stone 3
 
     // Room 1
     {ITEM_LUM_BERRY, FLAG_ALL_STARTERS},

@@ -3693,3 +3693,8 @@ static const u8 sCoverageGemDesc[] = _(
     "Increase power\n"
     "of non STAB\n"
     "moves once.");
+
+static const u8 s3SFEvoStoneDesc[] = _(
+    "Evolves 3 stage\n"
+    "Pokemon into their\n"
+    "final stage.");

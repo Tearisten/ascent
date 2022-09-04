@@ -2697,7 +2697,6 @@ static const struct pokeToFlagMap scrollMultiPokeShopGP[] =
     {SPECIES_LOMBRE, 2, FLAG_ROOM_7_CLEAR},
     {SPECIES_HATTREM, 2, FLAG_ROOM_7_CLEAR},
     {SPECIES_LAMPENT, 2, FLAG_ROOM_7_CLEAR},
-    //{SPECIES_GLOOM, 2, FLAG_ROOM_7_CLEAR}, 
     {SPECIES_GRAVELER_ALOLAN, 2, FLAG_ROOM_7_CLEAR},
     {SPECIES_MANTYKE, 1, FLAG_ROOM_7_CLEAR},
 
@@ -2782,8 +2781,8 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
 // mamswine for sure
 // ~17 or 18 do eevee floor
 // lucario
-//weaville
-
+// weaville
+// talon flame
 struct
 {
     const struct pokeToFlagMap *set;

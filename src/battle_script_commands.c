@@ -4931,7 +4931,7 @@ static void Cmd_playstatchangeanimation(void)
                         && !(ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
                         && !(ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK)
                         && !(ability == ABILITY_BIG_PECKS && currStat == STAT_DEF)
-                        && !(ability == ABILITY_BRILLIANT && currStat == STAT_ATK))
+                        && !(ability == ABILITY_BRILLIANT && currStat == STAT_SPATK))
                 {
                     if (gBattleMons[gActiveBattler].statStages[currStat] > MIN_STAT_STAGE)
                     {

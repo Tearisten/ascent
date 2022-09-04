@@ -997,8 +997,9 @@
 #define ITEM_GREEDY_POT 772
 #define ITEM_STAB_GEM 773
 #define ITEM_COVERAGE_GEM 774
+#define ITEM_3SF_EVO_STONE 775
 
-#define ITEMS_COUNT 775
+#define ITEMS_COUNT 776
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS
