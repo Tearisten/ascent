@@ -9884,6 +9884,7 @@ static const struct LevelUpMove sPigniteLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sEmboarLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_DOUBLE_EDGE),
     LEVEL_UP_MOVE( 1, MOVE_ARM_THRUST),
     LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
     LEVEL_UP_MOVE( 1, MOVE_HIGH_JUMP_KICK),
