@@ -2769,20 +2769,78 @@ static const struct pokeToFlagMap scrollMultiPokeShopTD[] =
     {SPECIES_GOLDUCK, 5, FLAG_ROOM_14_CLEAR},
     {SPECIES_BELLOSSOM, 7, FLAG_ROOM_14_CLEAR},
     {SPECIES_GLOOM, 7, FLAG_ROOM_14_CLEAR},
-    {SPECIES_SCYTHER, 8, FLAG_ROOM_14_CLEAR},
+    {SPECIES_SCYTHER, 9, FLAG_ROOM_14_CLEAR},
 
 };
+
+static const struct pokeToFlagMap scrollMultiPokeShopPR[] = 
+{   
+    // Prime 1 (eeveelution floor)
+    {SPECIES_VAPOREON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_JOLTEON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_FLAREON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_ESPEON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_UMBREON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_LEAFEON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_GLACEON, 6, FLAG_ROOM_15_CLEAR},
+    {SPECIES_SYLVEON, 6, FLAG_ROOM_15_CLEAR},
+
+    // Prime 2
+    // {SPECIES_RHYDON, 6, FLAG_ROOM_16_CLEAR},
+
+    // Prime 3 (fossil floor)
+    // {SPECIES_RHYDON, 6, FLAG_ROOM_17_CLEAR},
+
+    // Prime 4
+    // {SPECIES_RHYDON, 6, FLAG_ROOM_18_CLEAR},
+
+    // Prime 5
+    // {SPECIES_RHYDON, 6, FLAG_ROOM_19_CLEAR},
+};
+
     //{SPECIES_MALAMAR, 5, FLAG_ROOM_13_CLEAR}, a bit too OP moves and contrary 17?
     //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
-// gyarados, gligar
 // early area 4 ideas
-// chansey
-// pretty early fossil floor
-// mamswine for sure
+// dracovish (put on fossil)
+// pretty early fossil floor 
 // ~17 or 18 do eevee floor
 // lucario
+// gengar
+// corviknight
 // weaville
 // talon flame
+// bronzong
+// drapion
+// vikavolt
+// nidoking/queen
+// excadrill
+// gardvor/gallade
+// starmie
+// flygon
+// Rotoms?
+// chendelure
+// cloyster
+// normal weather setter quadro
+// exegutor
+// aggron
+// mamswine for sure
+// chansey
+// gligar
+// gogoat?
+// lapras
+// magnezone
+// gyarados
+// duraladon
+// snorlax
+// kingdra
+// milotic
+// electivire
+// magmortor
+// arcanine
+// porygon 2
+
+// late prime or early 5
+// aegislash
 struct
 {
     const struct pokeToFlagMap *set;
@@ -2792,8 +2850,8 @@ static const scrollMultiPokeShopGroups[] =
 {
     {scrollMultiPokeShopLC, ARRAY_COUNT(scrollMultiPokeShopLC)},
     {scrollMultiPokeShopGP, ARRAY_COUNT(scrollMultiPokeShopGP)},
-    {scrollMultiPokeShopTD, ARRAY_COUNT(scrollMultiPokeShopTD)}
-    
+    {scrollMultiPokeShopTD, ARRAY_COUNT(scrollMultiPokeShopTD)},
+    {scrollMultiPokeShopPR, ARRAY_COUNT(scrollMultiPokeShopPR)},
 };
 
 

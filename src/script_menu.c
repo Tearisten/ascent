@@ -877,12 +877,14 @@ static const struct ListMenuItem natureList[] =
 static const u8 Name_LittleCup[] = _("Little Cup");
 static const u8 Name_GrowingPains[] = _("Growing Pains");
 static const u8 Name_TeenageDaydream[] = _("Teenage Daydream");
+static const u8 Name_Prime[] = _("Prime");
 
 static const struct ListMenuItem pokeShopTypes[] =
 {
     {Name_LittleCup, FLAG_ALL_STARTERS},
     {Name_GrowingPains, FLAG_ROOM_5_CLEAR},
-    {Name_TeenageDaydream, FLAG_ROOM_10_CLEAR}
+    {Name_TeenageDaydream, FLAG_ROOM_10_CLEAR},
+    {Name_Prime, FLAG_ROOM_15_CLEAR}
 };
 
 static const u8 sText_Easy[] = _("Easy");

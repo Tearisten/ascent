@@ -204,6 +204,7 @@ PokeShop_event::
 	case FLAG_ALL_STARTERS, showpokeshopLC
 	case FLAG_ROOM_5_CLEAR, showpokeshopGP
 	case FLAG_ROOM_10_CLEAR, showpokeshopTD
+	case FLAG_ROOM_15_CLEAR, showpokeshopPR
 	@else unsure
 	goto MakeShiny_Deny
 
@@ -220,6 +221,11 @@ showpokeshopGP::
 showpokeshopTD::
 	goto_if_unset FLAG_ROOM_10_CLEAR, PokeShop_experience_event
 	setvar 0x8002, 2 @which pokeshop to use
+	goto PokeShop_event_multi
+
+showpokeshopPR::
+	goto_if_unset FLAG_ROOM_15_CLEAR, PokeShop_experience_event
+	setvar 0x8002, 3 @which pokeshop to use
 	goto PokeShop_event_multi
 
 PokeShop_text:
