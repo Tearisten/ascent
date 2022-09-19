@@ -2638,7 +2638,6 @@ static const struct pokeToFlagMap scrollMultiPokeShopLC[] =
     {SPECIES_ROLYCOLY, 1, FLAG_ROOM_1_CLEAR},
     {SPECIES_SANDSHREW, 1, FLAG_ROOM_1_CLEAR},
     {SPECIES_DROWZEE, 1, FLAG_ROOM_1_CLEAR},
-    {SPECIES_VULPIX_ALOLAN, 1, FLAG_ROOM_1_CLEAR},
 
 
     // Little cup 3
@@ -2786,7 +2785,17 @@ static const struct pokeToFlagMap scrollMultiPokeShopPR[] =
     {SPECIES_SYLVEON, 6, FLAG_ROOM_15_CLEAR},
 
     // Prime 2
-    // {SPECIES_RHYDON, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_BRONZONG, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_DRAPION, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_AGGRON, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_WEAVILE, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_GENGAR, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_GARDEVOIR, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_GALLADE, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_NINETALES, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_NINETALES_ALOLAN, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_POLITOED, 6, FLAG_ROOM_16_CLEAR},
+    {SPECIES_HIPPOWDON, 6, FLAG_ROOM_16_CLEAR},
 
     // Prime 3 (fossil floor)
     // {SPECIES_RHYDON, 6, FLAG_ROOM_17_CLEAR},
@@ -2802,31 +2811,20 @@ static const struct pokeToFlagMap scrollMultiPokeShopPR[] =
     //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
 // early area 4 ideas
 // dracovish (put on fossil)
-// pretty early fossil floor 
-// ~17 or 18 do eevee floor
 // lucario
-// gengar
 // corviknight
-// weaville
-// talon flame
-// bronzong
-// drapion
 // vikavolt
 // nidoking/queen
 // excadrill
-// gardvor/gallade
 // starmie
 // flygon
-// Rotoms?
+// Rotoms? 
 // chendelure
 // cloyster
-// normal weather setter quadro
 // exegutor
-// aggron
 // mamswine for sure
 // chansey
 // gligar
-// gogoat?
 // lapras
 // magnezone
 // gyarados
