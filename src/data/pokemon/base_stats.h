@@ -4004,7 +4004,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_WATER_3,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SWIFT_SWIM, ABILITY_BATTLE_ARMOR, ABILITY_WEAK_ARMOR},
+            .abilities = {ABILITY_SWIFT_SWIM, ABILITY_BATTLE_ARMOR, ABILITY_SNIPER},
         #else
             .abilities = {ABILITY_SWIFT_SWIM, ABILITY_BATTLE_ARMOR},
         #endif
@@ -4032,7 +4032,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FLYING,
         .eggGroup2 = EGG_GROUP_FLYING,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_ROCK_HEAD, ABILITY_PRESSURE, ABILITY_UNNERVE},
+            .abilities = {ABILITY_INFILTRATOR, ABILITY_GIFT_OF_WIND, ABILITY_ROCK_HEAD},
         #else
             .abilities = {ABILITY_ROCK_HEAD, ABILITY_PRESSURE},
         #endif
@@ -9813,7 +9813,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_3,
         .eggGroup2 = EGG_GROUP_WATER_3,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SUCTION_CUPS, ABILITY_NONE, ABILITY_STORM_DRAIN},
+            .abilities = {ABILITY_SUCTION_CUPS, ABILITY_WATER_LILY, ABILITY_STORM_DRAIN},
         #else
             .abilities = {ABILITY_SUCTION_CUPS, ABILITY_NONE},
         #endif
@@ -9864,7 +9864,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_ERRATIC,
         .eggGroup1 = EGG_GROUP_WATER_3,
         .eggGroup2 = EGG_GROUP_WATER_3,
-        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_POISON_TOUCH, ABILITY_SWIFT_SWIM},
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_POISON_TOUCH, ABILITY_SAND_VEIL},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
@@ -11564,7 +11564,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_MONSTER,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_MOLD_BREAKER, ABILITY_NONE, ABILITY_SHEER_FORCE},
+            .abilities = {ABILITY_STURDY, ABILITY_SHEER_FORCE, ABILITY_MOLD_BREAKER},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -19694,7 +19694,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_STRONG_JAW, ABILITY_NONE, ABILITY_ROCK_HEAD},
+            .abilities = {ABILITY_ARENA_TRAP, ABILITY_STRONG_JAW, ABILITY_RUNNING_RIOT},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE, ABILITY_ROCK_HEAD},
         #endif
@@ -24887,7 +24887,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_VOLT_ABSORB, ABILITY_HUSTLE, ABILITY_SAND_RUSH},
+            .abilities = {ABILITY_SKEPTIC, ABILITY_SAND_RUSH, ABILITY_HUSTLE},
         #else
             .abilities = {ABILITY_VOLT_ABSORB, ABILITY_HUSTLE},
         #endif
@@ -24943,7 +24943,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_WATER_ABSORB, ABILITY_STRONG_JAW, ABILITY_SAND_RUSH},
+            .abilities = {ABILITY_WATER_VEIL, ABILITY_SAND_RUSH, ABILITY_STRONG_JAW},
         #else
             .abilities = {ABILITY_WATER_ABSORB, ABILITY_NONE},
         #endif
