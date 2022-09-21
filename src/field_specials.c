@@ -2808,42 +2808,39 @@ static const struct pokeToFlagMap scrollMultiPokeShopPR[] =
     {SPECIES_ARMALDO, 6, FLAG_ROOM_17_CLEAR},
 
     // Prime 4
-    {SPECIES_LUCARIO, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_CORVIKNIGHT, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_VIKAVOLT, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_NIDOKING, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_NIDOQUEEN, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_STARMIE, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_KINGDRA, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_MALAMAR, 6, FLAG_ROOM_18_CLEAR},
-    {SPECIES_CHANDELURE, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_LUCARIO, 8, FLAG_ROOM_18_CLEAR},
+    {SPECIES_CORVIKNIGHT, 7, FLAG_ROOM_18_CLEAR},
+    {SPECIES_VIKAVOLT, 8, FLAG_ROOM_18_CLEAR},
+    {SPECIES_NIDOKING, 8, FLAG_ROOM_18_CLEAR},
+    {SPECIES_NIDOQUEEN, 7, FLAG_ROOM_18_CLEAR},
+    {SPECIES_STARMIE, 9, FLAG_ROOM_18_CLEAR},
+    {SPECIES_KINGDRA, 9, FLAG_ROOM_18_CLEAR},
+    {SPECIES_MALAMAR, 8, FLAG_ROOM_18_CLEAR},
+    {SPECIES_CHANDELURE, 10, FLAG_ROOM_18_CLEAR},
 
     // Prime 5
-    // {SPECIES_RHYDON, 6, FLAG_ROOM_19_CLEAR},
+    {SPECIES_FLYGON, 7, FLAG_ROOM_19_CLEAR},
+    {SPECIES_CLOYSTER, 7, FLAG_ROOM_19_CLEAR},
+    {SPECIES_EXEGGUTOR, 7, FLAG_ROOM_19_CLEAR},
+    {SPECIES_MAMOSWINE, 9, FLAG_ROOM_19_CLEAR},
+    {SPECIES_GLISCOR, 7, FLAG_ROOM_19_CLEAR},
+    {SPECIES_MAGNEZONE, 7, FLAG_ROOM_19_CLEAR},
+    {SPECIES_MILOTIC, 8, FLAG_ROOM_19_CLEAR},
+    {SPECIES_PORYGON2, 10, FLAG_ROOM_19_CLEAR},
+    {SPECIES_ELECTIVIRE, 8, FLAG_ROOM_19_CLEAR},
 };
 
-    //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
-// early area 4 ideas
-// flygon
-// cloyster
-// exegutor
-// mamswine for sure
-// gligar
-// magnezone
-// gyarados
-// snorlax
-// milotic
-// electivire
-// porygon 2
 
-// late prime or early 5
+// early 5
 // Rotoms? floor 21 theme
 // arcanine
 // lapras
 // duraladon
+// gyarados
 // chansey
 // aegislash
 // darmanitan
+// snorlax
 struct
 {
     const struct pokeToFlagMap *set;
