@@ -2798,53 +2798,52 @@ static const struct pokeToFlagMap scrollMultiPokeShopPR[] =
     {SPECIES_HIPPOWDON, 6, FLAG_ROOM_16_CLEAR},
 
     // Prime 3 (fossil floor)
-     {SPECIES_DRACOVISH, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_DRACOZOLT, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_CRADILY, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_KABUTOPS, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_AERODACTYL, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_TYRANTRUM, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_RAMPARDOS, 6, FLAG_ROOM_17_CLEAR},
-     {SPECIES_ARMALDO, 6, FLAG_ROOM_17_CLEAR},
+    {SPECIES_DRACOVISH, 8, FLAG_ROOM_17_CLEAR},
+    {SPECIES_DRACOZOLT, 8, FLAG_ROOM_17_CLEAR},
+    {SPECIES_CRADILY, 7, FLAG_ROOM_17_CLEAR},
+    {SPECIES_KABUTOPS, 6, FLAG_ROOM_17_CLEAR},
+    {SPECIES_AERODACTYL, 7, FLAG_ROOM_17_CLEAR},
+    {SPECIES_TYRANTRUM, 7, FLAG_ROOM_17_CLEAR},
+    {SPECIES_RAMPARDOS, 6, FLAG_ROOM_17_CLEAR},
+    {SPECIES_ARMALDO, 6, FLAG_ROOM_17_CLEAR},
 
     // Prime 4
-    // {SPECIES_RHYDON, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_LUCARIO, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_CORVIKNIGHT, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_VIKAVOLT, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_NIDOKING, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_NIDOQUEEN, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_STARMIE, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_KINGDRA, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_MALAMAR, 6, FLAG_ROOM_18_CLEAR},
+    {SPECIES_CHANDELURE, 6, FLAG_ROOM_18_CLEAR},
 
     // Prime 5
     // {SPECIES_RHYDON, 6, FLAG_ROOM_19_CLEAR},
 };
 
-    //{SPECIES_MALAMAR, 5, FLAG_ROOM_13_CLEAR}, a bit too OP moves and contrary 17?
     //{SPECIES_DARMANITAN, 6, FLAG_ROOM_13_CLEAR}, way too strong for this area bc stat distro 18?
 // early area 4 ideas
-// lucario
-// corviknight
-// vikavolt
-// nidoking/queen
-// excadrill
-// starmie
 // flygon
-// Rotoms? 
-// chendelure
 // cloyster
 // exegutor
 // mamswine for sure
-// chansey
 // gligar
-// lapras
 // magnezone
 // gyarados
-// duraladon
 // snorlax
-// kingdra
 // milotic
 // electivire
-// magmortor
-// arcanine
 // porygon 2
 
 // late prime or early 5
+// Rotoms? floor 21 theme
+// arcanine
+// lapras
+// duraladon
+// chansey
 // aegislash
+// darmanitan
 struct
 {
     const struct pokeToFlagMap *set;
